@@ -1,13 +1,15 @@
 <section class="comments">
     <div id="remark42"></div>
     <script>
-        const theme = localStorage.getItem('USER_COLOR_SCHEME');
+        const storageTheme = localStorage.getItem('USER_COLOR_SCHEME');
+        const prefersTheme = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) ? 'dark' : 'light';
+
         var remark_config = {
             host: 'https://remark.zp.ru',
             site_id: 'remark',
             components: ['embed'],
             max_shown_comments: 10, // optional param; if it isn't defined default value (15) will be used
-            theme: theme, // optional param; if it isn't defined default value ('light') will be used
+            theme: storageTheme || prefersTheme, // optional param; if it isn't defined default value ('light') will be used
             locale: 'ru',
             show_email_subscription: false,
             simple_view: true
