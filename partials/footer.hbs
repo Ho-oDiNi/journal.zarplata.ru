@@ -1,0 +1,54 @@
+{{!-- Site footer --}}
+<footer class="footer">
+  <div class="container-fluid wrapper">
+    <div class="footer__top">
+      <div class="row">
+        <div class="col-xs-12 {{#if @site.secondary_navigation}}col-md-3{{else}}col-md-4{{/if}}">
+          <h5 class="m-b-sm">{{t "Navigation"}}</h5>
+          {{> navigation-footer}}
+        </div>
+        {{#if @site.secondary_navigation}}
+          <div class="col-xs-12 col-md-3">
+            <h5 class="m-b-sm">{{t "Useful links"}}</h5>
+            {{navigation type="secondary"}}
+          </div>
+        {{/if}}
+        <div class="col-xs-12 {{#if @site.secondary_navigation}}col-md-3{{else}}col-md-4{{/if}}">
+          <h5 class="m-b-sm">{{t "Social Media"}}</h5>
+          {{> social-media}}
+        </div>
+        <div class="col-xs-12 {{#if @site.secondary_navigation}}col-md-3{{else}}col-md-4{{/if}}">
+          <h5 class="m-b-sm">{{@site.title}}</h5>
+          <div class="m-b" id="footer-subscribe">Подписаться и читать полезные статьи про работу первым</div>
+          <form class="subscribe-form" data-members-form="subscribe">
+            <input aria-labelledby="footer-subscribe" data-members-email type="email" placeholder="email@example.com" required/>
+            <button type="submit" title="{{t "Subscribe"}}" aria-label="{{t "Subscribe"}}">
+              {{>icon name="arrow-right"}}
+            </button>
+            <div class="message message-success">
+              <div class="message__header">
+                <div class="message__type">{{t "Success"}}</div>
+                <div class="message__close js-msg-close">{{>icon name="x" size="xs"}}</div>
+              </div>
+              <div class="message__content">
+                {{t "Great! Check your inbox and click the link to confirm your subscription"}}
+              </div>
+            </div>
+            <p data-members-error><!-- error message will appear here --></p>
+          </form>
+        </div>
+      </div>
+    </div>
+    {{!-- Copyright --}}
+    <div class="footer__bottom">
+      <div>&copy; {{date format="YYYY"}}&nbsp;Зарплата.ру</div>
+{{!--
+      <div>&copy; {{date format="YYYY"}}&nbsp;<a href="{{@site.url}}">{{@site.title}}</a>.</div>
+      <div>
+        &nbsp;{{t "Published with"}}&nbsp;<a href="https://ghost.org">Ghost</a>
+        &nbsp;&&nbsp;<a href="https://bironthemes.com/themes/auden-ghost/">Auden</a>.
+      </div>
+--}}
+    </div>
+  </div>
+</footer>

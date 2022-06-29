@@ -1,0 +1,23 @@
+<ul class="nav" role="menu">
+    {{#foreach navigation}}
+        <li class="{{link_class for=(url) class=(concat "nav-" slug)}}" role="menuitem">
+            <a href="{{url absolute="true"}}">{{label}}</a>
+        </li>
+    {{/foreach}}
+    <li>
+        <a href="https://zarplata.ru/vacancy">Найти работу в вашем городе</a>
+    </li>
+    {{#if search}}
+        <li>
+            <a id="search-open"
+               tabindex="0"
+               title="{{t "Search"}}"
+               aria-label="{{t "Search"}}"
+               style="display: inline-flex;"
+            >
+                {{>icon name="search" size="sm"}}
+                <span class="m-l-xs">Поиск по блогу</span>
+            </a>
+        </li>
+    {{/if}}
+</ul>

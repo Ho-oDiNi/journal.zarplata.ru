@@ -1,0 +1,70 @@
+<script>
+  // ===============
+  // Basic Config
+  // ===============
+  let config = {
+    /* Replace it with your domain: ghost_host: 'https://yoursite.domain' */
+    ghost_url: 'https://zarplata.ghost.io',
+
+    /* Settings > Integrations > New Custom Integration. Copy Key. Replace ghost_key below. */
+    ghost_key: 'fae9dae10736154c0e170fe23c',
+
+    /* Ghost version: v4 or v3 */
+    ghost_version: 'v4',
+
+    /* Default Color Scheme. Values: preference(detects user setting), light, dark. */
+    color_scheme_default: 'preference',
+
+    /* Enable Progress Bar for posts */
+    enable_progress_bar: true,
+
+    /* Enable lightbox for post images */
+    enable_image_lightbox: true,
+
+    /* Enable Scroll Top Button */
+    enable_scroll_top: true,
+
+    /* Enable hyphens */
+    enable_hyphens: false,
+
+    /* Enable PWA - Progressive Web App */
+    enable_pwa: false,
+
+    /* Replace 'biron-demo' with your disqus account shortname */
+    disqus_shortname: 'z-p-blog-zarplaty-ru',
+
+    /* Open external links in posts in a new tab */
+    open_links_in_new_tab: false
+  }
+
+  // =========================
+  // Dark/Light Theme Handling
+  // =========================
+  let preferredTheme;
+  if (config.color_scheme_default === 'preference') {
+    const preferredColorScheme = (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) ? 'dark' : 'light';
+    preferredTheme = localStorage.getItem('USER_COLOR_SCHEME') || preferredColorScheme;
+  } else {
+    preferredTheme = localStorage.getItem('USER_COLOR_SCHEME') || config.color_scheme_default;
+  }
+  document.documentElement.setAttribute("data-color-scheme", preferredTheme);
+
+  // =========================
+  // Set Hyphens property
+  // =========================
+  const root = document.documentElement;
+  if (config.enable_hyphens) {
+    root.style.setProperty('--global-hyphens', 'auto')
+  }
+
+  // ===============================
+  // Global values used in the theme
+  // ===============================
+  const global = {
+    pagination_current_page: parseInt(`{{pagination.page}}`),
+    pagination_next_page: parseInt(`{{pagination.next}}`),
+    pagination_next_page_link: '',
+    pagination_max_pages: parseInt('{{pagination.pages}}'),
+    pagination_posts_per_page: parseInt('{{@config.posts_per_page}}'),
+  }
+</script>

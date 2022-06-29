@@ -1,0 +1,86 @@
+{{!< default}}
+
+{{!-- Everything inside the #post tags pulls data from the post --}}
+{{#post}}
+<div class="container-fluid wrapper">
+  {{!-- Post Breadcrumbs --}}
+ <ul class="breadcrumbs" itemtype="https://schema.org/BreadcrumbList">
+      <li 
+        class="breadcrumb-item" 
+        itemprop="itemListElement" itemscope
+        itemtype="https://schema.org/ListItem"
+      >
+        <a itemprop="item" href="{{@site.url}}"><span itemprop="name">Блог</span></a>
+        <meta itemprop="position" content="1"/>
+      </li>
+      {{#primary_tag}}
+        <li 
+          class="breadcrumb-item"
+          itemprop="itemListElement" itemscope
+          itemtype="https://schema.org/ListItem"
+        >
+          <a itemprop="item" href="{{url}}"><span itemprop="name">{{name}}</span></a>
+          <meta itemprop="position" content="2"/>  
+        </li>
+      {{/primary_tag}}
+      <li 
+          class="breadcrumb-item breadcrumb-item-current"
+          itemprop="itemListElement" itemscope
+          itemtype="https://schema.org/ListItem"
+      >
+        <div itemprop="name">{{title}}</div>
+        <meta itemprop="position" content="3"/>  
+      </li>
+    </ul>
+  <div class="row">
+    <div class="col-xs-12">
+      {{> post-hero}}
+    </div>
+    <div class="col-xs-12 col-lg-8 col-xl-9">
+      <article class="{{post_class}} post-access-{{visibility}} has-sidebar">
+        <div class="post__content">
+          {{#if access}}
+            {{content}}
+          {{else}}
+            {{> content-cta fading=true}}
+          {{/if}}
+        </div>
+
+        {{#if access}}
+          <div class="post-width">
+            {{#unless @member}}
+              {{!-- кнопки для соискателей и работодателей с переходом на сайт --}}
+                <div class="">
+                  {{#primary_tag}}
+                      {{#match name "=" "Работодателям"}}
+                      <button class="btn--brand">
+                        <a href="https://hr.zarplata.ru" target="_blank">Разместить вакансию</a>
+                        </button>
+                      {{/match}}
+                      {{#match name "=" "Соискателям"}}
+                      <button class="btn--brand">
+                        <a href="https://zarplata.ru" target="_blank">Создать резюме</a>
+                        </button>
+                      {{/match}}
+                  {{/primary_tag}}
+                </div>
+              <hr>
+              {{> subscribe}}
+            {{/unless}}
+            <hr>
+              {{!-- Include Comments, Cove or Disqus --}}
+              {{> remark_comments}}
+            <hr class="m-t m-b-lg">
+          </div>
+        {{/if}}
+      </article>
+    </div>
+    <div class="col-xs-12 col-lg-4 col-xl-3 has-sidebar">
+      {{> sidebar}}
+    </div>
+  </div>
+</div>
+
+{{!-- Related posts --}}
+{{> related-posts}}
+{{/post}}
