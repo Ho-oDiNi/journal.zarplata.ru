@@ -10,6 +10,7 @@
 
   &__title {
     text-align: center;
+    /* color: #002E50; */
     color: var(--color-dark);
     margin: 0;
   }
@@ -17,6 +18,82 @@
   &__descr {
     margin: 0 0 var(--gap);
     color: var(--color-grey-darker);
+    /* color: #002E50; */
+  }
+
+  &__popup {
+    padding: 0;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    z-index: 9999999;
+    width: 100%;
+    transition: 0.5s;
+    transform: translateY(100%);
+    background-color: #F0F5FF;
+    box-shadow: 0px -4px 8px rgba(0, 0, 0, 0.10);
+
+    &._show {
+      transform: translateY(0);
+    }
+  }
+
+  &__popup-button {
+    /* background-color: #0076cb; */
+    background-color: #346CF3;
+    color: white;
+  }
+
+  &__popup-close {
+    position: absolute;
+    right: 16px;
+    top: 16px;
+    cursor: pointer;
+  }
+
+  &__popup-close-btn {
+    width: 100%;
+    margin-top: 8px;
+    border-radius: 5px !important;
+    background-color:#E4E5E5;
+    color: #000;
+
+    @media (--viewport-sm) {
+      margin-left: 8px;
+    }
+  }
+
+  &__popup-close-wrapper {
+    width: 100%;
+
+    @media (--viewport-sm) {
+      width: 210px;
+    }
+  }
+
+  &__popup-title {
+    text-align: left;
+  }
+
+  &__popup-content {
+    display: flex;
+    align-items: center;
+  }
+
+  &__popup-image {
+    margin: 0;
+    align-self: center;
+  }
+
+  &__popup-image-wrapper {
+    display: none;
+
+    @media (--viewport-lg) {
+      display: flex;
+      width: 40%;
+      justify-content: center;
+      align-self: flex-end;
+    }
   }
 
   form {
@@ -25,7 +102,8 @@
     input {
       margin: 0;
       border-radius: 0;
-      background-color: var(--color-bg-accent-2);
+      /* background-color: var(--color-bg-accent-2); */
+      background-color: #fff;
       border-top-left-radius: var(--global-radius);    
       border-bottom-left-radius: var(--global-radius);
       color: var(--color-text-accent-1);
@@ -48,5 +126,29 @@
 
   .line {
     stroke: var(--color-primary);
+  }
+
+  &__popup-form {
+    width: 100%;
+  }
+
+  &__popup-content-form {
+    padding: 24px 32px;
+    display: flex;
+    flex-direction: column;
+    width: 60%;
+    @media (max-width: 1000px) {
+      width: 100%;
+    }
+  }
+
+  &__popup-content-form-actions {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    @media (--viewport-sm) {
+      flex-direction: row;
+    }
   }
 }

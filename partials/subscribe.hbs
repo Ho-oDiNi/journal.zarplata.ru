@@ -8,7 +8,13 @@
     </div>
     <form data-members-form="subscribe">
       <input data-members-email aria-labelledby="post-subscribe" type="email" placeholder="{{t "Your email address"}}" required/>
-      <button class="btn--brand" type="submit" title="{{t "Subscribe"}}" aria-label="{{t "Subscribe"}}">{{>icon name="send"}}</button>
+      <button 
+        class="btn--brand" 
+        type="submit" 
+        title="{{t "Subscribe"}}" 
+        aria-label="{{t "Subscribe"}}"
+        onclick="ym(77659420,'reachGoal','emailSubscribe'); return true;"
+      >{{>icon name="send"}}</button>
       <div class="message message-success">
         <div class="message__header">
           <div class="message__type">{{t "Success"}}</div>
