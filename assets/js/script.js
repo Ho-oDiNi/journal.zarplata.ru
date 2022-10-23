@@ -297,72 +297,12 @@ var callback = function(){
   const action = getParameterByName('action');
   const stripe = getParameterByName('stripe');
   getVacancies();
-  
-  // ================================
-  // Show subscribe popup
-  // ================================
-  const closeButton = document.getElementById('subscribe_popup-close');
-  const buttonNotNow = document.getElementById('subscribe_popup-not-now');
-  const subscribeButtonPopup = document.getElementById('subscribe-button');
-  const popup = document.querySelector('#subscribe_popup');
-  const postContent = document.querySelector('.post__content');
-  let timout = null;
-
-  window.addEventListener('beforeunload', function (e) {
-    if(popup.classList.contains('_show') && !window.sessionStorage.getItem("subscribe-popup-show")) {
-      ym(77659420,'reachGoal','popupUserLeave');
-    }
-  });
-
-  subscribeButtonPopup.addEventListener('click', () => {
-    ym(77659420,'reachGoal','emailSubscribe'); 
-    return true;
-  })
-
-  if (postContent) {
-    const showPoint = (postContent.offsetHeight / 3) * 2;
-    window.onscroll = function (e) {  
-      if (window.scrollY >= showPoint) {
-        showPopup('publication');
-      }
-    } 
-  } else {
-    timout = setTimeout(() => {
-      showPopup('mainPage');
-    }, 30000);
-  }
-
-  function showPopup(from) {
-    
-    if (popup && !window.sessionStorage.getItem("subscribe-popup-show")) {
-      if (from === 'publication') {
-        ym(77659420,'reachGoal','showPopupPublication');
-      } else if (from === 'mainPage') {
-        ym(77659420,'reachGoal','showPopupMain');
-      }
-      popup.classList.add("_show");
-      window.sessionStorage.setItem("subscribe-popup-show", "true");
-
-      closeButton.addEventListener('click', () => {
-        if (popup) {
-          popup.classList.remove("_show");
-          ym(77659420,'reachGoal','hidePopup');
-        }
-      })
-    
-      buttonNotNow.addEventListener('click', () => {
-        if (popup) {
-          popup.classList.remove("_show");
-          ym(77659420,'reachGoal','hidePopup')
-        }
-      })
-    }
-    clearTimeout(timout);
-  }
+  subscribePopip();
 
   switch (action) {
     case 'subscribe':
       // addClass('body', 'subscribe-success');
+      ym(77659420,'reachGoal','popupSubscribeSend');
       document.body.classList.add('subscribe-success');
       break;
     case 'signup': 
@@ -939,5 +879,71 @@ function createListOfVacancies(vacancies) {
       li.style.marginBottom = '18px';
       vacanciesPlacement.appendChild(li);
     });
+  }
+}
+
+function subscribePopip () {
+  // ================================
+  // Show subscribe popup
+  // ================================
+  const closeButton = document.getElementById('subscribe_popup-close');
+  const buttonNotNow = document.getElementById('subscribe_popup-not-now');
+  const subscribeButtonPopup = document.getElementById('subscribe-button');
+  const popup = document.querySelector('#subscribe_popup');
+  const postContent = document.querySelector('.post__content');
+  let timout = null;
+
+  window.addEventListener('beforeunload', function (e) {
+    if(popup.classList.contains('_show') && !window.sessionStorage.getItem("subscribe-popup-show")) {
+      ym(77659420,'reachGoal','popupUserLeave');
+    }
+  });
+
+  if (subscribeButtonPopup) {
+    subscribeButtonPopup.addEventListener('click', () => {
+      ym(77659420,'reachGoal','emailSubscribe'); 
+      return true;
+    });
+  }
+
+  if (postContent) {
+    const showPoint = (postContent.offsetHeight / 3) * 2;
+    window.onscroll = function (e) {  
+      if (window.scrollY >= showPoint) {
+        showPopup('publication');
+      }
+    } 
+  } else {
+    timout = setTimeout(() => {
+      showPopup('mainPage');
+    }, 15000);
+  }
+
+  function showPopup(from) {
+    
+    if (popup && !window.sessionStorage.getItem("subscribe-popup-show")) {
+      if (from === 'publication') {
+        ym(77659420,'reachGoal','showPopupPublication');
+      } else if (from === 'mainPage') {
+        ym(77659420,'reachGoal','showPopupMain');
+      }
+      popup.classList.add("_show");
+      window.sessionStorage.setItem("subscribe-popup-show", "true");
+
+      closeButton.addEventListener('click', () => {
+        if (popup) {
+          popup.classList.remove("_show");
+          ym(77659420,'reachGoal','hidePopup');
+        }
+      })
+    
+      buttonNotNow.addEventListener('click', () => {
+        if (popup) {
+          popup.classList.remove("_show");
+          ym(77659420,'reachGoal','hidePopup')
+        }
+      })
+    }
+    clearTimeout(timout);
   }
 }

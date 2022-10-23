@@ -78,13 +78,11 @@
   {{/is}}
 
   {{#match primary_tag.name "!=" "Работодателям"}}
-      {{#unless @member}}
         <div class="sidebar__section">
           <h5 class="sidebar__title">Свежие вакансии</h5>
           {{> wave}}
           <ul id="vacancies-placements" style="list-style-type: none;"></ul>
         </div>
-      {{/unless}}
     {{/match}}
 
     {{#primary_tag}}
@@ -92,7 +90,6 @@
     
     {{!-- Resumes --}} 
     {{#match name "=" "Работодателям"}} 
-      {{#unless @member}}
       <div class="sidebar__section">
         <h5 class="sidebar__title">Резюме</h5>
         {{> wave}}
@@ -162,7 +159,6 @@
           </li>
         </ul>
       </div>
-      {{/unless}}
     {{/match}}
   {{/primary_tag}}
 </aside>

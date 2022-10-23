@@ -30,7 +30,7 @@
     width: 100%;
     transition: 0.5s;
     transform: translateY(100%);
-    background-color: #F0F5FF;
+    background-color: #FFF3B0;
     box-shadow: 0px -4px 8px rgba(0, 0, 0, 0.10);
 
     &._show {
@@ -40,8 +40,12 @@
 
   &__popup-button {
     /* background-color: #0076cb; */
-    background-color: #346CF3;
+    background-color: #222222;
     color: white;
+
+    &:hover {
+      background-color: #FFE000;
+    }
   }
 
   &__popup-close {

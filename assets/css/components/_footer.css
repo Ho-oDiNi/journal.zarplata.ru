@@ -64,12 +64,17 @@
       padding: var(--gap-sm);
       padding-left: var(--gap);
       border-radius: calc(2 * var(--font-size-base));
-      background-color: transparent;
+      background-color: #F5F5F5;
       transition: none;
 
       &:focus,
       &:active {
         transition: none;
+
+        &+button {
+          color: #ffe000;
+          background-color: #222222;
+        }
 
         &+button .icon {
           transform: rotate(360deg);
@@ -84,10 +89,13 @@
       padding: var(--gap-sm);
       margin: 2px;
       border-radius: var(--global-radius-rounded);
-      background-color: var(--color-primary);
-      color: var(--color-light);
+      background-color: #ffe000;
+      color: #222222;
 
       &:hover {
+        color: #ffe000;
+        background-color: #222222;
+
         .icon {
           transform: rotate(360deg);
           transition: transform var(--animation-duration) var(--animation-name);

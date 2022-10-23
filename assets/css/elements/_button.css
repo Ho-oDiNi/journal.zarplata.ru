@@ -7,7 +7,6 @@ button,
   letter-spacing: calc(0.025 * var(--font-size-base));
   line-height: 1;
   background-color: var(--color-bg-accent-2);
-  text-transform: uppercase;
   display: inline-block;
   outline: none;
   border: none;
@@ -89,14 +88,18 @@ button,
     }
   }
 
+  &--more {
+    border-color: #989898;
+  }
+
   &--bordered {
     box-shadow: 0 0 0px 1px var(--color-text-accent-3);
     background-color: transparent;
-    color: var(--color-text-accent-3);
+    color: #000;
 
     @mixin attention {
       background-color: transparent;
-      box-shadow: 0 0 0px 2px var(--color-text-accent-3);
+      box-shadow: 0 0 0px 1px #000;
     }
 
     &.btn--brand {
