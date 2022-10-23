@@ -78,13 +78,11 @@
   {{/is}}
 
   {{#match primary_tag.name "!=" "Работодателям"}}
-      {{#unless @member}}
         <div class="sidebar__section">
-          <h5 class="sidebar__title">Вакансии</h5>
+          <h5 class="sidebar__title">Свежие вакансии</h5>
           {{> wave}}
           <ul id="vacancies-placements" style="list-style-type: none;"></ul>
         </div>
-      {{/unless}}
     {{/match}}
 
     {{#primary_tag}}
@@ -92,13 +90,12 @@
     
     {{!-- Resumes --}} 
     {{#match name "=" "Работодателям"}} 
-      {{#unless @member}}
       <div class="sidebar__section">
         <h5 class="sidebar__title">Резюме</h5>
         {{> wave}}
         <ul style="list-style-type: none;">
           <li style="margin-bottom: 18px;">
-            <a href="https://hr.zarplata.ru" style="color:#0055d2;" target="_blank">
+            <a href="https://hr.zarplata.ru?utm_source=blog_resume" style="color:#0055d2;" target="_blank">
               Директор, Администратор, Менеджер
             </a><br>
             <div>
@@ -111,7 +108,7 @@
             </div>
           </li>
           <li style="margin-bottom: 18px;">
-            <a href="https://hr.zarplata.ru" style="color:#0055d2;" target="_blank">
+            <a href="https://hr.zarplata.ru?utm_source=blog_resume" style="color:#0055d2;" target="_blank">
               Водитель BC. Тракторист BCDEF. водитель с личным автомобилем
             </a><br>
             <div>
@@ -123,7 +120,7 @@
             </div>
           </li>
           <li style="margin-bottom: 18px;">
-            <a href="https://hr.zarplata.ru" style="color:#0055d2;" target="_blank">
+            <a href="https://hr.zarplata.ru?utm_source=blog_resume" style="color:#0055d2;" target="_blank">
               Курьер пеший
             </a><br>
             <div>
@@ -135,7 +132,7 @@
             </div>
           </li>
           <li style="margin-bottom: 18px;">
-            <a href="https://hr.zarplata.ru" style="color:#0055d2;" target="_blank">            
+            <a href="https://hr.zarplata.ru?utm_source=blog_resume" style="color:#0055d2;" target="_blank">            
               Начинающий специалист
             </a><br>
             <div>
@@ -148,7 +145,7 @@
             </div>
           </li>
           <li style="margin-bottom: 18px;">
-            <a href="https://hr.zarplata.ru" style="color:#0055d2;" target="_blank">
+            <a href="https://hr.zarplata.ru?utm_source=blog_resume" style="color:#0055d2;" target="_blank">
               Руководитель административно-хозяйственного отдела (АХО), АХЧ
             </a><br>
             <div>
@@ -162,7 +159,6 @@
           </li>
         </ul>
       </div>
-      {{/unless}}
     {{/match}}
   {{/primary_tag}}
 </aside>

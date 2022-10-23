@@ -310,6 +310,97 @@
     display: flex;
     align-items: center;
     margin-bottom: var(--gap);
+
+    /* group 1 */
+    .tag-ishchu-rabotu,
+    .tag-rabota-v-komandie,
+    .tag-rabota-v-ofisie,
+    .tag-rabota-i-semia,
+    .tag-applicants,
+    .tag-chieloviek-diela {
+      background-color: #CD8CFF !important;
+      color: #222222 !important;
+      border: 1px solid transparent !important;
+      border-radius: 99px !important;
+      padding: 0.15em 1em !important;
+
+      &:hover {
+        background-color: transparent !important;
+        border: 1px solid #CD8CFF !important;
+      }
+    }
+
+    /* group 2 */
+    .tag-employers,
+    .tag-biznies,
+    .tag-ishchu-sotrudnika,
+    .tag-rukovodstvo {
+      background-color: #ffe000 !important;
+      color: #222222 !important;
+      border: 1px solid transparent !important;
+      border-radius: 99px !important;
+      padding: 0.15em 1em !important;
+
+      &:hover {
+        background-color: transparent !important;
+        border: 1px solid #ffe000 !important;
+      }
+    }
+
+    /* group 3 */
+    .tag-diekriet,
+    .tag-rieziumie,
+    .tag-sobiesiedovaniie,
+    .tag-uvolnieniie,
+    .tag-udalionka,
+    .tag-frilance {
+      background-color: #FF84A9 !important;
+      color: #222222 !important;
+      border: 1px solid transparent !important;
+      border-radius: 99px !important;
+      padding: 0.15em 1em !important;
+
+      &:hover {
+        background-color: transparent !important;
+        border: 1px solid #FF84A9 !important;
+      }
+    }
+
+    /* group 4 */
+    .tag-kariernyie-soviety,
+    .tag-obrazovaniie,
+    .tag-poliezno,
+    .tag-students,
+    .tag-u-menia-vykhodnoi {
+      background-color: #57EE81 !important;
+      color: #222222 !important;
+      border: 1px solid transparent !important;
+      border-radius: 99px !important;
+      padding: 0.15em 1em !important;
+
+      &:hover {
+        background-color: transparent !important;
+        border: 1px solid #57EE81 !important;
+      }
+    }
+
+    /* group 5 */
+    .tag-zakony-i-pravo,
+    .tag-webinar,
+    .tag-interview,
+    .tag-novosti,
+    .tag-faq {
+      background-color: #70D6FF !important;
+      color: #222222 !important;
+      border: 1px solid transparent !important;
+      border-radius: 99px !important;
+      padding: 0.15em 1em !important;
+
+      &:hover {
+        background-color: transparent !important;
+        border: 1px solid #70D6FF !important;
+      }
+    }
   }
 
   &__tag {

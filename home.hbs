@@ -23,8 +23,8 @@
         </div>
         <div class="row">
           <div class="col-xs-12 center-xs">
-            <button id="load-more-posts" class="btn btn--wide btn--brand btn--bordered">
-              {{t "Load more posts"}}
+            <button id="load-more-posts" class="btn btn--wide btn--more btn--bordered">
+              Показать больше статей
             </button>
           </div>
         </div>
@@ -49,4 +49,62 @@
       </div>
     {{/get}}
   </section>
+  {{#unless @member}}
+    <div class="subscribe subscribe__popup" id="subscribe_popup">
+      <span class="subscribe__popup-close" id="subscribe_popup-close">
+        {{>icon name="x" size="lg"}}
+      </span>
+      <div class="subscribe__popup-content">
+        <div class="subscribe__popup-content-form">
+          <div>
+            <h5 class="subscribe__title subscribe__popup-title">
+              Главное о&nbsp;рынке труда, поиске работы и&nbsp;себя в&nbsp;профессии
+            </h5>
+            <p class="subscribe__descr">
+              Подпишись на&nbsp;Зарплата.Журнал&nbsp;&mdash; узнавай о&nbsp;свежих материалах первым!
+            </p>
+          </div>
+          <div class="subscribe__popup-content-form-actions">
+            <form data-members-form="subscribe" class="subscribe__popup-form">
+              <input data-members-email aria-labelledby="post-subscribe" type="email" placeholder="{{t "Your email address"}}" required/>
+              <button 
+                class="btn--brand subscribe__popup-button" 
+                type="submit" 
+                title="{{t "Subscribe"}}" 
+                aria-label="{{t "Subscribe"}}"
+                id="subscribe-button"
+              >{{>icon name="send"}}</button>
+              <div class="message message-success">
+                <div class="message__header">
+                  <div class="message__type">{{t "Success"}}</div>
+                  <div class="message__close js-msg-close">{{>icon name="x" size="xs"}}</div>
+                </div>
+                <div class="message__content">
+                  {{t "Great! Check your inbox and click the link"}}
+                </div>
+              </div>
+              <div class="message message-error">
+                <div class="message__header">
+                  <div class="message__type">{{t "Error"}}</div>
+                  <div class="message__close js-msg-close">{{>icon name="x" size="xs"}}</div>
+                </div>
+                <div class="message__content">
+                  {{t "Please enter a valid email address!"}}
+                </div>
+              </div>
+            </form>
+            <div class="subscribe__popup-close-wrapper">
+              <button class="subscribe__popup-close-btn" id="subscribe_popup-not-now">
+                Не сейчас
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="subscribe__popup-image-wrapper">
+          <img src="{{asset 'images/subscribe-popup.png'}}" alt="popup-image" class="subscribe__popup-image">
+        </div>
+      </div>
+    </div>
+  {{/unless}}
+  
 </div>

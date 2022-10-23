@@ -22,7 +22,12 @@
           <div class="m-b" id="footer-subscribe">Подписаться и читать полезные статьи про работу первым</div>
           <form class="subscribe-form" data-members-form="subscribe">
             <input aria-labelledby="footer-subscribe" data-members-email type="email" placeholder="email@example.com" required/>
-            <button type="submit" title="{{t "Subscribe"}}" aria-label="{{t "Subscribe"}}">
+            <button 
+              type="submit" 
+              title="{{t "Subscribe"}}" 
+              aria-label="{{t "Subscribe"}}"
+              onclick="ym(77659420,'reachGoal','emailSubscribe'); return true;"
+            >
               {{>icon name="arrow-right"}}
             </button>
             <div class="message message-success">
