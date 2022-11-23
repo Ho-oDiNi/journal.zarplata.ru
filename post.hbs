@@ -64,14 +64,16 @@
                       {{/match}}
                   {{/primary_tag}}
                 </div>
-              <hr>
-              {{> subscribe}}
             {{/unless}}
             <hr>
               {{!-- Include Comments, Cove or Disqus --}}
               {{> remark_comments}}
             <hr class="m-t m-b-lg">
           </div>
+          {{#unless @member}}
+            {{> subscribe}}
+            <hr>
+          {{/unless}}
         {{/if}}
       </article>
     </div>
@@ -131,7 +133,7 @@
           </div>
         </div>
         <div class="subscribe__popup-image-wrapper">
-          <img src="{{asset 'images/subscribe-popup.png'}}" alt="popup-image" class="subscribe__popup-image">
+          <img src="{{asset 'images/subscribe-popup2.png'}}" alt="popup-image" class="subscribe__popup-image">
         </div>
       </div>
     </div>
