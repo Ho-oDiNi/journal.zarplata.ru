@@ -1,7 +1,7 @@
 /* Subscribe */
 .subscribe {
   padding: var(--gap-lg);
-  background-color: var(--color-secondary);
+  background-color: #E4E4EE !important;
   border-radius: var(--global-radius);
 
   @media (--viewport-md) {
@@ -30,7 +30,7 @@
     width: 100%;
     transition: 0.5s;
     transform: translateY(100%);
-    background-color: #FFF3B0;
+    background-color: #FFF3B0 !important;
     box-shadow: 0px -4px 8px rgba(0, 0, 0, 0.10);
 
     &._show {

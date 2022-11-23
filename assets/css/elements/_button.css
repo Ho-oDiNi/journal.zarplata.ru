@@ -70,12 +70,12 @@ button,
   }
 
   &--brand {
-    background-color: var(--color-primary);
+    background-color: #000;
     color: var(--color-light);
     border-color: var(--color-primary);
 
     @mixin attention {
-      background-color: color(var(--color-primary) shade(10%));
+      background-color: #ffe000;
     }
   }
 
