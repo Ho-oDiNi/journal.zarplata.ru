@@ -24,13 +24,13 @@
         <div class="row">
           <div class="col-xs-12 center-xs">
             <button id="load-more-posts" class="btn btn--wide btn--more btn--bordered">
-              Показать больше статей
+              {{t "Load more posts"}}
             </button>
           </div>
         </div>
       </section>
 
-      <h5 class="section__title">{{t "Explore topics"}}</h5>
+      <h5 class="section__title">Наши темы</h5>
       {{> wave}}
       <section class="section top-tags">
         {{#get "tags" limit="4" include="count.posts" order="count.posts desc"}}
