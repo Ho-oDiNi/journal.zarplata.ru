@@ -943,9 +943,10 @@ function subscribePopip () {
       const content = document.getElementById(popups[randomPopupIndex]);
       content.style.display = 'inherit';
 
+      window.sessionStorage.setItem("subscribe-popups", popups.filter(i => i !== popups[randomPopupIndex]).join(' '));
+
       popupLink.addEventListener('click', () => {
         ym(77659420,'reachGoal','click-popup');
-        window.sessionStorage.setItem("subscribe-popups", popups.filter(i => i !== popups[randomPopupIndex]).join(' '));
       })
 
       closeButton.addEventListener('click', () => {
