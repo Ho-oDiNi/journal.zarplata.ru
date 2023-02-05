@@ -21,10 +21,6 @@
         </div>
 
         {{#if access}}
-          {{#unless @member}}
-              <hr>
-              {{> subscribe}}
-            {{/unless}}
           <hr>
           {{!-- Include Comments, Cove or Disqus --}}
           {{> remark_comments}}

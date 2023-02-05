@@ -31,10 +31,6 @@
 
         {{#if access}}
           <div class="post-width">
-            {{#unless @member}}
-              <hr>
-              {{> subscribe}}
-            {{/unless}}
             <hr>
             {{!-- Include Comments, Cove or Disqus --}}
             {{> remark_comments}}

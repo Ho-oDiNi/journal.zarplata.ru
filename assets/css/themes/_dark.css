@@ -37,4 +37,25 @@
       }
     }
   }
+
+  .post-hero__tag:hover {
+    color: #fff !important;  
+  }
+
+  .post-card__tag:hover {
+    color: #fff !important;
+  }
+
+  .btn--brand:hover {
+    color: #000;
+  }
+
+  #load-more-posts {
+    border-color: #fff;
+    color: #fff;
+  }
+
+  .subscribe__popup-button {
+    color: #000;
+  }
 }
