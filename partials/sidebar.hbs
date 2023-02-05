@@ -38,7 +38,7 @@
 
   {{!-- Tag Cloud --}}
   <div class="sidebar__section">
-    <h5 class="sidebar__title">{{t "Explore topics"}}</h5>
+    <h5 class="sidebar__title">Наши темы</h5>
     {{> wave}}
     {{#get "tags" limit="6" include="count.posts" order="count.posts desc"}}
       {{#foreach tags}}
