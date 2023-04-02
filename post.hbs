@@ -1,37 +1,23 @@
-{{!< default}}
-
-{{!-- Everything inside the #post tags pulls data from the post --}}
-{{#post}}
-<div class="container-fluid wrapper">
+{{!< default}} {{!-- Everything inside the #post tags pulls data from the post --}} {{#post}} <div
+  class="container-fluid wrapper">
   {{!-- Post Breadcrumbs --}}
- <ul class="breadcrumbs" itemtype="https://schema.org/BreadcrumbList">
-      <li 
-        class="breadcrumb-item" 
-        itemprop="itemListElement" itemscope
-        itemtype="https://schema.org/ListItem"
-      >
-        <a itemprop="item" href="{{@site.url}}"><span itemprop="name">Блог</span></a>
-        <meta itemprop="position" content="1"/>
-      </li>
-      {{#primary_tag}}
-        <li 
-          class="breadcrumb-item"
-          itemprop="itemListElement" itemscope
-          itemtype="https://schema.org/ListItem"
-        >
-          <a itemprop="item" href="{{url}}"><span itemprop="name">{{name}}</span></a>
-          <meta itemprop="position" content="2"/>  
-        </li>
-      {{/primary_tag}}
-      <li 
-          class="breadcrumb-item breadcrumb-item-current"
-          itemprop="itemListElement" itemscope
-          itemtype="https://schema.org/ListItem"
-      >
-        <div itemprop="name">{{title}}</div>
-        <meta itemprop="position" content="3"/>  
-      </li>
-    </ul>
+  <ul class="breadcrumbs" itemtype="https://schema.org/BreadcrumbList">
+    <li class="breadcrumb-item" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+      <a itemprop="item" href="{{@site.url}}"><span itemprop="name">Блог</span></a>
+      <meta itemprop="position" content="1" />
+    </li>
+    {{#primary_tag}}
+    <li class="breadcrumb-item" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+      <a itemprop="item" href="{{url}}"><span itemprop="name">{{name}}</span></a>
+      <meta itemprop="position" content="2" />
+    </li>
+    {{/primary_tag}}
+    <li class="breadcrumb-item breadcrumb-item-current" itemprop="itemListElement" itemscope
+      itemtype="https://schema.org/ListItem">
+      <div itemprop="name">{{title}}</div>
+      <meta itemprop="position" content="3" />
+    </li>
+  </ul>
   <div class="row">
     <div class="col-xs-12">
       {{> post-hero}}
@@ -40,36 +26,45 @@
       <article class="{{post_class}} post-access-{{visibility}} has-sidebar">
         <div class="post__content">
           {{#if access}}
-            {{content}}
+          {{content}}
           {{else}}
-            {{> content-cta fading=true}}
+          {{> content-cta fading=true}}
           {{/if}}
         </div>
 
         {{#if access}}
-          <div class="post-width">
-            {{#unless @member}}
-              {{!-- кнопки для соискателей и работодателей с переходом на сайт --}}
-                <div class="">
-                  {{#primary_tag}}
-                      {{#match name "=" "Работодателям"}}
-                      <button class="btn--brand">
-                        <a href="https://hr.zarplata.ru" target="_blank">Разместить вакансию</a>
-                        </button>
-                      {{/match}}
-                      {{#match name "=" "Соискателям"}}
-                      <button class="btn--brand">
-                        <a href="https://zarplata.ru" target="_blank">Создать резюме</a>
-                        </button>
-                      {{/match}}
-                  {{/primary_tag}}
-                </div>
-            {{/unless}}
-            <hr>
-              {{!-- Include Comments, Cove or Disqus --}}
-              {{> remark_comments}}
-            <hr class="m-t m-b-lg">
+        <div class="post-width">
+          {{!-- форма обратной связи --}}
+          <div class="post__feedback-form">
+            <p class="post__feedback-form-title">Поделитесь историей</p>
+            <p class="post__feedback-form-desc">про работу, собеседования, нарушения ваших трудовых прав, HR-кейсы</p>
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSc8knNwBrIa8NTfwFIjfKRuucxKOQiHZ7VLyvrjvK0LTRjkfw/viewform?ref=zarplata-zhurnal"
+              class="post__feedback-form-link" target="_blank">
+              Связаться с нами
+            </a>
           </div>
+          {{#unless @member}}
+          {{!-- кнопки для соискателей и работодателей с переходом на сайт --}}
+          <div class="">
+            {{#primary_tag}}
+            {{#match name "=" "Работодателям"}}
+            <button class="btn--brand">
+              <a href="https://hr.zarplata.ru" target="_blank">Разместить вакансию</a>
+            </button>
+            {{/match}}
+            {{#match name "=" "Соискателям"}}
+            <button class="btn--brand">
+              <a href="https://zarplata.ru" target="_blank">Создать резюме</a>
+            </button>
+            {{/match}}
+            {{/primary_tag}}
+          </div>
+          {{/unless}}
+          <hr>
+          {{!-- Include Comments, Cove or Disqus --}}
+          {{> remark_comments}}
+          <hr class="m-t m-b-lg">
+        </div>
         {{/if}}
       </article>
     </div>
@@ -77,57 +72,57 @@
       {{> sidebar}}
     </div>
   </div>
-    <div class="subscribe subscribe__popup" id="subscribe_popup">
-      <span class="subscribe__popup-close" id="subscribe_popup-close">
-        {{>icon name="x" size="s"}}
-      </span>
-      <div class="subscribe__popup-content" style="background-color: #70D6FF; display: none" id="1001">
-        <a href="https://www.journal.zarplata.ru/telegram-job-search/" class="subscribe__popup-link">
-          <img src="{{asset 'images/sp1.svg'}}" alt="" class="subscribe__popup-image">
-          <button class="subscribe__popup-button" style="color: #000; background-color: #FFE000;">
-            Читать
-          </button>
-        </a>
-      </div>
-
-      <div class="subscribe__popup-content" style="background-color: #FFE000; display: none" id="1002">
-        <a href="https://www.journal.zarplata.ru/skills-to-work-under-uncertainty/" class="subscribe__popup-link">
-          <img src="{{asset 'images/sp2.svg'}}" alt="" class="subscribe__popup-image">
-          <button class="subscribe__popup-button" style="background-color: #CD8CFF; color: #000">
-            Читать
-          </button>
-        </a>
-      </div>
-
-      <div class="subscribe__popup-content" style="background-color: #57EE81; display: none" id="1003">
-        <a href="https://www.journal.zarplata.ru/how-to-assess-the-manageability-of-a-job-seeker/">
-          <img src="{{asset 'images/sp3.svg'}}" alt="" class="subscribe__popup-image" class="subscribe__popup-link">
-          <button class="subscribe__popup-button" style="background-color: #FF84A9;">
-            Читать
-          </button>
-        </a>
-      </div>
-
-      <div class="subscribe__popup-content" style="background-color: #FF84A9; display: none" id="1004">
-        <a href="https://www.journal.zarplata.ru/how-to-pass-a-stress-interview/" class="subscribe__popup-link">
-          <img src="{{asset 'images/sp4.svg'}}" alt="" class="subscribe__popup-image">
-          <button class="subscribe__popup-button" style="background-color: #70D6FF;">
-            Читать
-          </button>
-        </a>
-      </div>
-
-      <div class="subscribe__popup-content" style="background-color: #CD8CFF; display: none" id="1005">
-        <a href="https://www.journal.zarplata.ru/security-check-at-the-hiring-process/" class="subscribe__popup-link">
-          <img src="{{asset 'images/sp5.svg'}}" alt="" class="subscribe__popup-image">
-          <button class="subscribe__popup-button" style="background-color: #FFE000;">
-            Читать
-          </button>
-        </a>
-      </div>
+  <div class="subscribe subscribe__popup" id="subscribe_popup">
+    <span class="subscribe__popup-close" id="subscribe_popup-close">
+      {{>icon name="x" size="s"}}
+    </span>
+    <div class="subscribe__popup-content" style="background-color: #70D6FF; display: none" id="1001">
+      <a href="https://www.journal.zarplata.ru/telegram-job-search/" class="subscribe__popup-link">
+        <img src="{{asset 'images/sp1.svg'}}" alt="" class="subscribe__popup-image">
+        <button class="subscribe__popup-button" style="color: #000; background-color: #FFE000;">
+          Читать
+        </button>
+      </a>
     </div>
-</div>
 
-{{!-- Related posts --}}
-{{> related-posts}}
-{{/post}}
+    <div class="subscribe__popup-content" style="background-color: #FFE000; display: none" id="1002">
+      <a href="https://www.journal.zarplata.ru/skills-to-work-under-uncertainty/" class="subscribe__popup-link">
+        <img src="{{asset 'images/sp2.svg'}}" alt="" class="subscribe__popup-image">
+        <button class="subscribe__popup-button" style="background-color: #CD8CFF; color: #000">
+          Читать
+        </button>
+      </a>
+    </div>
+
+    <div class="subscribe__popup-content" style="background-color: #57EE81; display: none" id="1003">
+      <a href="https://www.journal.zarplata.ru/how-to-assess-the-manageability-of-a-job-seeker/">
+        <img src="{{asset 'images/sp3.svg'}}" alt="" class="subscribe__popup-image" class="subscribe__popup-link">
+        <button class="subscribe__popup-button" style="background-color: #FF84A9;">
+          Читать
+        </button>
+      </a>
+    </div>
+
+    <div class="subscribe__popup-content" style="background-color: #FF84A9; display: none" id="1004">
+      <a href="https://www.journal.zarplata.ru/how-to-pass-a-stress-interview/" class="subscribe__popup-link">
+        <img src="{{asset 'images/sp4.svg'}}" alt="" class="subscribe__popup-image">
+        <button class="subscribe__popup-button" style="background-color: #70D6FF;">
+          Читать
+        </button>
+      </a>
+    </div>
+
+    <div class="subscribe__popup-content" style="background-color: #CD8CFF; display: none" id="1005">
+      <a href="https://www.journal.zarplata.ru/security-check-at-the-hiring-process/" class="subscribe__popup-link">
+        <img src="{{asset 'images/sp5.svg'}}" alt="" class="subscribe__popup-image">
+        <button class="subscribe__popup-button" style="background-color: #FFE000;">
+          Читать
+        </button>
+      </a>
+    </div>
+  </div>
+  </div>
+
+  {{!-- Related posts --}}
+  {{> related-posts}}
+  {{/post}}

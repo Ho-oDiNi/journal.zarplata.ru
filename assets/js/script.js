@@ -790,30 +790,34 @@ function getVacancies() {
   }
 
   //get user location
-  window.navigator.geolocation.getCurrentPosition( 
-    async (position) => {
-      const urlSearchParams = new URLSearchParams({
-        bottom_lat: position.coords.latitude - LAT_COEFFICIENT,
-        left_lng: position.coords.longitude - LTD_COEFFICIENT,
-        top_lat: position.coords.latitude + LAT_COEFFICIENT,
-        right_lng: position.coords.longitude + LTD_COEFFICIENT,
-        width_points: 1000,
-        height_points: 300,
-        map_zoom: 12
-      });
-      
-      //get geohash of user location
-      const geohash = await fetch(`https://api.hh.ru/vacancies/map?${urlSearchParams}`)
-      .then(res => res.json())
-      .then(data => data.geo_clusters[0]?.geohash)
-      .catch((e) => {throw new Error(e)}) || GEOHASH_MOSCOW;
-
-      await fetchVacanciesByGeoHash(geohash);
-    }, 
-    async () => {
-      await fetchVacanciesByGeoHash(GEOHASH_MOSCOW);
-    }
-  );
+  if (window.navigator.geolocation) {
+    window.navigator.geolocation.getCurrentPosition( 
+      async (position) => {
+        const urlSearchParams = new URLSearchParams({
+          bottom_lat: position.coords.latitude - LAT_COEFFICIENT,
+          left_lng: position.coords.longitude - LTD_COEFFICIENT,
+          top_lat: position.coords.latitude + LAT_COEFFICIENT,
+          right_lng: position.coords.longitude + LTD_COEFFICIENT,
+          width_points: 1000,
+          height_points: 300,
+          map_zoom: 12
+        });
+        
+        //get geohash of user location
+        const geohash = await fetch(`https://api.hh.ru/vacancies/map?${urlSearchParams}`)
+        .then(res => res.json())
+        .then(data => data.geo_clusters[0]?.geohash)
+        .catch((e) => GEOHASH_MOSCOW);
+  
+        await fetchVacanciesByGeoHash(geohash);
+      }, 
+      async () => {
+        await fetchVacanciesByGeoHash(GEOHASH_MOSCOW);
+      }
+    );
+  } else {
+    fetchVacanciesByGeoHash(GEOHASH_MOSCOW);
+  }
 }
 
 // ================================

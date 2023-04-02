@@ -582,3 +582,36 @@
     display: flex;
   }
 }
+
+.post {
+  &__feedback-form {
+    background-color: var(--ghost-accent-color);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 32px;
+    text-align: center;
+    margin-bottom: 32px;
+  }
+
+  &__feedback-form-title {
+    color: #F5F5F5;
+    font-size: 3em;
+    font-weight: 700;
+    margin-bottom: 16px;
+  }
+
+  &__feedback-form-desc {
+    color: #F5F5F5;
+    font-size: 1.25em;
+  }
+
+  &__feedback-form-link {
+    background-color: #F5F5F5;
+    color: #2B2B2B;
+    border-radius: 3px;
+    font-weight: 600;
+    line-height: 1em;
+    padding: 1.2em 1.2em;
+  }
+}
