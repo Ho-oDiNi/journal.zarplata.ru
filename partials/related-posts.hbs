@@ -1,16 +1,31 @@
 {{!-- Related Posts --}}
-{{#get "posts" include="tags,authors" limit="3" filter="id:-{{id}}+tag:{{primary_tag.slug}}" as |related|}}
-  <section class="related-posts">
-    <div class="container-fluid wrapper">
-      <h5 class="section__title">{{t "You might also like"}}</h5>
-      {{> wave}}
-      <div class="row">
-        {{#foreach related}}
-          <div class="col-xs-12 col-md-6 col-lg-4 post-wrap">
-            {{> post-card class="col"}}
-          </div>
-        {{/foreach}}
+{{#if mobile}}
+{{#get "posts" include="tags,authors" limit="2" filter="featured:false+id:-{{id}}" include="authors,tags" as |related|}}
+<section class="related-posts">
+  <div class="container-fluid wrapper">
+    <div class="row">
+      {{#foreach related}}
+      <div class="col-xs-12 col-md-6 col-lg-4 post-wrap">
+        {{> post-card class="col"}}
       </div>
+      {{/foreach}}
     </div>
-  </section>
+  </div>
+</section>
 {{/get}}
+{{else}}
+{{#get "posts" include="tags,authors" limit="3" filter="featured:false+id:-{{id}}" include="authors,tags" as |related|}}
+<section class="related-posts">
+  <div class="container-fluid wrapper">
+    <div class="row">
+      {{#foreach related}}
+      <div class="col-xs-12 col-md-6 col-lg-4 post-wrap">
+        {{> post-card class="col"}}
+      </div>
+      {{/foreach}}
+    </div>
+  </div>
+</section>
+{{/get}}
+
+{{/if}}

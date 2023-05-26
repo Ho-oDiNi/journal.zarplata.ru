@@ -36,3 +36,35 @@ body {
     --animation-duration: 1ms;
   }
 }
+
+@media (min-width: 767px) {
+  .desktop {
+    display: block;
+  }
+  .mobile {
+    display: none;
+  }
+}
+
+@media (max-width: 767px) {
+  .desktop {
+    display: none;
+  }
+  .mobile {
+    display: block;
+  }
+}
+
+.swiper {
+  height: 100%;
+}
+
+.swiper-slide {
+  width: 304px;
+  background-color: #fff;
+  border-radius: 26px;
+  height: auto !important;
+}
+.swiper-content {
+  height: 100% !important
+}

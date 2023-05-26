@@ -219,3 +219,7 @@
   white-space: nowrap;
   max-width: 240px;
 }
+
+.kg-callout-card-grey {
+  background-color: #fff !important; 
+}

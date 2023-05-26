@@ -15,20 +15,12 @@ a {
 
 /* Quote */
 blockquote {
-  margin: 0;
-  margin-bottom: var(--gap-lg);
-  font-family: var(--font-family-serif);
-  font-size: calc(1.1 * var(--font-size-base));
-  line-height: var(--line-height-base);
-  background-color: var(--color-bg-accent-1);
-  border: 1px solid var(--color-border);
-  border-left: 3px solid var(--color-primary);
-  border-top-right-radius: var(--global-radius);
-  border-bottom-right-radius: var(--global-radius);
-  padding: var(--gap-lg);
-  text-align: center;
+  background-color: #fff;
+  padding: 32px;
+  padding-top: 64px;
+  border-radius: 26px;
+  font-weight: 700;
   position: relative;
-  width: 100%;
 
   &.important-info {
     &:before {
@@ -37,17 +29,14 @@ blockquote {
   }
 
   &:before {
-    content: '‟';
+    content: "“";
     position: absolute;
-    top: 0;
-    text-align: center;
-    left: 0;
-    right: 0;
+    top:32px;
+    left: 32px;
     font-family: sans-serif;
-    font-weight: var(--font-weight-extra-bold);
     font-size: 6rem;
     line-height: 3rem;
-    color: var(--color-primary);
+    color: #ffe000;
   }
 
   &+ figcaption cite {
@@ -61,6 +50,7 @@ blockquote {
 
   p {
     margin: 0;
+    font-weight: 700;
   }
 }
 

@@ -1,23 +1,8 @@
 {{!< default}} {{!-- Everything inside the #post tags pulls data from the post --}} {{#post}} <div
   class="container-fluid wrapper">
-  {{!-- Post Breadcrumbs --}}
-  <ul class="breadcrumbs" itemtype="https://schema.org/BreadcrumbList">
-    <li class="breadcrumb-item" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-      <a itemprop="item" href="{{@site.url}}"><span itemprop="name">Блог</span></a>
-      <meta itemprop="position" content="1" />
-    </li>
-    {{#primary_tag}}
-    <li class="breadcrumb-item" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-      <a itemprop="item" href="{{url}}"><span itemprop="name">{{name}}</span></a>
-      <meta itemprop="position" content="2" />
-    </li>
-    {{/primary_tag}}
-    <li class="breadcrumb-item breadcrumb-item-current" itemprop="itemListElement" itemscope
-      itemtype="https://schema.org/ListItem">
-      <div itemprop="name">{{title}}</div>
-      <meta itemprop="position" content="3" />
-    </li>
-  </ul>
+  {{>share-links}}
+  <span id="site_url" style="visibility: hidden; height: 0px;">{{url}}</span>
+
   <div class="row">
     <div class="col-xs-12">
       {{> post-hero}}
@@ -34,6 +19,7 @@
 
         {{#if access}}
         <div class="post-width">
+          {{>reactions}}
           {{!-- форма обратной связи --}}
           <div class="post__feedback-form">
             <p class="post__feedback-form-title">Поделитесь историей</p>
@@ -43,9 +29,9 @@
               Связаться с нами
             </a>
           </div>
-          {{#unless @member}}
+          {{!-- {{#unless @member}} --}}
           {{!-- кнопки для соискателей и работодателей с переходом на сайт --}}
-          <div class="">
+          {{!-- <div class="">
             {{#primary_tag}}
             {{#match name "=" "Работодателям"}}
             <button class="btn--brand">
@@ -58,21 +44,21 @@
             </button>
             {{/match}}
             {{/primary_tag}}
-          </div>
-          {{/unless}}
-          <hr>
-          {{!-- Include Comments, Cove or Disqus --}}
-          {{> remark_comments}}
-          <hr class="m-t m-b-lg">
+          </div> --}}
+          {{!-- {{/unless}} --}}
         </div>
         {{/if}}
       </article>
+    </div>
+    {{!-- Related posts --}}
+    <div class="mobile">
+      {{> related-posts mobile=true}}
     </div>
     <div class="col-xs-12 col-lg-4 col-xl-3 has-sidebar">
       {{> sidebar}}
     </div>
   </div>
-  <div class="subscribe subscribe__popup" id="subscribe_popup">
+  <div class="subscribe subscribe__popup" id="subscribe_popup" style="display: none">
     <span class="subscribe__popup-close" id="subscribe_popup-close">
       {{>icon name="x" size="s"}}
     </span>
@@ -124,5 +110,8 @@
   </div>
 
   {{!-- Related posts --}}
-  {{> related-posts}}
+  <div class="desktop">
+
+    {{> related-posts}}
+  </div>
   {{/post}}

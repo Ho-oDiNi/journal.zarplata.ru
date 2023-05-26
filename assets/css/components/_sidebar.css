@@ -2,24 +2,90 @@
 .sidebar {
   height: 100%;
 
+  
+
   &__section {
     margin-bottom: var(--gap-lg);
-    padding: var(--gap);
-    background-color: var(--color-bg-accent-1);
-    border-radius: var(--global-radius);
+    padding: 32px var(--gap);
+    background-color: #fff;
+    border-radius: 26px;
     border: 1px solid var(--color-border);
+
+    .tag {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 8px;
+    }
+  }
+
+  &__allTags {
+    margin-top: 32px;
+    display: flex;
+    padding: 16px 0;
+    justify-content: center;
+    align-items: center;
+    border-radius: 12px;
+    background-color: #EEF0F4;
+    font-size: 17px;
+    font-weight: 600;
+    line-height: 24px;
+    letter-spacing: 0em;
+  }
+
+  &__moreVacancies {
+    margin-top: 32px;
+    display: flex;
+    padding: 16px 0;
+    justify-content: center;
+    align-items: center;
+    border-radius: 12px;
+    background-color: #FFE000;
+    font-size: 17px;
+    font-weight: 600;
+    line-height: 24px;
+    letter-spacing: 0em;
+  }
+
+  &__vacanciesAction {
+    margin-top: 32px;
+    display: flex;
+    padding: 16px 0;
+    justify-content: center;
+    align-items: center;
+    border-radius: 12px;
+    background-color: #FFE000 !important;
+    font-size: 17px;
+    font-weight: 600;
+    line-height: 24px;
+    letter-spacing: 0em;
+
+    &:focus {
+      border: none;
+    }
   }
 
   &__title {
-    margin-bottom: 0;
+    margin-bottom: 18px;
     text-align: center;
-    color: var(--color-text-accent-2);
+    color: #000000;
+    font-weight: 700;
+    font-size: 22px;
+    line-height: 30px;
   }
 
   &__description {
-    margin-bottom: var(--gap);
+    margin-bottom: 18px;
+    color: #000000;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 27px;
+    letter-spacing: 0em;
     text-align: center;
-    color: var(--color-text-accent-3);
+
+    input {
+      background-color: #F4F4F4;
+    }
   }
 
   &__tag {
@@ -66,6 +132,7 @@
 
   .social-links {
     justify-content: center;
+    align-content: center;
     margin-bottom: var(--gap-sm);
 
     p { display: none; }
@@ -107,4 +174,16 @@
       }
     }
   }
+}
+
+.privacy-policy {
+  display: none;
+  
+  @media (max-width: 767px) {
+    display: block;
+  }
+}
+
+#findPosition > input[type="submit"]:focus {
+  border: none
 }

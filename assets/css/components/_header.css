@@ -16,8 +16,8 @@
   }
 
   &.is-scrolled {
-    .header__brand h3 { font-size: calc(2.2 * var(--font-size-base)); }
-    .header__brand img { max-height: calc(2 * var(--font-size-base)); }
+    /* .header__brand h3 { font-size: calc(2.2 * var(--font-size-base)); }
+    .header__brand img { max-height: calc(2 * var(--font-size-base)); } */
     .header__nav ul {
       height: 0px;
       overflow: hidden;
