@@ -1,164 +1,77 @@
 <aside class="sidebar">
+  {{!-- Tag Cloud --}}
+  <div class="sidebar__section" id="tag-cloud-min" style="display: block">
+    <h5 class="sidebar__title">Наши темы</h5>
+    {{#get "tags" limit="7" order="count.posts desc"}}
+    {{#foreach tags}}
+    <div class="tag">
+      <a class="tag-{{slug}} post-card__tag" href="{{url}}" title="{{name}}" aria-label="{{name}}s">{{name}}</a>
+    </div>
+    {{/foreach}}
+    {{/get}}
+    <div class="sidebar__allTags" id="show-all-tags">Все темы</div>
+  </div>
+
+  {{!-- Tag Cloud All --}}
+  <div class="sidebar__section" id="tag-cloud-all" style="display: none;">
+    <h5 class="sidebar__title">Наши темы</h5>
+    {{#get "tags" limit="all" order="count.posts desc"}}
+    {{#foreach tags}}
+    <div class="tag">
+      <a class="tag-{{slug}} post-card__tag" href="{{url}}" title="{{name}}" aria-label="{{name}}s">{{name}}</a>
+    </div>
+    {{/foreach}}
+    {{/get}}
+  </div>
+
+  {{!-- Sidebar latest posts
+  {{#is "post"}}
+  {{#get "posts" filter="featured:false+id:-{{id}}" limit="5" include="authors,tags" as |latest|}}
+  <div class="sidebar__section">
+    <h5 class="sidebar__title">{{t "Latest posts"}}</h5>
+    {{> wave}}
+    {{#foreach latest}}
+    <article class="sidebar__story">
+      <h6 class="sidebar__story-title">
+        <a href="{{url}}">{{{title}}}</a>
+      </h6>
+      {{#if feature_image}}
+      <a href="{{url}}" class="sidebar__story-image">
+        <img class="lazyload" alt="{{title}}" data-src="{{img_url feature_image size=" s"}}"
+          src="{{asset 'images/img-placeholder-square.jpg'}}" />
+      </a>
+      {{/if}}
+    </article>
+    {{/foreach}}
+  </div>
+  {{/get}}
+  {{/is}} --}}
+
   {{!-- Social Media Links --}}
   <div class="sidebar__section">
-    <h5 class="sidebar__title">{{@site.title}}</h5>
-    {{> wave}}
-    <div class="sidebar__description">{{@site.description}}</div>
+    <h5 class="sidebar__title" style="margin-bottom: 32px;">Найти работу
+      на Зарплате.ру</h5>
+    <div class="sidebar__description">
+      <form id="findPosition" name="findPosition">
+        <input type="text" placeholder="Должность или компания" id="position" />
+        <input type="number" placeholder="Зарплата от, ₽ " id="salary" />
+        <input type="submit"  class="sidebar__vacanciesAction"
+          style="width: 100%" value="Показать вакансии" />
+      </form>
+    </div>
+  </div>
+
+  {{!-- Social Media Links --}}
+  <div class="sidebar__section">
+    <h5 class="sidebar__title">Зарплата Журнал</h5>
+    <div class="sidebar__description">Самый полезный в России журнал
+      про работу и жизнь после неё</div>
     {{>social-media}}
   </div>
 
-  {{!-- Sidebar featured posts --}}
-  {{#is "post"}}
-    {{#get "posts" filter="featured:true+id:-{{id}}" limit="5" include="authors,tags" as |featured|}}
-      {{#if featured}}
-      <div class="sidebar__section">
-        <h5 class="sidebar__title">{{t "Featured posts"}}</h5>
-        {{> wave}}
-        {{#foreach featured}}
-          <article class="sidebar__story">
-            <h6 class="sidebar__story-title">
-              <a href="{{url}}">{{{title}}}</a>
-            </h6>
-            {{#if feature_image}}
-              <a href="{{url}}" class="sidebar__story-image">
-                <img 
-                  class="lazyload" 
-                  alt="{{title}}" 
-                  data-src="{{img_url feature_image size="s"}}"
-                  src="{{asset 'images/img-placeholder-square.jpg'}}"
-                />
-              </a>
-            {{/if}}
-          </article>
-        {{/foreach}}
-      </div>
-      {{/if}}
-    {{/get}}
-  {{/is}}
-
-  {{!-- Tag Cloud --}}
-  <div class="sidebar__section">
-    <h5 class="sidebar__title">Наши темы</h5>
-    {{> wave}}
-    {{#get "tags" limit="6" include="count.posts" order="count.posts desc"}}
-      {{#foreach tags}}
-        <a class="sidebar__tag" href="{{url}}" title="{{name}}" aria-label="{{name}}">
-          <h6 class="sidebar__tag-name">{{name}}</h6>
-          <div class="sidebar__tag-count">{{count.posts}}</div>
-        </a>
-      {{/foreach}}
-    {{/get}}
+  {{!-- Social Media Links --}}
+  <div class="sidebar__section privacy-policy">
+    <div class="sidebar__description">
+      <a href="https://cdn.zp.ru/job/docs/Soglasie_na_obrabotku_PD_polzovateley.doc" style="color: #1480CF; text-decoration:underline">Политика конфиденциальности</a></div>
   </div>
-
-  {{!-- Sidebar latest posts --}}
-  {{#is "post"}}
-    {{#get "posts" filter="featured:false+id:-{{id}}" limit="5" include="authors,tags" as |latest|}}
-    <div class="sidebar__section">
-      <h5 class="sidebar__title">{{t "Latest posts"}}</h5>
-      {{> wave}}
-      {{#foreach latest}}
-        <article class="sidebar__story">
-          <h6 class="sidebar__story-title">
-            <a href="{{url}}">{{{title}}}</a>
-          </h6>
-          {{#if feature_image}}
-            <a href="{{url}}" class="sidebar__story-image">
-              <img 
-                class="lazyload" 
-                alt="{{title}}" 
-                data-src="{{img_url feature_image size="s"}}"
-                src="{{asset 'images/img-placeholder-square.jpg'}}"
-              />
-            </a>
-          {{/if}}
-        </article>
-      {{/foreach}}
-    </div>
-    {{/get}}
-  {{/is}}
-
-    {{#match primary_tag.name "!=" "Работодателям"}}
-        <div class="sidebar__section">
-          <h5 class="sidebar__title">Свежие вакансии</h5>
-          {{> wave}}
-          <ul id="vacancies-placements" style="list-style-type: none;"></ul>
-        </div>
-    {{/match}}
-
-    {{#primary_tag}}
-    {{!-- Vacancies --}}
-    
-    {{!-- Resumes --}} 
-    {{#match name "=" "Работодателям"}} 
-      <div class="sidebar__section">
-        <h5 class="sidebar__title">Резюме</h5>
-        {{> wave}}
-        <ul style="list-style-type: none;">
-          <li style="margin-bottom: 18px;">
-            <a href="https://hr.zarplata.ru?utm_source=blog_resume" style="color:#0055d2;" target="_blank">
-              Директор, Администратор, Менеджер
-            </a><br>
-            <div>
-              <span style="font-size: 14px;">31 год</span><br>
-              <span style="font-weight: 700; font-size: 16px;">50 000 руб.</span><br>
-            </div>
-            <div>
-              <span style="color: #959799; font-size: 12px;">Опыт работы</span><br>
-              <span>11 лет 1 месяц</span><br>
-            </div>
-          </li>
-          <li style="margin-bottom: 18px;">
-            <a href="https://hr.zarplata.ru?utm_source=blog_resume" style="color:#0055d2;" target="_blank">
-              Водитель BC. Тракторист BCDEF. водитель с личным автомобилем
-            </a><br>
-            <div>
-              <span style="font-size: 14px;">59 лет</span><br>
-            </div>
-            <div>
-              <span style="color: #959799; font-size: 12px;">Опыт работы</span><br>
-              <span>34 года 9 месяцев</span><br>
-            </div>
-          </li>
-          <li style="margin-bottom: 18px;">
-            <a href="https://hr.zarplata.ru?utm_source=blog_resume" style="color:#0055d2;" target="_blank">
-              Курьер пеший
-            </a><br>
-            <div>
-              <span style="font-size: 14px;">39 лет</span><br>
-            </div>
-            <div>
-              <span style="color: #959799; font-size: 12px;">Опыт работы</span><br>
-              <span>1 год 7 месяцев</span><br>
-            </div>
-          </li>
-          <li style="margin-bottom: 18px;">
-            <a href="https://hr.zarplata.ru?utm_source=blog_resume" style="color:#0055d2;" target="_blank">            
-              Начинающий специалист
-            </a><br>
-            <div>
-              <span style="font-size: 14px;">21 год</span><br>
-              <span style="font-weight: 700; font-size: 16px;">30 000 руб.</span><br>
-            </div>
-            <div>
-              <span style="color: #959799; font-size: 12px;">Опыт работы</span><br>
-              <span>2 года 4 месяца</span><br>
-            </div>
-          </li>
-          <li style="margin-bottom: 18px;">
-            <a href="https://hr.zarplata.ru?utm_source=blog_resume" style="color:#0055d2;" target="_blank">
-              Руководитель административно-хозяйственного отдела (АХО), АХЧ
-            </a><br>
-            <div>
-              <span style="font-size: 14px;">56 лет</span><br>
-              <span style="font-weight: 700; font-size: 16px;">60 000 руб.</span><br>
-            </div>
-            <div>
-              <span style="color: #959799; font-size: 12px;">Опыт работы</span><br>
-              <span>29 лет 4 месяца</span><br>
-            </div>
-          </li>
-        </ul>
-      </div>
-    {{/match}}
-  {{/primary_tag}}
 </aside>

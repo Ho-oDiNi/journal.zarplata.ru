@@ -6,6 +6,13 @@
 .latest-post {
   margin-bottom: 0;
   border-radius: var(--global-radius);
+
+  @media (max-width: 767px) {
+    margin-right: -1rem;
+    margin-left: -1rem;
+    margin-bottom: 32px;
+    padding-top: 32px;
+  }
 }
 
 .post-card {
@@ -13,9 +20,14 @@
   display: flex;
   flex-direction: column;
   border-radius: var(--global-radius);
-  
+
+  @media (max-width: 767px) {
+    border-radius: 26px;
+    background-color: #fff;
+  }
+
   @media (--viewport-md) {
-    flex-direction: row; 
+    flex-direction: row;
   }
 
   .spsecial-bg {
@@ -28,6 +40,15 @@
     .post-card__content {
       padding-left: 0;
       padding-top: var(--gap);
+
+      @media (max-width: 767px) {
+        padding: 16px;
+        padding-bottom: 32px;
+      }
+    }
+
+    .tag {
+      display: none;
     }
   }
 
@@ -73,22 +94,27 @@
     z-index: 2;
     border-radius: var(--global-radius);
 
+    @media (max-width: 767px) {
+      border-radius: 26px 26px 0 0;
+      height: 256px;
+    }
+
     @media (--viewport-lg) {
       height: calc(18 * var(--gap-rem));
       max-height: calc(18 * var(--gap-rem));
     }
 
     @mixin attention {
-      img { 
-        transform: scale(1.04); 
+      img {
+        transform: scale(1.04);
         transition: transform var(--animation-duration) var(--animation-name);
       }
     }
 
-    img { 
+    img {
       width: 100%;
       height: 100%;
-      margin: 0; 
+      margin: 0;
       object-fit: cover;
       object-position: center;
       transition: transform var(--animation-duration) var(--animation-name);
@@ -103,6 +129,10 @@
     padding-top: var(--gap);
     z-index: 2;
 
+    @media (max-width: 767px) {
+      padding: var(--gap);
+    }
+
     @media (--viewport-md) {
       padding-top: 0;
       padding-left: var(--gap);
@@ -113,97 +143,6 @@
     display: flex;
     align-items: center;
     margin-bottom: var(--gap);
-
-    /* group 1 */
-    .tag-ishchu-rabotu,
-    .tag-rabota-v-komandie,
-    .tag-rabota-v-ofisie,
-    .tag-rabota-i-siemia,
-    .tag-applicants,
-    .tag-chieloviek-diela {
-      background-color: #CD8CFF !important;
-      color: #222222 !important;
-      border: 1px solid transparent !important;
-      border-radius: 99px !important;
-      padding: 0.15em 1em !important;
-
-      &:hover {
-        background-color: transparent !important;
-        border: 1px solid #CD8CFF !important;
-      }
-    }
-
-    /* group 2 */
-    .tag-employers,
-    .tag-biznies,
-    .tag-ishchu-sotrudnika,
-    .tag-rukovodstvo {
-      background-color: #ffe000 !important;
-      color: #222222 !important;
-      border: 1px solid transparent !important;
-      border-radius: 99px !important;
-      padding: 0.15em 1em !important;
-
-      &:hover {
-        background-color: transparent !important;
-        border: 1px solid #ffe000 !important;
-      }
-    }
-
-    /* group 3 */
-    .tag-diekriet,
-    .tag-rieziumie,
-    .tag-sobiesiedovaniie,
-    .tag-uvolnieniie,
-    .tag-udalionka,
-    .tag-frilans {
-      background-color: #FF84A9 !important;
-      color: #222222 !important;
-      border: 1px solid transparent !important;
-      border-radius: 99px !important;
-      padding: 0.15em 1em !important;
-
-      &:hover {
-        background-color: transparent !important;
-        border: 1px solid #FF84A9 !important;
-      }
-    }
-
-    /* group 4 */
-    .tag-kariernyie-soviety,
-    .tag-obrazovaniie,
-    .tag-poliezno,
-    .tag-students,
-    .tag-u-mienia-vykhodnoi {
-      background-color: #57EE81 !important;
-      color: #222222 !important;
-      border: 1px solid transparent !important;
-      border-radius: 99px !important;
-      padding: 0.15em 1em !important;
-
-      &:hover {
-        background-color: transparent !important;
-        border: 1px solid #57EE81 !important;
-      }
-    }
-
-    /* group 5 */
-    .tag-zakony-i-pravo,
-    .tag-webinar,
-    .tag-interview,
-    .tag-novosti,
-    .tag-faq {
-      background-color: #70D6FF !important;
-      color: #222222 !important;
-      border: 1px solid transparent !important;
-      border-radius: 99px !important;
-      padding: 0.15em 1em !important;
-
-      &:hover {
-        background-color: transparent !important;
-        border: 1px solid #70D6FF !important;
-      }
-    }
   }
 
   &__featured {
@@ -240,11 +179,15 @@
 
   &__authors {
     margin-right: var(--gap);
-  
+
     &.multi {
       flex-wrap: nowrap;
-      .post-card__author-name { display: none; }
-      .post-card__author-tooltip { display: block; }
+      .post-card__author-name {
+        display: none;
+      }
+      .post-card__author-tooltip {
+        display: block;
+      }
     }
   }
 
@@ -253,34 +196,34 @@
     display: flex;
     align-items: center;
 
-    &:nth-of-type(1) { 
+    &:nth-of-type(1) {
       z-index: 5;
     }
-    &:nth-of-type(2) { 
-      z-index: 4; 
+    &:nth-of-type(2) {
+      z-index: 4;
       margin-left: calc(-0.75 * var(--gap));
     }
     &:nth-of-type(3) {
-      z-index: 3; 
+      z-index: 3;
       margin-left: calc(-0.75 * var(--gap));
     }
-    &:nth-of-type(4) { 
-      z-index: 2; 
+    &:nth-of-type(4) {
+      z-index: 2;
       margin-left: calc(-0.75 * var(--gap));
     }
-    &:nth-of-type(5) { 
-      z-index: 1; 
+    &:nth-of-type(5) {
+      z-index: 1;
       margin-left: calc(-0.75 * var(--gap));
     }
 
     &-image,
     &-icon {
       @mixin attention {
-        box-shadow: 
-          0 0 1px 3px var(--color-secondary),
-          0 0 1px 6px color(var(--color-secondary) blend(var(--color-light) 50%));
-        
-        &+.post-card__author-tooltip {
+        box-shadow: 0 0 1px 3px var(--color-secondary),
+          0 0 1px 6px
+            color(var(--color-secondary) blend(var(--color-light) 50%));
+
+        & + .post-card__author-tooltip {
           visibility: visible;
           opacity: 1;
         }
@@ -316,10 +259,10 @@
     box-shadow: 0 0 1px 3px var(--color-secondary);
     transition: box-shadow var(--animation-duration) var(--animation-name);
 
-    img { 
+    img {
       width: 100%;
       height: 100%;
-      margin: 0;  
+      margin: 0;
       object-fit: cover;
       object-position: center;
     }
@@ -375,8 +318,8 @@
     }
   }
 
-  &__date { 
-    color: var(--color-text-accent-3); 
+  &__date {
+    color: var(--color-text-accent-3);
     font-size: calc(0.9 * var(--font-size-base));
   }
 
@@ -401,13 +344,29 @@
     padding: var(--gap);
     justify-content: flex-end;
 
-    .special-bg { display: none; }
+    .special-bg {
+      display: none;
+    }
 
     .post-card__title,
     .post-card__excerpt {
       @media (--viewport-md) {
         max-width: 50vw;
       }
+
+      @media (max-width: 767px) {
+        text-overflow: ellipsis;
+      }
+    }
+  }
+
+  @media (max-width: 767px) {
+    padding: var(--gap);
+  }
+
+  .post-card__details {
+    @media (max-width: 767px) {
+      display: none;
     }
   }
 }
@@ -420,7 +379,7 @@
   margin-left: 0;
   margin-right: 0;
   font-weight: bold;
-  line-height: calc(var(--line-height-base)*0.85);
+  line-height: calc(var(--line-height-base) * 0.85);
 }
 
 .post-card--special {
@@ -435,8 +394,8 @@
     .special-bg {
       left: 5%;
       border-radius: 55% 45% 45% 55%/55% 55% 45% 45%;
-      transition: 
-        border-radius var(--animation-duration-lg) var(--animation-name),
+      transition: border-radius var(--animation-duration-lg)
+          var(--animation-name),
         left var(--animation-duration-lg) var(--animation-name);
     }
   }
@@ -445,6 +404,10 @@
     flex-direction: row-reverse;
     padding: var(--gap-xl) 0;
     align-items: center;
+  }
+
+  @media (max-width: 767px) {
+    padding: 0;
   }
 
   .special-bg {
@@ -461,8 +424,8 @@
       background-color: var(--color-bg-accent-2);
       border-radius: 30% 70% 70% 30%/30% 30% 70% 70%;
       box-shadow: -5vmin 5vmin 0 var(--color-bg-accent-1);
-      transition: 
-        border-radius var(--animation-duration-lg) var(--animation-name),
+      transition: border-radius var(--animation-duration-lg)
+          var(--animation-name),
         left var(--animation-duration-lg) var(--animation-name);
     }
 
@@ -480,6 +443,10 @@
       max-height: 50vh;
       margin-left: var(--gap);
     }
+
+    @media (max-width: 767px) {
+      
+    }
   }
 
   .post-card__content {
@@ -488,6 +455,10 @@
 
     @media (--viewport-md) {
       flex: 1;
+    }
+
+    @media (max-width: 767px) {
+      padding-left: 16px;
     }
   }
 
@@ -501,5 +472,131 @@
     @media (--viewport-lg) {
       font-size: calc(2.4 * var(--font-size-base));
     }
+
+    @media (max-width: 767px) {
+      font-size: 14px;
+    }
+  }
+
+  .post-card__header {
+    @media (max-width: 767px) {
+      display: none;
+    }
+
+    &--special {
+      display: inline;
+    }
+
+    &--tag {
+      display: block;
+    }
   }
 }
+
+.sidebar__section, .post-card__content, .swiper-slide {
+
+  /* group 1 */
+  .tag-ishchu-rabotu,
+  .tag-rabota-v-komandie,
+  .tag-rabota-v-ofisie,
+  .tag-rabota-i-siemia,
+  .tag-applicants,
+  .tag-stazhior,
+  .tag-chieloviek-diela {
+    background-color: #cd8cff !important;
+    color: #222222 !important;
+    border: 1px solid transparent !important;
+    border-radius: 99px !important;
+    padding: 0.15em 1em !important;
+  
+    &:hover {
+      background-color: transparent !important;
+      border: 1px solid #cd8cff !important;
+    }
+  }
+  
+  /* group 2 */
+  .tag-employers,
+  .tag-biznies,
+  .tag-ishchu-sotrudnika,
+  .tag-rukovodstvo {
+    background-color: #ffe000 !important;
+    color: #222222 !important;
+    border: 1px solid transparent !important;
+    border-radius: 99px !important;
+    padding: 0.15em 1em !important;
+  
+    &:hover {
+      background-color: transparent !important;
+      border: 1px solid #ffe000 !important;
+    }
+  }
+  
+  /* group 3 */
+  .tag-diekriet,
+  .tag-rieziumie,
+  .tag-sobiesiedovaniie,
+  .tag-uvolnieniie,
+  .tag-udalionka,
+  .tag-frilans {
+    background-color: #ff84a9 !important;
+    color: #222222 !important;
+    border: 1px solid transparent !important;
+    border-radius: 99px !important;
+    padding: 0.15em 1em !important;
+  
+    &:hover {
+      background-color: transparent !important;
+      border: 1px solid #ff84a9 !important;
+    }
+  }
+  
+  /* group 4 */
+  .tag-kariernyie-soviety,
+  .tag-obrazovaniie,
+  .tag-poliezno,
+  .tag-students,
+  .tag-special,
+  .tag-u-mienia-vykhodnoi {
+    background-color: #57ee81 !important;
+    color: #222222 !important;
+    border: 1px solid transparent !important;
+    border-radius: 99px !important;
+    padding: 0.15em 1em !important;
+  
+    &:hover {
+      background-color: transparent !important;
+      border: 1px solid #57ee81 !important;
+    }
+  }
+  
+  /* group 5 */
+  .tag-zakony-i-pravo,
+  .tag-webinar,
+  .tag-interview,
+  .tag-novosti,
+  .tag-faq {
+    background-color: #70d6ff !important;
+    color: #222222 !important;
+    border: 1px solid transparent !important;
+    border-radius: 99px !important;
+    padding: 0.15em 1em !important;
+  
+    &:hover {
+      background-color: transparent !important;
+      border: 1px solid #70d6ff !important;
+    }
+  }
+  
+  .swiper {
+    .post-card__image {
+  
+      &>img {
+        @media (max-width: 767px) {
+          height: 196px;
+        }
+      }
+    }
+  }
+}
+

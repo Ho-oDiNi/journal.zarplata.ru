@@ -5,7 +5,7 @@
   {{!-- Tag header --}}
   {{#tag}}
     {{!-- Post Breadcrumbs --}}
-    <ul class="breadcrumbs" itemtype="https://schema.org/BreadcrumbList">
+    {{!-- <ul class="breadcrumbs" itemtype="https://schema.org/BreadcrumbList">
         <li 
             class="breadcrumb-item" 
             itemprop="itemListElement" itemscope
@@ -22,7 +22,7 @@
           <div itemprop="name">{{name}}</div>
           <meta itemprop="position" content="2"/>  
         </li>
-      </ul>
+      </ul> --}}
     <section class="tag-header{{^if feature_image}} no-img{{/if}}">
       <div class="geometric-bg"></div>
       {{#if feature_image}}
@@ -45,7 +45,7 @@
         {{#if description}}
           <div class="tag-header__description">{{description}}</div>
         {{/if}}
-        <div class="tag-header__counter">
+        <div class="tag-header__counter desktop">
           {{plural ../pagination.total empty=(t 'No posts') singular=(t '1 post') plural=(t '% posts')}}
         </div>
       </div>
