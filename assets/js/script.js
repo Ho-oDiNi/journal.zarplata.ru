@@ -161,6 +161,7 @@ var callback = function () {
     const urlToShare = window.location.href;
     const baseURL = link;
     const params = `${encodeURIComponent(urlToShare)}`;
+    ym(77659420,'reachGoal','sharePost');
 
     const shareWindow = window.open(`${baseURL}${params}`);
     shareWindow.focus();
@@ -385,22 +386,6 @@ var callback = function () {
     autoHeight: false,
   });
 
-  // ===============
-  // Search Vacancies Scripts
-  // ===============
-  var my_func = function (event) {
-    event.preventDefault();
-    window.open(
-      `https://www.zarplata.ru/vacancy?q=${event.target[0].value}&salary=${event.target[1].value}&utm_source=blog_vacancy`,
-      "_blank"
-    );
-  };
-
-  // your form
-  var form = document.getElementById("findPosition");
-
-  // attach event listener
-  form.addEventListener("submit", my_func, true);
 
   // ===============
   // Members Scripts
@@ -409,7 +394,8 @@ var callback = function () {
   const action = getParameterByName("action");
   const stripe = getParameterByName("stripe");
   // getVacancies();
-  subscribePopip();
+  // subscribePopip();
+
 
   switch (action) {
     case "subscribe":
@@ -463,6 +449,18 @@ var callback = function () {
       loadMorePosts(loadMoreBtn);
     };
   }
+
+  // ===============
+  // Search Vacancies Scripts
+  // ===============
+  const searchVacancyForm = document.getElementById("findPosition");
+  searchVacancyForm.addEventListener("submit", (event) => {
+    event.preventDefault();
+    window.open(
+      `https://www.zarplata.ru/vacancy?q=${event.target[0].value}&salary=${event.target[1].value}&utm_source=blog_vacancy`,
+      "_blank"
+    );
+  });
 
   // ===========
   // Blog search
