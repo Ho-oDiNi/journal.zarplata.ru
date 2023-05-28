@@ -161,6 +161,7 @@ var callback = function () {
     const urlToShare = window.location.href;
     const baseURL = link;
     const params = `${encodeURIComponent(urlToShare)}`;
+    ym(77659420,'reachGoal','sharePost');
 
     const shareWindow = window.open(`${baseURL}${params}`);
     shareWindow.focus();
