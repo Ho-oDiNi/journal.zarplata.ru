@@ -385,7 +385,6 @@ var callback = function () {
     autoHeight: false,
   });
 
-
   // ===============
   // Members Scripts
   // ===============
@@ -394,7 +393,6 @@ var callback = function () {
   const stripe = getParameterByName("stripe");
   // getVacancies();
   // subscribePopip();
-
 
   switch (action) {
     case "subscribe":
@@ -706,6 +704,26 @@ var callback = function () {
 
       window.sessionStorage.setItem(postHash, [emoj[idx]]);
 
+      switch (emoj[idx]) {
+        case "like":
+          ym(77659420, "reachGoal", "reactionLike");
+          break;
+        case "fire":
+          ym(77659420, "reachGoal", "reactionFire");
+          break;
+        case "poker_face":
+          ym(77659420, "reachGoal", "reactionNeutral");
+          break;
+        case "poo":
+          ym(77659420, "reachGoal", "reactionPoo");
+          break;
+        case "dislike":
+          ym(77659420, "reachGoal", "reactionDislike");
+          break;
+        default:
+          break;
+      }
+
       reactionsCounters[idx].innerText =
         parseInt(reactionsCounters[idx].innerText) + 1;
 
@@ -844,8 +862,6 @@ const copyToClipboard = (src, str) => {
     }, 500);
   };
 };
-
-
 
 // ==============
 // Social Sharing
