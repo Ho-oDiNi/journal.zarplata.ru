@@ -68,3 +68,10 @@ body {
 .swiper-content {
   height: 100% !important
 }
+
+.explanation {
+  font-family: var(--font-family-secondary);
+  font-size: 18px;
+  line-height: 27px;
+  font-weight: 400;
+}

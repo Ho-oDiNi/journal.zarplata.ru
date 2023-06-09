@@ -1,100 +1,111 @@
 <!DOCTYPE html>
 <html lang="{{@site.locale}}" data-color-scheme="light">
-  <head>
-    {{!-- Document Settings --}}
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-    {{!-- Page Meta --}}
-    <title>{{#is "account"}}{{t "Account"}} - {{else}}{{#is "signin"}}{{t "Sign in"}} - {{else}}{{#is "signup"}}{{t "Sign up"}} - {{/is}}{{/is}}{{/is}}{{meta_title}}</title>
+<head>
+  {{!-- Document Settings --}}
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-    {{!-- Mobile Meta --}}
-    <meta name="HandheldFriendly" content="True" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /> 
+  {{!-- Page Meta --}}
+  <title>{{#is "account"}}{{t "Account"}} - {{else}}{{#is "signin"}}{{t "Sign in"}} - {{else}}{{#is "signup"}}{{t "Sign
+    up"}} - {{/is}}{{/is}}{{/is}}{{meta_title}}</title>
 
-    {{!-- PWA --}}
-    <link rel="manifest" href="{{asset 'manifest.webmanifest'}}">
-    <meta name="theme-color" content="{{@site.accent_color}}">
-    <link rel="apple-touch-icon" href="{{asset 'icon-192x192.png'}}">
+  {{!-- Mobile Meta --}}
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    {{!-- Preloading --}}
-    <link rel="preload" href="{{asset 'dist/app.min.js'}}" as="script">
-    <link rel="preload" href="{{asset 'dist/app.min.css'}}" as="style">
+  {{!-- PWA --}}
+  <link rel="manifest" href="{{asset 'manifest.webmanifest'}}">
+  <meta name="theme-color" content="{{@site.accent_color}}">
+  <link rel="apple-touch-icon" href="{{asset 'icon-192x192.png'}}">
 
-    <link rel="preload stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,600;0,700;0,800;1,400;1,600;1,700;1,800&display=swap" as="font" onload="this.onload=null;this.rel='stylesheet'">
-    <link rel="preload stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,600;1,400;1,600&display=swap" as="font" onload="this.onload=null;this.rel='stylesheet'">
-    <link rel="preload stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital@0;1&display=swap" as="font" onload="this.onload=null;this.rel='stylesheet'">
-    
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"
-    />
+  {{!-- Preloading --}}
+  <link rel="preload" href="{{asset 'dist/app.min.js'}}" as="script">
+  <link rel="preload" href="{{asset 'dist/app.min.css'}}" as="style">
 
-    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>  
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.0.0/core.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/md5.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+  <link rel="preload stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,600;0,700;0,800;1,400;1,600;1,700;1,800&display=swap"
+    as="font" onload="this.onload=null;this.rel='stylesheet'">
+  <link rel="preload stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,600;1,400;1,600&display=swap" as="font"
+    onload="this.onload=null;this.rel='stylesheet'">
+  <link rel="preload stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital@0;1&display=swap"
+    as="font" onload="this.onload=null;this.rel='stylesheet'">
 
-    {{!-- No Js --}}
-    <noscript>
-      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,600;0,700;0,800;1,400;1,600;1,700;1,800&display=swap">
-      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,600;1,400;1,600&display=swap">
-      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital@0;1&display=swap">
-      <link href="https://fonts.googleapis.com/css?family=Montserrat:100" rel="stylesheet">
-    </noscript>   
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
 
-    {{!-- Theme Configuration --}}
-    {{> theme-config}}
+  <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.0.0/core.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/md5.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
 
-    {{!-- Styles --}}
-    <link rel="stylesheet" type="text/css" href="{{asset 'dist/app.min.css'}}" />
+  {{!-- No Js --}}
+  <noscript>
+    <link rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,600;0,700;0,800;1,400;1,600;1,700;1,800&display=swap">
+    <link rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,600;1,400;1,600&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital@0;1&display=swap">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:100" rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700,700italic&subset=latin,cyrillic'
+      rel='stylesheet' type='text/css'>
+  </noscript>
 
-    {{!-- Theme scripts --}}
-    <script async defer src="{{asset 'dist/app.min.js'}}"></script>
+  {{!-- Theme Configuration --}}
+  {{> theme-config}}
 
-    <!--cssential--><style></style><!--/cssential-->
+  {{!-- Styles --}}
+  <link rel="stylesheet" type="text/css" href="{{asset 'dist/app.min.css'}}" />
 
-    {{!-- Ghost outputs important style and meta data with this tag --}}
-    {{ghost_head}}
-    <link rel="icon" href="{{asset 'images/favicon.png'}}" type="image/png">
-  </head>
-  <body class="{{body_class}}">
-    {{!-- Include Search View --}}
-    {{> search}}
+  {{!-- Theme scripts --}}
+  <script async defer src="{{asset 'dist/app.min.js'}}"></script>
 
-    {{!-- Include Menu --}}
-    {{!-- {{> menu}} --}}
-    {{> mobile-menu}}
+  <!--cssential-->
+  <style></style><!--/cssential-->
 
-    {{!-- The blog navigation links --}}
-    {{^is "signin, signup"}}
-      {{> header}}
-    {{/is}}
+  {{!-- Ghost outputs important style and meta data with this tag --}}
+  {{ghost_head}}
+  <link rel="icon" href="{{asset 'images/favicon.png'}}" type="image/png">
+</head>
 
-    <main class="main">
-      {{!-- All the main content gets inserted here, index.hbs, post.hbs, etc --}}
-      {{{body}}}
-    </main>
+<body class="{{body_class}}">
+  {{!-- Include Search View --}}
+  {{> search}}
 
-    {{!-- The footer at the very bottom --}}
-    {{^is "signin, signup"}}
-      {{> footer}}
-      <div class="scroll-to-top">{{> icon name="arrow-up"}}</div>
-    {{/is}}
+  {{!-- Include Menu --}}
+  {{!-- {{> menu}} --}}
+  {{> mobile-menu}}
 
-    {{> gradient}}
+  {{!-- The blog navigation links --}}
+  {{^is "signin, signup"}}
+  {{> header}}
+  {{/is}}
 
-    {{!-- Service Worker for PWA --}}
-    <script>
-      if (config.enable_pwa && 'serviceWorker' in navigator) {
-        window.addEventListener('load', () => {
-          navigator.serviceWorker.register('/sw.js');
-        });
-      }
-    </script>
+  <main class="main">
+    {{!-- All the main content gets inserted here, index.hbs, post.hbs, etc --}}
+    {{{body}}}
+  </main>
 
-    {{!-- Ghost outputs important scripts and data with this tag --}}
-    {{ghost_foot}}
-  </body>
+  {{!-- The footer at the very bottom --}}
+  {{^is "signin, signup"}}
+  {{> footer}}
+  <div class="scroll-to-top">{{> icon name="arrow-up"}}</div>
+  {{/is}}
+
+  {{> gradient}}
+
+  {{!-- Service Worker for PWA --}}
+  <script>
+    if (config.enable_pwa && 'serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/sw.js');
+      });
+    }
+  </script>
+
+  {{!-- Ghost outputs important scripts and data with this tag --}}
+  {{ghost_foot}}
+</body>
+
 </html>
