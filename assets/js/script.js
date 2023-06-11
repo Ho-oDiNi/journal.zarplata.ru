@@ -638,6 +638,38 @@ var callback = function () {
   const rPoo = document.querySelector("#r-poo");
   const rDislike = document.querySelector("#r-dislike");
 
+  const rLikeButton = document.querySelector("#r-like-button");
+  const rFireButton = document.querySelector("#r-fire-button");
+  const rFaceButton = document.querySelector("#r-face-button");
+  const rPooButton = document.querySelector("#r-poo-button");
+  const rDislikeButton = document.querySelector("#r-dislike-button");
+
+  rLikeButton.addEventListener("click", () => {
+    if (!rLikeButton.classList.contains("active")) {
+      ym(77659420, "reachGoal", "reactionLike");
+    }
+  });
+  rFireButton.addEventListener("click", () => {
+    if (!rFireButton.classList.contains("active")) {
+      ym(77659420, "reachGoal", "reactionFire");
+    }
+  });
+  rFaceButton.addEventListener("click", () => {
+    if (!rFaceButton.classList.contains("active")) {
+      ym(77659420, "reachGoal", "reactionNeutral");
+    }
+  });
+  rPooButton.addEventListener("click", () => {
+    if (!rPooButton.classList.contains("active")) {
+      ym(77659420, "reachGoal", "reactionPoo");
+    }
+  });
+  rDislikeButton.addEventListener("click", () => {
+    if (!rDislikeButton.classList.contains("active")) {
+      ym(77659420, "reachGoal", "reactionDislike");
+    }
+  });
+
   const emoj = ["like", "fire", "poker_face", "poo", "dislike"];
 
   const post_name = document.querySelector("#site_url");
