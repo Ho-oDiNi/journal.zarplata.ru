@@ -9,7 +9,6 @@
     padding: 32px var(--gap);
     background-color: #fff;
     border-radius: 26px;
-    border: 1px solid var(--color-border);
 
     .tag {
       display: flex;

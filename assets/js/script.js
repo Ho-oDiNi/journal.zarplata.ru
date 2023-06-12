@@ -721,21 +721,20 @@ var callback = function () {
 
   reactionsButtons.forEach((btn, idx) => {
     btn.addEventListener("click", () => {
-      if (window.sessionStorage.getItem(postHash)) {
-        const idx = emoj.findIndex((el) => {
-          return el == window.sessionStorage.getItem(postHash);
-        });
-        reactionsCounters[idx].innerText =
-          parseInt(reactionsCounters[idx].innerText) - 1;
-        reactionsButtons[idx].classList.remove("active");
-        db.collection("reactions")
-          .doc(postHash)
-          .update({
-            [emoj[idx]]: parseInt(reactionsCounters[idx].innerText),
-          });
+      // Функция для обновления счетчика реакции и сохранения его в базе данных
+      function updateReaction(postHash, idx, counterChange) {
+        const currentCounter = parseInt(reactionsCounters[idx].innerText);
+        reactionsCounters[idx].innerText = currentCounter + counterChange;
+
+        const reactionUpdate = { [emoj[idx]]: currentCounter + counterChange };
+        db.collection("reactions").doc(postHash).update(reactionUpdate);
       }
 
-      window.sessionStorage.setItem(postHash, [emoj[idx]]);
+      // Функция для добавления или удаления класса "active" у кнопки реакции
+      function toggleButtonActive(idx, isActive) {
+        const method = isActive ? "add" : "remove";
+        reactionsButtons[idx].classList[method]("active");
+      }
 
       switch (emoj[idx]) {
         case "like":
@@ -759,14 +758,25 @@ var callback = function () {
 
       reactionsCounters[idx].innerText =
         parseInt(reactionsCounters[idx].innerText) + 1;
+      // Получаем сохраненную реакцию из sessionStorage
+      const storedReaction = window.sessionStorage.getItem(postHash);
 
-      reactionsButtons[idx].classList.add("active");
+      // Если была сохраненная реакция, уменьшаем счетчик этой реакции на 1 и убираем активность с кнопки
+      if (storedReaction) {
+        const storedReactionIdx = emoj.findIndex((el) => el === storedReaction);
+        updateReaction(postHash, storedReactionIdx, -1);
+        toggleButtonActive(storedReactionIdx, false);
+      }
 
-      db.collection("reactions")
-        .doc(postHash)
-        .update({
-          [emoj[idx]]: parseInt(reactionsCounters[idx].innerText),
-        });
+      // Если пользователь повторно нажал на ту же реакцию, убираем эту реакцию
+      if (storedReaction === emoj[idx]) {
+        window.sessionStorage.removeItem(postHash);
+      } else {
+        // В противном случае, сохраняем выбранную реакцию, увеличиваем счетчик на 1 и добавляем активность кнопке
+        window.sessionStorage.setItem(postHash, emoj[idx]);
+        updateReaction(postHash, idx, 1);
+        toggleButtonActive(idx, true);
+      }
     });
   });
 };

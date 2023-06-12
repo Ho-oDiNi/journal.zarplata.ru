@@ -1,8 +1,6 @@
 {{!< default}} {{!-- Everything inside the #post tags pulls data from the post --}} {{#post}} <div
   class="container-fluid wrapper">
   {{>share-links}}
-  <span id="site_url" style="visibility: hidden; height: 0px;">{{url}}</span>
-
   <div class="row">
     <div class="col-xs-12">
       {{> post-hero}}
@@ -114,4 +112,6 @@
 
     {{> related-posts}}
   </div>
+  <span id="site_url" style="visibility: hidden; height: 0px;">{{url}}</span>
+
   {{/post}}

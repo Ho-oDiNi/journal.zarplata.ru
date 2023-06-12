@@ -505,13 +505,11 @@
   .tag-chieloviek-diela {
     background-color: #cd8cff !important;
     color: #222222 !important;
-    border: 1px solid transparent !important;
     border-radius: 99px !important;
     padding: 0.15em 1em !important;
   
     &:hover {
       background-color: transparent !important;
-      border: 1px solid #cd8cff !important;
     }
   }
   
