@@ -1,59 +1,26 @@
 {{!-- Site footer --}}
-<footer class="footer">
+<footer class="footer" style="background-color: #ffffff;">
   <div class="container-fluid wrapper">
     <div class="footer__top">
-      <div class="row">
-        <div class="col-xs-12 {{#if @site.secondary_navigation}}col-md-3{{else}}col-md-4{{/if}}">
-          <h5 class="m-b-sm">{{t "Navigation"}}</h5>
-          {{> navigation-footer}}
+      <div class="row" style="display: flex; justify-content: space-between; align-items: center; margin: 20px 0">
+        <div class="">
+          <a style="color: #1480CF; text-decoration:underline"
+            href="https://cdn.zp.ru/job/docs/Soglasie_na_obrabotku_PD_polzovateley.doc">Политика конфиденциальности</a>
         </div>
-        {{#if @site.secondary_navigation}}
-          <div class="col-xs-12 col-md-3">
-            <h5 class="m-b-sm">{{t "Useful links"}}</h5>
-            {{navigation type="secondary"}}
-          </div>
-        {{/if}}
-        <div class="col-xs-12 {{#if @site.secondary_navigation}}col-md-3{{else}}col-md-4{{/if}}">
-          <h5 class="m-b-sm">{{t "Social Media"}}</h5>
+        <div class="" style="
+          font-size: 20px;
+          font-weight: 400;
+          line-height: 27px;
+          letter-spacing: 0em;
+          text-align: left;
+          ">
           {{> social-media}}
         </div>
-        {{!-- <div class="col-xs-12 {{#if @site.secondary_navigation}}col-md-3{{else}}col-md-4{{/if}}">
-          <h5 class="m-b-sm">{{@site.title}}</h5>
-          <div class="m-b" id="footer-subscribe">Подписаться и читать полезные статьи про работу первым</div>
-          <form class="subscribe-form" data-members-form="subscribe">
-            <input aria-labelledby="footer-subscribe" data-members-email type="email" placeholder="email@example.com" required/>
-            <button 
-              type="submit" 
-              title="{{t "Subscribe"}}" 
-              aria-label="{{t "Subscribe"}}"
-              onclick="ym(77659420,'reachGoal','emailSubscribe'); return true;"
-            >
-              {{>icon name="arrow-right"}}
-            </button>
-            <div class="message message-success">
-              <div class="message__header">
-                <div class="message__type">{{t "Success"}}</div>
-                <div class="message__close js-msg-close">{{>icon name="x" size="xs"}}</div>
-              </div>
-              <div class="message__content">
-                {{t "Great! Check your inbox and click the link to confirm your subscription"}}
-              </div>
-            </div>
-            <p data-members-error><!-- error message will appear here --></p>
-          </form>
-        </div> --}}
+        <div class="" style="display: flex; justify-content: space-between; align-items: center;">
+          <p style=" font-size: 20px; font-weight: 400; line-height: 27px; letter-spacing: 0em; text-align: left; margin: 0">©
+            2023 Зарплата.ру</p>
+        </div>
       </div>
-    </div>
-    {{!-- Copyright --}}
-    <div class="footer__bottom">
-      <div>&copy; {{date format="YYYY"}}&nbsp;Зарплата.ру</div>
-{{!--
-      <div>&copy; {{date format="YYYY"}}&nbsp;<a href="{{@site.url}}">{{@site.title}}</a>.</div>
-      <div>
-        &nbsp;{{t "Published with"}}&nbsp;<a href="https://ghost.org">Ghost</a>
-        &nbsp;&&nbsp;<a href="https://bironthemes.com/themes/auden-ghost/">Auden</a>.
-      </div>
---}}
     </div>
   </div>
 </footer>

@@ -23,18 +23,19 @@
       </div>
     </div>
   </section>
-  <section class="section latest-post desktop">
-    {{#foreach posts to="1"}}
-    <div class="row desktop">
-      <div class="col-xs {{#unless feature_image}}m-t-lg m-b-lg{{/unless}}">
-        {{> post-card class="post-card--special" lazy=false }}
-      </div>
-    </div>
-    {{/foreach}}
-  </section>
+
 
   <div class="row">
     <div class="col-xs-12 col-lg-8 col-xl-9">
+      <section class="section latest-post desktop">
+        {{#foreach posts to="1"}}
+        <div class="row desktop">
+          <div class="col-xs {{#unless feature_image}}m-t-lg m-b-lg{{/unless}}">
+            {{> post-card class="post-card--special" lazy=false }}
+          </div>
+        </div>
+        {{/foreach}}
+      </section>
       <section class="section all-posts">
         <div class="row posts">
           {{#foreach posts from="2"}}
@@ -96,56 +97,6 @@
     </div>
     <div class="col-xs col-lg-4 col-xl-3 has-sidebar">
       {{> sidebar}}
-    </div>
-  </div>
-
-  <div class="subscribe subscribe__popup" id="subscribe_popup" style="display: none">
-    <span class="subscribe__popup-close" id="subscribe_popup-close">
-      {{>icon name="x" size="s"}}
-    </span>
-    <div class="subscribe__popup-content" style="background-color: #70D6FF; display: none" id="1001">
-      <a href="https://www.journal.zarplata.ru/telegram-job-search/" class="subscribe__popup-link">
-        <img src="{{asset 'images/sp1.svg'}}" alt="" class="subscribe__popup-image">
-        <button class="subscribe__popup-button" style="color: #000; background-color: #FFE000;">
-          Читать
-        </button>
-      </a>
-    </div>
-
-    <div class="subscribe__popup-content" style="background-color: #FFE000; display: none" id="1002">
-      <a href="https://www.journal.zarplata.ru/skills-to-work-under-uncertainty/" class="subscribe__popup-link">
-        <img src="{{asset 'images/sp2.svg'}}" alt="" class="subscribe__popup-image">
-        <button class="subscribe__popup-button" style="background-color: #CD8CFF; color: #000">
-          Читать
-        </button>
-      </a>
-    </div>
-
-    <div class="subscribe__popup-content" style="background-color: #57EE81; display: none" id="1003">
-      <a href="https://www.journal.zarplata.ru/how-to-assess-the-manageability-of-a-job-seeker/">
-        <img src="{{asset 'images/sp3.svg'}}" alt="" class="subscribe__popup-image" class="subscribe__popup-link">
-        <button class="subscribe__popup-button" style="background-color: #FF84A9;">
-          Читать
-        </button>
-      </a>
-    </div>
-
-    <div class="subscribe__popup-content" style="background-color: #FF84A9; display: none" id="1004">
-      <a href="https://www.journal.zarplata.ru/how-to-pass-a-stress-interview/" class="subscribe__popup-link">
-        <img src="{{asset 'images/sp4.svg'}}" alt="" class="subscribe__popup-image">
-        <button class="subscribe__popup-button" style="background-color: #70D6FF;">
-          Читать
-        </button>
-      </a>
-    </div>
-
-    <div class="subscribe__popup-content" style="background-color: #CD8CFF; display: none" id="1005">
-      <a href="https://www.journal.zarplata.ru/security-check-at-the-hiring-process/" class="subscribe__popup-link">
-        <img src="{{asset 'images/sp5.svg'}}" alt="" class="subscribe__popup-image">
-        <button class="subscribe__popup-button" style="background-color: #FFE000;">
-          Читать
-        </button>
-      </a>
     </div>
   </div>
 

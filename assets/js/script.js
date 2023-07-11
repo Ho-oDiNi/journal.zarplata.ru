@@ -57,7 +57,8 @@ var callback = function () {
     "scroll",
     (event) => {
       // Modify header
-      window.scrollY > 56 ? addClass(".header", "is-scrolled") : "";
+      window.scrollY > 72 ? addClass(".header", "is-scrolled") : "";
+      window.scrollY > 6 ? removeClass("#header-all-themes", "show") : "";
       window.scrollY <= 6 ? removeClass(".header", "is-scrolled") : "";
 
       // Progressbar
@@ -119,6 +120,25 @@ var callback = function () {
         break; // nothing to do
     }
   };
+
+  // ==============
+  // Show All themes Desktop
+  // ==============
+
+  const navAllThemesButton = document.getElementById("nav-all-themes");
+  const headerAllThemesContainter =
+  document.getElementById("header-all-themes");
+  console.log("🚀 ~ file: script.js:131 ~ callback ~ headerAllThemesContainter:", headerAllThemesContainter)
+
+  navAllThemesButton.addEventListener("click", (e) => {
+    e.preventDefault();
+    if (headerAllThemesContainter.classList.contains('show')) {
+      headerAllThemesContainter.classList.remove('show');
+      return;
+    }
+
+    headerAllThemesContainter.classList.add('show')
+  });
 
   // ==============
   // Social Sharing Post

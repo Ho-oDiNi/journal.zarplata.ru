@@ -2,7 +2,9 @@
 .sidebar {
   height: 100%;
 
-  
+  @media (--viewport-md) {
+    margin-top: 30px;
+  }
 
   &__section {
     margin-bottom: var(--gap-lg);
