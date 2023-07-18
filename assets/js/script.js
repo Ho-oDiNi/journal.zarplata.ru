@@ -677,12 +677,14 @@ var callback = function () {
   const cloudMin = document.querySelector("#tag-cloud-min");
   const cloudAll = document.querySelector("#tag-cloud-all");
   const showAllTagsButton = document.querySelector("#show-all-tags");
-  showAllTagsButton.addEventListener("click", () => {
-    if (cloudMin.style.display === "block") {
-      cloudAll.style.display = "block";
-      cloudMin.style.display = "none";
-    }
-  });
+  if (showAllTagsButton) {
+    showAllTagsButton.addEventListener("click", () => {
+      if (cloudMin.style.display === "block") {
+        cloudAll.style.display = "block";
+        cloudMin.style.display = "none";
+      }
+    });
+  }
 
   // ==============
   // Social Sharing
