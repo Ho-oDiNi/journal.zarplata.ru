@@ -86,10 +86,7 @@
 
   &__image {
     display: flex;
-    flex: 0 0 40%;
     width: 100%;
-    height: calc(16 * var(--gap-rem));
-    max-height: calc(16 * var(--gap-rem));
     overflow: hidden;
     justify-content: center;
     align-items: center;
@@ -98,13 +95,8 @@
 
     @media (max-width: 767px) {
       border-radius: 26px 26px 0 0;
-      height: 256px;
     }
 
-    @media (--viewport-lg) {
-      height: calc(18 * var(--gap-rem));
-      max-height: calc(18 * var(--gap-rem));
-    }
 
     @media (--viewport-md) {
       border-top-left-radius: 26px;
@@ -123,14 +115,11 @@
     img {
       width: 100%;
       height: 100%;
+      max-height: 256px;
       margin: 0;
       object-fit: cover;
       object-position: center;
       transition: transform var(--animation-duration) var(--animation-name);
-
-      @media (--viewport-md) {
-        height: 100%;
-      }
     }
   }
 
@@ -401,7 +390,24 @@
   flex-direction: column;
   margin-bottom: 0;
   background-color: var(--color-bg);
-  margin: 30px 0;
+  height: 100%;
+  max-height: 565px;
+
+  @media (min-width: 767px) {
+    max-height: 652px;
+  }
+
+  @media (min-width: 808px) {
+    max-height: 622px;
+  }
+
+  @media (min-width: 1039px) {
+    max-height: 595px;
+  }
+
+  @media (min-width: 1200px) {
+    max-height: 565px;
+  }
 
   @mixin attention {
     .special-bg {
@@ -446,7 +452,11 @@
   }
 
   .post-card__image {
-    flex: 0 0 55%;
+    flex: 3;
+  }
+
+  img {
+    max-height: 100%;
   }
 
   .post-card__content {
@@ -470,7 +480,7 @@
     }
 
     @media (--viewport-lg) {
-      font-size: calc(2.4 * var(--font-size-base));
+      font-size: 22px;
     }
 
     @media (max-width: 767px) {
@@ -505,11 +515,13 @@
   .tag-chieloviek-diela {
     background-color: #cd8cff !important;
     color: #222222 !important;
+    border: 1px solid transparent !important;
     border-radius: 99px !important;
     padding: 0.15em 1em !important;
   
     &:hover {
       background-color: transparent !important;
+      border: 1px solid #CD8CFF !important;
     }
   }
   

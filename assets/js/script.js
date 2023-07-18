@@ -127,17 +127,16 @@ var callback = function () {
 
   const navAllThemesButton = document.getElementById("nav-all-themes");
   const headerAllThemesContainter =
-  document.getElementById("header-all-themes");
-  console.log("🚀 ~ file: script.js:131 ~ callback ~ headerAllThemesContainter:", headerAllThemesContainter)
+    document.getElementById("header-all-themes");
 
   navAllThemesButton.addEventListener("click", (e) => {
     e.preventDefault();
-    if (headerAllThemesContainter.classList.contains('show')) {
-      headerAllThemesContainter.classList.remove('show');
+    if (headerAllThemesContainter.classList.contains("show")) {
+      headerAllThemesContainter.classList.remove("show");
       return;
     }
 
-    headerAllThemesContainter.classList.add('show')
+    headerAllThemesContainter.classList.add("show");
   });
 
   // ==============
@@ -472,13 +471,15 @@ var callback = function () {
   // Search Vacancies Scripts
   // ===============
   const searchVacancyForm = document.getElementById("findPosition");
-  searchVacancyForm.addEventListener("submit", (event) => {
-    event.preventDefault();
-    window.open(
-      `https://www.zarplata.ru/vacancy?q=${event.target[0].value}&salary=${event.target[1].value}&utm_source=blog_vacancy`,
-      "_blank"
-    );
-  });
+  if (searchVacancyForm) {
+    searchVacancyForm.addEventListener("submit", (event) => {
+      event.preventDefault();
+      window.open(
+        `https://www.zarplata.ru/vacancy?q=${event.target[0].value}&salary=${event.target[1].value}&utm_source=blog_vacancy`,
+        "_blank"
+      );
+    });
+  }
 
   // ===========
   // Blog search
@@ -639,12 +640,14 @@ var callback = function () {
   const cloudMin = document.querySelector("#tag-cloud-min");
   const cloudAll = document.querySelector("#tag-cloud-all");
   const showAllTagsButton = document.querySelector("#show-all-tags");
-  showAllTagsButton.addEventListener("click", () => {
-    if (cloudMin.style.display === "block") {
-      cloudAll.style.display = "block";
-      cloudMin.style.display = "none";
-    }
-  });
+  if (showAllTagsButton) {
+    showAllTagsButton.addEventListener("click", () => {
+      if (cloudMin.style.display === "block") {
+        cloudAll.style.display = "block";
+        cloudMin.style.display = "none";
+      }
+    });
+  }
 
   // ==============
   // Reactions
@@ -664,31 +667,45 @@ var callback = function () {
   const rPooButton = document.querySelector("#r-poo-button");
   const rDislikeButton = document.querySelector("#r-dislike-button");
 
-  rLikeButton.addEventListener("click", () => {
-    if (!rLikeButton.classList.contains("active")) {
-      ym(77659420, "reachGoal", "reactionLike");
-    }
-  });
-  rFireButton.addEventListener("click", () => {
-    if (!rFireButton.classList.contains("active")) {
-      ym(77659420, "reachGoal", "reactionFire");
-    }
-  });
-  rFaceButton.addEventListener("click", () => {
-    if (!rFaceButton.classList.contains("active")) {
-      ym(77659420, "reachGoal", "reactionNeutral");
-    }
-  });
-  rPooButton.addEventListener("click", () => {
-    if (!rPooButton.classList.contains("active")) {
-      ym(77659420, "reachGoal", "reactionPoo");
-    }
-  });
-  rDislikeButton.addEventListener("click", () => {
-    if (!rDislikeButton.classList.contains("active")) {
-      ym(77659420, "reachGoal", "reactionDislike");
-    }
-  });
+  if (rLikeButton) {
+    rLikeButton.addEventListener("click", () => {
+      if (!rLikeButton.classList.contains("active")) {
+        ym(77659420, "reachGoal", "reactionLike");
+      }
+    });
+  }
+
+  if (rFireButton) {
+    rFireButton.addEventListener("click", () => {
+      if (!rFireButton.classList.contains("active")) {
+        ym(77659420, "reachGoal", "reactionFire");
+      }
+    });
+  }
+
+  if (rFaceButton) {
+    rFaceButton.addEventListener("click", () => {
+      if (!rFaceButton.classList.contains("active")) {
+        ym(77659420, "reachGoal", "reactionNeutral");
+      }
+    });
+  }
+
+  if (rPooButton) {
+    rPooButton.addEventListener("click", () => {
+      if (!rPooButton.classList.contains("active")) {
+        ym(77659420, "reachGoal", "reactionPoo");
+      }
+    });
+  }
+
+  if (rDislikeButton) {
+    rDislikeButton.addEventListener("click", () => {
+      if (!rDislikeButton.classList.contains("active")) {
+        ym(77659420, "reachGoal", "reactionDislike");
+      }
+    });
+  }
 
   const emoj = ["like", "fire", "poker_face", "poo", "dislike"];
 
@@ -1048,9 +1065,17 @@ const loadMorePosts = (button) => {
         var parser = new DOMParser();
         var doc = parser.parseFromString(html, "text/html");
 
+        function isNotHidden(el) {
+          var style = window.getComputedStyle(el);
+          return style.display !== "none";
+        }
+
         // Get posts
         const posts = doc.querySelectorAll(".post-wrap");
-        const postContainer = document.querySelectorAll(".posts");
+        // const postContainer = document.querySelectorAll(".posts");
+        const postContainer = [...document.querySelectorAll(".posts")].filter(
+          isNotHidden
+        );
         const nextPage = doc.querySelector("link[rel=next]");
 
         // Add each post to the page
@@ -1097,201 +1122,4 @@ function getParameterByName(name, url) {
   if (!results) return null;
   if (!results[2]) return "";
   return decodeURIComponent(results[2].replace(/\+/g, " "));
-}
-
-// ================================
-// Get Vacancies
-// ================================
-// const LAT_COEFFICIENT = 0.50;
-// const LTD_COEFFICIENT = 0.19;
-// const GEOHASH_MOSCOW = "1203101010112";
-
-// function getVacancies() {
-//   // fetching optimization
-//   if (sessionStorage.getItem('vacancies')) {
-//     createListOfVacancies(JSON.parse(sessionStorage.getItem('vacancies')));
-//     return;
-//   }
-
-//   //get user location
-//   if (window.navigator.geolocation) {
-//     window.navigator.geolocation.getCurrentPosition(
-//       async (position) => {
-//         const urlSearchParams = new URLSearchParams({
-//           bottom_lat: position.coords.latitude - LAT_COEFFICIENT,
-//           left_lng: position.coords.longitude - LTD_COEFFICIENT,
-//           top_lat: position.coords.latitude + LAT_COEFFICIENT,
-//           right_lng: position.coords.longitude + LTD_COEFFICIENT,
-//           width_points: 1000,
-//           height_points: 300,
-//           map_zoom: 12
-//         });
-
-//         //get geohash of user location
-//         const geohash = await fetch(`https://api.hh.ru/vacancies/map?${urlSearchParams}`)
-//         .then(res => res.json())
-//         .then(data => data.geo_clusters[0]?.geohash)
-//         .catch((e) => GEOHASH_MOSCOW);
-
-//         await fetchVacanciesByGeoHash(geohash);
-//       },
-//       async () => {
-//         await fetchVacanciesByGeoHash(GEOHASH_MOSCOW);
-//       }
-//     );
-//   } else {
-//     fetchVacanciesByGeoHash(GEOHASH_MOSCOW);
-//   }
-// }
-
-// ================================
-// Get Vacancies with GeoHash
-// ================================
-// async function fetchVacanciesByGeoHash(geohash) {
-//   //get current date for new vacancies
-//   const today = new Date();
-//   const formattedDay = today.getFullYear() + '-' +
-//                        String(today.getMonth() + 1).padStart(2, '0') + '-' +
-//                        String(today.getDate()).padStart(2, '0');
-
-//   const urlSearchParams = new URLSearchParams({
-//     geohash: geohash,
-//     date_from: formattedDay,
-//     date_to: formattedDay,
-//     limit: 5
-//   });
-
-//   const vacancies = await fetch(`https://api.zarplata.ru/vacancies?${urlSearchParams}`)
-//   .then((res) => res.json())
-//   .then(data => data)
-//   .catch((e) => {throw new Error(e)});
-
-//   if (vacancies) {
-//     sessionStorage.setItem(
-//       'vacancies',
-//       JSON.stringify(vacancies.items.slice(0,5))
-//     );
-//     createListOfVacancies(vacancies.items.slice(0,5));
-//   }
-// }
-
-// ================================
-// Generate list of vacancies
-// ================================
-// function createListOfVacancies(vacancies) {
-//   const vacanciesPlacement = document.querySelector('#vacancies-placements');
-
-//   if (vacancies && vacanciesPlacement) {
-//     vacancies.forEach((item) => {
-//       const li = document.createElement('li');
-//       let formatted_salary = 'договорная оплата';
-//       const vacancyUrl =`https://www.zarplata.ru/vacancy/card/id${item.id}?utm_source=blog_vacancy`;
-
-//       if (item.salary) {
-//         if (item.salary.from && item.salary.to) {
-//           formatted_salary = item.salary.from + ' - ' + item.salary.to + ' ₽';
-//         } else if (item.salary.to) {
-//           formatted_salary = item.salary.to + ' ₽';
-//         }
-//       }
-
-//       li.innerHTML = `
-//         <a href="${vacancyUrl}" style="color:#0055d2;" target="_blank">
-//           ${item.name}
-//         </a><br>
-//         <span>${formatted_salary}</span><br>
-//         <span style="color:#68696a;">${item.employer.name}</span>
-//       `;
-
-//       li.style.marginBottom = '18px';
-//       vacanciesPlacement.appendChild(li);
-//     });
-//   }
-// }
-
-function subscribePopip() {
-  // ================================
-  // Show subscribe popup
-  // ================================
-
-  const closeButton = document.getElementById("subscribe_popup-close");
-  // const subscribeButtonPopup = document.getElementById('subscribe-button');
-  const popup = document.querySelector("#subscribe_popup");
-  const postContent = document.querySelector(".post__content");
-  const popupLink = document.querySelector(".subscribe__popup-link");
-  let timeout = null;
-  let popups = [];
-
-  if (!window.sessionStorage.getItem("subscribe-popup-session-end")) {
-    if (window.sessionStorage.getItem("subscribe-popups")) {
-      popups = window.sessionStorage.getItem("subscribe-popups").split(" ");
-    } else {
-      popups = [1001, 1002, 1003, 1004, 1005];
-    }
-  }
-
-  const randomPopupIndex = Math.floor(Math.random() * popups.length);
-
-  // window.addEventListener('beforeunload', function () {
-  //   if(popup.classList.contains('_show') && !window.sessionStorage.getItem("subscribe-popup-show")) {
-  //     ym(77659420,'reachGoal','popupUserLeave');
-  //   }
-  // });
-
-  // if (subscribeButtonPopup) {
-  //   subscribeButtonPopup.addEventListener('click', () => {
-  //     ym(77659420,'reachGoal','emailSubscribe');
-  //     return true;
-  //   });
-  // }
-
-  if (postContent) {
-    const showPoint = (postContent.offsetHeight / 3) * 2;
-    window.onscroll = function (e) {
-      if (window.scrollY >= showPoint) {
-        showPopup("publication");
-      }
-    };
-  } else {
-    timeout = setTimeout(() => {
-      showPopup("mainPage");
-    }, 15000);
-  }
-
-  function showPopup(from) {
-    if (
-      popup &&
-      !window.sessionStorage.getItem("subscribe-popup-session-end") &&
-      !popup.classList.contains("_show")
-    ) {
-      if (from === "publication") {
-        ym(77659420, "reachGoal", "showPopupPublication");
-      } else if (from === "mainPage") {
-        ym(77659420, "reachGoal", "showPopupMain");
-      }
-
-      popup.classList.add("_show");
-      const content = document.getElementById(popups[randomPopupIndex]);
-      content.style.display = "inherit";
-
-      window.sessionStorage.setItem(
-        "subscribe-popups",
-        popups.filter((i) => i !== popups[randomPopupIndex]).join(" ")
-      );
-
-      popupLink.addEventListener("click", () => {
-        ym(77659420, "reachGoal", "click-popup");
-      });
-
-      closeButton.addEventListener("click", () => {
-        if (popup) {
-          popup.classList.remove("_show");
-          closeButton.style.display = "none";
-          ym(77659420, "reachGoal", "close-popup");
-          window.sessionStorage.setItem("subscribe-popup-session-end", "true");
-        }
-      });
-    }
-    clearTimeout(timeout);
-  }
 }

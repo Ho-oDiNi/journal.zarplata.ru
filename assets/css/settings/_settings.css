@@ -122,8 +122,8 @@
 /*----------------------------------------*/
 /* Media Queries
 /*----------------------------------------*/
-@custom-media --viewport-sm only screen and (min-width: 36em);
-@custom-media --viewport-md only screen and (min-width: 48em);
-@custom-media --viewport-lg only screen and (min-width: 62em);
-@custom-media --viewport-xl only screen and (min-width: 75em);
 
+@custom-media --viewport-sm only screen and (min-width: 36em); /* 576px */
+@custom-media --viewport-md only screen and (min-width: 48em); /* 768 */
+@custom-media --viewport-lg only screen and (min-width: 62em); /* 992 */
+@custom-media --viewport-xl only screen and (min-width: 75em); /* 1200 */

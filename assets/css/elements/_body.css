@@ -39,7 +39,7 @@ body {
 
 @media (min-width: 767px) {
   .desktop {
-    display: block !important;
+    display: inherit;
   }
   .mobile {
     display: none !important;
@@ -48,10 +48,10 @@ body {
 
 @media (max-width: 767px) {
   .desktop {
-    display: none;
+    display: none !important;
   }
   .mobile {
-    display: block;
+    display: inherit;
   }
 }
 
@@ -74,4 +74,18 @@ body {
   font-size: 18px;
   line-height: 27px;
   font-weight: 400;
+}
+
+.md {
+  display: none;
+  @media (max-width: 970px) {
+    display: unset;
+  }
+}
+
+.lg {
+  display: none;
+  @media (min-width: 971px) {
+    display: unset;
+  }
 }

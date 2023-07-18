@@ -293,6 +293,15 @@
 
       &:not(:last-child) {
         margin-right: 10px;
+
+        @media (--viewport-md) {
+          margin-right: 8px;
+        }
+
+        @media (--viewport-lg) {
+          margin-right: 10px;
+        }
+        
       }
     }
 
@@ -337,6 +346,7 @@
     .tag-rieziumie,
     .tag-sobiesiedovaniie,
     .tag-uvolnieniie,
+    .tag-frilans,
     .tag-udalionka,
     .tag-frilance {
       background-color: #FF84A9 !important;
@@ -496,11 +506,11 @@
       transition: 0.2s;
     }
 
-    .nav-all-themes:hover {
+    .nav-all-themes:hover,
+    .nav-all-themes:active {
       background-color: #000000;
       color: #fff;
       transition: 0.2s;
-      
     }
   }
 

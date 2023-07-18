@@ -134,3 +134,10 @@
     color: var(--color-primary);
   }
 }
+
+.footer-wrapper {
+  display: none;
+  @media (min-width: 971px) {
+    display: block;
+  }
+}

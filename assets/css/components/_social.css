@@ -5,8 +5,11 @@
 
   &__item {
     display: flex;
-    margin-right: var(--gap-sm);
     color: var(--color-text-accent-3);
+
+    &:not(:last-child) {
+      margin-right: var(--gap-sm);
+    }
 
     @mixin attention {
       color: var(--color-primary);
