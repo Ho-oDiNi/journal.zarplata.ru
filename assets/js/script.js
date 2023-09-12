@@ -474,6 +474,7 @@ var callback = function () {
   if (searchVacancyForm) {
     searchVacancyForm.addEventListener("submit", (event) => {
       event.preventDefault();
+      ym(77659420,'reachGoal','show-vacancies')
       window.open(
         `https://www.zarplata.ru/vacancy?q=${event.target[0].value}&salary=${event.target[1].value}&utm_source=blog_vacancy`,
         "_blank"
@@ -633,6 +634,18 @@ var callback = function () {
       }
     });
   }
+
+  function isYaBrowser(){
+    var ua = navigator.userAgent;    
+    if (ua.search(/YaBrowser/) > 0) return true;
+    return false;
+  }
+    
+  if (isYaBrowser()) {
+    const scrollToTop = document.getElementsByClassName('scroll-to-top')[0];
+    scrollToTop.style.display = "none";
+  }
+
   // ==============
   // Tag Cloud
   // ==============
@@ -640,14 +653,12 @@ var callback = function () {
   const cloudMin = document.querySelector("#tag-cloud-min");
   const cloudAll = document.querySelector("#tag-cloud-all");
   const showAllTagsButton = document.querySelector("#show-all-tags");
-  if (showAllTagsButton) {
-    showAllTagsButton.addEventListener("click", () => {
-      if (cloudMin.style.display === "block") {
-        cloudAll.style.display = "block";
-        cloudMin.style.display = "none";
-      }
-    });
-  }
+  showAllTagsButton.addEventListener("click", () => {
+    if (cloudMin.style.display === "block") {
+      cloudAll.style.display = "block";
+      cloudMin.style.display = "none";
+    }
+  });
 
   // ==============
   // Reactions

@@ -1,7 +1,4 @@
 .post {
-  max-width: calc(40 * var(--gap-rem));
-  margin: 0 auto;
-
   &__content {
     display: flex;
     flex-direction: column;
@@ -102,7 +99,7 @@
 
 .post-hero__image-wrapper {
   width: 100%;
-  flex: 0 0 55%;
+  /* flex: 0 0 55%; */
 }
 
 .post-hero__image-caption {
@@ -309,11 +306,6 @@
     display: flex;
     align-items: center;
     flex-wrap: wrap;
-    margin-bottom: var(--gap);
-
-    &> a {
-      margin-bottom: 8px;
-    }
 
     /* group 1 */
     .tag-ishchu-rabotu,
@@ -414,7 +406,7 @@
     color: var(--color-text-accent-3);
     border-radius: var(--global-radius);
     border: 1px solid var(--color-text-accent-3);
-    margin-right: var(--gap-sm);
+    margin-right: 15px;
 
     @mixin attention {
       color: var(--color-primary);
@@ -547,6 +539,7 @@
     flex-direction: column;
     justify-content: center;
     line-height: 1.2;
+    margin-right: 15px;
   }
 
   &__title {

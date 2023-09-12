@@ -88,44 +88,12 @@
 .tag-header {
   position: relative;
   display: flex;
-  flex-direction: column;
-  margin-top: var(--gap);
-  margin-bottom: var(--gap-lg);
-
-  @media (--viewport-md) {
-    flex-direction: row-reverse;
-    padding: var(--gap-lg) 0;
-
-    .geometric-bg {
-      display: block;
-      position: absolute;
-      z-index: 1;
-      left: 5%;
-      top: 8%;
-      z-index: 1;
-      width: 50%;
-      height: 80%;
-      background-color: var(--color-bg-accent-2);
-      border-radius: 30% 70% 70% 30%/30% 30% 70% 70%;
-      box-shadow: -4vmin 4vmin 0 var(--color-bg-accent-1);
-      transition: border-radius var(--animation-duration-lg) var(--animation-name), width var(--animation-duration-lg) var(--animation-name);
-    }
-  }
-
-  @mixin attention {
-    .geometric-bg {
-      width: 50%;
-      border-radius: 55% 45% 45% 55%/55% 55% 45% 45%;
-      transition: 
-        width var(--animation-duration-lg) var(--animation-name),
-        border-radius var(--animation-duration-lg) var(--animation-name);
-    }
-  }
+  /* flex-direction: column; */
+  flex-direction: row-reverse;
+  padding: var(--gap-lg) 0;
 
   &.no-img {
-    background-color: var(--color-bg-accent-1);
     border-radius: var(--global-radius);
-    padding: var(--gap);
 
     .geometric-bg {
       display: none;
@@ -136,6 +104,8 @@
     }
 
     .tag-header__content {
+      padding: 6px 0;
+      border-radius: 30px;
       flex-basis: 100%;
     }
   }
@@ -167,23 +137,23 @@
     align-items: center;
     z-index: 3;
 
-    @media (--viewport-md) {
-      align-items: center;
+    align-items: center;
       justify-content: center;
       flex-direction: column;
       flex-basis: 45%;
       padding-top: 0;
       padding-right: var(--gap);
-    }
+
   }
 
   &__title {
     flex: 1 0 auto;
     margin: 0;
+    font-size: 18px;
+    font-weight: 600;
 
     @media (--viewport-md) {
       flex: 0;
-      margin-bottom: var(--gap-sm);
     }
   }
 
@@ -205,32 +175,51 @@
   }
 }
 
-/* Post Breadcrumbs */
-.breadcrumbs {
-  margin-top: 1em;
-  list-style: none;
-  padding: 0;
-  color: var(--color-text-accent-3);
-  overflow: hidden;
-  white-space: nowrap;
-
-  li {
-    display: inline-block;
-  }
-
-  li > div {
-    display: inline-block;
-  }
+/* group 1 */
+.tag-h-ishchu-rabotu,
+.tag-h-rabota-v-komandie,
+.tag-h-rabota-v-ofisie,
+.tag-h-rabota-i-siemia,
+.tag-h-applicants,
+.tag-h-chieloviek-diela {
+  background-color: #CD8CFF;
 }
 
-.breadcrumbs li + li::before {
-  content: "/";
-  opacity: 0.5;
-  margin: 0 .2em;
-  font-weight: normal;
+/* group 2 */
+.tag-h-employers,
+.tag-h-biznies,
+.tag-h-ishchu-sotrudnika,
+.tag-h-rukovodstvo {
+  background-color: #ffe000;
 }
 
-.breadcrumb-item-current {
-  color: var(--color-text-accent-3);
+/* group 3 */
+.tag-h-diekriet,
+.tag-h-rieziumie,
+.tag-h-sobiesiedovaniie,
+.tag-h-uvolnieniie,
+.tag-h-frilans,
+.tag-h-udalionka,
+.tag-h-frilance {
+  background-color: #FF84A9;
 }
+
+/* group 4 */
+.tag-h-kariernyie-soviety,
+.tag-h-obrazovaniie,
+.tag-h-poliezno,
+.tag-h-students,
+.tag-h-u-mienia-vykhodnoi {
+  background-color: #57EE81;
+}
+
+/* group 5 */
+.tag-h-zakony-i-pravo,
+.tag-h-webinar,
+.tag-h-interview,
+.tag-h-novosti,
+.tag-h-faq {
+  background-color: #70D6FF;
+}
+
 
