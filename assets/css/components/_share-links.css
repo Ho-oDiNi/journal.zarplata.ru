@@ -1,6 +1,6 @@
 .share-button {
   position: fixed;
-  bottom: 0;
+  bottom: 20px;
   left: 16px;
   z-index: 999;
   display: flex;
@@ -8,6 +8,7 @@
 
   &>img {
     padding-right: 8px;
+    height: 46px;
   }
 
   &__socials {
@@ -17,6 +18,11 @@
     &>a {
       padding-right: 8px;
       height: 36px
+    }
+
+    img {
+      width: 46px;
+      height: 46px;
     }
   }
 }

@@ -47,8 +47,8 @@
   {{/get}}
   {{/is}} --}}
 
-  {{!-- Social Media Links --}}
-  <div class="sidebar__section">
+  {{!-- Applicant widget --}}
+  <div class="sidebar__section" id="applicant_widget">
     <h5 class="sidebar__title" style="margin-bottom: 32px;">Найти работу
       на Зарплате.ру</h5>
     <div class="sidebar__description">
@@ -58,6 +58,15 @@
         <input type="submit"  class="sidebar__vacanciesAction"
           style="width: 100%; border: none; outline: none;" value="Показать вакансии" />
       </form>
+    </div>
+  </div>
+
+  {{!-- Employer widget --}}
+  <div class="sidebar__section" id="employer_widget" style="display: none;">
+    <h5 class="sidebar__title" style="margin-bottom: 32px;">Найти сотрудника на Зарплате.ру</h5>
+    <div class="sidebar__description">
+      <input type="submit"  class="sidebar__vacanciesAction"
+          style="width: 100%; border: none; outline: none;" value="Разместить вакансию" />
     </div>
   </div>
 

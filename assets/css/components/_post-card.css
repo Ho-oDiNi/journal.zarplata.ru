@@ -427,30 +427,6 @@
     padding: 0;
   }
 
-  .special-bg {
-    display: none;
-
-    @media (--viewport-md) {
-      display: block;
-      position: absolute;
-      left: 10%;
-      top: 10%;
-      z-index: 1;
-      width: 55%;
-      height: 70%;
-      background-color: var(--color-bg-accent-2);
-      border-radius: 30% 70% 70% 30%/30% 30% 70% 70%;
-      box-shadow: -5vmin 5vmin 0 var(--color-bg-accent-1);
-      transition: border-radius var(--animation-duration-lg)
-          var(--animation-name),
-        left var(--animation-duration-lg) var(--animation-name);
-    }
-
-    @media (--viewport-lg) {
-      width: 50%;
-    }
-  }
-
   .post-card__image {
     flex: 3;
   }

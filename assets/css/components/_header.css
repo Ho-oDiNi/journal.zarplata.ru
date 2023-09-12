@@ -256,6 +256,7 @@
     display: none;
 
     @media (--viewport-md) {
+      border-top: 1px solid #FAFAFB;
       display: block;
       overflow: hidden;
     }

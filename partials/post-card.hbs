@@ -1,48 +1,41 @@
 {{!-- Post Card --}}
 <div class="post-card{{#if class}} {{class}}{{/if}}{{^if feature_image}} no-img{{/if}}{{#if featured}} featured{{/if}}">
-  <div class="special-bg"></div>
-  <div class="post-card__header post-card__header--special mobile" style="position: absolute; z-index: 5; top: 12px; left: 12px">
-      <div class="tag mobile">
+  <div class="post-card__header post-card__header--special mobile"
+    style="position: absolute; z-index: 5; top: 12px; left: 12px">
+    <div class="tag mobile">
       {{#if tags}}
-        {{#primary_tag}}
-          <a class="tag-{{slug}} post-card__tag" href="{{url}}" 
-          title="{{name}}" aria-label="{{name}}s">{{name}}</a>
-        {{/primary_tag}}
-      {{/if}}
-      </div>
-      <div class="post-card__tag {{visibility}}">members</div>
-
-      {{#if featured}}
-        <div class="post-card__featured">{{> icon name="star" size="sm"}}</div>
+      {{#primary_tag}}
+      <a class="tag-{{slug}} post-card__tag" href="{{url}}" title="{{name}}" aria-label="{{name}}s">{{name}}</a>
+      {{/primary_tag}}
       {{/if}}
     </div>
+    <div class="post-card__tag {{visibility}}">members</div>
+
+    {{#if featured}}
+    <div class="post-card__featured">{{> icon name="star" size="sm"}}</div>
+    {{/if}}
+  </div>
+
   {{#if feature_image}}
-    <a class="post-card__image" href="{{url}}" title="{{title}}" aria-label="{{title}}">
-      <img class="lazyload"
-          data-srcset="{{img_url feature_image size="s"}} 300w,
-                  {{img_url feature_image size="m"}} 600w,
-                  {{img_url feature_image size="l"}} 1000w,
-                  {{img_url feature_image size="xl"}} 2000w"
-          data-sizes="(max-width: 1000px) 50vw, 700px"
-          data-src="{{img_url feature_image size="l"}}"
-          src="{{asset 'images/img-placeholder-md.jpg'}}"
-          alt="{{title}}"
-      />
-    </a>
+  <a class="post-card__image" href="{{url}}" title="{{title}}" aria-label="{{title}}">
+    <img class="lazyload" data-srcset="{{img_url feature_image size=" s"}} 300w, {{img_url feature_image size="m" }}
+      600w, {{img_url feature_image size="l" }} 1000w, {{img_url feature_image size="xl" }} 2000w"
+      data-sizes="(max-width: 1000px) 50vw, 700px" data-src="{{img_url feature_image size=" l"}}"
+      src="{{asset 'images/img-placeholder-md.jpg'}}" alt="{{title}}" />
+  </a>
   {{/if}}
 
   <div class="post-card__content">
     <div class="post-card__header">
       {{#if tags}}
-        {{#primary_tag}}
-          <a class="tag-{{slug}} post-card__tag" href="{{url}}" 
-          title="{{name}}" aria-label="{{name}}s">{{name}}</a>
-        {{/primary_tag}}
+      {{#primary_tag}}
+      <a class="tag-{{slug}} post-card__tag" href="{{url}}" title="{{name}}" aria-label="{{name}}s">{{name}}</a>
+      {{/primary_tag}}
       {{/if}}
       <div class="post-card__tag {{visibility}}">members</div>
 
       {{#if featured}}
-        <div class="post-card__featured">{{> icon name="star" size="sm"}}</div>
+      <div class="post-card__featured">{{> icon name="star" size="sm"}}</div>
       {{/if}}
     </div>
 
@@ -59,9 +52,9 @@
     </div>
 
     {{#unless feature_image}}
-      <div class="post-card__excerpt">
-        {{excerpt words="30"}}&hellip;
-      </div>
+    <div class="post-card__excerpt">
+      {{excerpt words="30"}}&hellip;
+    </div>
     {{/unless}}
   </div>
 </div>

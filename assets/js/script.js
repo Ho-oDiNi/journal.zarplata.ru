@@ -405,6 +405,15 @@ var callback = function () {
     autoHeight: false,
   });
 
+  const employerWidget = document.getElementById("employer_widget");
+  const applicantWidget = document.getElementById("applicant_widget");
+  const currentTag = document.getElementsByClassName('post-hero__header')[0].childNodes[1].classList[0];
+  employerWidget.style.display="none";
+
+  if (currentTag === 'tag-employers') {
+    applicantWidget.style.display="none";
+    employerWidget.style.display="block"
+  }
   // ===============
   // Members Scripts
   // ===============
