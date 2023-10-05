@@ -155,27 +155,6 @@ var callback = function () {
     });
   }
 
-  // ============
-  // Share links
-  // ============
-
-  if (document.querySelector(".post-hero")) {
-    const wpShare = document.getElementById("wpShare");
-    wpShare.addEventListener("click", () => {
-      shareOnFacebook("https://api.whatsapp.com/send?text=");
-    });
-
-    const vkShare = document.getElementById("vkShare");
-    vkShare.addEventListener("click", () => {
-      shareOnFacebook("https://vk.com/share.php?url=");
-    });
-
-    const tgShare = document.getElementById("tgShare");
-    tgShare.addEventListener("click", () => {
-      shareOnFacebook("https://telegram.me/share/url?url=");
-    });
-  }
-
   function shareOnFacebook(link) {
     const urlToShare = window.location.href;
     const baseURL = link;
@@ -393,35 +372,11 @@ var callback = function () {
   }
 
   // ===============
-  // Swiper Scripts
-  // ===============
-  const swiper = new Swiper(".swiper", {
-    // Optional parameters
-    direction: "horizontal",
-    slidesPerView: "auto",
-    initialSlide: 1,
-    centeredSlides: true,
-    spaceBetween: 16,
-    autoHeight: false,
-  });
-
-  const employerWidget = document.getElementById("employer_widget");
-  const applicantWidget = document.getElementById("applicant_widget");
-  const currentTag = document.getElementsByClassName('post-hero__header')[0].childNodes[1].classList[0];
-  employerWidget.style.display="none";
-
-  if (currentTag === 'tag-employers') {
-    applicantWidget.style.display="none";
-    employerWidget.style.display="block"
-  }
-  // ===============
   // Members Scripts
   // ===============
   // Give the parameter a variable name
   const action = getParameterByName("action");
   const stripe = getParameterByName("stripe");
-  // getVacancies();
-  // subscribePopip();
 
   switch (action) {
     case "subscribe":
@@ -476,18 +431,24 @@ var callback = function () {
     };
   }
 
-  // ===============
-  // Search Vacancies Scripts
-  // ===============
-  const searchVacancyForm = document.getElementById("findPosition");
-  if (searchVacancyForm) {
-    searchVacancyForm.addEventListener("submit", (event) => {
-      event.preventDefault();
-      ym(77659420,'reachGoal','show-vacancies')
-      window.open(
-        `https://www.zarplata.ru/vacancy?q=${event.target[0].value}&salary=${event.target[1].value}&utm_source=blog_vacancy`,
-        "_blank"
-      );
+  // ============
+  // Share links
+  // ============
+
+  if (document.querySelector(".post-hero")) {
+    const wpShare = document.getElementById("wpShare");
+    wpShare.addEventListener("click", () => {
+      shareOnFacebook("https://api.whatsapp.com/send?text=");
+    });
+
+    const vkShare = document.getElementById("vkShare");
+    vkShare.addEventListener("click", () => {
+      shareOnFacebook("https://vk.com/share.php?url=");
+    });
+
+    const tgShare = document.getElementById("tgShare");
+    tgShare.addEventListener("click", () => {
+      shareOnFacebook("https://telegram.me/share/url?url=");
     });
   }
 
@@ -622,6 +583,53 @@ var callback = function () {
   // =============
   refreshFsLightbox();
 
+  /*
+    My functions
+  */
+
+  // ===============
+  // Swiper Scripts
+  // ===============
+  const swiper = new Swiper(".swiper", {
+    // Optional parameters
+    direction: "horizontal",
+    slidesPerView: "auto",
+    initialSlide: 1,
+    centeredSlides: true,
+    spaceBetween: 16,
+    autoHeight: false,
+  });
+
+  // ===============
+  // Employer/Applicants widgets in publications
+  // ===============
+  const employerWidget = document.getElementById("employer_widget");
+  const applicantWidget = document.getElementById("applicant_widget");
+  const currentTag =
+    document.getElementsByClassName("post-hero__header")[0]?.childNodes[1]
+      .classList[0];
+  employerWidget.style.display = "none";
+
+  if (currentTag === "tag-employers") {
+    applicantWidget.style.display = "none";
+    employerWidget.style.display = "block";
+  }
+
+  // ===============
+  // Search Vacancies Scripts
+  // ===============
+  const searchVacancyForm = document.getElementById("findPosition");
+  if (searchVacancyForm) {
+    searchVacancyForm.addEventListener("submit", (event) => {
+      event.preventDefault();
+      ym(77659420, "reachGoal", "show-vacancies");
+      window.open(
+        `https://www.zarplata.ru/vacancy?q=${event.target[0].value}&salary=${event.target[1].value}&utm_source=blog_vacancy`,
+        "_blank"
+      );
+    });
+  }
+
   // ==================
   // Social Share Logic
   // ==================
@@ -644,14 +652,21 @@ var callback = function () {
     });
   }
 
-  function isYaBrowser(){
-    var ua = navigator.userAgent;    
+
+  // ==============
+  // Function detect yandex browser
+  // ==============
+  function isYaBrowser() {
+    var ua = navigator.userAgent;
     if (ua.search(/YaBrowser/) > 0) return true;
     return false;
   }
-    
+
+  // ==============
+  // Hide scroll to top button if user using Ya Browser
+  // ==============
   if (isYaBrowser()) {
-    const scrollToTop = document.getElementsByClassName('scroll-to-top')[0];
+    const scrollToTop = document.getElementsByClassName("scroll-to-top")[0];
     scrollToTop.style.display = "none";
   }
 
@@ -668,6 +683,27 @@ var callback = function () {
       cloudMin.style.display = "none";
     }
   });
+
+  // ==============
+  // Social Sharing
+  // ==============
+  function jsShareable(socialShare) {
+    if (socialShare.length > 1) {
+      socialShare.forEach((el) => {
+        let title = el.getAttribute("data-title");
+        let url = el.getAttribute("data-url");
+        let type = el.getAttribute("data-type");
+
+        jsShare(el, title, url, type);
+      });
+    } else {
+      let title = socialShare.getAttribute("data-title");
+      let url = socialShare.getAttribute("data-url");
+      let type = socialShare.getAttribute("data-type");
+
+      jsShare(socialShare, title, url, type);
+    }
+  }
 
   // ==============
   // Reactions
@@ -738,7 +774,10 @@ var callback = function () {
     postHash = md5.toString(CryptoJS.enc.Base64);
   }
 
-  // set reactions from database
+  // ==============
+  // Publication reactions buttons
+  // Load data from database
+  // ==============
   if (postHash) {
     const ref = db.collection("reactions").doc(postHash);
 
@@ -771,11 +810,20 @@ var callback = function () {
       });
   }
 
+
+  // ==============
+  // Publication reactions buttons
+  // Set selected emoji
+  // ==============
   if (window.sessionStorage.getItem(postHash)) {
     const obj = window.sessionStorage.getItem(postHash);
     reactionsButtons[emoj.indexOf(obj)].classList.add("active");
   }
 
+  // ==============
+  // Publication reactions buttons
+  // Set actions
+  // ==============
   reactionsButtons.forEach((btn, idx) => {
     btn.addEventListener("click", () => {
       // Функция для обновления счетчика реакции и сохранения его в базе данных
@@ -962,27 +1010,6 @@ const copyToClipboard = (src, str) => {
     }, 500);
   };
 };
-
-// ==============
-// Social Sharing
-// ==============
-function jsShareable(socialShare) {
-  if (socialShare.length > 1) {
-    socialShare.forEach((el) => {
-      let title = el.getAttribute("data-title");
-      let url = el.getAttribute("data-url");
-      let type = el.getAttribute("data-type");
-
-      jsShare(el, title, url, type);
-    });
-  } else {
-    let title = socialShare.getAttribute("data-title");
-    let url = socialShare.getAttribute("data-url");
-    let type = socialShare.getAttribute("data-type");
-
-    jsShare(socialShare, title, url, type);
-  }
-}
 
 function jsShare(el, title, url, type) {
   let shareLink;
