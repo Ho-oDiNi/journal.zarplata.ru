@@ -21,7 +21,6 @@ textarea {
   padding: var(--gap);
   margin-bottom: var(--gap);
   border: none;
-  box-shadow: 0 0 0 1px var(--color-border);
   border-radius: var(--global-radius);
   outline: 0;
   line-height: initial;
@@ -30,10 +29,6 @@ textarea {
   font-family: var(--font-family-sans-serif);
   color: inherit;
   /* transition: var(--animation-duration) var(--animation-name); */
-
-  @mixin attention {
-    box-shadow: 0 0 0 1px #706F69;
-  }
 
   &::-webkit-input-placeholder,
   &:-ms-input-placeholder,

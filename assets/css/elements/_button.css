@@ -6,6 +6,7 @@ button,
   font-size: var(--font-size-base);
   letter-spacing: calc(0.025 * var(--font-size-base));
   line-height: 1;
+  height: 54px;
   background-color: var(--color-bg-accent-2);
   display: inline-block;
   outline: none;
@@ -14,6 +15,10 @@ button,
   border-radius: var(--global-radius);
   padding: var(--gap) var(--gap-lg);
   -webkit-appearance: button;
+
+  @media (max-width: 768px) {
+    width: 90%;
+  }
 
   @mixin attention {
     background-color: var(--color-bg-accent-3);

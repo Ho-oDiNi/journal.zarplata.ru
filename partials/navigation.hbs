@@ -1,23 +1,18 @@
 <ul class="nav" role="menu">
     {{#foreach navigation}}
-        <li class="{{link_class for=(url) class=(concat "nav-" slug)}}" role="menuitem">
-            <a href="{{url absolute="true"}}">{{label}}</a>
-        </li>
-    {{/foreach}}
-    <li>
-        <a href="https://zarplata.ru/vacancy">Найти работу в вашем городе</a>
+    <li class="{{link_class for=(url) class=(concat " nav-" slug)}}" role="menuitem">
+        <a href="{{url absolute=" true"}}">{{label}}</a>
     </li>
-    {{#if search}}
-        <li>
-            <a id="search-open"
-               tabindex="0"
-               title="{{t "Search"}}"
-               aria-label="{{t "Search"}}"
-               style="display: inline-flex;"
-            >
-                {{>icon name="search" size="sm"}}
-                <span class="m-l-xs">Поиск по блогу</span>
-            </a>
-        </li>
-    {{/if}}
+    {{/foreach}}
+    <li class="nav-applicants" role="menuitem">
+        <a href="https://zarplata.ru/?utm_source=blog&utm_medium=menu"
+            onclick="ym(77659420,'reachGoal','menu-fa'); return true;">Найти работу</a>
+    </li>
+    <li class="nav-employers" role="menuitem">
+        <a href="https://hr.zarplata.ru/employer?utm_source=blog&utm_medium=menu"
+            onclick="ym(77659420,'reachGoal','menu-fe'); return true;">Найти сотрудника</a>
+    </li>
+    <li class="nav-all-themes" role="menuitem">
+        <a href="#" id="nav-all-themes">Все темы</a>
+    </li>
 </ul>

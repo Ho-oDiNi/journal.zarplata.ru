@@ -57,7 +57,8 @@ var callback = function () {
     "scroll",
     (event) => {
       // Modify header
-      window.scrollY > 56 ? addClass(".header", "is-scrolled") : "";
+      window.scrollY > 72 ? addClass(".header", "is-scrolled") : "";
+      window.scrollY > 6 ? removeClass("#header-all-themes", "show") : "";
       window.scrollY <= 6 ? removeClass(".header", "is-scrolled") : "";
 
       // Progressbar
@@ -121,6 +122,24 @@ var callback = function () {
   };
 
   // ==============
+  // Show All themes Desktop
+  // ==============
+
+  const navAllThemesButton = document.getElementById("nav-all-themes");
+  const headerAllThemesContainter =
+    document.getElementById("header-all-themes");
+
+  navAllThemesButton.addEventListener("click", (e) => {
+    e.preventDefault();
+    if (headerAllThemesContainter.classList.contains("show")) {
+      headerAllThemesContainter.classList.remove("show");
+      return;
+    }
+
+    headerAllThemesContainter.classList.add("show");
+  });
+
+  // ==============
   // Social Sharing Post
   // ==============
   const socialsButtonShare = document.querySelector("#share-socials-button");
@@ -133,27 +152,6 @@ var callback = function () {
       } else {
         hiddedSocials.style.display = "none";
       }
-    });
-  }
-
-  // ============
-  // Share links
-  // ============
-
-  if (document.querySelector(".post-hero")) {
-    const wpShare = document.getElementById("wpShare");
-    wpShare.addEventListener("click", () => {
-      shareOnFacebook("https://api.whatsapp.com/send?text=");
-    });
-
-    const vkShare = document.getElementById("vkShare");
-    vkShare.addEventListener("click", () => {
-      shareOnFacebook("https://vk.com/share.php?url=");
-    });
-
-    const tgShare = document.getElementById("tgShare");
-    tgShare.addEventListener("click", () => {
-      shareOnFacebook("https://telegram.me/share/url?url=");
     });
   }
 
@@ -374,26 +372,11 @@ var callback = function () {
   }
 
   // ===============
-  // Swiper Scripts
-  // ===============
-  const swiper = new Swiper(".swiper", {
-    // Optional parameters
-    direction: "horizontal",
-    slidesPerView: "auto",
-    initialSlide: 1,
-    centeredSlides: true,
-    spaceBetween: 16,
-    autoHeight: false,
-  });
-
-  // ===============
   // Members Scripts
   // ===============
   // Give the parameter a variable name
   const action = getParameterByName("action");
   const stripe = getParameterByName("stripe");
-  // getVacancies();
-  // subscribePopip();
 
   switch (action) {
     case "subscribe":
@@ -448,17 +431,26 @@ var callback = function () {
     };
   }
 
-  // ===============
-  // Search Vacancies Scripts
-  // ===============
-  const searchVacancyForm = document.getElementById("findPosition");
-  searchVacancyForm.addEventListener("submit", (event) => {
-    event.preventDefault();
-    window.open(
-      `https://www.zarplata.ru/vacancy?q=${event.target[0].value}&salary=${event.target[1].value}&utm_source=blog_vacancy`,
-      "_blank"
-    );
-  });
+  // ============
+  // Share links
+  // ============
+
+  if (document.querySelector(".post-hero")) {
+    const wpShare = document.getElementById("wpShare");
+    wpShare.addEventListener("click", () => {
+      shareOnFacebook("https://api.whatsapp.com/send?text=");
+    });
+
+    const vkShare = document.getElementById("vkShare");
+    vkShare.addEventListener("click", () => {
+      shareOnFacebook("https://vk.com/share.php?url=");
+    });
+
+    const tgShare = document.getElementById("tgShare");
+    tgShare.addEventListener("click", () => {
+      shareOnFacebook("https://telegram.me/share/url?url=");
+    });
+  }
 
   // ===========
   // Blog search
@@ -591,6 +583,53 @@ var callback = function () {
   // =============
   refreshFsLightbox();
 
+  /*
+    My functions
+  */
+
+  // ===============
+  // Swiper Scripts
+  // ===============
+  const swiper = new Swiper(".swiper", {
+    // Optional parameters
+    direction: "horizontal",
+    slidesPerView: "auto",
+    initialSlide: 1,
+    centeredSlides: true,
+    spaceBetween: 16,
+    autoHeight: false,
+  });
+
+  // ===============
+  // Employer/Applicants widgets in publications
+  // ===============
+  const employerWidget = document.getElementById("employer_widget");
+  const applicantWidget = document.getElementById("applicant_widget");
+  const currentTag =
+    document.getElementsByClassName("post-hero__header")[0]?.childNodes[1]
+      .classList[0];
+  employerWidget.style.display = "none";
+
+  if (currentTag === "tag-employers") {
+    applicantWidget.style.display = "none";
+    employerWidget.style.display = "block";
+  }
+
+  // ===============
+  // Search Vacancies Scripts
+  // ===============
+  const searchVacancyForm = document.getElementById("findPosition");
+  if (searchVacancyForm) {
+    searchVacancyForm.addEventListener("submit", (event) => {
+      event.preventDefault();
+      ym(77659420, "reachGoal", "show-vacancies");
+      window.open(
+        `https://www.zarplata.ru/vacancy?q=${event.target[0].value}&salary=${event.target[1].value}&utm_source=blog_vacancy`,
+        "_blank"
+      );
+    });
+  }
+
   // ==================
   // Social Share Logic
   // ==================
@@ -612,6 +651,25 @@ var callback = function () {
       }
     });
   }
+
+
+  // ==============
+  // Function detect yandex browser
+  // ==============
+  function isYaBrowser() {
+    var ua = navigator.userAgent;
+    if (ua.search(/YaBrowser/) > 0) return true;
+    return false;
+  }
+
+  // ==============
+  // Hide scroll to top button if user using Ya Browser
+  // ==============
+  if (isYaBrowser()) {
+    const scrollToTop = document.getElementsByClassName("scroll-to-top")[0];
+    scrollToTop.style.display = "none";
+  }
+
   // ==============
   // Tag Cloud
   // ==============
@@ -627,6 +685,27 @@ var callback = function () {
   });
 
   // ==============
+  // Social Sharing
+  // ==============
+  function jsShareable(socialShare) {
+    if (socialShare.length > 1) {
+      socialShare.forEach((el) => {
+        let title = el.getAttribute("data-title");
+        let url = el.getAttribute("data-url");
+        let type = el.getAttribute("data-type");
+
+        jsShare(el, title, url, type);
+      });
+    } else {
+      let title = socialShare.getAttribute("data-title");
+      let url = socialShare.getAttribute("data-url");
+      let type = socialShare.getAttribute("data-type");
+
+      jsShare(socialShare, title, url, type);
+    }
+  }
+
+  // ==============
   // Reactions
   // ==============
   const reactionsButtons = document.querySelectorAll(".rctbt");
@@ -637,6 +716,52 @@ var callback = function () {
   const rFace = document.querySelector("#r-face");
   const rPoo = document.querySelector("#r-poo");
   const rDislike = document.querySelector("#r-dislike");
+
+  const rLikeButton = document.querySelector("#r-like-button");
+  const rFireButton = document.querySelector("#r-fire-button");
+  const rFaceButton = document.querySelector("#r-face-button");
+  const rPooButton = document.querySelector("#r-poo-button");
+  const rDislikeButton = document.querySelector("#r-dislike-button");
+
+  if (rLikeButton) {
+    rLikeButton.addEventListener("click", () => {
+      if (!rLikeButton.classList.contains("active")) {
+        ym(77659420, "reachGoal", "reactionLike");
+      }
+    });
+  }
+
+  if (rFireButton) {
+    rFireButton.addEventListener("click", () => {
+      if (!rFireButton.classList.contains("active")) {
+        ym(77659420, "reachGoal", "reactionFire");
+      }
+    });
+  }
+
+  if (rFaceButton) {
+    rFaceButton.addEventListener("click", () => {
+      if (!rFaceButton.classList.contains("active")) {
+        ym(77659420, "reachGoal", "reactionNeutral");
+      }
+    });
+  }
+
+  if (rPooButton) {
+    rPooButton.addEventListener("click", () => {
+      if (!rPooButton.classList.contains("active")) {
+        ym(77659420, "reachGoal", "reactionPoo");
+      }
+    });
+  }
+
+  if (rDislikeButton) {
+    rDislikeButton.addEventListener("click", () => {
+      if (!rDislikeButton.classList.contains("active")) {
+        ym(77659420, "reachGoal", "reactionDislike");
+      }
+    });
+  }
 
   const emoj = ["like", "fire", "poker_face", "poo", "dislike"];
 
@@ -649,7 +774,10 @@ var callback = function () {
     postHash = md5.toString(CryptoJS.enc.Base64);
   }
 
-  // set reactions from database
+  // ==============
+  // Publication reactions buttons
+  // Load data from database
+  // ==============
   if (postHash) {
     const ref = db.collection("reactions").doc(postHash);
 
@@ -682,28 +810,36 @@ var callback = function () {
       });
   }
 
+
+  // ==============
+  // Publication reactions buttons
+  // Set selected emoji
+  // ==============
   if (window.sessionStorage.getItem(postHash)) {
     const obj = window.sessionStorage.getItem(postHash);
     reactionsButtons[emoj.indexOf(obj)].classList.add("active");
   }
 
+  // ==============
+  // Publication reactions buttons
+  // Set actions
+  // ==============
   reactionsButtons.forEach((btn, idx) => {
     btn.addEventListener("click", () => {
-      if (window.sessionStorage.getItem(postHash)) {
-        const idx = emoj.findIndex((el) => {
-          return el == window.sessionStorage.getItem(postHash);
-        });
-        reactionsCounters[idx].innerText =
-          parseInt(reactionsCounters[idx].innerText) - 1;
-        reactionsButtons[idx].classList.remove("active");
-        db.collection("reactions")
-          .doc(postHash)
-          .update({
-            [emoj[idx]]: parseInt(reactionsCounters[idx].innerText),
-          });
+      // Функция для обновления счетчика реакции и сохранения его в базе данных
+      function updateReaction(postHash, idx, counterChange) {
+        const currentCounter = parseInt(reactionsCounters[idx].innerText);
+        reactionsCounters[idx].innerText = currentCounter + counterChange;
+
+        const reactionUpdate = { [emoj[idx]]: currentCounter + counterChange };
+        db.collection("reactions").doc(postHash).update(reactionUpdate);
       }
 
-      window.sessionStorage.setItem(postHash, [emoj[idx]]);
+      // Функция для добавления или удаления класса "active" у кнопки реакции
+      function toggleButtonActive(idx, isActive) {
+        const method = isActive ? "add" : "remove";
+        reactionsButtons[idx].classList[method]("active");
+      }
 
       switch (emoj[idx]) {
         case "like":
@@ -727,14 +863,25 @@ var callback = function () {
 
       reactionsCounters[idx].innerText =
         parseInt(reactionsCounters[idx].innerText) + 1;
+      // Получаем сохраненную реакцию из sessionStorage
+      const storedReaction = window.sessionStorage.getItem(postHash);
 
-      reactionsButtons[idx].classList.add("active");
+      // Если была сохраненная реакция, уменьшаем счетчик этой реакции на 1 и убираем активность с кнопки
+      if (storedReaction) {
+        const storedReactionIdx = emoj.findIndex((el) => el === storedReaction);
+        updateReaction(postHash, storedReactionIdx, -1);
+        toggleButtonActive(storedReactionIdx, false);
+      }
 
-      db.collection("reactions")
-        .doc(postHash)
-        .update({
-          [emoj[idx]]: parseInt(reactionsCounters[idx].innerText),
-        });
+      // Если пользователь повторно нажал на ту же реакцию, убираем эту реакцию
+      if (storedReaction === emoj[idx]) {
+        window.sessionStorage.removeItem(postHash);
+      } else {
+        // В противном случае, сохраняем выбранную реакцию, увеличиваем счетчик на 1 и добавляем активность кнопке
+        window.sessionStorage.setItem(postHash, emoj[idx]);
+        updateReaction(postHash, idx, 1);
+        toggleButtonActive(idx, true);
+      }
     });
   });
 };
@@ -864,27 +1011,6 @@ const copyToClipboard = (src, str) => {
   };
 };
 
-// ==============
-// Social Sharing
-// ==============
-function jsShareable(socialShare) {
-  if (socialShare.length > 1) {
-    socialShare.forEach((el) => {
-      let title = el.getAttribute("data-title");
-      let url = el.getAttribute("data-url");
-      let type = el.getAttribute("data-type");
-
-      jsShare(el, title, url, type);
-    });
-  } else {
-    let title = socialShare.getAttribute("data-title");
-    let url = socialShare.getAttribute("data-url");
-    let type = socialShare.getAttribute("data-type");
-
-    jsShare(socialShare, title, url, type);
-  }
-}
-
 function jsShare(el, title, url, type) {
   let shareLink;
 
@@ -986,9 +1112,17 @@ const loadMorePosts = (button) => {
         var parser = new DOMParser();
         var doc = parser.parseFromString(html, "text/html");
 
+        function isNotHidden(el) {
+          var style = window.getComputedStyle(el);
+          return style.display !== "none";
+        }
+
         // Get posts
         const posts = doc.querySelectorAll(".post-wrap");
-        const postContainer = document.querySelectorAll(".posts");
+        // const postContainer = document.querySelectorAll(".posts");
+        const postContainer = [...document.querySelectorAll(".posts")].filter(
+          isNotHidden
+        );
         const nextPage = doc.querySelector("link[rel=next]");
 
         // Add each post to the page
@@ -1035,201 +1169,4 @@ function getParameterByName(name, url) {
   if (!results) return null;
   if (!results[2]) return "";
   return decodeURIComponent(results[2].replace(/\+/g, " "));
-}
-
-// ================================
-// Get Vacancies
-// ================================
-// const LAT_COEFFICIENT = 0.50;
-// const LTD_COEFFICIENT = 0.19;
-// const GEOHASH_MOSCOW = "1203101010112";
-
-// function getVacancies() {
-//   // fetching optimization
-//   if (sessionStorage.getItem('vacancies')) {
-//     createListOfVacancies(JSON.parse(sessionStorage.getItem('vacancies')));
-//     return;
-//   }
-
-//   //get user location
-//   if (window.navigator.geolocation) {
-//     window.navigator.geolocation.getCurrentPosition(
-//       async (position) => {
-//         const urlSearchParams = new URLSearchParams({
-//           bottom_lat: position.coords.latitude - LAT_COEFFICIENT,
-//           left_lng: position.coords.longitude - LTD_COEFFICIENT,
-//           top_lat: position.coords.latitude + LAT_COEFFICIENT,
-//           right_lng: position.coords.longitude + LTD_COEFFICIENT,
-//           width_points: 1000,
-//           height_points: 300,
-//           map_zoom: 12
-//         });
-
-//         //get geohash of user location
-//         const geohash = await fetch(`https://api.hh.ru/vacancies/map?${urlSearchParams}`)
-//         .then(res => res.json())
-//         .then(data => data.geo_clusters[0]?.geohash)
-//         .catch((e) => GEOHASH_MOSCOW);
-
-//         await fetchVacanciesByGeoHash(geohash);
-//       },
-//       async () => {
-//         await fetchVacanciesByGeoHash(GEOHASH_MOSCOW);
-//       }
-//     );
-//   } else {
-//     fetchVacanciesByGeoHash(GEOHASH_MOSCOW);
-//   }
-// }
-
-// ================================
-// Get Vacancies with GeoHash
-// ================================
-// async function fetchVacanciesByGeoHash(geohash) {
-//   //get current date for new vacancies
-//   const today = new Date();
-//   const formattedDay = today.getFullYear() + '-' +
-//                        String(today.getMonth() + 1).padStart(2, '0') + '-' +
-//                        String(today.getDate()).padStart(2, '0');
-
-//   const urlSearchParams = new URLSearchParams({
-//     geohash: geohash,
-//     date_from: formattedDay,
-//     date_to: formattedDay,
-//     limit: 5
-//   });
-
-//   const vacancies = await fetch(`https://api.zarplata.ru/vacancies?${urlSearchParams}`)
-//   .then((res) => res.json())
-//   .then(data => data)
-//   .catch((e) => {throw new Error(e)});
-
-//   if (vacancies) {
-//     sessionStorage.setItem(
-//       'vacancies',
-//       JSON.stringify(vacancies.items.slice(0,5))
-//     );
-//     createListOfVacancies(vacancies.items.slice(0,5));
-//   }
-// }
-
-// ================================
-// Generate list of vacancies
-// ================================
-// function createListOfVacancies(vacancies) {
-//   const vacanciesPlacement = document.querySelector('#vacancies-placements');
-
-//   if (vacancies && vacanciesPlacement) {
-//     vacancies.forEach((item) => {
-//       const li = document.createElement('li');
-//       let formatted_salary = 'договорная оплата';
-//       const vacancyUrl =`https://www.zarplata.ru/vacancy/card/id${item.id}?utm_source=blog_vacancy`;
-
-//       if (item.salary) {
-//         if (item.salary.from && item.salary.to) {
-//           formatted_salary = item.salary.from + ' - ' + item.salary.to + ' ₽';
-//         } else if (item.salary.to) {
-//           formatted_salary = item.salary.to + ' ₽';
-//         }
-//       }
-
-//       li.innerHTML = `
-//         <a href="${vacancyUrl}" style="color:#0055d2;" target="_blank">
-//           ${item.name}
-//         </a><br>
-//         <span>${formatted_salary}</span><br>
-//         <span style="color:#68696a;">${item.employer.name}</span>
-//       `;
-
-//       li.style.marginBottom = '18px';
-//       vacanciesPlacement.appendChild(li);
-//     });
-//   }
-// }
-
-function subscribePopip() {
-  // ================================
-  // Show subscribe popup
-  // ================================
-
-  const closeButton = document.getElementById("subscribe_popup-close");
-  // const subscribeButtonPopup = document.getElementById('subscribe-button');
-  const popup = document.querySelector("#subscribe_popup");
-  const postContent = document.querySelector(".post__content");
-  const popupLink = document.querySelector(".subscribe__popup-link");
-  let timeout = null;
-  let popups = [];
-
-  if (!window.sessionStorage.getItem("subscribe-popup-session-end")) {
-    if (window.sessionStorage.getItem("subscribe-popups")) {
-      popups = window.sessionStorage.getItem("subscribe-popups").split(" ");
-    } else {
-      popups = [1001, 1002, 1003, 1004, 1005];
-    }
-  }
-
-  const randomPopupIndex = Math.floor(Math.random() * popups.length);
-
-  // window.addEventListener('beforeunload', function () {
-  //   if(popup.classList.contains('_show') && !window.sessionStorage.getItem("subscribe-popup-show")) {
-  //     ym(77659420,'reachGoal','popupUserLeave');
-  //   }
-  // });
-
-  // if (subscribeButtonPopup) {
-  //   subscribeButtonPopup.addEventListener('click', () => {
-  //     ym(77659420,'reachGoal','emailSubscribe');
-  //     return true;
-  //   });
-  // }
-
-  if (postContent) {
-    const showPoint = (postContent.offsetHeight / 3) * 2;
-    window.onscroll = function (e) {
-      if (window.scrollY >= showPoint) {
-        showPopup("publication");
-      }
-    };
-  } else {
-    timeout = setTimeout(() => {
-      showPopup("mainPage");
-    }, 15000);
-  }
-
-  function showPopup(from) {
-    if (
-      popup &&
-      !window.sessionStorage.getItem("subscribe-popup-session-end") &&
-      !popup.classList.contains("_show")
-    ) {
-      if (from === "publication") {
-        ym(77659420, "reachGoal", "showPopupPublication");
-      } else if (from === "mainPage") {
-        ym(77659420, "reachGoal", "showPopupMain");
-      }
-
-      popup.classList.add("_show");
-      const content = document.getElementById(popups[randomPopupIndex]);
-      content.style.display = "inherit";
-
-      window.sessionStorage.setItem(
-        "subscribe-popups",
-        popups.filter((i) => i !== popups[randomPopupIndex]).join(" ")
-      );
-
-      popupLink.addEventListener("click", () => {
-        ym(77659420, "reachGoal", "click-popup");
-      });
-
-      closeButton.addEventListener("click", () => {
-        if (popup) {
-          popup.classList.remove("_show");
-          closeButton.style.display = "none";
-          ym(77659420, "reachGoal", "close-popup");
-          window.sessionStorage.setItem("subscribe-popup-session-end", "true");
-        }
-      });
-    }
-    clearTimeout(timeout);
-  }
 }

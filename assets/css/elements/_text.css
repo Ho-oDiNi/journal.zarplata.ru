@@ -19,7 +19,6 @@ blockquote {
   padding: 32px;
   padding-top: 64px;
   border-radius: 26px;
-  font-weight: 700;
   position: relative;
 
   &.important-info {

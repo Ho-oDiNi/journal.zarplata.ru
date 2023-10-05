@@ -1,6 +1,6 @@
 <aside class="sidebar">
   {{!-- Tag Cloud --}}
-  <div class="sidebar__section" id="tag-cloud-min" style="display: block">
+  <div class="sidebar__section mobile" id="tag-cloud-min" style="display: block">
     <h5 class="sidebar__title">Наши темы</h5>
     {{#get "tags" limit="7" order="count.posts desc"}}
     {{#foreach tags}}
@@ -13,7 +13,7 @@
   </div>
 
   {{!-- Tag Cloud All --}}
-  <div class="sidebar__section" id="tag-cloud-all" style="display: none;">
+  <div class="sidebar__section mobile" id="tag-cloud-all" style="display: none;">
     <h5 class="sidebar__title">Наши темы</h5>
     {{#get "tags" limit="all" order="count.posts desc"}}
     {{#foreach tags}}
@@ -47,8 +47,8 @@
   {{/get}}
   {{/is}} --}}
 
-  {{!-- Social Media Links --}}
-  <div class="sidebar__section">
+  {{!-- Applicant widget --}}
+  <div class="sidebar__section" id="applicant_widget">
     <h5 class="sidebar__title" style="margin-bottom: 32px;">Найти работу
       на Зарплате.ру</h5>
     <div class="sidebar__description">
@@ -56,22 +56,30 @@
         <input type="text" placeholder="Должность или компания" id="position" />
         <input type="number" placeholder="Зарплата от, ₽ " id="salary" />
         <input type="submit"  class="sidebar__vacanciesAction"
-          style="width: 100%" value="Показать вакансии" />
+          style="width: 100%; border: none; outline: none;" value="Показать вакансии" />
       </form>
+    </div>
+  </div>
+
+  {{!-- Employer widget --}}
+  <div class="sidebar__section" id="employer_widget" style="display: none;">
+    <h5 class="sidebar__title" style="margin-bottom: 32px;">Найти сотрудника на Зарплате.ру</h5>
+    <div class="sidebar__description">
+      <a href="https://hrm.zarplata.ru/?utm_source=blog&utm_medium=widget"  class="sidebar__vacanciesAction"
+          style="width: 100%; border: none; outline: none;"/>Разместить вакансию</a>
     </div>
   </div>
 
   {{!-- Social Media Links --}}
   <div class="sidebar__section">
     <h5 class="sidebar__title">Зарплата Журнал</h5>
-    <div class="sidebar__description">Самый полезный в России журнал
-      про работу и жизнь после неё</div>
+    <div class="sidebar__description" style="margin-bottom: 18px;">Про работу и жизнь после неё</div>
     {{>social-media}}
   </div>
 
   {{!-- Social Media Links --}}
   <div class="sidebar__section privacy-policy">
-    <div class="sidebar__description">
+    <div class="sidebar__description" style="margin-bottom: 0 !important">
       <a href="https://cdn.zp.ru/job/docs/Soglasie_na_obrabotku_PD_polzovateley.doc" style="color: #1480CF; text-decoration:underline">Политика конфиденциальности</a></div>
   </div>
 </aside>

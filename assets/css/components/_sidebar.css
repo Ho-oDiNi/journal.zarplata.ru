@@ -2,14 +2,15 @@
 .sidebar {
   height: 100%;
 
-  
+  @media (--viewport-md) {
+    margin-top: 30px;
+  }
 
   &__section {
     margin-bottom: var(--gap-lg);
     padding: 32px var(--gap);
     background-color: #fff;
     border-radius: 26px;
-    border: 1px solid var(--color-border);
 
     .tag {
       display: flex;
@@ -49,6 +50,7 @@
 
   &__vacanciesAction {
     margin-top: 32px;
+    margin-bottom: 0px;
     display: flex;
     padding: 16px 0;
     justify-content: center;
@@ -59,6 +61,7 @@
     font-weight: 600;
     line-height: 24px;
     letter-spacing: 0em;
+    cursor: pointer;
 
     &:focus {
       border: none;
@@ -75,7 +78,6 @@
   }
 
   &__description {
-    margin-bottom: 18px;
     color: #000000;
     font-size: 20px;
     font-weight: 400;
@@ -133,7 +135,7 @@
   .social-links {
     justify-content: center;
     align-content: center;
-    margin-bottom: var(--gap-sm);
+    /* margin-bottom: var(--gap-sm); */
 
     p { display: none; }
   }
@@ -179,7 +181,7 @@
 .privacy-policy {
   display: none;
   
-  @media (max-width: 767px) {
+  @media (max-width: 970px) {
     display: block;
   }
 }

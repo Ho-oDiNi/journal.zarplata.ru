@@ -226,9 +226,8 @@
 }
 
 .kg-callout-card {
+  border-radius: 26px !important;
   @media (max-width: 767px) {
-    background-color: #fff !important;
-    border-radius: 26px !important;
     padding: 32px !important;
   }
 }
