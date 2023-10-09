@@ -19,7 +19,7 @@
             <div class="archive-post__content">
               <h3 class="archive-post__title">{{title}}</h3>
               <time datetime="{{date published_at format="YYYY-MM-DD"}}" class="archive-post__date">
-                {{date published_at format="MMM Do YYYY"}}
+                {{date published_at format="MMM Do YYYY"}} {{ date published_at format='h:mm:ss' }}
               </time>
             </div>
             {{#if feature_image}}

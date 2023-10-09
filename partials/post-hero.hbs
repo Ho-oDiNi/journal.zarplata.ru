@@ -10,7 +10,7 @@
           {{#authors separator=", "}}{{/authors}}
         </div>
 
-        <time datetime="{{date format='YYYY-MM-DD'}}" class="post-hero__date">
+        <time datetime="{{date format='YYYY-MM-DD'}} {{ date published_at format='h:mm:ss' }}" class="post-hero__date">
           {{date published_at timeago="" format="DD.MM.YYYY"}}
         </time>
       </div>
