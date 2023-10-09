@@ -45,8 +45,8 @@
 
     <div class="post-card__details">
       <div class="post-card__info">
-        <time datetime="{{date format='YYYY-MM-DD'}}" class="post-card__date">
-          {{date published_at timeago="" format="DD.MM.YYYY"}}
+        <time datetime="{{date format='YYYY-MM-DD'}} {{ date published_at format='h:mm:ss' }}" class="post-card__date">
+          {{ date published_at timeago="" format="DD.MM.YYYY" }}
         </time>
       </div>
     </div>
