@@ -843,28 +843,6 @@ var callback = function () {
         reactionsButtons[idx].classList[method]("active");
       }
 
-      switch (emoj[idx]) {
-        case "like":
-          ym(77659420, "reachGoal", "reactionLike");
-          break;
-        case "fire":
-          ym(77659420, "reachGoal", "reactionFire");
-          break;
-        case "poker_face":
-          ym(77659420, "reachGoal", "reactionNeutral");
-          break;
-        case "poo":
-          ym(77659420, "reachGoal", "reactionPoo");
-          break;
-        case "dislike":
-          ym(77659420, "reachGoal", "reactionDislike");
-          break;
-        default:
-          break;
-      }
-
-      reactionsCounters[idx].innerText =
-        parseInt(reactionsCounters[idx].innerText) + 1;
       // Получаем сохраненную реакцию из sessionStorage
       const storedReaction = window.sessionStorage.getItem(postHash);
 
