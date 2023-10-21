@@ -3,6 +3,9 @@ routes:
   /signin/: members/signin
   /account/: members/account
   /offline/: offline
+  /news/rss/:
+    template: news/rss
+    content_type: text/xml
 
 collections:
   /:

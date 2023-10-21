@@ -1,0 +1,38 @@
+<?xml version="1.0"
+      encoding="windows-1251"?>
+<rss xmlns:yandex="http://news.yandex.ru" xmlns:media="http://search.yahoo.com/mrss/" version="2.0">
+  <channel>
+    <title>
+      <![CDATA[ {{@site.title}} ]]>
+    </title>
+    <link>{{@site.url}}</link>
+    <description>
+      <![CDATA[ {{@site.description}} ]]>
+    </description>
+
+    {{#get "posts" filter="primary_tag:novosti" limit="all" include="authors,tags"}}
+    {{#foreach posts}}
+    <item>
+      <title>
+        <![CDATA[ {{title}} ]]>
+      </title>
+      <description>
+        <![CDATA[ {{excerpt}} ]]>
+      </description>
+      <link>{{url absolute="true"}}</link>
+      <guid isPermaLink="false">{{id}}</guid>
+      <category>
+        <![CDATA[ {{primary_tag.name}} ]]>
+      </category>
+      <media:group>
+        <media:content url="{{feature_image}}" medium="image" />
+      </media:group>
+      <pubDate>{{date format="ddd, DD MMM YYYY HH:mm:ss ZZ"}}</pubDate>
+      <yandex:full-text>
+        <![CDATA[ {{content}} ]]>
+      </yandex:full-text>
+    </item>
+    {{/foreach}}
+    {{/get}}
+  </channel>
+</rss>
