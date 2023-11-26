@@ -23,15 +23,15 @@
 
   /* neutral colors */
   --color-black: #000;
-  --color-dark: #080c21;
-  --color-dark-accent: #14182c; 
-  --color-dark-accent-2: #1c1f33;
-  --color-grey-darker: #4c4c4c;
+  --color-dark: #18160B;
+  --color-dark-accent: #232323; 
+  --color-dark-accent-2: #232323;
+  --color-grey-darker: #454545;
   --color-grey-dark: #6b6b6b;
   --color-grey: #c0c0c0;
   --color-grey-light: #d2d2d2;
   --color-grey-lighter: #e5e5e5;
-  --color-light-accent: #f2f2f2;
+  --color-light-accent: #f4f4f4;
   --color-light: #fafafa;
   --color-white: #fff;
 
@@ -43,7 +43,7 @@
 
   /* theme colors */
   --color-text: var(--color-dark);
-  --color-text-accent-1: var(--color-dark-accent);
+  --color-text-accent-1: var(--color-dark-accent-3);
   --color-text-accent-2: var(--color-grey-darker);
   --color-text-accent-3: var(--color-grey-dark);
   --color-text-reverse: var(--color-light);
@@ -56,6 +56,10 @@
 
   --color-border: #eff1f3;
   --color-border-dark: #212437;
+
+  --color-card: #ffffff;
+  --color-divider: #FAFAFB;
+  --color-bg-input: var(--color-light-accent);
 
   /*--------------------------------------*/
   /* Typography

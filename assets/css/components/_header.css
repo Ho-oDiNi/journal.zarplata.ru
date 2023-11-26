@@ -4,13 +4,20 @@
   position: sticky;
   top: 0;
   width: 100%;
-  background-color: var(--color-white);
+  background-color: var(--color-card);
   z-index: 50;
 
   &__logo {
     @media (--viewport-md) {
       height: 35px;
     }
+  }
+
+  &__logo-wrapper {
+    background-color: #fff;
+    padding: 0px var(--gap-sm);
+    border-radius: 37px;
+    display: flex;
   }
 
   &.is-scrolled {
@@ -256,7 +263,7 @@
     display: none;
 
     @media (--viewport-md) {
-      border-top: 1px solid #FAFAFB;
+      border-top: 1px solid var(--color-divider);
       display: block;
       overflow: hidden;
     }
@@ -269,7 +276,7 @@
     @media (--viewport-md) {
       display: none;
       overflow: hidden;
-      background-color: #EFEFEF;
+      background-color: var(--color-bg);
     }
 
     @media (max-width: 970px) {
@@ -314,7 +321,7 @@
     .tag-applicants,
     .tag-chieloviek-diela {
       background-color: #CD8CFF !important;
-      color: #222222 !important;
+      color: #222222;
       border: 1px solid transparent !important;
       border-radius: 99px !important;
       padding: 0.15em 1em !important;
@@ -331,7 +338,7 @@
     .tag-ishchu-sotrudnika,
     .tag-rukovodstvo {
       background-color: #ffe000 !important;
-      color: #222222 !important;
+      color: #222222;
       border: 1px solid transparent !important;
       border-radius: 99px !important;
       padding: 0.15em 1em !important;
@@ -351,7 +358,7 @@
     .tag-udalionka,
     .tag-frilance {
       background-color: #FF84A9 !important;
-      color: #222222 !important;
+      color: #222222;
       border: 1px solid transparent !important;
       border-radius: 99px !important;
       padding: 0.15em 1em !important;
@@ -369,7 +376,7 @@
     .tag-students,
     .tag-u-mienia-vykhodnoi {
       background-color: #57EE81 !important;
-      color: #222222 !important;
+      color: #222222;
       border: 1px solid transparent !important;
       border-radius: 99px !important;
       padding: 0.15em 1em !important;
@@ -387,7 +394,7 @@
     .tag-novosti,
     .tag-faq {
       background-color: #70D6FF !important;
-      color: #222222 !important;
+      color: #222222;
       border: 1px solid transparent !important;
       border-radius: 99px !important;
       padding: 0.15em 1em !important;

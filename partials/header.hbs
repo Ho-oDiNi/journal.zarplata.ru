@@ -30,7 +30,9 @@
           <div class="header__brand">
             <a href="{{@site.url}}">
               {{#if @site.logo}}
-              <img class="header__logo" src="{{@site.logo}}" alt="{{@site.title}}">
+              <div class="header__logo-wrapper">
+                <img class="header__logo" src="{{@site.logo}}" alt="{{@site.title}}">
+              </div>
               {{else}}
               <h3 class="header__title">{{@site.title}}</h3>
               {{/if}}

@@ -12,6 +12,10 @@
   --color-bg-reverse: var(--color-light);
   --color-border: var(--color-border-dark);
 
+  --color-card: #272727;
+  --color-divider: #232323;
+  --color-bg-input: var(--color-grey-darker);
+
   #theme-light {
     visibility: visible;
     opacity: 1;
@@ -46,13 +50,32 @@
     color: #fff !important;
   }
 
+  .header__nav {
+    li a {
+      color: #fff;
+    }
+
+    li a:hover {
+      color: #000;
+    }
+  }
+
+  .header_all-themes {
+    .tag > a:hover {
+      color: #fff;
+    }
+  }
+
   .btn--brand:hover {
     color: #000;
   }
 
-  #load-more-posts {
-    border-color: #fff;
-    color: #fff;
+  .btn {
+    color: var(--color-dark);
+  }
+
+  .btn:hover {
+    color: var(--color-light);
   }
 
   .subscribe__popup-button {
