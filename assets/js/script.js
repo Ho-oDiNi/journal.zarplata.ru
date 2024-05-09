@@ -263,6 +263,7 @@ var callback = function () {
     searchOpenMobile.onclick = () => {
       addClass(".search", "is-active");
       document.body.style.overflowY = "hidden";
+      ym(77659420,'reachGoal','clickSearch')
       searchField.focus();
     };
 
@@ -270,6 +271,7 @@ var callback = function () {
       if (evt.key === "Enter" || evt.keyCode === "13") {
         addClass(".search", "is-active");
         document.body.style.overflowY = "hidden";
+        ym(77659420,'reachGoal','clickSearch')
         searchField.focus();
       }
     };

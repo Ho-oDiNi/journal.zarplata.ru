@@ -293,10 +293,9 @@
       align-items: center;
       margin-bottom: 8px;
 
-      &>a {
+      & > a {
         font-weight: 600;
         font-size: 12px;
-        
       }
 
       &:not(:last-child) {
@@ -309,7 +308,6 @@
         @media (--viewport-lg) {
           margin-right: 10px;
         }
-        
       }
     }
 
@@ -320,7 +318,7 @@
     .tag-rabota-i-siemia,
     .tag-applicants,
     .tag-chieloviek-diela {
-      background-color: #CD8CFF !important;
+      background-color: #cd8cff !important;
       color: #222222;
       border: 1px solid transparent !important;
       border-radius: 99px !important;
@@ -328,7 +326,7 @@
 
       &:hover {
         background-color: transparent !important;
-        border: 1px solid #CD8CFF !important;
+        border: 1px solid #cd8cff !important;
       }
     }
 
@@ -357,7 +355,7 @@
     .tag-frilans,
     .tag-udalionka,
     .tag-frilance {
-      background-color: #FF84A9 !important;
+      background-color: #ff84a9 !important;
       color: #222222;
       border: 1px solid transparent !important;
       border-radius: 99px !important;
@@ -365,7 +363,7 @@
 
       &:hover {
         background-color: transparent !important;
-        border: 1px solid #FF84A9 !important;
+        border: 1px solid #ff84a9 !important;
       }
     }
 
@@ -375,7 +373,7 @@
     .tag-poliezno,
     .tag-students,
     .tag-u-mienia-vykhodnoi {
-      background-color: #57EE81 !important;
+      background-color: #57ee81 !important;
       color: #222222;
       border: 1px solid transparent !important;
       border-radius: 99px !important;
@@ -383,7 +381,7 @@
 
       &:hover {
         background-color: transparent !important;
-        border: 1px solid #57EE81 !important;
+        border: 1px solid #57ee81 !important;
       }
     }
 
@@ -393,7 +391,7 @@
     .tag-interview,
     .tag-novosti,
     .tag-faq {
-      background-color: #70D6FF !important;
+      background-color: #70d6ff !important;
       color: #222222;
       border: 1px solid transparent !important;
       border-radius: 99px !important;
@@ -401,7 +399,7 @@
 
       &:hover {
         background-color: transparent !important;
-        border: 1px solid #70D6FF !important;
+        border: 1px solid #70d6ff !important;
       }
     }
   }
@@ -500,7 +498,7 @@
       margin-right: 0;
       display: flex;
       align-items: center;
-      padding: 5px 13px;  
+      padding: 5px 13px;
       transition: 0.2s;
 
       @media (max-width: 970px) {
@@ -541,4 +539,61 @@
   width: 100%;
   height: 3px;
   z-index: 10;
+}
+
+.search-bar {
+  background-color: #efefef;
+  padding: 11px 14px 11px 14px;
+  width: 396px;
+  display: flex;
+  align-items: center;
+  border-radius: 12px;
+}
+
+@media (min-width: 1440px) {
+  .search-bar {
+    width: 396px;
+  }
+}
+
+@media (min-width: 1200px) and (max-width: 1439px) {
+  .search-bar {
+    width: 370px;
+  }
+}
+
+@media (min-width: 992px) and (max-width: 1199px) {
+  .search-bar {
+    width: 301px;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 795px) {
+  .search-bar-placeholder {
+    font-size: 16px !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .search-bar {
+    background-color: inherit !important;
+    padding: 0;
+    width: auto;
+  }
+
+  .search-bar-placeholder {
+    display: none;
+  }
+}
+
+.search-top {
+  margin-right: 14px;
+}
+
+.search-bar-placeholder {
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 17px;
+  text-align: left;
+  color: #ACACAC;
 }

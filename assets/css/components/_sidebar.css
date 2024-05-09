@@ -9,7 +9,7 @@
   &__section {
     margin-bottom: var(--gap-lg);
     padding: 32px var(--gap);
-    background-color: var(--color-card);
+    background-color: var(--color-card-light);
     border-radius: 26px;
 
     .tag {

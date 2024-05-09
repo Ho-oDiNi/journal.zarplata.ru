@@ -7,11 +7,13 @@
         <div class="col-xs-3 col-md-4 middle-xs is-flex">
           {{!-- Search Button --}}
 
-          <div style="cursor: pointer;">
-            <a id="search-open-mobile" tabindex="0" title="{{t " Search"}}" aria-label="{{t " Search"}}"
-              class="search-top">
+          <div id="search-open-mobile" class="search-bar" style="cursor: pointer;">
+            <a tabindex="0" title="{{t " Search"}}" aria-label="{{t " Search"}}" class="search-top">
               {{>icon name="search" size="sm"}}
             </a>
+            <span class="search-bar-placeholder">
+              Карьерные советы...
+            </span>
           </div>
           <div class="header__theme">
             <a class="header__theme--toggle" id="theme-dark" tabindex="0" title="{{t " Dark Theme"}}" aria-label="{{t "
