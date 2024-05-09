@@ -159,7 +159,7 @@ var callback = function () {
     const urlToShare = window.location.href;
     const baseURL = link;
     const params = `${encodeURIComponent(urlToShare)}`;
-    ym(77659420,'reachGoal','sharePost');
+    ym(77659420, "reachGoal", "sharePost");
 
     const shareWindow = window.open(`${baseURL}${params}`);
     shareWindow.focus();
@@ -263,6 +263,7 @@ var callback = function () {
     searchOpenMobile.onclick = () => {
       addClass(".search", "is-active");
       document.body.style.overflowY = "hidden";
+      ym(77659420,'reachGoal','clickSearch')
       searchField.focus();
     };
 
@@ -270,6 +271,7 @@ var callback = function () {
       if (evt.key === "Enter" || evt.keyCode === "13") {
         addClass(".search", "is-active");
         document.body.style.overflowY = "hidden";
+        ym(77659420,'reachGoal','clickSearch')
         searchField.focus();
       }
     };

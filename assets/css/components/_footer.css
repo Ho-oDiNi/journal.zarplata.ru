@@ -1,5 +1,6 @@
 /* Footer */
 .footer {
+  background-color: var(--color-card);
   @media (max-width: 767px) {
     display: none;
   }

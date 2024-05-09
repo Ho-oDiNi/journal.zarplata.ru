@@ -61,7 +61,7 @@ body {
 
 .swiper-slide {
   width: 304px;
-  background-color: #fff;
+  background-color: var(--color-card);
   border-radius: 26px;
   height: auto !important;
 }

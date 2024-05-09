@@ -107,6 +107,8 @@
     padding: 6px 16px;
     border-radius: 32px;
 
+    color: var(--color-dark) !important;
+
     &:not(:last-child) {
       margin-bottom: 16px;
     }
@@ -119,7 +121,7 @@
   }
 
   &__external-link {
-    background-color: #EEF0F4;
+    background-color: var(--color-bg-accent-1);
     padding: 16px;
     font-size: 17px;
     font-weight: 600;
@@ -172,4 +174,19 @@
     background-color: #70D6FF;
   }
 
+  &__about-logo {
+    background-color: #fff;
+    padding: 16px;
+    display: flex;
+    border-radius: 37px;
+    margin-bottom: 32px;
+
+    img {
+      margin-bottom: 0;
+    }
+
+    a {
+      display: flex;
+    }
+  }
 }

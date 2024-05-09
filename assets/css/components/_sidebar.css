@@ -9,7 +9,7 @@
   &__section {
     margin-bottom: var(--gap-lg);
     padding: 32px var(--gap);
-    background-color: #fff;
+    background-color: var(--color-card-light);
     border-radius: 26px;
 
     .tag {
@@ -27,7 +27,7 @@
     justify-content: center;
     align-items: center;
     border-radius: 12px;
-    background-color: #EEF0F4;
+    background-color: var(--color-bg-input);
     font-size: 17px;
     font-weight: 600;
     line-height: 24px;
@@ -62,6 +62,7 @@
     line-height: 24px;
     letter-spacing: 0em;
     cursor: pointer;
+    color: var(--color-dark);
 
     &:focus {
       border: none;
@@ -71,14 +72,14 @@
   &__title {
     margin-bottom: 18px;
     text-align: center;
-    color: #000000;
+    color: var(--color-text);
     font-weight: 700;
     font-size: 22px;
     line-height: 30px;
   }
 
   &__description {
-    color: #000000;
+    color: var(--color-text);
     font-size: 20px;
     font-weight: 400;
     line-height: 27px;
@@ -86,7 +87,19 @@
     text-align: center;
 
     input {
-      background-color: #F4F4F4;
+      background-color: var(--color-bg-input);
+    }
+
+    /* Chrome, Safari, Edge, Opera */
+    input::-webkit-outer-spin-button,
+    input::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+
+    /* Firefox */
+    input[type=number] {
+      -moz-appearance: textfield;
     }
   }
 
