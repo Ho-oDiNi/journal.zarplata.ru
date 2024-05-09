@@ -239,6 +239,7 @@
 }
 
 .kg-callout-text {
+  color: var(--color-dark);
   @media (max-width: 767px) {
     font-size: 20px;
     font-weight: 700;
