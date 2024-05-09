@@ -2,7 +2,7 @@
   "name": "auden",
   "description": "Auden Ghost Theme",
   "demo": "",
-  "version": "2.0.1",
+  "version": "3.0.1",
   "engines": {
     "ghost": ">=4.0.0",
     "ghost-api": "v4"
