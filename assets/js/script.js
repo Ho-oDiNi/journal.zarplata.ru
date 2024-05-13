@@ -90,6 +90,10 @@ var callback = function () {
           ? addClass(".scroll-to-top", "is-active")
           : removeClass(".scroll-to-top", "is-active");
       }
+
+      if (document.querySelector("#button-spinner")) {
+        onScrollLoadMore();
+      }
     },
     false
   );
@@ -263,7 +267,7 @@ var callback = function () {
     searchOpenMobile.onclick = () => {
       addClass(".search", "is-active");
       document.body.style.overflowY = "hidden";
-      ym(77659420,'reachGoal','clickSearch')
+      ym(77659420, "reachGoal", "clickSearch");
       searchField.focus();
     };
 
@@ -271,7 +275,7 @@ var callback = function () {
       if (evt.key === "Enter" || evt.keyCode === "13") {
         addClass(".search", "is-active");
         document.body.style.overflowY = "hidden";
-        ym(77659420,'reachGoal','clickSearch')
+        ym(77659420, "reachGoal", "clickSearch");
         searchField.focus();
       }
     };
@@ -419,7 +423,7 @@ var callback = function () {
   // =======================================
   // Disable load more posts button
   // =======================================
-  if (loadMoreBtn && global.max_pages === 1) {
+  if (loadMoreBtn && global.pagination_max_pages === 1) {
     loadMoreBtn.disabled = true;
     loadMoreBtn.classList.add("btn--disabled");
   }
@@ -427,9 +431,18 @@ var callback = function () {
   // ===============
   // Load More Posts
   // ===============
+  function onScrollLoadMore() {
+    const { scrollTop, scrollHeight, clientHeight } = document.documentElement;
+    const spinner = document.querySelector("#button-spinner");
+
+    if (scrollHeight - scrollTop <= clientHeight) {
+      loadMorePosts(loadMoreBtn, spinner);
+    }
+  }
+
   if (loadMoreBtn) {
     loadMoreBtn.onclick = () => {
-      loadMorePosts(loadMoreBtn);
+      loadMorePosts(loadMoreBtn, undefined);
     };
   }
 
@@ -654,7 +667,6 @@ var callback = function () {
     });
   }
 
-
   // ==============
   // Function detect yandex browser
   // ==============
@@ -813,7 +825,6 @@ var callback = function () {
         console.log("Error getting document:", error);
       });
   }
-
 
   // ==============
   // Publication reactions buttons
@@ -1070,7 +1081,7 @@ if (global.pagination_current_page === global.pagination_max_pages) {
 // ===============
 // Load More Posts
 // ===============
-const loadMorePosts = (button) => {
+const loadMorePosts = (button, spinner) => {
   // Next link
   const nextPage = document.querySelector("link[rel=next]");
 
@@ -1082,6 +1093,10 @@ const loadMorePosts = (button) => {
   // Update current page value
   if (nextPage && global.pagination_next_page <= global.pagination_max_pages) {
     const fetchLink = global.pagination_next_page_link;
+
+    if (spinner) {
+      spinner.style.visibility = "visible";
+    }
 
     // Fetch next page content
     fetch(fetchLink)
@@ -1128,9 +1143,17 @@ const loadMorePosts = (button) => {
         global.pagination_next_page = global.pagination_next_page_link
           ? global.pagination_next_page + 1
           : NaN;
+
+        if (spinner) {
+          spinner.style.visibility = "hidden";
+        }
       })
       .catch(function (err) {
+        if (spinner) {
+          spinner.style.visibility = "hidden";
+        }
         // There was an error
+
         console.warn("Something went wrong.", err);
       });
   } else {
