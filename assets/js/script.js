@@ -39,6 +39,23 @@ var callback = function () {
   const progressbar = document.querySelector("#progress");
   const postToc = document.querySelector(".post.has-toc");
   const scrollTop = document.querySelector(".scroll-to-top");
+  
+  const sideBarBanner = document.querySelector("#sidebar-banner");
+
+  // ===============================
+  // Class modifying helepers
+  // ===============================
+  const toggleClass = (el, cls) => {
+    document.querySelector(el).classList.toggle(cls);
+  };
+
+  const addClass = (el, cls) => {
+    document.querySelector(el).classList.add(cls);
+  };
+
+  const removeClass = (el, cls) => {
+    document.querySelector(el).classList.remove(cls);
+  };
 
   // =======
   // fitvids
@@ -897,21 +914,6 @@ const setTheme = (sTheme) => {
 };
 
 // ===============================
-// Class modifying helepers
-// ===============================
-const toggleClass = (el, cls) => {
-  document.querySelector(el).classList.toggle(cls);
-};
-
-const addClass = (el, cls) => {
-  document.querySelector(el).classList.add(cls);
-};
-
-const removeClass = (el, cls) => {
-  document.querySelector(el).classList.remove(cls);
-};
-
-// ===============================
 // Scroll to function
 // ===============================
 const scrollToTop = () => {
@@ -1081,7 +1083,7 @@ if (global.pagination_current_page === global.pagination_max_pages) {
 // ===============
 // Load More Posts
 // ===============
-const loadMorePosts = (button, spinner) => {
+function loadMorePosts (button, spinner)  {
   // Next link
   const nextPage = document.querySelector("link[rel=next]");
 

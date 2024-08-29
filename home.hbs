@@ -40,14 +40,31 @@
       </section>
       <section class="section all-posts">
         <div class="row posts desktop">
-          {{#foreach posts from="2"}}
+          {{#foreach posts from="2" to="4"}}
           <div class="col-xs-12 col-md-4 post-wrap">
             {{> post-card class="col"}}
           </div>
           {{/foreach}}
         </div>
-        <div class="mobile">
 
+
+        {{#is "index"}}
+        <a class="wrapper-banner" href="https://event.zarplata.ru/cityconf?utm_source=blog&utm_medium=banner"
+          onclick="ym(77659420,'reachGoal','banner-main');">
+
+          <iframe class="res-iframe" id="sidebar-banner" src="/assets/frames/conf-banner-main/index.html"
+            frameborder="0" width="100%" height="100%" scrolling="no" style="pointer-events: none;">
+          </iframe>
+        </a>
+        {{/is}}
+
+
+        <div class="row posts desktop">
+          {{#foreach posts from="5"}}
+          <div class="col-xs-12 col-md-4 post-wrap">
+            {{> post-card class="col"}}
+          </div>
+          {{/foreach}}
         </div>
         <div class="row posts mobile">
           {{#foreach posts from="1" to="3"}}
@@ -85,7 +102,7 @@
           <div class="col-xs-12 col-md-6 post-wrap">
             {{> post-card class="col"}}
           </div>
-          {{/foreach}}  
+          {{/foreach}}
         </div>
         <div class="row">
           <div class="col-xs-12 center-xs">

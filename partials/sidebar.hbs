@@ -55,8 +55,8 @@
       <form id="findPosition" name="findPosition">
         <input type="text" placeholder="Должность или компания" id="position" />
         <input type="number" placeholder="Зарплата от, ₽ " id="salary" />
-        <input type="submit"  class="sidebar__vacanciesAction"
-          style="width: 100%; border: none; outline: none;" value="Показать вакансии" />
+        <input type="submit" class="sidebar__vacanciesAction" style="width: 100%; border: none; outline: none;"
+          value="Показать вакансии" />
       </form>
     </div>
   </div>
@@ -65,8 +65,9 @@
   <div class="sidebar__section" id="employer_widget" style="display: none;">
     <h5 class="sidebar__title" style="margin-bottom: 32px;">Найти сотрудника на Зарплате.ру</h5>
     <div class="sidebar__description">
-      <a href="https://hrm.zarplata.ru/?utm_source=blog&utm_medium=widget" class="sidebar__vacanciesAction" onclick="ym(77659420,'reachGoal','postVacancy'); return true;"
-          style="width: 100%; border: none; outline: none;"/>Разместить вакансию</a>
+      <a href="https://zarplata.ru/employer/?utm_source=blog&utm_medium=widget" class="sidebar__vacanciesAction"
+        onclick="ym(77659420,'reachGoal','postVacancy'); return true;"
+        style="width: 100%; border: none; outline: none;" />Разместить вакансию</a>
     </div>
   </div>
 
@@ -80,6 +81,67 @@
   {{!-- Social Media Links --}}
   <div class="sidebar__section privacy-policy">
     <div class="sidebar__description" style="margin-bottom: 0 !important">
-      <a href="https://cdn.zp.ru/job/docs/Soglasie_na_obrabotku_PD_polzovateley.doc" style="color: #1480CF; text-decoration:underline">Политика конфиденциальности</a></div>
+      <a href="https://cdn.zp.ru/job/docs/Soglasie_na_obrabotku_PD_polzovateley.doc"
+        style="color: #1480CF; text-decoration:underline">Политика конфиденциальности</a>
+    </div>
   </div>
+
+  {{#is "post, page"}}
+  {{#primary_tag}}
+  {{#match name "Работодателям"}}
+  <a class="wrapper-banner-sidebar desktop" href="https://event.zarplata.ru/cityconf?utm_source=blog&utm_medium=widget"
+    onclick="ym(77659420,'reachGoal','banner-sidebar');">
+
+    <iframe class="res-iframe" id="sidebar-banner" src="/assets/frames/conf-banner/index.html" frameborder="0"
+      width="100%" height="100%" scrolling="no" style="pointer-events: none;">
+    </iframe>
+  </a>
+  {{/match}}
+  {{#match name "Работа в команде"}}
+  <a class="wrapper-banner-sidebar desktop" href="https://event.zarplata.ru/cityconf?utm_source=blog&utm_medium=widget"
+    onclick="ym(77659420,'reachGoal','banner-sidebar');">
+
+    <iframe class="res-iframe" id="sidebar-banner" src="/assets/frames/conf-banner/index.html" frameborder="0"
+      width="100%" height="100%" scrolling="no" style="pointer-events: none;">
+    </iframe>
+  </a>
+  {{/match}}
+  {{#match name "Руководство"}}
+  <a class="wrapper-banner-sidebar desktop" href="https://event.zarplata.ru/cityconf?utm_source=blog&utm_medium=widget"
+    onclick="ym(77659420,'reachGoal','banner-sidebar');">
+
+    <iframe class="res-iframe" id="sidebar-banner" src="/assets/frames/conf-banner/index.html" frameborder="0"
+      width="100%" height="100%" scrolling="no" style="pointer-events: none;">
+    </iframe>
+  </a>
+  {{/match}}
+  {{#match name "Бизнес"}}
+  <a class="wrapper-banner-sidebar desktop" href="https://event.zarplata.ru/cityconf?utm_source=blog&utm_medium=widget"
+    onclick="ym(77659420,'reachGoal','banner-sidebar');">
+
+    <iframe class="res-iframe" id="sidebar-banner" src="/assets/frames/conf-banner/index.html" frameborder="0"
+      width="100%" height="100%" scrolling="no" style="pointer-events: none;">
+    </iframe>
+  </a>
+  {{/match}}
+  {{#match name "Ищу сотрудника"}}
+  <a class="wrapper-banner-sidebar desktop" href="https://event.zarplata.ru/cityconf?utm_source=blog&utm_medium=widget"
+    onclick="ym(77659420,'reachGoal','banner-sidebar');">
+
+    <iframe class="res-iframe" id="sidebar-banner" src="/assets/frames/conf-banner/index.html" frameborder="0"
+      width="100%" height="100%" scrolling="no" style="pointer-events: none;">
+    </iframe>
+  </a>
+  {{/match}}
+  {{#match name "Ответы на вопросы desktop"}}
+  <a class="wrapper-banner-sidebar" href="https://event.zarplata.ru/cityconf?utm_source=blog&utm_medium=widget"
+    onclick="ym(77659420,'reachGoal','banner-sidebar');">
+
+    <iframe class="res-iframe" id="sidebar-banner" src="/assets/frames/conf-banner/index.html" frameborder="0"
+      width="100%" height="100%" scrolling="no" style="pointer-events: none;">
+    </iframe>
+  </a>
+  {{/match}}
+  {{/primary_tag}}
+  {{/is}}
 </aside>
