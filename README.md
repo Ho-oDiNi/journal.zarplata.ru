@@ -1,37 +1,39 @@
-# auden
+# journal.zarplata.ru
 
-A Ghost CMS theme.
+Разработано на основе Ghost CMS с доработанной темой Auden
 
-## Requirements
+## Требования
 
-Ghost 3.0 or higher
+Установить Ghost CLI 3.0 или новее
+Документация по установке https://ghost.org/docs/install/local/
 
-## Config
+После локальной установки проекта Ghost CLI в выбранную папку, нужно перейти в папку content/themes/
+Создать в ней папку auden и перенести содержимое этого проекта.
 
-The package.json file contains the basic configuration like `posts_per_page` 
-and responsive image sizes.
+## Разработка
 
-## Development
+1. `yarn css`
+   Обрабатывает CSS-файлы из папки 'assets/css' в один файл с помощью PostCSS,
+   который будет использоваться темой. Каждый раз когда изменяются стили нужно запускать эту команду перед деплоем.
 
-The development environment consists of several gulp tasks.
-1. `gulp css`
-Process the css files from 'assets/css' folder into a single file using PostCSS 
-that will be used by the theme.
+2. `yarn js`
+   Компилирует JS-файлы из папки 'assets/js' в один файл,
+   который будет использоваться темой. Каждый раз когда изменяется js код нужно запускать эту команду перед деплоем.
 
-2. `gulp js`
-Compile the js files from 'assets/js' folder into a single file that will 
-be used by the theme.
+3. `yarn zip`
+   Эта задача сжимает файлы темы в архив theme_name.zip в папке 'dist'.
 
-3. `gulp zip`
-This task compresses the theme files into theme_name.zip in the 'dist' folder.
+4. `yarn dev`
+   Выполняет серию задач, необходимых для локальной разработки/кастомизации.
 
-4. The deafault task `gulp` or `gulp dev`.
-Runs a series of tasks necessary for local development/customizing.
+## Деплой темы в блог
 
-## Demo
+1. Запустить команду `yarn zip`, которая архивируют тему для деплоя на сайте.
+2. Перейти на сайт адмнки а авторизоваться https://account.ghost.org/signin
+3. После авторизации перейти в настройки - пункт Site - "Design & branding" - Customize
+4. Внизу открывшегося модального окна нажать "Change theme"
+5. Нажать на кнопку "Upload theme"
+6. Перенести или выбрать из папки архив с темой собранный на шаге 1.
 
-[auden.bironthemes.com](https://auden.bironthemes.com)
-
-## Documentation
-
-[Online Doc](https://bironthemes.com/docs/auden-ghost/)
+## Поддержка Ghost CLI
+При приблемах работы сайта или при вообще любых вопросах связанных с работой этой платформы писать на support@ghost.org
