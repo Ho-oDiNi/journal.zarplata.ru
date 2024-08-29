@@ -202,3 +202,9 @@
 #findPosition > input[type="submit"]:focus {
   border: none
 }
+
+.wrapper-banner-sidebar {
+  display: block;
+  position: relative;
+  height: 395px;
+}

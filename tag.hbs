@@ -1,53 +1,116 @@
-{{!< default}}
-
-<div class="container-fluid wrapper">
+{{!< default}} <div class="container-fluid wrapper">
   {{!-- Everything inside the #tag pulls data from the tag --}}
   {{!-- Tag header --}}
   {{#tag}}
-    <section class="tag-header{{^if feature_image}} no-img{{/if}}">
-      <div class="geometric-bg"></div>
-      {{#if feature_image}}
-        <div class="tag-header__image">
-          <img class="lazyload"
-              data-srcset="{{img_url feature_image size="s"}} 300w,
-                      {{img_url feature_image size="m"}} 600w,
-                      {{img_url feature_image size="l"}} 1000w,
-                      {{img_url feature_image size="xl"}} 2000w"
-              data-sizes="(max-width: 1000px) 50vw, 700px"
-              data-src="{{img_url feature_image size="l"}}"
-              alt="{{name}}" 
-              src="{{asset 'images/img-placeholder-md.jpg'}}"
-          />
-        </div>
-      {{/if}}
+  <section class="tag-header{{^if feature_image}} no-img{{/if}}">
+    <div class="geometric-bg"></div>
+    {{#if feature_image}}
+    <div class="tag-header__image">
+      <img class="lazyload" data-srcset="{{img_url feature_image size=" s"}} 300w, {{img_url feature_image size="m" }}
+        600w, {{img_url feature_image size="l" }} 1000w, {{img_url feature_image size="xl" }} 2000w"
+        data-sizes="(max-width: 1000px) 50vw, 700px" data-src="{{img_url feature_image size=" l"}}" alt="{{name}}"
+        src="{{asset 'images/img-placeholder-md.jpg'}}" />
+    </div>
+    {{/if}}
 
-      <div class="tag-header__content tag-h-{{slug}}">
-        <h1 class="tag-header__title">{{name}}</h1>
-      </div>
-    </section>
+    <div class="tag-header__content tag-h-{{slug}}">
+      <h1 class="tag-header__title">{{name}}</h1>
+    </div>
+  </section>
   {{/tag}}
 
   {{!-- The main content/post by the author --}}
   {{#if posts}}
-    <div class="row">
-      <div class="col-xs-12">
-        <section class="section all-posts">
-          <div class="row posts">
-            {{#foreach posts}}
-              <div class="col-xs-12 col-md-6 col-lg-4 post-wrap">
-                {{> post-card class="col tag"}}
-              </div>
-            {{/foreach}}
+  <div class="row">
+    <div class="col-xs-12">
+      <section class="section all-posts">
+        {{!-- posts --}}
+        <div class="row posts">
+          {{#foreach posts from="1" to="3"}}
+          <div class="col-xs-12 col-md-6 col-lg-4 post-wrap">
+            {{> post-card class="col tag"}}
           </div>
-          <div class="row">
-            <div class="col-xs-12 center-xs">
-              <button id="load-more-posts" class="btn btn--wide btn--more btn--primary">
-                Показать больше статей
-              </button>
-            </div>
+          {{/foreach}}
+        </div>
+        {{#tag}}
+        {{#match name "Работодателям"}}
+        <a class="wrapper-banner" href="https://event.zarplata.ru/cityconf?utm_source=blog&utm_medium=banner"
+          onclick="ym(77659420,'reachGoal','banner-main');">
+
+          <iframe class="res-iframe" id="sidebar-banner" src="/assets/frames/conf-banner-main/index.html"
+            frameborder="0" width="100%" height="100%" scrolling="no" style="pointer-events: none;">
+          </iframe>
+        </a>
+        {{/match}}
+        {{#match name "Руководство"}}
+        <a class="wrapper-banner" href="https://event.zarplata.ru/cityconf?utm_source=blog&utm_medium=banner"
+          onclick="ym(77659420,'reachGoal','banner-main');">
+
+          <iframe class="res-iframe" id="sidebar-banner" src="/assets/frames/conf-banner-main/index.html"
+            frameborder="0" width="100%" height="100%" scrolling="no" style="pointer-events: none;">
+          </iframe>
+        </a>
+        {{/match}}
+        {{#match name "Бизнес"}}
+        <a class="wrapper-banner" href="https://event.zarplata.ru/cityconf?utm_source=blog&utm_medium=banner"
+          onclick="ym(77659420,'reachGoal','banner-main');">
+
+          <iframe class="res-iframe" id="sidebar-banner" src="/assets/frames/conf-banner-main/index.html"
+            frameborder="0" width="100%" height="100%" scrolling="no" style="pointer-events: none;">
+          </iframe>
+        </a>
+        {{/match}}
+        {{#match name "Ищу сотрудника"}}
+        <a class="wrapper-banner" href="https://event.zarplata.ru/cityconf?utm_source=blog&utm_medium=banner"
+          onclick="ym(77659420,'reachGoal','banner-main');">
+
+          <iframe class="res-iframe" id="sidebar-banner" src="/assets/frames/conf-banner-main/index.html"
+            frameborder="0" width="100%" height="100%" scrolling="no" style="pointer-events: none;">
+          </iframe>
+        </a>
+        {{/match}}
+        {{#match name "Ответы на вопросы"}}
+        <a class="wrapper-banner" href="https://event.zarplata.ru/cityconf?utm_source=blog&utm_medium=banner"
+          onclick="ym(77659420,'reachGoal','banner-main');">
+
+          <iframe class="res-iframe" id="sidebar-banner" src="/assets/frames/conf-banner-main/index.html"
+            frameborder="0" width="100%" height="100%" scrolling="no" style="pointer-events: none;">
+          </iframe>
+        </a>
+        {{/match}}
+        {{#match name "Работа в команде"}}
+        <a class="wrapper-banner" href="https://event.zarplata.ru/cityconf?utm_source=blog&utm_medium=banner"
+          onclick="ym(77659420,'reachGoal','banner-main');">
+
+          <iframe class="res-iframe" id="sidebar-banner" src="/assets/frames/conf-banner-main/index.html"
+            frameborder="0" width="100%" height="100%" scrolling="no" style="pointer-events: none;">
+          </iframe>
+        </a>
+        {{/match}}
+        {{/tag}}
+        <div class="row posts">
+          {{#foreach posts from="4"}}
+          <div class="col-xs-12 col-md-6 col-lg-4 post-wrap">
+            {{> post-card class="col tag"}}
           </div>
-        </section>
-      </div>
+          {{/foreach}}
+        </div>
+        {{!-- spinner --}}
+        <div class="row">
+          <div class="col-xs-12 center-xs">
+            <span class="button-spinner" id="button-spinner" style="visibility: hidden;"><svg
+                xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 100 100"
+                preserveAspectRatio="xMidYMid" display="block">
+                <circle cx="50" cy="50" fill="none" stroke="#272727" stroke-width="12" r="39"
+                  stroke-dasharray="183.7831702350029 63.261056745000964" transform="rotate(197.992 50 50)">
+                  <animateTransform attributeName="transform" type="rotate" repeatCount="indefinite" dur="1s"
+                    values="0 50 50;360 50 50" keyTimes="0;1" />
+                </circle>
+              </svg></span>
+          </div>
+        </div>
+      </section>
     </div>
+  </div>
   {{/if}}
-</div>
+  </div>

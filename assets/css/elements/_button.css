@@ -20,8 +20,12 @@ button,
     width: 90%;
   }
 
+  /* 
+    из-за этого стиля кнопка "показать больше статей"
+    после первого нажатия становилась серой
+  */
   @mixin attention {
-    background-color: var(--color-bg-accent-3);
+    /* background-color: var(--color-bg-accent-3); */
   }
 
   &--xs {
@@ -182,3 +186,8 @@ button,
 }
 
 a.btn { -webkit-appearance: none; }
+
+.button-spinner {
+  display: flex;
+  justify-content: center;
+}
