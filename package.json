@@ -27,6 +27,7 @@
   },
   "scripts": {
     "dev": "gulp",
+    "js": "gulp js",
     "css": "gulp css",
     "zip": "gulp zip",
     "test": "gscan ."
