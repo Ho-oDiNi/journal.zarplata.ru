@@ -1,28 +1,4 @@
 <aside class="sidebar">
-  {{!-- Tag Cloud --}}
-  <div class="sidebar__section mobile" id="tag-cloud-min" style="display: block">
-    <h5 class="sidebar__title">Наши темы</h5>
-    {{#get "tags" limit="7" order="count.posts desc"}}
-    {{#foreach tags}}
-    <div class="tag">
-      <a class="tag-{{slug}} post-card__tag" href="{{url}}" title="{{name}}" aria-label="{{name}}s">{{name}}</a>
-    </div>
-    {{/foreach}}
-    {{/get}}
-    <div class="sidebar__allTags" id="show-all-tags">Все темы</div>
-  </div>
-
-  {{!-- Tag Cloud All --}}
-  <div class="sidebar__section mobile" id="tag-cloud-all" style="display: none;">
-    <h5 class="sidebar__title">Наши темы</h5>
-    {{#get "tags" limit="all" order="count.posts desc"}}
-    {{#foreach tags}}
-    <div class="tag">
-      <a class="tag-{{slug}} post-card__tag" href="{{url}}" title="{{name}}" aria-label="{{name}}s">{{name}}</a>
-    </div>
-    {{/foreach}}
-    {{/get}}
-  </div>
 
   {{!-- Sidebar latest posts
   {{#is "post"}}

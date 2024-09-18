@@ -705,17 +705,25 @@ var callback = function () {
   // Tag Cloud
   // ==============
 
+
+
   const cloudMin = document.querySelector("#tag-cloud-min");
   const cloudAll = document.querySelector("#tag-cloud-all");
   const showAllTagsButton = document.querySelector("#show-all-tags");
-  if (showAllTagsButton) {
-    showAllTagsButton.addEventListener("click", () => {
-      if (cloudMin.style.display === "block") {
-        cloudAll.style.display = "block";
-        cloudMin.style.display = "none";
-      }
-    });
-  }
+  const closeAllTagsButton = document.querySelector("#close-all-tags");
+
+  showAllTagsButton.addEventListener("click", () => {
+    if (cloudMin.style.display === "block") {
+      cloudAll.style.display = "block";
+      cloudMin.style.display = "none";
+    }
+  });
+  closeAllTagsButton.addEventListener("click", () => {
+    if (cloudAll.style.display === "block") {
+      cloudAll.style.display = "none";
+      cloudMin.style.display = "block";
+    }
+  });
 
   // ==============
   // Social Sharing
