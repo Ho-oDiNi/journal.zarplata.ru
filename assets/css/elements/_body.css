@@ -3,7 +3,7 @@ html, body {
   /* font-size: var(--font-size-base); */
   font-size: var(--font-size-text);
   font-weight: var(--font-weight-regular);
-  font-family: var(--font-family-secondary);
+  font-family: var(--font-family-sans-serif);
   line-height: var(--line-height-base);
 
   -webkit-font-smoothing: antialiased;

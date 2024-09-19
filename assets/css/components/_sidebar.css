@@ -80,6 +80,7 @@
 
   &__description {
     color: var(--color-text);
+    font-family: var(--font-family-secondary);
     font-size: 21px;
     font-weight: 400;
     line-height: 27px;
