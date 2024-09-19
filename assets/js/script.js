@@ -147,8 +147,7 @@ var callback = function () {
   // ==============
 
   const navAllThemesButton = document.getElementById("nav-all-themes");
-  const headerAllThemesContainter =
-    document.getElementById("header-all-themes");
+  const headerAllThemesContainter = document.getElementById("header-all-themes");
 
   navAllThemesButton.addEventListener("click", (e) => {
     e.preventDefault();
@@ -712,19 +711,23 @@ var callback = function () {
   const showAllTagsButton = document.querySelector("#show-all-tags");
   const closeAllTagsButton = document.querySelector("#close-all-tags");
 
+  if (showAllTagsButton){
   showAllTagsButton.addEventListener("click", () => {
     if (cloudMin.style.display === "block") {
       cloudAll.style.display = "block";
       cloudMin.style.display = "none";
     }
   });
+
+  }
+  if (closeAllTagsButton){
   closeAllTagsButton.addEventListener("click", () => {
     if (cloudAll.style.display === "block") {
       cloudAll.style.display = "none";
       cloudMin.style.display = "block";
     }
   });
-
+  }
   // ==============
   // Social Sharing
   // ==============
