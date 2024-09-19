@@ -1,8 +1,9 @@
 /* Html & Body */
 html, body {
-  font-size: var(--font-size-base);
+  /* font-size: var(--font-size-base); */
+  font-size: var(--font-size-text);
   font-weight: var(--font-weight-regular);
-  font-family: var(--font-family-sans-serif);
+  font-family: var(--font-family-secondary);
   line-height: var(--line-height-base);
 
   -webkit-font-smoothing: antialiased;
@@ -16,8 +17,9 @@ html, body {
 }
 
 body {
-  color: var(--color-text);
+  color: var(--color-black);
   background-color: var(--color-bg);
+  letter-spacing: calc(0.005 * var(--font-size-base));
   display: flex;
   flex-direction: column;
   min-height: 100vh;
