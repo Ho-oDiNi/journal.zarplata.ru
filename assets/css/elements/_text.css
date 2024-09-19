@@ -1,7 +1,8 @@
 /* Paragraph */
 p {
-  font-size: var(--font-size-base);
-  line-height: calc(0.1 + var(--line-height-base));
+  /* font-size: var(--font-size-base); */
+  font-size: 21px;
+  line-height: 30px;
   margin: 0 0 var(--gap-lg);
 }
 

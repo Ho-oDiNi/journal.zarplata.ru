@@ -80,7 +80,8 @@
 
   &__description {
     color: var(--color-text);
-    font-size: 20px;
+    font-family: var(--font-family-secondary);
+    font-size: var(--font-size-base);
     font-weight: 400;
     line-height: 27px;
     letter-spacing: 0em;
