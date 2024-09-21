@@ -1,14 +1,7 @@
 //****************************************
 // Website scripts
 //****************************************
-const firebaseConfig = {
-  apiKey: "AIzaSyApbwvPWqFJhIMAV3l57r_8dWacNRZq9GQ",
-  authDomain: "blog-reactions-a7dd7.firebaseapp.com",
-  projectId: "blog-reactions-a7dd7",
-  storageBucket: "blog-reactions-a7dd7.appspot.com",
-  messagingSenderId: "890074263694",
-  appId: "1:890074263694:web:11d1e185b19d0bb5b8d9df",
-};
+
 
 firebase.initializeApp(firebaseConfig);
 const db = firebase.firestore();
