@@ -551,9 +551,6 @@ var callback = function () {
   // =============
   refreshFsLightbox();
 
-  /*
-    My functions
-  */
 
   // ===============
   // Swiper Scripts
