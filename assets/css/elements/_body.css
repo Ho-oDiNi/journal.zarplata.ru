@@ -1,7 +1,7 @@
 /* Html & Body */
 html, body {
   /* font-size: var(--font-size-base); */
-  font-size: var(--font-size-text);
+  font-size: var(--font-size-base);
   font-weight: var(--font-weight-regular);
   font-family: var(--font-family-sans-serif);
   line-height: var(--line-height-base);
