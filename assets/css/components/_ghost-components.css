@@ -241,7 +241,7 @@
 .kg-callout-text {
   color: var(--color-dark);
   @media (max-width: 767px) {
-    font-size: 1.3rem;
+    font-size: var(--font-size-text);
     font-weight: 700;
     line-height: 28px;
     letter-spacing: 0em;
