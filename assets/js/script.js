@@ -35,12 +35,10 @@ var callback = function () {
   );
   const galleryImages = document.querySelectorAll(".kg-gallery-image img");
   const subscribeButton = document.querySelector(".subscribe-button");
-  const socialShare = document.querySelectorAll(".js-share");
+  
   const progressbar = document.querySelector("#progress");
   const postToc = document.querySelector(".post.has-toc");
   const scrollTop = document.querySelector(".scroll-to-top");
-  
-  const sideBarBanner = document.querySelector("#sidebar-banner");
 
   // ===============================
   // Class modifying helepers
@@ -142,49 +140,7 @@ var callback = function () {
     }
   };
 
-  // ==============
-  // Show All themes Desktop
-  // ==============
-
-  const navAllThemesButton = document.getElementById("nav-all-themes");
-  const headerAllThemesContainter = document.getElementById("header-all-themes");
-
-  navAllThemesButton.addEventListener("click", (e) => {
-    e.preventDefault();
-    if (headerAllThemesContainter.classList.contains("show")) {
-      headerAllThemesContainter.classList.remove("show");
-      return;
-    }
-
-    headerAllThemesContainter.classList.add("show");
-  });
-
-  // ==============
-  // Social Sharing Post
-  // ==============
-  const socialsButtonShare = document.querySelector("#share-socials-button");
-
-  if (socialsButtonShare) {
-    const hiddedSocials = document.querySelector("#share-socials");
-    socialsButtonShare.addEventListener("click", () => {
-      if (hiddedSocials.style.display === "none") {
-        hiddedSocials.style.display = "flex";
-      } else {
-        hiddedSocials.style.display = "none";
-      }
-    });
-  }
-
-  function shareOnFacebook(link) {
-    const urlToShare = window.location.href;
-    const baseURL = link;
-    const params = `${encodeURIComponent(urlToShare)}`;
-    ym(77659420, "reachGoal", "sharePost");
-
-    const shareWindow = window.open(`${baseURL}${params}`);
-    shareWindow.focus();
-  }
-
+  
   // ============
   // Menu actions
   // ============
@@ -462,26 +418,7 @@ var callback = function () {
     };
   }
 
-  // ============
-  // Share links
-  // ============
-
-  if (document.querySelector(".post-hero")) {
-    const wpShare = document.getElementById("wpShare");
-    wpShare.addEventListener("click", () => {
-      shareOnFacebook("https://api.whatsapp.com/send?text=");
-    });
-
-    const vkShare = document.getElementById("vkShare");
-    vkShare.addEventListener("click", () => {
-      shareOnFacebook("https://vk.com/share.php?url=");
-    });
-
-    const tgShare = document.getElementById("tgShare");
-    tgShare.addEventListener("click", () => {
-      shareOnFacebook("https://telegram.me/share/url?url=");
-    });
-  }
+  
 
   // ===========
   // Blog search
@@ -662,13 +599,6 @@ var callback = function () {
   }
 
   // ==================
-  // Social Share Logic
-  // ==================
-  if (socialShare.length > 0) {
-    jsShareable(socialShare);
-  }
-
-  // ==================
   // Post external links
   // ==================
   if (config.open_links_in_new_tab) {
@@ -700,55 +630,9 @@ var callback = function () {
     scrollToTop.style.display = "none";
   }
 
-  // ==============
-  // Tag Cloud
-  // ==============
+};
 
-
-
-  const cloudMin = document.querySelector("#tag-cloud-min");
-  const cloudAll = document.querySelector("#tag-cloud-all");
-  const showAllTagsButton = document.querySelector("#show-all-tags");
-  const closeAllTagsButton = document.querySelector("#close-all-tags");
-
-  if (showAllTagsButton){
-  showAllTagsButton.addEventListener("click", () => {
-    if (cloudMin.style.display === "block") {
-      cloudAll.style.display = "block";
-      cloudMin.style.display = "none";
-    }
-  });
-
-  }
-  if (closeAllTagsButton){
-  closeAllTagsButton.addEventListener("click", () => {
-    if (cloudAll.style.display === "block") {
-      cloudAll.style.display = "none";
-      cloudMin.style.display = "block";
-    }
-  });
-  }
-  // ==============
-  // Social Sharing
-  // ==============
-  function jsShareable(socialShare) {
-    if (socialShare.length > 1) {
-      socialShare.forEach((el) => {
-        let title = el.getAttribute("data-title");
-        let url = el.getAttribute("data-url");
-        let type = el.getAttribute("data-type");
-
-        jsShare(el, title, url, type);
-      });
-    } else {
-      let title = socialShare.getAttribute("data-title");
-      let url = socialShare.getAttribute("data-url");
-      let type = socialShare.getAttribute("data-type");
-
-      jsShare(socialShare, title, url, type);
-    }
-  }
-
+var reactionsLoader = function (){
   // ==============
   // Reactions
   // ==============
@@ -905,16 +789,161 @@ var callback = function () {
       }
     });
   });
-};
-
-if (
-  document.readyState === "complete" ||
-  (document.readyState !== "loading" && !document.documentElement.doScroll)
-) {
-  callback();
-} else {
-  document.addEventListener("DOMContentLoaded", callback);
 }
+
+var themesLoader = function () {
+  // ==============
+  // Show All themes Desktop
+  // ==============
+
+  const navAllThemesButton = document.getElementById("nav-all-themes");
+  const headerAllThemesContainter = document.getElementById("header-all-themes");
+
+  navAllThemesButton.addEventListener("click", (e) => {
+    e.preventDefault();
+    if (headerAllThemesContainter.classList.contains("show")) {
+      headerAllThemesContainter.classList.remove("show");
+      return;
+    }
+
+    headerAllThemesContainter.classList.add("show");
+  });
+
+  // ==============
+  // Show All themes Mobile
+  // ==============
+
+  const cloudMin = document.querySelector("#tag-cloud-min");
+  const cloudAll = document.querySelector("#tag-cloud-all");
+  const showAllTagsButton = document.querySelector("#show-all-tags");
+  const closeAllTagsButton = document.querySelector("#close-all-tags");
+
+  if (showAllTagsButton){
+  showAllTagsButton.addEventListener("click", () => {
+      if (cloudMin.style.display === "block") {
+        cloudAll.style.display = "block";
+        cloudMin.style.display = "none";
+      }
+    });
+  }
+
+  if (closeAllTagsButton){
+  closeAllTagsButton.addEventListener("click", () => {
+      if (cloudAll.style.display === "block") {
+        cloudAll.style.display = "none";
+        cloudMin.style.display = "block";
+      }
+    });
+  }
+
+}
+
+var sharePostLoader = function() {
+
+  const socialShare = document.querySelectorAll(".js-share");
+  
+  // ==================
+  // Social Share Logic
+  // ==================
+  if (socialShare.length > 0) {
+    jsShareable(socialShare);
+  }
+
+  // ==============
+  // Social Sharing Post
+  // ==============
+  const socialsButtonShare = document.querySelector("#share-socials-button");
+
+  if (socialsButtonShare) {
+    const hiddedSocials = document.querySelector("#share-socials");
+    socialsButtonShare.addEventListener("click", () => {
+      if (hiddedSocials.style.display === "none") {
+        hiddedSocials.style.display = "flex";
+      } else {
+        hiddedSocials.style.display = "none";
+      }
+    });
+  }
+
+  function shareOnFacebook(link) {
+    const urlToShare = window.location.href;
+    const baseURL = link;
+    const params = `${encodeURIComponent(urlToShare)}`;
+    ym(77659420, "reachGoal", "sharePost");
+
+    const shareWindow = window.open(`${baseURL}${params}`);
+    shareWindow.focus();
+  }
+
+  // ============
+  // Share links
+  // ============
+  if (document.querySelector(".post-hero")) {
+    const wpShare = document.getElementById("wpShare");
+    wpShare.addEventListener("click", () => {
+      shareOnFacebook("https://api.whatsapp.com/send?text=");
+    });
+
+    const vkShare = document.getElementById("vkShare");
+    vkShare.addEventListener("click", () => {
+      shareOnFacebook("https://vk.com/share.php?url=");
+    });
+
+    const tgShare = document.getElementById("tgShare");
+    tgShare.addEventListener("click", () => {
+      shareOnFacebook("https://telegram.me/share/url?url=");
+    });
+  }
+
+
+  // ==============
+  // Social Sharing
+  // ==============
+  function jsShareable(socialShare) {
+    if (socialShare.length > 1) {
+      socialShare.forEach((el) => {
+        let title = el.getAttribute("data-title");
+        let url = el.getAttribute("data-url");
+        let type = el.getAttribute("data-type");
+
+        jsShare(el, title, url, type);
+      });
+    } else {
+      let title = socialShare.getAttribute("data-title");
+      let url = socialShare.getAttribute("data-url");
+      let type = socialShare.getAttribute("data-type");
+
+      jsShare(socialShare, title, url, type);
+    }
+  }
+
+}
+
+
+if (document.readyState === "complete" || (document.readyState !== "loading" && !document.documentElement.doScroll)) 
+{
+  callback();
+  themesLoader();
+
+  if (document.location != document.location.origin + '/')
+  {
+    sharePostLoader();
+    reactionsLoader();
+  } 
+} 
+else 
+{
+  document.addEventListener("DOMContentLoaded", callback);
+  document.addEventListener("DOMContentLoaded", themesLoader);
+
+  if (document.location != document.location.origin + '/')
+  {
+    document.addEventListener("DOMContentLoaded", reactionsLoader);
+    document.addEventListener("DOMContentLoaded", sharePostLoader);
+  } 
+}
+
+
 
 // ===============================
 // Dark/Light mode theme handling
