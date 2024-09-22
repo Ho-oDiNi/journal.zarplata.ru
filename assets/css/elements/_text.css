@@ -14,20 +14,9 @@ a {
   box-shadow: none;
 }
 
-/* Quote */
-blockquote {
-  background-color: #fff;
-  padding: 32px;
-  padding-top: 64px;
-  border-radius: 26px;
-  position: relative;
-  color: var(--color-dark);
-
-  &.important-info {
-    &:before {
-      content: "";
-    }
-  }
+blockquote{
+  
+  padding-top: 64px !important;
 
   &:before {
     content: "“";
@@ -38,6 +27,32 @@ blockquote {
     font-size: 6rem;
     line-height: 3rem;
     color: #ffe000;
+  }
+}
+
+.blockquote-img {
+  position: relative;
+  bottom: 65px;
+  border-radius: 0 0 26px 26px !important;
+  padding-bottom: 16px !important;
+}
+
+/* Quote */
+blockquote, .blockquote-img {
+  background-color: #fff;
+  padding: 32px;
+  padding-top: 0px;
+  border-radius: 26px;
+
+  position: relative;
+  color: var(--color-dark);
+
+  display: flex;
+
+  &.important-info {
+    &:before {
+      content: "";
+    }
   }
 
   &+ figcaption cite {
@@ -50,10 +65,40 @@ blockquote {
   cite { font-weight: var(--font-weight-bold); }
 
   p {
+    
+    font-family: var(--font-family-secondary);
     margin: 0;
-    font-weight: 700;
+    
+    &.blockquote__title{
+      font-size: var(--font-size-text);
+      line-height: 25px;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+
+    &.blockquote__description {
+      line-height: 18px;
+      font-size: 0.93rem;
+      font-weight: 400;
+    }
   }
+
+  img {
+    margin: 13px 16px 13px 0;
+    min-width: 90px !important;
+    border-radius: 50% !important;
+    height: 90px;
+    width: 90px;
+    background-position: 50%;
+    border-radius: 50%;
+  }
+
+  div {
+    margin: 16px 32px 32px 0;
+  }
+
 }
+
 
 .important-info {
   padding: var(--gap-lg);
