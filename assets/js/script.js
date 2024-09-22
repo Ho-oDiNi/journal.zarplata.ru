@@ -835,6 +835,55 @@ var themesLoader = function () {
 
 }
 
+// !Добавить обьясняющие комменты
+var quoteImageLoader = function() {
+
+  var quoteImagesText = [];
+  var quoteImages = document.querySelectorAll(".kg-card-hascaption");
+  var quoteImagesDescription = document.querySelectorAll(".kg-card-hascaption > figcaption > span");
+  var quoteImagesImg = document.querySelectorAll(".kg-card-hascaption > a > img");
+
+
+  if (quoteImagesDescription)
+  {
+    [...quoteImagesDescription].map(v => quoteImagesText.push(v.textContent));
+
+    for(var i = 0; i < quoteImagesText.length; i++)
+    {
+      if (quoteImagesText[i].toLowerCase().includes("quote"))
+      {
+        const start_title = quoteImagesText[i]. indexOf('\"') + 1;
+        const end_title = quoteImagesText[i].indexOf('\"', start_title);
+
+        const title_str = quoteImagesText[i].substring(start_title, end_title)
+        const description_str = quoteImagesText[i].substring(end_title + 1, quoteImagesText[i].length)
+
+        quoteImages[i].replaceChildren(quoteImagesImg[i]);
+        quoteImages[i].removeAttribute('class');
+        quoteImages[i].setAttribute('class', 'blockquote-img');
+        
+        const fragment = document.createDocumentFragment();
+        const div = document.createElement("div");
+
+        const title = fragment.appendChild(document.createElement("p"));
+        title.setAttribute('class', 'blockquote__title');
+        title.textContent = title_str;
+        div.appendChild(fragment);
+
+        const description = fragment.appendChild(document.createElement("p"));
+        description.setAttribute('class', 'blockquote__description');
+        description.textContent = description_str;
+        div.appendChild(fragment);
+
+        quoteImages[i].appendChild(div);
+
+        console.log(quoteImagesText[i]);
+      }
+    }
+  }
+}
+
+
 var sharePostLoader = function() {
 
   const socialShare = document.querySelectorAll(".js-share");
@@ -921,9 +970,10 @@ if (document.readyState === "complete" || (document.readyState !== "loading" && 
 {
   callback();
   themesLoader();
-
+  
   if (document.location != document.location.origin + '/')
   {
+    quoteImageLoader();
     sharePostLoader();
     reactionsLoader();
   } 
@@ -935,6 +985,7 @@ else
 
   if (document.location != document.location.origin + '/')
   {
+    document.addEventListener("DOMContentLoaded", quoteImageLoader);
     document.addEventListener("DOMContentLoaded", reactionsLoader);
     document.addEventListener("DOMContentLoaded", sharePostLoader);
   } 
