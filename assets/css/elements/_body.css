@@ -17,7 +17,7 @@ html, body {
 }
 
 body {
-  color: var(--color-black);
+  color: var(--color-text);
   background-color: var(--color-bg);
   letter-spacing: calc(0.005 * var(--font-size-base));
   display: flex;
