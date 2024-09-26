@@ -613,7 +613,7 @@
   height: 100%;
 }
 
-@media (max-width: 1232px) {
+@media (max-width: 1238px) {
   .wrapper-banner {
     height: 165px;
   } 
@@ -625,8 +625,15 @@
   } 
 }
 
-@media (max-width: 792px) {
+
+@media (max-width: 810px) {
   .wrapper-banner {
     height: 395px;
   } 
+}
+
+@media (max-width: 463px) {
+  .wrapper-banner {
+    height: 430px;
+  }
 }

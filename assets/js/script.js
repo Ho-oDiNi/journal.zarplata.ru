@@ -877,7 +877,6 @@ var quoteImageLoader = function() {
 
         quoteImages[i].appendChild(div);
 
-        console.log(quoteImagesText[i]);
       }
     }
   }
@@ -965,29 +964,33 @@ var sharePostLoader = function() {
 
 }
 
+var defaultPageLoader =function() {
+  callback();
+  themesLoader();
+}
+
+var postPageLoader =function() {
+  quoteImageLoader();
+  sharePostLoader();
+  reactionsLoader();
+}
 
 if (document.readyState === "complete" || (document.readyState !== "loading" && !document.documentElement.doScroll)) 
 {
-  callback();
-  themesLoader();
   
+  defaultPageLoader();
   if (document.location != document.location.origin + '/')
   {
-    quoteImageLoader();
-    sharePostLoader();
-    reactionsLoader();
+    postPageLoader();
   } 
 } 
 else 
 {
-  document.addEventListener("DOMContentLoaded", callback);
-  document.addEventListener("DOMContentLoaded", themesLoader);
+  document.addEventListener("DOMContentLoaded", defaultPageLoader);
 
   if (document.location != document.location.origin + '/')
   {
-    document.addEventListener("DOMContentLoaded", quoteImageLoader);
-    document.addEventListener("DOMContentLoaded", reactionsLoader);
-    document.addEventListener("DOMContentLoaded", sharePostLoader);
+    document.addEventListener("DOMContentLoaded", postPageLoader);
   } 
 }
 
