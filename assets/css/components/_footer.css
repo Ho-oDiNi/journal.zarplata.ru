@@ -128,12 +128,6 @@
       flex-direction: row;
     }
   }
-
-  a:hover,
-  a:focus,
-  a:active {
-    color: var(--color-primary);
-  }
 }
 
 .footer-wrapper {
