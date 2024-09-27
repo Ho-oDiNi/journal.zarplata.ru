@@ -86,7 +86,11 @@
   {{!-- The footer at the very bottom --}}
   {{^is "signin, signup"}}
   {{> footer}}
-  <div class="scroll-to-top">{{> icon name="arrow-up"}}</div>
+  <div class="scroll-to-top" >
+    <div class="share-button--secondary share-button__image-wrapper">
+      <img src="{{asset 'icons/arrow-up.svg'}}" alt="">
+    </div>
+  </div>
   {{/is}}
 
   {{> gradient}}

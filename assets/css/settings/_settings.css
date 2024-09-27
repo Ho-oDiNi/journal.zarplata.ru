@@ -123,6 +123,13 @@
   --container-md: calc(var(--breakpoint-md) + var(--gutter-width));
   --container-lg: calc(var(--breakpoint-lg) + var(--gutter-width));
   --container-xl: calc(var(--breakpoint-xl) + var(--gutter-width));
+
+  /*--------------------------------------*/
+  /* Button settings
+  /*--------------------------------------*/
+
+  --button-radius: 12px;
+
 }
 
 /*----------------------------------------*/

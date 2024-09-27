@@ -20,20 +20,6 @@
     }
   }
 
-  &__allTags {
-    margin-top: 32px;
-    display: flex;
-    padding: 16px 0;
-    justify-content: center;
-    align-items: center;
-    border-radius: 12px;
-    background-color: var(--color-bg-input);
-    font-size: 17px;
-    font-weight: 600;
-    line-height: 24px;
-    letter-spacing: 0em;
-  }
-
   &__moreVacancies {
     margin-top: 32px;
     display: flex;

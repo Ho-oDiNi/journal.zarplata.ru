@@ -56,13 +56,11 @@
   transition: visibility var(--animation-duration) var(--animation-name),
     opacity var(--animation-duration) var(--animation-name);
 
-  @mixin attention {
-    box-shadow: 0 0 0 1px var(--color-primary);
-    color: var(--color-primary);
-  }
-
   &.is-active {
     visibility: visible;
     opacity: 1;
+  }
+  &:active{
+    background-color: #FFE000;
   }
 }

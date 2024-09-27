@@ -610,13 +610,4 @@
     margin-bottom: 18px;
 
   }
-
-  &__feedback-form-link {
-    background-color: #EEF0F4;
-    color: #2B2B2B;
-    border-radius: 12px;
-    font-weight: 600;
-    line-height: 1em;
-    padding: 16px;
-  }
 }
