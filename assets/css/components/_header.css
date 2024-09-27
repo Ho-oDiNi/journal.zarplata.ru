@@ -255,12 +255,24 @@
       background-color: var(--color-bg);
     }
 
-    @media (max-width: 970px) {
+    @media (max-width: 768px) {
       display: none !important;
     }
 
+
     &.show {
       display: block;
+      
+      @media (max-width: 768px) {
+        display: none !important;
+      }
+    }
+
+    .row
+    {
+      display: flex;
+      align-items: center;
+      justify-content: center
     }
 
     .tag {
@@ -477,7 +489,9 @@
       padding: 5px 13px;
       transition: 0.2s;
 
-      @media (max-width: 970px) {
+      
+
+      @media (max-width: 768px) {
         display: none !important;
       }
     }
@@ -487,6 +501,7 @@
       padding-left: 8px;
       transition: 0.2s;
     }
+
 
     .nav-all-themes:hover,
     .nav-all-themes:active {
