@@ -1,14 +1,7 @@
 //****************************************
 // Website scripts
 //****************************************
-const firebaseConfig = {
-  apiKey: "AIzaSyApbwvPWqFJhIMAV3l57r_8dWacNRZq9GQ",
-  authDomain: "blog-reactions-a7dd7.firebaseapp.com",
-  projectId: "blog-reactions-a7dd7",
-  storageBucket: "blog-reactions-a7dd7.appspot.com",
-  messagingSenderId: "890074263694",
-  appId: "1:890074263694:web:11d1e185b19d0bb5b8d9df",
-};
+
 
 firebase.initializeApp(firebaseConfig);
 const db = firebase.firestore();
@@ -1177,6 +1170,7 @@ if (global.pagination_current_page === global.pagination_max_pages) {
 function loadMorePosts (button, spinner)  {
   // Next link
   const nextPage = document.querySelector("link[rel=next]");
+  button.disabled = true;
 
   global.pagination_next_page_link =
     nextPage && !global.pagination_next_page_link
@@ -1240,13 +1234,14 @@ function loadMorePosts (button, spinner)  {
         if (spinner) {
           spinner.style.visibility = "hidden";
         }
+
+        button.disabled = false;
       })
       .catch(function (err) {
         if (spinner) {
           spinner.style.visibility = "hidden";
         }
         // There was an error
-
         console.warn("Something went wrong.", err);
       });
   } else {
