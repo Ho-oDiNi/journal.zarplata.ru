@@ -68,6 +68,7 @@ button,
   &--primary {
     background-color: #ffe000;
     
+    &:hover,
     &:active
     {
       background-color: #FFD000;
@@ -78,6 +79,7 @@ button,
 
     background-color: var(--color-bg-input);    
 
+    &:hover,
     &:active
     {
       background-color: #FFE000;

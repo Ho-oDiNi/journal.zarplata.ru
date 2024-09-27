@@ -9,7 +9,8 @@
   &--primary
   {
     background-color: #ffe000;
-    &:active{
+    &:active,
+    &:hover{
       background-color: #FFD000;
     }
   }
@@ -17,7 +18,8 @@
   &--secondary
   {
     background-color: #FFFFFF;
-    &:active{
+    &:active,
+    &:hover{
       background-color: #FFE000;
     }
   }

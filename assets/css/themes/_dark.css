@@ -85,6 +85,8 @@
     &--secondary{
       background-color: #6B6B6B;  
       color: var(--color-text);
+      
+      &:hover,
       &:active
       {
         color: var(--color-text-reverse);
