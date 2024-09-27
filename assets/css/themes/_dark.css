@@ -33,6 +33,11 @@
     }
   }
 
+  /* .header__logo-wrapper
+  {
+    background-color: var(--color-bg);
+  } */
+
   .author-card {
     &__image {
       @mixin attention {
@@ -75,11 +80,17 @@
   }
 
   .btn {
-    color: var(--color-dark);
-  }
-
-  .btn:hover {
-    color: var(--color-light);
+    color: var(--color-text-reverse);
+  
+    &--secondary{
+      background-color: #6B6B6B;  
+      color: var(--color-text);
+      &:active
+      {
+        color: var(--color-text-reverse);
+        background-color: #FFE000;
+      }
+    }
   }
 
   .subscribe__popup-button {
@@ -92,5 +103,10 @@
 
   .search-bar-placeholder {
     color: #acacac;
+  }
+
+  blockquote, .blockquote-img {
+    background-color: var(--color-bg-accent-1);
+    color: var(--color-text)
   }
 }

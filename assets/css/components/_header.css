@@ -101,30 +101,6 @@
     }
   }
 
-  .signin-link,
-  .signout-link {
-    @mixin attention {
-      color: var(--color-primary);
-    }
-  }
-
-  .signup-link,
-  .account-link {
-    color: var(--color-primary);
-
-    @media (--viewport-md) {
-      display: inline-block;
-      margin-left: var(--gap-sm);
-      padding: 0.3em var(--gap);
-      color: var(--color-light);
-      background-color: var(--color-primary);
-      border-radius: calc(2 * var(--font-size-base));
-
-      @mixin attention {
-        background-color: var(--color-primary-light);
-      }
-    }
-  }
 
   &__member {
     padding-right: 0px;
