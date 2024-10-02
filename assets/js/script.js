@@ -1178,7 +1178,10 @@ if (global.pagination_current_page === global.pagination_max_pages) {
 function loadMorePosts (button, spinner)  {
   // Next link
   const nextPage = document.querySelector("link[rel=next]");
-  button.disabled = true;
+  if(!spinner)
+  {
+    button.disabled = true;
+  }
 
   global.pagination_next_page_link =
     nextPage && !global.pagination_next_page_link
@@ -1243,7 +1246,10 @@ function loadMorePosts (button, spinner)  {
           spinner.style.visibility = "hidden";
         }
 
-        button.disabled = false;
+        if(!spinner)
+        {
+          button.disabled = false;
+        }  
       })
       .catch(function (err) {
         if (spinner) {
