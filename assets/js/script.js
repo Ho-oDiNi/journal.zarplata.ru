@@ -865,9 +865,10 @@ var quoteImageLoader = function() {
         
         const fragment = document.createDocumentFragment();
         const div = document.createElement("div");
-
+        
         const title = fragment.appendChild(document.createElement("p"));
         title.setAttribute('class', 'blockquote__title');
+        title.setAttribute('data-srcset', '{{img_url feature_image size="s" format="webp"}} 300w');
         title.textContent = title_str;
         div.appendChild(fragment);
 
