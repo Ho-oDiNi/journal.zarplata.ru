@@ -17,6 +17,7 @@ a {
 blockquote{
   
   padding-top: 64px !important;
+  display: block;
 
   &:before {
     content: "“";
@@ -35,6 +36,7 @@ blockquote{
   bottom: 65px;
   border-radius: 0 0 26px 26px !important;
   padding-bottom: 16px !important;
+  display: flex;
 }
 
 /* Quote */
@@ -46,8 +48,6 @@ blockquote, .blockquote-img {
 
   position: relative;
   color: var(--color-dark);
-
-  display: flex;
 
   &.important-info {
     &:before {
