@@ -34,6 +34,7 @@
               {{#if @site.logo}}
               <div class="header__logo-wrapper">
                 <img class="header__logo" src="{{@site.logo}}" alt="{{@site.title}}">
+                <img class="header__logo-dark" src="{{asset 'icons/logo-dark.svg'}}" alt="{{@site.title}}">
               </div>
               {{else}}
               <h3 class="header__title">{{@site.title}}</h3>
