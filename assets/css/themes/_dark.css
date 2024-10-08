@@ -33,10 +33,20 @@
     }
   }
 
-  /* .header__logo-wrapper
+  .header__logo-wrapper
   {
     background-color: var(--color-bg);
-  } */
+  }
+
+  .header__logo
+  {
+    display: none !important;
+  }
+
+  .header__logo-dark
+  {
+    display: block !important;
+  }
 
   .author-card {
     &__image {

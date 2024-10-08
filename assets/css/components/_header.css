@@ -12,6 +12,12 @@
       height: 35px;
     }
   }
+  &__logo-dark{
+    display: none;
+    @media (--viewport-md) {
+      height: 35px;
+    }
+  }
 
   &__logo-wrapper {
     background-color: #fff;
