@@ -142,7 +142,6 @@
     }
 
     .post-hero__header,
-    .post-hero__authors,
     .post-hero__footer {
       display: none;
     }
@@ -183,8 +182,7 @@
         color: var(--color-light);
       }
 
-      .post-hero__header,
-      .post-hero__authors {
+      .post-hero__header {
         justify-content: center;
       }
 
@@ -195,14 +193,6 @@
         @mixin attention {
           color: var(--color-light);
           border-color: var(--color-light);
-        }
-      }
-
-      .post-hero__author-name {
-        color: var(--color-grey-lighter);
-
-        @mixin attention {
-          color: var(--color-light);
         }
       }
 
@@ -244,12 +234,6 @@
     .post-hero__details {
       @media (--viewport-md) {
         justify-content: center;
-      }
-    }
-
-    .post-hero__author-names {
-      @media (--viewport-md) {
-        color: var(--color-light);
       }
     }
   }
@@ -430,109 +414,6 @@
     margin-left: var(--gap-sm);
     padding: var(--gap-xs);
     color: var(--color-secondary);
-  }
-
-  &__authors.multi {
-    flex-wrap: nowrap;
-    .post-hero__author-name { display: none; }
-    .post-hero__author-tooltip { display: block; }
-  }
-
-  &__author {
-    position: relative;
-    display: flex;
-    align-items: center;
-
-    &:nth-of-type(1) {
-      z-index: 5;
-    }
-    &:nth-of-type(2) {
-      z-index: 4;
-      margin-left: calc(-0.75 * var(--gap));
-    }
-    &:nth-of-type(3) {
-      z-index: 3;
-      margin-left: calc(-0.75 * var(--gap));
-    }
-    &:nth-of-type(4) {
-      z-index: 2;
-      margin-left: calc(-0.75 * var(--gap));
-    }
-    &:nth-of-type(5) {
-      z-index: 1;
-      margin-left: calc(-0.75 * var(--gap));
-    }
-
-    &-image,
-    &-icon {
-      @mixin attention {
-        box-shadow:
-          0 0 1px 3px var(--color-secondary),
-          0 0 1px 6px color(var(--color-secondary) blend(var(--color-light) 50%));
-
-        &+.post-hero__author-tooltip {
-          visibility: visible;
-          opacity: 1;
-        }
-      }
-    }
-
-    @mixin attention {
-      z-index: 10;
-    }
-  }
-
-  &__author-tooltip {
-    position: absolute;
-    display: none;
-    visibility: hidden;
-    opacity: 0;
-    bottom: -40px;
-    width: max-content;
-    background: var(--color-secondary);
-    padding: var(--gap-xs) var(--gap-sm);
-    font-size: calc(0.9 * var(--font-size-base));
-    color: var(--color-dark);
-    transition: opacity var(--animation-duration) var(--animation-name);
-  }
-
-  &__author-image,
-  &__author-icon {
-    display: block;
-    width: calc(2.5 * var(--gap));
-    height: calc(2.5 * var(--gap));
-    overflow: hidden;
-    border-radius: var(--global-radius-rounded);
-    box-shadow: 0 0 1px 3px var(--color-secondary);
-    transition: box-shadow var(--animation-duration) var(--animation-name);
-
-    img {
-      width: 100%;
-      height: 100%;
-      margin: 0;
-      object-fit: cover;
-      object-position: center;
-    }
-  }
-
-  &__author-icon {
-    color: var(--color-secondary);
-    background-color: var(--color-bg-accent-1);
-    padding: calc(0.48 * var(--gap));
-  }
-
-  &__author-names {
-    color: var(--color-text-accent-2);
-
-    a {
-      @mixin attention {
-        color: var(--color-primary);
-      }
-    }
-  }
-
-  &__author-name + &__date {
-    font-size: calc(0.9 * var(--font-size-base));
   }
 
   &__info {

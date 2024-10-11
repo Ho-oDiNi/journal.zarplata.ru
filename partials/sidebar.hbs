@@ -1,28 +1,5 @@
 <aside class="sidebar">
-
-  {{!-- Sidebar latest posts
-  {{#is "post"}}
-  {{#get "posts" filter="featured:false+id:-{{id}}" limit="5" include="authors,tags" as |latest|}}
-  <div class="sidebar__section">
-    <h5 class="sidebar__title">{{t "Latest posts"}}</h5>
-    {{> wave}}
-    {{#foreach latest}}
-    <article class="sidebar__story">
-      <h6 class="sidebar__story-title">
-        <a href="{{url}}">{{{title}}}</a>
-      </h6>
-      {{#if feature_image}}
-      <a href="{{url}}" class="sidebar__story-image">
-        <img class="lazyload" alt="{{title}}" data-src="{{img_url feature_image size=" s"}}"
-          src="{{asset 'images/img-placeholder-square.jpg'}}" />
-      </a>
-      {{/if}}
-    </article>
-    {{/foreach}}
-  </div>
-  {{/get}}
-  {{/is}} --}}
-
+  
   {{!-- Applicant widget --}}
   <div class="sidebar__section" id="applicant_widget">
     <h5 class="sidebar__title" style="margin-bottom: 32px;">Найти работу
