@@ -69,26 +69,3 @@
     height: 100px;
   }
 }
-
-.icon__wave {
-  width: 80px;
-  margin: 0 auto;
-  margin-top: calc(-0.25 * var(--gap));
-  margin-bottom: var(--gap);
-
-
-  .line{
-    fill:none;
-    stroke: url(#gradient) var(--color-primary); 
-    stroke-width:15;
-    stroke-miterlimit:10;
-  }
-}
-
-.wave-gradient {
-  position: absolute;
-  width: 0;
-  height: 0;
-  opacity: 0;
-  visibility: hidden;
-}
