@@ -49,15 +49,6 @@
             <a class="header__member--open" tabindex="0" aria-label="{{t " Subscribe/Log in"}}">
               {{>icon name="user" size="sm"}}
             </a>
-            <div class="header__member-options">
-              {{#if @member}}
-              <a class="signout-link" href="#signout" data-members-signout>{{t "Log out"}}</a>
-              <a class="account-link" href="/account/">{{t "Account"}}</a>
-              {{else}}
-              <a class="signin-link" href="/signin/">{{t "Log in"}}</a>
-              <a class="signup-link header-cta" href="/signup/">{{t "Subscribe"}}</a>
-              {{/if}}
-            </div>
           </div>
 
           {{!-- Menu Button --}}

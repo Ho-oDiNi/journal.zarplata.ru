@@ -41,11 +41,7 @@ self.addEventListener('fetch', event => {
   if (event.request.url.startsWith(self.location.origin)) {
 
     // Exclude certain paths from caching
-    if ( event.request.url.includes('/ghost') || // Ghost Admin
-      event.request.url.includes('/signin') ||   // Signin Page
-      event.request.url.includes('/signup') ||   // Signin Page
-      event.request.url.includes('/account') ||  // Signin Page
-      event.request.url.includes('/members') )   // Members  
+    if ( event.request.url.includes('/ghost') )   // Ghost Admin
     {
       return false
     }

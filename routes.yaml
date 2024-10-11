@@ -1,7 +1,4 @@
 routes:
-  /signup/: members/signup
-  /signin/: members/signin
-  /account/: members/account
   /offline/: offline
   /news/rss/:
     template: news/rss
