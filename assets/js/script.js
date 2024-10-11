@@ -35,7 +35,6 @@ var callback = function () {
     ".kg-image-card img, .kg-gallery-card img"
   );
   const galleryImages = document.querySelectorAll(".kg-gallery-image img");
-  const subscribeButton = document.querySelector(".subscribe-button");
   
   const progressbar = document.querySelector("#progress");
   const postToc = document.querySelector(".post.has-toc");
@@ -348,49 +347,6 @@ var callback = function () {
         };
       });
     }
-  }
-
-  // ===============
-  // Members Scripts
-  // ===============
-  // Give the parameter a variable name
-  const action = getParameterByName("action");
-  const stripe = getParameterByName("stripe");
-
-  switch (action) {
-    case "subscribe":
-      // addClass('body', 'subscribe-success');
-      ym(77659420, "reachGoal", "popupSubscribeSend");
-      document.body.classList.add("subscribe-success");
-      break;
-    case "signup":
-      window.location = "/signup/?action=checkout";
-      break;
-    case "checkout":
-      // addClass('body', 'signup-success');
-      // addClass('form[data-members-form]', 'success');
-      document.body.classList.add("signup-success");
-      break;
-    case "signin":
-      // addClass('body', 'signin-success');
-      // addClass('form[data-members-form]', 'success');
-      document.body.classList.add("signin-success");
-      break;
-    default:
-      break;
-  }
-
-  if (stripe == "success") {
-    // addClass('body', 'checkout-success');
-    document.body.classList.add("checkout-success");
-  }
-
-  // Reset form on opening subscrion overlay
-  if (subscribeButton) {
-    subscribeButton.onclick = function (event) {
-      document.querySelector(".subscribe-overlay form").className = "";
-      document.querySelector(".subscribe-email").value = "";
-    };
   }
 
   // =======================================
@@ -1265,16 +1221,3 @@ function loadMorePosts (button, spinner)  {
     button.classList.add("btn--disabled");
   }
 };
-
-// ================================
-// Members Parse the URL parameter
-// ================================
-function getParameterByName(name, url) {
-  if (!url) url = window.location.href;
-  name = name.replace(/[\[\]]/g, "\\$&");
-  var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
-    results = regex.exec(url);
-  if (!results) return null;
-  if (!results[2]) return "";
-  return decodeURIComponent(results[2].replace(/\+/g, " "));
-}

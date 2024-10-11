@@ -82,14 +82,6 @@
     margin: 0 0 var(--gap);
   }
 
-  &.members {
-    .paid { display: none; }
-  }
-
-  &.paid {
-    .members { display: none; }
-  }
-
   .small {
     font-size: calc( 0.9 * var(--font-size-base));
     color: var(--color-grey-darker);
@@ -400,13 +392,6 @@
 
     &.public {
       display: none;
-    }
-
-    &.members,
-    &.paid {
-      color: var(--color-secondary);
-      border-color: var(--color-secondary);
-      margin-left: var(--gap-sm);
     }
   }
 

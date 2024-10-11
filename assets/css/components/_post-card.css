@@ -158,14 +158,7 @@
     &.public {
       display: none;
     }
-
-    &.members,
-    &.paid {
-      color: var(--color-dark);
-      background-color: var(--color-secondary);
-      border-color: var(--color-secondary);
-      margin-left: var(--gap-sm);
-    }
+    
   }
 
   &__info {
