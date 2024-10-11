@@ -10,10 +10,6 @@
   &__title {
     margin-bottom: 0;
     color: var(--color-text-accent-2);
-
-    & + .icon__wave {
-      margin-left: 0;
-    }
   }
 }
 

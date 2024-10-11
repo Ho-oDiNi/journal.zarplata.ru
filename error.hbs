@@ -28,7 +28,6 @@
     <div class="error__recommend">
 
       <h5 class="section__title">{{t "Other topics"}}</h5>
-      {{> wave}}
       {{#get "tags" limit="4" include="count.posts" order="count.posts desc"}}
         <div class="row">
         {{#foreach tags}}
@@ -40,7 +39,6 @@
       {{/get}}
 
       <h5 class="section__title">{{t "Latest posts"}}</h5>
-      {{> wave}}
       {{#get "posts" limit="3" include="tags,authors" limit=@config.posts_per_page}}
       <section class="section all-posts">
         <div class="row posts">
