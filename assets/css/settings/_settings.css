@@ -15,11 +15,8 @@
   /*--------------------------------------*/
   /* brand colors */
   --color-primary: #e50b4f;
-  --color-primary-light: #f4165b;
-  --color-primary-dark: #cd0a47;
   --color-secondary: #f9d400;
-  --color-secondary-light: #ffdc14;
-  --color-secondary-dark: #e0be00;
+
 
   /* neutral colors */
   --color-black: #000;
@@ -35,12 +32,6 @@
   --color-light-accent: #f4f4f4;
   --color-light: #fafafa;
   --color-white: #fff;
-
-  /* semantic colors */
-  --color-error: #fc3860;
-  --color-success: #48c774;
-  --color-warning: #fddd57;
-  --color-info: #249cee;
 
   /* theme colors */
   --color-text: var(--color-black);
@@ -66,7 +57,6 @@
   /*--------------------------------------*/
   /* Typography
   /*--------------------------------------*/
-  --font-family-serif: 'Playfair Display', Times, Georgia, serif;
   --font-family-sans-serif: 'Montserrat', Tahoma, Arial, sans-serif;
   --font-family-secondary: 'PT Sans', Tahoma, Arial, sans-serif;
   --font-family-monospace: Consolas, Monaco,  monospace;

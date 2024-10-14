@@ -132,14 +132,6 @@
   margin: 0;
   margin-bottom: var(--gap-lg);
   font-family: var(--font-family-sans-serif);
-
-  @mixin attention {
-    .kg-bookmark-title {
-      color: var(--color-primary);
-    }
-
-    text-decoration: none;
-  }
 }
 
 .kg-card + .kg-bookmark-card {
