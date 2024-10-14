@@ -95,88 +95,6 @@
     }
   }
 
-  .header__search--open,
-  .header__theme--toggle,
-  .header__member--open {
-    @mixin attention {
-      color: var(--color-primary);
-    }
-
-    &:focus {
-      outline: none;
-    }
-  }
-
-
-  &__member {
-    padding-right: 0px;
-    padding-bottom: 6px;
-  }
-
-  &__member--open {
-    @media (--viewport-md) {
-      display: none;
-    }
-  }
-
-  /* &__member--open:hover + .header__member-options, */
-  &__member--open.is-active + .header__member-options {
-    visibility: visible;
-    opacity: 1;
-  }
-
-  /* &__member--open:focus + .header__member-options, */
-  &__member--open.is-active + .header__member-options {
-    visibility: visible;
-    opacity: 1;
-  }
-
-  &__member-options {
-    position: absolute;
-    visibility: hidden;
-    opacity: 0;
-    right: var(--gap);
-    top: calc(3 * var(--gap));
-    background-color: var(--color-bg-accent-2);
-    border-radius: var(--global-radius);
-    box-shadow: 0px 0px 1px 1px rgba(0, 0, 0, 0.025),
-      4px 12px 40px 6px rgba(0, 0, 0, 0.1);
-    padding: var(--gap-sm) var(--gap);
-    display: block;
-    font-weight: var(--font-weight-bold);
-
-    @media (--viewport-md) {
-      position: initial;
-      visibility: visible;
-      opacity: 1;
-      top: 0;
-      box-shadow: none;
-      background-color: transparent;
-      padding: 0;
-      text-align: right;
-      transition: none;
-    }
-
-    @mixin attention {
-      visibility: visible;
-      opacity: 1;
-    }
-
-    &:focus-within {
-      visibility: visible;
-      opacity: 1;
-    }
-
-    a {
-      display: block;
-      color: var(--color-text-accent-2);
-
-      @media (--viewport-md) {
-        display: inline;
-      }
-    }
-  }
-
   &__menu {
     &--open {
       display: block;
@@ -191,22 +109,6 @@
 
       @media (--viewport-md) {
         display: none;
-      }
-
-      @mixin attention {
-        background: transparent;
-
-        span {
-          background-color: var(--color-primary);
-        }
-
-        span:before {
-          width: 60%;
-        }
-
-        span:after {
-          width: 80%;
-        }
       }
 
       span {
@@ -454,15 +356,6 @@
       text-decoration: none;
       transition: 0.2s;
     }
-
-    /* .nav-current {
-      color: var(--color-primary);
-      box-shadow: 0 2px 0px -1px var(--color-primary);
-    }
-
-    .nav-current:not(:hover) {
-      box-shadow: 0 2px 0px -1px var(--color-primary);
-    } */
 
     .nav-applicants:hover {
       background-color: #f4f4f4;
