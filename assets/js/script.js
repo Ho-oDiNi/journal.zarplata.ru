@@ -173,28 +173,6 @@ var callback = function () {
     };
   }
 
-  // ============
-  // User Menu
-  // ============
-  const userMenu = document.querySelector(".header__member--open");
-
-  if (userMenu) {
-    userMenu.onclick = () => {
-      toggleClass(".header__member--open", "is-active");
-    };
-
-    userMenu.onkeydown = (evt) => {
-      if (evt.key === "Enter" || evt.keyCode === "13") {
-        toggleClass(".header__member--open", "is-active");
-        userMenu.focus();
-      }
-    };
-
-    userMenu.blur = () => {
-      removeClass(".header__member--open", "is-active");
-    };
-  }
-
   // ==============
   // Search actions
   // ==============
@@ -384,7 +362,6 @@ var callback = function () {
     key: config.ghost_key,
     url: config.ghost_url,
     version: config.ghost_version,
-    // button: '#search-button',
     template: function (result) {
       let postImage = "";
 
@@ -792,23 +769,28 @@ var themesLoader = function () {
 
 }
 
-// !Добавить обьясняющие комменты
+//================
+// Add Img Into Quotes
+//================
 var quoteImageLoader = function() {
 
+  //Read old quote
   var quoteImagesText = [];
   var quoteImages = document.querySelectorAll(".kg-card-hascaption");
   var quoteImagesDescription = document.querySelectorAll(".kg-card-hascaption > figcaption > span");
   var quoteImagesImg = document.querySelectorAll(".kg-card-hascaption > a > img");
 
-
+  //if img Exists
   if (quoteImagesDescription)
   {
     [...quoteImagesDescription].map(v => quoteImagesText.push(v.textContent));
 
+    // for all quotes on the page
     for(var i = 0; i < quoteImagesText.length; i++)
     {
       if (quoteImagesText[i].toLowerCase().includes("quote"))
       {
+        
         const start_title = quoteImagesText[i]. indexOf('\"') + 1;
         const end_title = quoteImagesText[i].indexOf('\"', start_title);
 
@@ -819,6 +801,7 @@ var quoteImageLoader = function() {
         quoteImages[i].removeAttribute('class');
         quoteImages[i].setAttribute('class', 'blockquote-img');
         
+        // Create new quote with img
         const fragment = document.createDocumentFragment();
         const div = document.createElement("div");
         
@@ -922,7 +905,7 @@ var sharePostLoader = function() {
 
 }
 
-var defaultPageLoader =function() {
+var defaultPageLoader = function() {
   callback();
   themesLoader();
 }
