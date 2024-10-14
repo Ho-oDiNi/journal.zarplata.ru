@@ -379,6 +379,8 @@ var callback = function () {
         ? (postImage =
             '<img class="search-result__image" src="' +
             result.feature_image +
+            '" alt="' +
+            result.title +
             '"/>')
         : "";
       return (
@@ -386,9 +388,9 @@ var callback = function () {
         result.slug +
         '" class="search-result__post animate fade-in-up">' +
         '<div class="search-result__content">' +
-        '<h5 class="search-result__title">' +
+        '<h6 class="search-result__title">' +
         result.title +
-        "</h5>" +
+        "</h6>" +
         '<p class="search-result__date">' +
         modifiedDate +
         "</p>" +

@@ -76,6 +76,7 @@
     text-align: center;
 
     input {
+      color: #525252;
       background-color: var(--color-bg-input);
     }
 
