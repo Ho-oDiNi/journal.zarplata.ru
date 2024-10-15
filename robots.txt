@@ -1,5 +1,4 @@
 User-agent: *
-Sitemap: https://www.journal.zarplata.ru/sitemap.xml
 Disallow: /ghost/
 Disallow: /email/
 Disallow: /members/api/comments/counts/
@@ -10,3 +9,29 @@ Disallow: /offline/
 Disallow: /signup/
 Disallow: /signin/
 Disallow: /author/zarplata/
+Disallow: *amp
+Disallow: */rss/
+Disallow: *utm*=
+Disallow: *openstat=
+
+User-agent: Yandex
+Disallow: /ghost/
+Disallow: /email/
+Disallow: /members/api/comments/counts/
+Disallow: /r/
+Disallow: /webmentions/receive/
+Disallow: /account/
+Disallow: /offline/
+Disallow: /signup/
+Disallow: /signin/
+Disallow: /author/zarplata/
+Disallow: *amp
+Disallow: */rss/
+Clean-param: utm_source
+Clean-param: utm_medium
+Clean-param: utm_campaign
+Clean-param: utm_referrer
+Clean-param: openstat
+Clean-param: amp
+
+Sitemap: https://www.journal.zarplata.ru/sitemap.xml
