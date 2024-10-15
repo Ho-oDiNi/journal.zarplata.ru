@@ -361,6 +361,10 @@
 
 .post-card--main{
   .post-card__content {
+    
+    flex: 0 1 auto;
+    max-width: 100%;
+    
     flex-direction: column;
     flex-wrap: wrap;
     justify-content: space-between;
