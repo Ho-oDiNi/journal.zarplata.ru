@@ -15,7 +15,7 @@
   --color-card: #18160b;
   --color-card-light: #272727;
   --color-divider: #18160b;
-  --color-bg-input: var(--color-grey-darker);
+
 
   #theme-light {
     visibility: visible;
@@ -101,6 +101,15 @@
 
   .search-bar-placeholder {
     color: #acacac;
+  }
+
+  .sidebar__description input{
+    background-color: #6B6B6B;
+    color: #ACACAC;
+  }
+
+  ::placeholder { 
+    color:    #ACACAC;
   }
 
   blockquote, .blockquote-img {
