@@ -198,3 +198,24 @@
   position: relative;
   height: 426px;
 }
+
+.mobile-sidebar{
+  &__tag-cloud
+  {
+    max-height: 230px;
+    overflow: hidden;
+    transition: max-height 1.3s ease-in-out .1s;
+    
+    &.show
+    {
+      max-height: 945px;
+
+      #show-all-tags
+      {
+        display: none;
+      }
+    }
+  }
+
+  
+}
