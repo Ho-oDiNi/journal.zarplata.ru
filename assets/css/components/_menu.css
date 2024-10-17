@@ -118,6 +118,18 @@
     display: flex;
     flex-direction: column;
     padding: 32px 16px;
+
+    .btn--secondary{
+      background-color: var(--color-bg-accent-1);    
+      margin: 0px;
+
+      &:hover,
+      &:active
+      {
+        background-color: #FFE000;
+      }
+    }
+
   }
 
   &__external-link {
