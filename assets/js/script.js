@@ -733,42 +733,39 @@ var themesLoader = function () {
   const headerAllThemesContainter = document.getElementById("header-all-themes");
 
   navAllThemesButton.addEventListener("click", (e) => {
-    e.preventDefault();
-    if (headerAllThemesContainter.classList.contains("show")) {
-      headerAllThemesContainter.classList.remove("show");
-      return;
-    }
+    if (window.scrollY < 6)
+    {
+      e.preventDefault();
+      if (headerAllThemesContainter.classList.contains("show")) {
+        headerAllThemesContainter.classList.remove("show");
+        return;
+      }
 
-    headerAllThemesContainter.classList.add("show");
+      headerAllThemesContainter.classList.add("show");
+    }
   });
 
   // ==============
   // Show All themes Mobile
   // ==============
 
-  const cloudMin = document.querySelector("#tag-cloud-min");
-  const cloudAll = document.querySelector("#tag-cloud-all");
+  const tagCloud = document.querySelector("#tag-cloud");
   const showAllTagsButton = document.querySelector("#show-all-tags");
-  const closeAllTagsButton = document.querySelector("#close-all-tags");
 
   if (showAllTagsButton){
   showAllTagsButton.addEventListener("click", () => {
-      if (cloudMin.style.display === "block") {
-        cloudAll.style.display = "block";
-        cloudMin.style.display = "none";
+      if (tagCloud.classList.contains("show")) {
+        
+        tagCloud.classList.remove("show");
+        showAllTagsButton.textContent = "Все темы";
+
+        return;
       }
+
+      showAllTagsButton.textContent = "Закрыть";
+      tagCloud.classList.add("show");
     });
   }
-
-  if (closeAllTagsButton){
-  closeAllTagsButton.addEventListener("click", () => {
-      if (cloudAll.style.display === "block") {
-        cloudAll.style.display = "none";
-        cloudMin.style.display = "block";
-      }
-    });
-  }
-
 }
 
 //================

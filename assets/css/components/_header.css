@@ -154,26 +154,35 @@
   }
 
   &_all-themes {
-    display: none;
-    padding-top: 30px;
+    display: block;
+    transition: max-height .4s ease-in-out .05s, opacity 0.5s cubic-bezier(0.4, 0, 1, 1) .005s;
+    opacity: 0;
+    max-height: 0px;
+    overflow: hidden;
 
-    @media (--viewport-md) {
-      display: none;
-      overflow: hidden;
-      background-color: var(--color-bg);
-    }
-
+    background-color: var(--color-bg);
+    
     @media (max-width: 768px) {
       display: none !important;
     }
 
 
     &.show {
-      display: block;
+      max-height: 120px;
+      opacity: 1;
+      
       
       @media (max-width: 768px) {
         display: none !important;
       }
+    }
+
+    .wrapper{
+      display: flex;
+      padding-top: 30px;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
     }
 
     .row

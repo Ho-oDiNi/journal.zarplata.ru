@@ -9,7 +9,6 @@ Disallow: /offline/
 Disallow: /signup/
 Disallow: /signin/
 Disallow: /author/zarplata/
-Disallow: *amp
 Disallow: */rss/
 Disallow: *utm*=
 Disallow: *openstat=
@@ -32,6 +31,5 @@ Clean-param: utm_medium
 Clean-param: utm_campaign
 Clean-param: utm_referrer
 Clean-param: openstat
-Clean-param: amp
 
 Sitemap: https://www.journal.zarplata.ru/sitemap.xml
