@@ -85,6 +85,11 @@ button,
       background-color: #FFE000;
     }
   }
+
+  &--error{
+    max-width: 256px;
+    max-height: 54px;
+  }
 }
 
 
@@ -97,4 +102,11 @@ a.btn { -webkit-appearance: none; }
 .button-spinner {
   display: flex;
   justify-content: center;
+}
+
+@media (max-width: 401px) {
+  .btn--wide{
+    padding: 0px;
+    white-space: nowrap;
+  }
 }
