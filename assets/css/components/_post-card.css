@@ -35,7 +35,7 @@
     display: none;
   }
 
-  &.col {
+  &.col, &.col--main {
     flex-direction: column;
 
     .post-card__content {
@@ -49,6 +49,15 @@
     }
 
     .tag {
+      display: none;
+    }
+
+  }
+
+  &.col--main{
+    min-height: 200px;
+
+    .post-card__image{
       display: none;
     }
   }
