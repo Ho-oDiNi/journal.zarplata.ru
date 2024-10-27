@@ -342,8 +342,11 @@ var callback = function () {
     const { scrollTop, scrollHeight, clientHeight } = document.documentElement;
     const spinner = document.querySelector("#button-spinner");
 
-    if (scrollHeight - scrollTop <= clientHeight) {
-      loadMorePosts(loadMoreBtn, spinner);
+    if (Math.round(scrollHeight - scrollTop) <= (clientHeight + 10)) {
+      if(!spinner.disabled)
+      {
+        loadMorePosts(loadMoreBtn, spinner);
+      }
     }
   }
 
@@ -506,11 +509,10 @@ var callback = function () {
   // ===============
   const employerWidget = document.getElementById("employer_widget");
   const applicantWidget = document.getElementById("applicant_widget");
-  const currentTag =
-    document.getElementsByClassName("post-hero__header")[0]?.childNodes[1]
-      .classList[0];
-  employerWidget.style.display = "none";
-
+  const currentTag = document.getElementsByClassName("post-hero__header")[0]?.childNodes[1].classList[0];
+  if (employerWidget){
+    employerWidget.style.display = "none";
+  }
   if (currentTag === "tag-employers") {
     applicantWidget.style.display = "none";
     employerWidget.style.display = "block";
@@ -733,7 +735,7 @@ var themesLoader = function () {
   const headerAllThemesContainter = document.getElementById("header-all-themes");
 
   navAllThemesButton.addEventListener("click", (e) => {
-    if (window.scrollY < 6)
+    if (window.scrollY < 7)
     {
       e.preventDefault();
       if (headerAllThemesContainter.classList.contains("show")) {
@@ -1117,10 +1119,8 @@ if (global.pagination_current_page === global.pagination_max_pages) {
 function loadMorePosts (button, spinner)  {
   // Next link
   const nextPage = document.querySelector("link[rel=next]");
-  if(!spinner)
-  {
-    button.disabled = true;
-  }
+  
+  (spinner) ? spinner.disabled = true : button.disabled = true;
 
   global.pagination_next_page_link =
     nextPage && !global.pagination_next_page_link
@@ -1185,10 +1185,8 @@ function loadMorePosts (button, spinner)  {
           spinner.style.visibility = "hidden";
         }
 
-        if(!spinner)
-        {
-          button.disabled = false;
-        }  
+        (spinner) ? spinner.disabled = false : button.disabled = false;
+
       })
       .catch(function (err) {
         if (spinner) {
