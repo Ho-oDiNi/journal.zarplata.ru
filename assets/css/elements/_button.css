@@ -47,6 +47,16 @@ button,
 
   &--wide {
     padding: var(--gap) var(--gap-xl);
+
+    &__error
+    {
+      margin: 0px 30px 32px 30px;
+      width: 85%;
+
+      @media (min-width: 576px) {
+        display: none;
+      }
+    }
   }
 
 
@@ -89,6 +99,10 @@ button,
   &--error{
     max-width: 256px;
     max-height: 54px;
+
+    @media (max-width: 576px) {
+      display: none;
+    }
   }
 }
 
