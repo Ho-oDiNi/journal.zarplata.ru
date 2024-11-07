@@ -5,8 +5,11 @@
       <!-- Additional required wrapper -->
       <div class="swiper-wrapper">
         <!-- Slides -->
+
+        {{!-- Нужно было изменить 3 статью на специльно выбранную --}}
+        {{!-- Изначально здесь было  #foreach posts to="6"--}}
         {{#get "posts" filter="primary_tag:applicants" order="slug asc"}}
-        {{#foreach posts to="6"}}
+        {{#foreach posts to="2"}}
         <div class="swiper-slide">
           <div class="row">
             <div class="col-xs {{#unless feature_image}}m-t-lg m-b-lg{{/unless}}">
@@ -20,9 +23,46 @@
         </div>
         {{/foreach}}
         {{/get}}
+
+        {{#get "posts" filter="posts.title:'Как будут рассчитывать сверхурочные с 1 сентября 2024'"}}
+        {{#foreach posts to="1"}}
+        <div class="swiper-slide">
+          <div class="row">
+            <div class="col-xs {{#unless feature_image}}m-t-lg m-b-lg{{/unless}}">
+              {{> post-card class="post-card--special" lazy=false }}
+              <div class="tag" style="position: absolute; top: 12px; left: 12px; z-index: 99">
+                <a class="tag-applicants post-card__tag" href="/tag/applicants/" title="{{name}}"
+                  aria-label="{{name}}s">Соискателям</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        {{/foreach}}
+        {{/get}}
+
+        {{#get "posts" filter="primary_tag:applicants" order="slug asc"}}
+        {{#foreach posts from="4" to="6"}}
+        <div class="swiper-slide">
+          <div class="row">
+            <div class="col-xs {{#unless feature_image}}m-t-lg m-b-lg{{/unless}}">
+              {{> post-card class="post-card--special" lazy=false }}
+              <div class="tag" style="position: absolute; top: 12px; left: 12px; z-index: 99">
+                <a class="tag-applicants post-card__tag" href="/tag/applicants/" title="{{name}}"
+                  aria-label="{{name}}s">Соискателям</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        {{/foreach}}
+        {{/get}}
+
+        {{!-- Нужно будет почистить код здесь --}}
+
       </div>
     </div>
   </section>
+
+
   <div class="row">
     <div class="col-xs-12 col-lg-12 col-xl-12">
       <section class="section latest-post desktop">
