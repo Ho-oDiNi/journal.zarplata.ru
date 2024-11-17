@@ -4,6 +4,9 @@
   text-align: center;
 }
 
+
+/* 404 страница */
+/* Очень плохой код - переделать */
 .error {
   &__content {
     
@@ -20,7 +23,7 @@
 
     background-color: var(--color-bg-accent-1);
     border: 1px solid var(--color-border);
-    border-radius: 52px;
+    border-radius: 26px;
 
     @media (max-width: 576px) {
       max-height: 700px;
