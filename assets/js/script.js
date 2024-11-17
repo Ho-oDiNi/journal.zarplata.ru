@@ -509,11 +509,13 @@ var callback = function () {
   // ===============
   const employerWidget = document.getElementById("employer_widget");
   const applicantWidget = document.getElementById("applicant_widget");
-  const currentTag = document.getElementsByClassName("post-hero__header")[0]?.childNodes[1].classList[0];
+  const currentTags = document.getElementsByClassName("post-hero__header")[0]?.getElementsByClassName("tag-employers");
+  
+  
   if (employerWidget){
     employerWidget.style.display = "none";
   }
-  if (currentTag === "tag-employers") {
+  if (!!currentTags?.length) {
     applicantWidget.style.display = "none";
     employerWidget.style.display = "block";
   }
