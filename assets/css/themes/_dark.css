@@ -16,7 +16,7 @@
   --color-card-light: #272727;
   --color-divider: #18160b;
 
-
+  
   #theme-light {
     visibility: visible;
     opacity: 1;
@@ -41,6 +41,10 @@
   .header__logo-dark
   {
     display: block !important;
+  }
+
+  .tag-header__title{
+    color: #222;
   }
 
   .post-hero__tag:hover {
