@@ -7,125 +7,32 @@
 
   color: var(--color-text-accent-2);
 
-  &__top {
-    padding-top: var(--gap);
-    border-top: 1px solid var(--color-border);
-
-    @media (--viewport-md) {
-      padding-top: 25px;
-      padding-bottom: 25px;
-    }
-  }
-
-  h5 {
-    font-size: calc(1.2 * var(--font-size-base));
-  }
-
-  .nav {
-    margin: 0;
-    padding: 0;
-    list-style: none;
+  &-container {
     display: flex;
+    flex-direction: row;
+    padding: 64px 0;
     flex-wrap: wrap;
-    margin-bottom: var(--gap);
-    color: var(--color-text-accent-3);
+    justify-content: space-between;
+    align-items: flex-start;
 
-    @media (--viewport-md) {
-      flex-direction: column;
-    }
-
-    a {
-      display: block;
-      padding-bottom: var(--gap-sm);
-      padding-right: var(--gap);
-    }
-  }
-
-  .social-links {
-    display: inline-flex;
-    flex-wrap: wrap;
-    flex-direction: column;
-    margin-bottom: var(--gap);
-    color: var(--color-text-accent-3);
-
-    &__item {
+    &__block {
       display: flex;
-      color: inherit;
-
-      p {
-        margin-bottom: 0;
-      }
+      flex-direction: column;
+      width: 396px;
+      gap: 16px;
     }
 
-    @media (--viewport-md) {
-      margin: 0px;
-    }
-  }
-
-  #footer-subscribe {
-    color: var(--color-text-accent-3);
-  }
-
-  .subscribe-form {
-    display: flex;
-    position: relative;
-    height: 2.8rem;
-    max-width: calc(25 * var(--gap-rem));
-
-    input {
-      margin-bottom: 0;
-      padding: var(--gap-sm);
-      padding-left: var(--gap);
-      border-radius: calc(2 * var(--font-size-base));
-      background-color: #f5f5f5;
-      transition: none;
-
-      &:focus,
-      &:active {
-        transition: none;
-
-        & + button {
-          color: #ffe000;
-          background-color: #222222;
-        }
-
-        & + button .icon {
-          transform: rotate(360deg);
-          transition: transform var(--animation-duration) var(--animation-name);
-        }
-      }
+    a:hover {
+      cursor: pointer;
+      text-decoration: underline;
     }
 
-    button {
-      position: absolute;
-      right: 0;
-      padding: var(--gap-sm);
-      margin: 2px;
-      border-radius: var(--global-radius-rounded);
-      background-color: #ffe000;
-      color: #222222;
-
-      &:hover {
-        color: #ffe000;
-        background-color: #222222;
-
-        .icon {
-          transform: rotate(360deg);
-          transition: transform var(--animation-duration) var(--animation-name);
-        }
-      }
-    }
-  }
-
-  &__bottom {
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    padding: var(--gap) 0;
-    color: var(--color-text-accent-3);
-
-    @media (--viewport-sm) {
-      flex-direction: row;
+    img {
+      margin: 0 16px 0 0;
+      height: 30px;
+      width: 30px;
+      position: relative;
+      top: 10px;
     }
   }
 }
