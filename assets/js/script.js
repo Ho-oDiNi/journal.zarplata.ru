@@ -339,23 +339,25 @@ var callback = function () {
   // Load More Posts
   // ===============
   function onScrollLoadMore() {
-    const { scrollTop, scrollHeight, clientHeight } = document.documentElement;
+    const { scrollTop, scrollHeight, clientHeight, clientWidth } = document.documentElement;
     const spinner = document.querySelector("#button-spinner");
 
-    if (Math.round(scrollHeight - scrollTop) <= (clientHeight + 10)) {
-      if(!spinner.disabled)
-      {
+    if ((Math.round(scrollHeight - scrollTop) <= (clientHeight + 500)) && !spinner.disabled) {
+      if (window.location.pathname=='/') {
+        if(clientWidth > 970) {
+          loadMorePosts(loadMoreBtn, spinner);
+        }
+      } else {
         loadMorePosts(loadMoreBtn, spinner);
       }
     }
-  }
 
-  if (loadMoreBtn) {
-    loadMoreBtn.onclick = () => {
-      loadMorePosts(loadMoreBtn, undefined);
-    };
+    if (loadMoreBtn) {
+      loadMoreBtn.onclick = () => {
+        loadMorePosts(loadMoreBtn, undefined);
+      };
+    }
   }
-
   
 
   // ===========
