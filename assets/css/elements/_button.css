@@ -108,14 +108,23 @@ button,
 
 
 #load-more-posts {
+  display: none;
+  margin: auto;
   overflow-anchor: none;
+  @media (max-width: 971px) {
+    display: block;
+  }
 }
 
 a.btn { -webkit-appearance: none; }
 
 .button-spinner {
+  display: block;
   display: flex;
   justify-content: center;
+  @media (max-width: 971px) {
+    display: none;
+  }
 }
 
 @media (max-width: 401px) {
