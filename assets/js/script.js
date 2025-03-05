@@ -35,7 +35,7 @@ var callback = function () {
     ".kg-image-card img, .kg-gallery-card img"
   );
   const galleryImages = document.querySelectorAll(".kg-gallery-image img");
-  
+
   const progressbar = document.querySelector("#progress");
   const postToc = document.querySelector(".post.has-toc");
   const scrollTop = document.querySelector(".scroll-to-top");
@@ -73,7 +73,6 @@ var callback = function () {
     (event) => {
       // Modify header
       window.scrollY > 72 ? addClass(".header", "is-scrolled") : "";
-      window.scrollY > 6 ? removeClass("#header-all-themes", "show") : "";
       window.scrollY <= 6 ? removeClass(".header", "is-scrolled") : "";
 
       // Progressbar
@@ -140,7 +139,7 @@ var callback = function () {
     }
   };
 
-  
+
   // ============
   // Menu actions
   // ============
@@ -343,8 +342,8 @@ var callback = function () {
     const spinner = document.querySelector("#button-spinner");
 
     if ((Math.round(scrollHeight - scrollTop) <= (clientHeight + 500)) && !spinner.disabled) {
-      if (window.location.pathname=='/') {
-        if(clientWidth > 970) {
+      if (window.location.pathname == '/') {
+        if (clientWidth > 970) {
           loadMorePosts(loadMoreBtn, spinner);
         }
       } else {
@@ -358,7 +357,7 @@ var callback = function () {
       };
     }
   }
-  
+
 
   // ===========
   // Blog search
@@ -382,11 +381,11 @@ var callback = function () {
 
       result.feature_image
         ? (postImage =
-            '<img class="search-result__image" src="' +
-            result.feature_image +
-            '" alt="' +
-            result.title +
-            '"/>')
+          '<img class="search-result__image" src="' +
+          result.feature_image +
+          '" alt="' +
+          result.title +
+          '"/>')
         : "";
       return (
         '<a href="/' +
@@ -512,9 +511,9 @@ var callback = function () {
   const employerWidget = document.getElementById("employer_widget");
   const applicantWidget = document.getElementById("applicant_widget");
   const currentTags = document.getElementsByClassName("post-hero__header")[0]?.getElementsByClassName("tag-employers");
-  
-  
-  if (employerWidget){
+
+
+  if (employerWidget) {
     employerWidget.style.display = "none";
   }
   if (!!currentTags?.length) {
@@ -571,7 +570,7 @@ var callback = function () {
 
 };
 
-var reactionsLoader = function (){
+var reactionsLoader = function () {
   // ==============
   // Reactions
   // ==============
@@ -731,25 +730,24 @@ var reactionsLoader = function (){
 }
 
 var themesLoader = function () {
-  // ==============
-  // Show All themes Desktop
-  // ==============
+  // // ==============
+  // // Show All themes Desktop
+  // // ==============
 
-  const navAllThemesButton = document.getElementById("nav-all-themes");
-  const headerAllThemesContainter = document.getElementById("header-all-themes");
+  // const navAllThemesButton = document.getElementById("nav-all-themes");
+  // const headerAllThemesContainter = document.getElementById("header-all-themes");
 
-  navAllThemesButton.addEventListener("click", (e) => {
-    if (window.scrollY < 7)
-    {
-      e.preventDefault();
-      if (headerAllThemesContainter.classList.contains("show")) {
-        headerAllThemesContainter.classList.remove("show");
-        return;
-      }
+  // navAllThemesButton.addEventListener("click", (e) => {
+  //   if (window.scrollY < 7) {
+  //     e.preventDefault();
+  //     if (headerAllThemesContainter.classList.contains("show")) {
+  //       headerAllThemesContainter.classList.remove("show");
+  //       return;
+  //     }
 
-      headerAllThemesContainter.classList.add("show");
-    }
-  });
+  //     headerAllThemesContainter.classList.add("show");
+  //   }
+  // });
 
   // ==============
   // Show All themes Mobile
@@ -758,10 +756,10 @@ var themesLoader = function () {
   const tagCloud = document.querySelector("#tag-cloud");
   const showAllTagsButton = document.querySelector("#show-all-tags");
 
-  if (showAllTagsButton){
-  showAllTagsButton.addEventListener("click", () => {
+  if (showAllTagsButton) {
+    showAllTagsButton.addEventListener("click", () => {
       if (tagCloud.classList.contains("show")) {
-        
+
         tagCloud.classList.remove("show");
         showAllTagsButton.textContent = "Все темы";
 
@@ -777,7 +775,7 @@ var themesLoader = function () {
 //================
 // Add Img Into Quotes
 //================
-var quoteImageLoader = function() {
+var quoteImageLoader = function () {
 
   //Read old quote
   var quoteImagesText = [];
@@ -786,17 +784,14 @@ var quoteImageLoader = function() {
   var quoteImagesImg = document.querySelectorAll(".kg-card-hascaption > a > img");
 
   //if img Exists
-  if (quoteImagesDescription)
-  {
+  if (quoteImagesDescription) {
     [...quoteImagesDescription].map(v => quoteImagesText.push(v.textContent));
 
     // for all quotes on the page
-    for(var i = 0; i < quoteImagesText.length; i++)
-    {
-      if (quoteImagesText[i].toLowerCase().includes("quote"))
-      {
-        
-        const start_title = quoteImagesText[i]. indexOf('\"') + 1;
+    for (var i = 0; i < quoteImagesText.length; i++) {
+      if (quoteImagesText[i].toLowerCase().includes("quote")) {
+
+        const start_title = quoteImagesText[i].indexOf('\"') + 1;
         const end_title = quoteImagesText[i].indexOf('\"', start_title);
 
         const title_str = quoteImagesText[i].substring(start_title, end_title)
@@ -805,11 +800,11 @@ var quoteImageLoader = function() {
         quoteImages[i].replaceChildren(quoteImagesImg[i]);
         quoteImages[i].removeAttribute('class');
         quoteImages[i].setAttribute('class', 'blockquote-img');
-        
+
         // Create new quote with img
         const fragment = document.createDocumentFragment();
         const div = document.createElement("div");
-        
+
         const title = fragment.appendChild(document.createElement("p"));
         title.setAttribute('class', 'blockquote__title');
         title.setAttribute('data-srcset', '{{img_url feature_image size="s" format="webp"}} 300w');
@@ -829,10 +824,10 @@ var quoteImageLoader = function() {
 }
 
 
-var sharePostLoader = function() {
+var sharePostLoader = function () {
 
   const socialShare = document.querySelectorAll(".js-share");
-  
+
   // ==================
   // Social Share Logic
   // ==================
@@ -910,34 +905,30 @@ var sharePostLoader = function() {
 
 }
 
-var defaultPageLoader = function() {
+var defaultPageLoader = function () {
   callback();
   themesLoader();
 }
 
-var postPageLoader =function() {
+var postPageLoader = function () {
   quoteImageLoader();
   sharePostLoader();
   reactionsLoader();
 }
 
-if (document.readyState === "complete" || (document.readyState !== "loading" && !document.documentElement.doScroll)) 
-{
-  
+if (document.readyState === "complete" || (document.readyState !== "loading" && !document.documentElement.doScroll)) {
+
   defaultPageLoader();
-  if (document.location != document.location.origin + '/')
-  {
+  if (document.location != document.location.origin + '/') {
     postPageLoader();
-  } 
-} 
-else 
-{
+  }
+}
+else {
   document.addEventListener("DOMContentLoaded", defaultPageLoader);
 
-  if (document.location != document.location.origin + '/')
-  {
+  if (document.location != document.location.origin + '/') {
     document.addEventListener("DOMContentLoaded", postPageLoader);
-  } 
+  }
 }
 
 
@@ -1120,10 +1111,10 @@ if (global.pagination_current_page === global.pagination_max_pages) {
 // ===============
 // Load More Posts
 // ===============
-function loadMorePosts (button, spinner)  {
+function loadMorePosts(button, spinner) {
   // Next link
   const nextPage = document.querySelector("link[rel=next]");
-  
+
   (spinner) ? spinner.disabled = true : button.disabled = true;
 
   global.pagination_next_page_link =

@@ -5,11 +5,8 @@
       <!-- Additional required wrapper -->
       <div class="swiper-wrapper">
         <!-- Slides -->
-
-        {{!-- Нужно было изменить 3 статью на специльно выбранную --}}
-        {{!-- Изначально здесь было  #foreach posts to="6"--}}
         {{#get "posts" filter="primary_tag:applicants" order="slug asc"}}
-        {{#foreach posts to="2"}}
+        {{#foreach posts to="6"}}
         <div class="swiper-slide">
           <div class="row">
             <div class="col-xs {{#unless feature_image}}m-t-lg m-b-lg{{/unless}}">
@@ -23,41 +20,6 @@
         </div>
         {{/foreach}}
         {{/get}}
-
-        {{#get "posts" filter="posts.title:'Как будут рассчитывать сверхурочные с 1 сентября 2024'"}}
-        {{#foreach posts to="1"}}
-        <div class="swiper-slide">
-          <div class="row">
-            <div class="col-xs {{#unless feature_image}}m-t-lg m-b-lg{{/unless}}">
-              {{> post-card class="post-card--special" lazy=false }}
-              <div class="tag" style="position: absolute; top: 12px; left: 12px; z-index: 99">
-                <a class="tag-applicants post-card__tag" href="/tag/applicants/" title="{{name}}"
-                  aria-label="{{name}}s">Соискателям</a>
-              </div>
-            </div>
-          </div>
-        </div>
-        {{/foreach}}
-        {{/get}}
-
-        {{#get "posts" filter="primary_tag:applicants" order="slug asc"}}
-        {{#foreach posts from="4" to="6"}}
-        <div class="swiper-slide">
-          <div class="row">
-            <div class="col-xs {{#unless feature_image}}m-t-lg m-b-lg{{/unless}}">
-              {{> post-card class="post-card--special" lazy=false }}
-              <div class="tag" style="position: absolute; top: 12px; left: 12px; z-index: 99">
-                <a class="tag-applicants post-card__tag" href="/tag/applicants/" title="{{name}}"
-                  aria-label="{{name}}s">Соискателям</a>
-              </div>
-            </div>
-          </div>
-        </div>
-        {{/foreach}}
-        {{/get}}
-
-        {{!-- Нужно будет почистить код здесь --}}
-
       </div>
     </div>
   </section>
@@ -65,36 +27,17 @@
 
   <div class="row">
     <div class="col-xs-12 col-lg-12 col-xl-12">
-      <section class="section latest-post desktop">
-        {{#foreach posts to="1"}}
-        <div class="row desktop" style="display: flex;">
-          <div class="col-xs {{#unless feature_image}}m-t-lg m-b-lg{{/unless}}" style="margin: 30px 0;">
-            {{> post-card class="post-card--main" lazy=false }}
-          </div>
-          <div class="col-xs-4 col-lg-4 col-xl-4 lg">
-            {{> sidebar}}
-          </div>
-        </div>
-        {{/foreach}}
-
-      </section>
-      <section class="section all-posts">
-        <div class="row posts desktop">
-          {{#foreach posts from="2" to="4"}}
-          <div class="col-xs-12 col-md-4 post-wrap">
+      <div class="desktop">
+        <section class="row posts">
+          {{#foreach posts from="1"}}
+          <div class="col-xs-12 col-md-6 post-wrap">
             {{> post-card class="col"}}
           </div>
           {{/foreach}}
-        </div>
+        </section>
+      </div>
 
-        <div class="row posts desktop">
-          {{#foreach posts from="5"}}
-          <div class="col-xs-12 col-md-4 post-wrap">
-            {{> post-card class="col"}}
-          </div>
-          {{/foreach}}
-        </div>
-        
+      <div class="mobile">
         <div class="row posts mobile">
           {{#foreach posts from="1" to="3"}}
           <div class="col-xs-12 col-md-6 post-wrap">
@@ -133,31 +76,27 @@
           </div>
           {{/foreach}}
         </div>
-        <div class="row">
-          <div class="col-xs-12 center-xs">
-            <button id="load-more-posts" class="btn btn--wide btn--primary">
-              Показать больше статей
-            </button>
-          </div>
+      </div>
+
+      <div class="row">
+        <div class="col-xs-12 center-xs">
+          <button id="load-more-posts" class="btn btn--wide btn--primary">
+            Показать больше статей
+          </button>
         </div>
-        <div class="row">
-          <div class="col-xs-12 center-xs">
-            <span class="button-spinner" id="button-spinner" style="visibility: hidden;"><svg
-                xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 100 100"
-                preserveAspectRatio="xMidYMid" display="block">
-                <circle cx="50" cy="50" fill="none" stroke="#272727" stroke-width="12" r="39"
-                  stroke-dasharray="183.7831702350029 63.261056745000964" transform="rotate(197.992 50 50)">
-                  <animateTransform attributeName="transform" type="rotate" repeatCount="indefinite" dur="1s"
-                    values="0 50 50;360 50 50" keyTimes="0;1" />
-                </circle>
-              </svg></span>
-          </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12 center-xs">
+          <span class="button-spinner" id="button-spinner" style="">
+            <img src="/assets/icons/spinner.svg" alt="">
+          </span>
         </div>
-      </section>
+      </div>
+
     </div>
     <div class="col-xs col-lg-4 col-xl-3 has-sidebar md">
       <div> {{> mobile-sidebar}} </div>
-      <div> {{> sidebar}} </div>   
+      <div> {{> sidebar}} </div>
     </div>
   </div>
 

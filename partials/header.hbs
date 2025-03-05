@@ -5,16 +5,11 @@
     <div class="container-fluid wrapper">
       <div class="row">
         <div class="col-xs-3 col-md-4 middle-xs is-flex">
-          {{!-- Search Button --}}
-
-          <div id="search-open-mobile" class="search-bar" style="cursor: pointer;">
-            <nav tabindex="0" title="{{t " Search"}}" aria-label="{{t " Search"}}" class="search-top">
-              {{>icon name="search" size="sm"}}
-            </nav>
-            <span class="search-bar-placeholder">
-              Поиск...
-            </span>
-          </div>
+          {{!-- Menu Button --}}
+          <button id="menu-open" class="header__menu--open hamburger" type="button" title="{{t " Menu"}}"
+            aria-label="{{t " Menu"}}">
+            {{>icon name="menu" size="sm"}}
+          </button>
           <div class="header__theme">
             <a class="header__theme--toggle" id="theme-dark" tabindex="0" title="{{t " Dark Theme"}}" aria-label="{{t "
               Dark Theme"}}">
@@ -44,130 +39,20 @@
         </div>
 
         <div class="col-xs-3 col-md-4 end-xs middle-xs is-flex">
-          {{!-- Menu Button --}}
-          <button id="menu-open" class="header__menu--open hamburger" type="button" title="{{t " Menu"}}"
-            aria-label="{{t " Menu"}}">
-            <span></span>
-          </button>
+          {{!-- Search Button --}}
+          <div id="search-open-mobile" class="search-bar">
+            <nav tabindex="0" title="{{t " Search"}}" aria-label="{{t " Search"}}" class="search-top">
+              {{>icon name="search" size="sm"}}
+            </nav>
+            <span class="search-bar-placeholder">
+              Поиск...
+            </span>
+          </div>
+
         </div>
       </div>
     </div>
   </div>
 
-  {{!-- Menu --}}
-  <div class="header__bottom">
-    <div class="container-fluid wrapper">
-      <div class="row">
-        {{!-- Blog navigation --}}
-        <nav class="col-xs header__nav">
-          {{navigation search=false}}
-        </nav>
-      </div>
-    </div>
-  </div>
-
-    <div class="header_all-themes" id="header-all-themes">
-      <div class="container-fluid wrapper">
-        <div class="row">
-          {{!-- 1 --}}
-          <div class="tag">
-            <a class="tag-applicants" href="/tag/applicants/" title="Соискателям"
-              aria-label="Соискателямs">Соискателям</a>
-          </div>
-          <div class="tag">
-            <a class="tag-rabota-i-siemia" href="/tag/rabota-i-siemia/" title="Работа и семья"
-              aria-label="Работа и семьяs">Работа и семья</a>
-          </div>
-          <div class="tag">
-            <a class="tag-employers" href="/tag/employers/" title="Работодателям"
-              aria-label="Работодателямs">Работодателям</a>
-          </div>
-          <div class="tag">
-            <a class="tag-udalionka" href="/tag/udalionka/" title="Удалёнка" aria-label="Удалёнкаs">Удалёнка</a>
-          </div>
-          <div class="tag">
-            <a class="tag-sobiesiedovaniie" href="/tag/sobiesiedovaniie/" title="Собеседование"
-              aria-label="Собеседованиеs">Собеседование</a>
-          </div>
-          <div class="tag">
-            <a class="tag-novosti" href="/tag/novosti/" title="Новости" aria-label="Новости">Новости</a>
-          </div>
-          <div class="tag">
-            <a class="tag-webinar" href="/tag/webinar/" title="Вебинары" aria-label="Вебинарыs">Вебинары</a>
-          </div>
-          <div class="tag">
-            <a class="tag-kariernyie-soviety" href="/tag/kariernyie-soviety/" title="Карьерные советы"
-              aria-label="Карьерные советыs">Карьерные советы</a>
-          </div>
-        </div>
-        <div class="row">
-          {{!-- 2 --}}
-          <div class="tag">
-            <a class="tag-ishchu-rabotu" href="/tag/ishchu-rabotu/" title="Ищу работу" aria-label="Ищу работуs">Ищу
-              работу</a>
-          </div>
-          <div class="tag">
-            <a class="tag-rabota-v-komandie" href="/tag/rabota-v-komandie/" title="Работа в команде"
-              aria-label="Работа в командеs">Работа в команде</a>
-          </div>
-          <div class="tag">
-            <a class="tag-rukovodstvo" href="/tag/rukovodstvo/" title="Руководство"
-              aria-label="Руководствоs">Руководство</a>
-          </div>
-          <div class="tag">
-            <a class="tag-biznies" href="/tag/biznies/" title="бизнес" aria-label="бизнесs">Бизнес</a>
-          </div>
-          <div class="tag">
-            <a class="tag-diekriet" href="/tag/diekriet/" title="декрет" aria-label="декретs">Декрет</a>
-          </div>
-          <div class="tag">
-            <a class="tag-rieziumie" href="/tag/rieziumie/" title="Резюме" aria-label="Резюмеs">Резюме</a>
-          </div>
-          <div class="tag">
-            <a class="tag-faq" href="/tag/faq/" title="Ответы на вопросы" aria-label="Ответы на вопросыs">Ответы на
-              вопросы</a>
-          </div>
-          <div class="tag">
-            <a class="tag-poliezno" href="/tag/poliezno/" title="Полезно" aria-label="полезно">Полезно</a>
-          </div>
-          <div class="tag">
-            <a class="tag-obrazovaniie" href="/tag/obrazovaniie/" title="Образование"
-              aria-label="Образованиеs">Образование</a>
-          </div>
-        </div>
-        <div class="row">
-          {{!-- 3 --}}
-          <div class="tag">
-            <a class="tag-rabota-v-ofisie" href="/tag/rabota-v-ofisie/" title="Работа в офисе"
-              aria-label="Работа в офисеs">Работа в офисе</a>
-          </div>
-          <div class="tag">
-            <a class="tag-chieloviek-diela" href="/tag/chieloviek-diela/" title="Человек дела"
-              aria-label="Человек делаs">Человек дела</a>
-          </div>
-          <div class="tag">
-            <a class="tag-ishchu-sotrudnika" href="/tag/ishchu-sotrudnika/" title="Ищу сотрудника"
-              aria-label="Ищу сотрудникаs">Ищу сотрудника</a>
-          </div>
-          <div class="tag">
-            <a class="tag-uvolnieniie" href="/tag/uvolnieniie/" title="Увольнение" aria-label="Увольнениеs">Увольнение</a>
-          </div>
-          <div class="tag">
-            <a class="tag-frilans" href="/tag/frilans/" title="Фриланс" aria-label="Увольнениеs">Фриланс</a>
-          </div>
-          <div class="tag">
-            <a class="tag-zakony-i-pravo" href="/tag/zakony-i-pravo/" title="Законы и право"
-              aria-label="Законы и правоs">Законы и право</a>
-          </div>
-          <div class="tag">
-            <a class="tag-u-mienia-vykhodnoi" href="/tag/u-mienia-vykhodnoi/" title="У меня выходной"
-              aria-label="У меня выходнойs">У меня выходной</a>
-          </div>
-          <div class="tag">
-            <a class="tag-students" href="/tag/students/" title="Студентам" aria-label="Студентамs">Студентам</a>
-          </div>
-        </div>
-      </div>
-    </div>
 
 </header>
