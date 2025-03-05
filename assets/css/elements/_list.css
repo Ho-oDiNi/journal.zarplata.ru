@@ -1,5 +1,6 @@
 /* List */
-ul, ol {
+ul,
+ol {
   margin: 0 0 var(--gap-lg);
 
   li {
@@ -10,7 +11,8 @@ ul, ol {
     }
   }
 
-  ul, ol {
+  ul,
+  ol {
     margin-top: 0;
     margin-bottom: 0;
   }

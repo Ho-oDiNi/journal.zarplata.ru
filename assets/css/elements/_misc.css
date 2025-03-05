@@ -22,11 +22,14 @@ abbr[title]:hover {
 
 ::selection {
   color: var(--color-text);
-  background: color(var(--color-primary) blend(var(--color-bg) 75%)); /* WebKit/Blink Browsers */
+  background: color(var(--color-primary) blend(var(--color-bg) 75%));
+  /* WebKit/Blink Browsers */
 }
+
 ::-moz-selection {
   color: var(--color-text);
-  background: color(var(--color-primary) blend(var(--color-bg) 75%)); /* Gecko Browsers */
+  background: color(var(--color-primary) blend(var(--color-bg) 75%));
+  /* Gecko Browsers */
 }
 
 input,

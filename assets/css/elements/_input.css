@@ -33,7 +33,7 @@ textarea {
 
   &::-webkit-input-placeholder,
   &:-ms-input-placeholder,
-  &::placeholder { 
+  &::placeholder {
     color: var(--color-text-accent-3);
     font-weight: var(--font-weight-regular);
   }

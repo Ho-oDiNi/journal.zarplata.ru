@@ -22,7 +22,7 @@ const postcssColor = require("postcss-color-function");
 // Define base folders
 const asset_src = 'assets/';
 const asset_dist = 'assets/dist/';
-const npm_src   = 'node_modules/';
+const npm_src = 'node_modules/';
 
 // Browsersync init
 const serve = done => {
@@ -51,7 +51,7 @@ const handleError = done => (
 
 // Handle icons
 const icons = done => {
-  pump (
+  pump(
     [
       src(npm_src + 'feather-icons/dist/feather-sprite.svg'),
       dest(asset_src + 'icons')
@@ -67,14 +67,14 @@ const css = done => {
     postcssMixins(),
     postcssCustomMedia(),
     postcssNested(),
-    postcssCustomProperties({preserveCustomProps: false}),
-    postcssColor({preserveCustomProps: false}),
+    postcssCustomProperties({ preserveCustomProps: false }),
+    postcssColor({ preserveCustomProps: false }),
     postcssential({
-			output: 'default.hbs',
-			cssComment: '!cssential',
-			htmlComment: 'cssential',
-			removeOriginal: true
-		}),
+      output: 'default.hbs',
+      cssComment: '!cssential',
+      htmlComment: 'cssential',
+      removeOriginal: true
+    }),
     postcssPresetEnv({
       browsers: '> .5% or last 2 versions',
       stage: 2,
@@ -82,15 +82,15 @@ const css = done => {
         'nesting-rules': false
       }
     }),
-    cssnano({preset: 'advanced'})
+    cssnano({ preset: 'advanced' })
   ];
 
   pump(
     [
-      src('assets/css/app.css', {sourcemaps: true}),
+      src('assets/css/app.css', { sourcemaps: true }),
       postcss(processors),
-      rename({suffix: '.min'}),
-      dest(asset_dist, {sourcemaps: '.'})
+      rename({ suffix: '.min' }),
+      dest(asset_dist, { sourcemaps: '.' })
     ],
     handleError(done)
   );
@@ -101,13 +101,13 @@ const js = done => {
   pump(
     [
       src([
-        npm_src   + '@tryghost/content-api/umd/content-api.min.js',
-        npm_src   + 'ghost-search/dist/ghost-search.min.js',
-        npm_src   + 'vanilla-lazyload/dist/lazyload.min.js',
-        npm_src   + 'fitvids/dist/fitvids.min.js',
-        npm_src   + 'prismjs/prism.js',
-        npm_src   + 'fslightbox/index.js',
-        npm_src   + 'tocbot/dist/tocbot.min.js',
+        npm_src + '@tryghost/content-api/umd/content-api.min.js',
+        npm_src + 'ghost-search/dist/ghost-search.min.js',
+        npm_src + 'vanilla-lazyload/dist/lazyload.min.js',
+        npm_src + 'fitvids/dist/fitvids.min.js',
+        npm_src + 'prismjs/prism.js',
+        npm_src + 'fslightbox/index.js',
+        npm_src + 'tocbot/dist/tocbot.min.js',
         asset_src + 'js/script.js'
       ], { sourcemaps: true }),
       babel({
@@ -120,7 +120,7 @@ const js = done => {
         ]
       }),
       concat('app.js'),
-      rename({suffix: '.min'}),
+      rename({ suffix: '.min' }),
       uglify(),
       dest(asset_dist, { sourcemaps: '.' })
     ],
@@ -136,11 +136,11 @@ const zipper = done => {
 
   pump(
     [
-      src([ 
+      src([
         '**',
-        '!node_modules', 
-        '!node_modules/**', 
-        '!dist', 
+        '!node_modules',
+        '!node_modules/**',
+        '!dist',
         '!dist/**',
         '!assets/dist/*.map',
         '!assets/icon*.png',
@@ -159,8 +159,8 @@ const zipper = done => {
 const cssWatch = () => watch('assets/css/**', series(css, reload));
 const jsWatch = () => watch('assets/js/**', series(js, reload));
 const hbsWatch = () => watch([
-  '*.hbs', 
-  'partials/**/*.hbs', 
+  '*.hbs',
+  'partials/**/*.hbs',
   'members/**/*.hbs',
   '!node_modules/**/*.hbs'], series(reload));
 const watcher = parallel(cssWatch, jsWatch, hbsWatch);

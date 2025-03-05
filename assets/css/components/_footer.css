@@ -1,13 +1,14 @@
 /* Footer */
 .footer {
   background-color: var(--color-card);
+
   @media (max-width: 767px) {
     display: none;
   }
 
   color: var(--color-text-accent-2);
   font-family: var(--font-family-secondary);
-  
+
   &-container {
     display: flex;
     flex-direction: row;
@@ -40,6 +41,7 @@
 
 .footer-wrapper {
   display: none;
+
   @media (min-width: 971px) {
     display: block;
   }

@@ -57,6 +57,7 @@
 }
 
 @media (--viewport-lg) {
+
   .kg-image-wide img,
   .kg-width-wide img {
     max-width: 70vw;
@@ -134,7 +135,7 @@
   font-family: var(--font-family-sans-serif);
 }
 
-.kg-card + .kg-bookmark-card {
+.kg-card+.kg-bookmark-card {
   margin-top: 0;
 }
 
@@ -219,6 +220,7 @@
 
 .kg-callout-card {
   border-radius: 26px !important;
+
   @media (max-width: 767px) {
     padding: 32px !important;
   }
@@ -232,6 +234,7 @@
 
 .kg-callout-text {
   color: var(--color-dark);
+
   @media (max-width: 767px) {
     font-size: var(--font-size-text);
     font-weight: 700;

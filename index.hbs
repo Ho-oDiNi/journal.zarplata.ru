@@ -1,14 +1,12 @@
-{{!< default}}
-
-<div class="container-fluid wrapper">
+{{!< default}} <div class="container-fluid wrapper">
   <div class="row m-t-lg">
     <div class="col-xs-12 col-lg-8 col-xl-9">
       <section class="section all-posts">
         <div class="row posts">
           {{#foreach posts}}
-            <div class="col-xs-12 col-md-4 post-wrap">
-              {{> post-card class="col"}}
-            </div>
+          <div class="col-xs-12 col-md-4 post-wrap">
+            {{> post-card class="col"}}
+          </div>
           {{/foreach}}
         </div>
         <div class="row">
@@ -24,4 +22,4 @@
       {{> sidebar}}
     </div>
   </div>
-</div>
+  </div>

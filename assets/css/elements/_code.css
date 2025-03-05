@@ -1,20 +1,21 @@
 /* Code highlighting */
-pre, code {
-  max-width: 100%;
-  margin: 0 0 var(--gap-lg);
-  font-family: var(--font-family-sans-serif);
+pre,
+code {
+	max-width: 100%;
+	margin: 0 0 var(--gap-lg);
+	font-family: var(--font-family-sans-serif);
 
-  color: var(--color-text-accent-1);
+	color: var(--color-text-accent-1);
 	background: var(--color-bg-accent-1);
 
-  font-size: var(--font-size-base);
+	font-size: var(--font-size-base);
 	text-align: left;
 	white-space: pre;
 	word-spacing: normal;
 	word-break: normal;
 	word-wrap: normal;
 	line-height: var(--line-height-base);
-  border-radius: var(--global-radius);
+	border-radius: var(--global-radius);
 
 	-moz-tab-size: 4;
 	-o-tab-size: 4;
@@ -31,18 +32,18 @@ pre {
 	padding: var(--gap);
 	overflow: auto;
 
-  code {
-    padding: 0;
-    white-space: pre;
-    background: transparent;
-  }
+	code {
+		padding: 0;
+		white-space: pre;
+		background: transparent;
+	}
 }
 
 code {
-  padding: var(--gap-xs);
+	padding: var(--gap-xs);
 	overflow: auto;
-  white-space: normal;
-  background-color: var(--color-bg-accent-2);
+	white-space: normal;
+	background-color: var(--color-bg-accent-2);
 }
 
 /* Decomment below to make selected text backgroud transparent */
@@ -63,12 +64,11 @@ code[class*="language-"]::selection, code[class*="language-"] ::selection {
 	}
 } */
 
-:not(pre) > code[class*="language-"],
-pre[class*="language-"] {
-}
+:not(pre)>code[class*="language-"],
+pre[class*="language-"] {}
 
 /* Inline code */
-:not(pre) > code[class*="language-"] {
+:not(pre)>code[class*="language-"] {
 	padding: .1em;
 	border-radius: .3em;
 	white-space: normal;
@@ -137,6 +137,7 @@ pre[class*="language-"] {
 .token.bold {
 	font-weight: bold;
 }
+
 .token.italic {
 	font-style: italic;
 }

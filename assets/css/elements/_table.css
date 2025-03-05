@@ -9,7 +9,8 @@ table {
   max-width: 100%;
   overflow: hidden;
 
-  th, td {
+  th,
+  td {
     padding: var(--gap);
     line-height: var(--line-height-base);
   }
