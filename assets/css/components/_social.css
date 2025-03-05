@@ -50,11 +50,12 @@
     position: relative;
 
     &.has-tooltip {
+
       &:before,
       &:after {
         visibility: visible;
         opacity: 1;
-        transition: 
+        transition:
           visibility var(--animation-duration) var(--animation-name),
           opacity var(--animation-duration) var(--animation-name);
       }
@@ -62,7 +63,7 @@
 
     &:before {
       content: "";
-      position: absolute;  
+      position: absolute;
       visibility: hidden;
       opacity: 0;
       top: auto;
@@ -72,14 +73,14 @@
       border-left: 6px solid transparent;
       border-right: 6px solid transparent;
       border-bottom: 6px solid var(--color-bg-reverse);
-      transition: 
-          visibility var(--animation-duration) var(--animation-name),
-          opacity var(--animation-duration) var(--animation-name);
+      transition:
+        visibility var(--animation-duration) var(--animation-name),
+        opacity var(--animation-duration) var(--animation-name);
     }
 
-    &:after { 
-      content: attr(data-label); 
-      position: absolute;    
+    &:after {
+      content: attr(data-label);
+      position: absolute;
       visibility: hidden;
       opacity: 0;
       padding: var(--gap-sm) var(--gap);
@@ -90,10 +91,10 @@
       font-weight: var(--font-weight-semi-bold);
       top: calc(3 * var(--gap-rem));
       right: 0;
-      transition: 
+      transition:
         visibility var(--animation-duration) var(--animation-name),
         opacity var(--animation-duration) var(--animation-name);
-      
+
       @media (--viewport-md) {
         right: 25px;
       }

@@ -17,10 +17,11 @@
 
   {{#if feature_image}}
   <a class="post-card__image" href="{{url}}" title="{{title}}" aria-label="{{title}}">
-    <img class="lazyload" data-srcset="{{img_url feature_image size="s" format="webp"}} 300w, {{img_url feature_image size="m" format="webp"}}
-      600w, {{img_url feature_image size="l" format="webp"}} 1000w, {{img_url feature_image size="xl" format="webp"}} 2000w"
-      data-sizes="(max-width: 1000px) 50vw, 700px" data-src="{{img_url feature_image size="l" format="webp"}}"
-      src="{{asset 'images/img-placeholder-md.jpg'}}" alt="{{title}}" />
+    <img class="lazyload" data-srcset="{{img_url feature_image size=" s" format="webp" }} 300w, {{img_url feature_image
+      size="m" format="webp" }} 600w, {{img_url feature_image size="l" format="webp" }} 1000w, {{img_url feature_image
+      size="xl" format="webp" }} 2000w" data-sizes="(max-width: 1000px) 50vw, 700px"
+      data-src="{{img_url feature_image size=" l" format="webp" }}" src="{{asset 'images/img-placeholder-md.jpg'}}"
+      alt="{{title}}" />
   </a>
   {{/if}}
 

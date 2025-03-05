@@ -13,7 +13,7 @@ button,
   letter-spacing: 0em;
   line-height: 1;
   height: 54px;
-  
+
   outline: none;
   border: none;
   cursor: pointer;
@@ -48,8 +48,7 @@ button,
   &--wide {
     padding: var(--gap) var(--gap-xl);
 
-    &__error
-    {
+    &__error {
       margin-bottom: 32px;
       width: 100%;
 
@@ -77,26 +76,24 @@ button,
 
   &--primary {
     background-color: #ffe000;
-    
+
     &:hover,
-    &:active
-    {
+    &:active {
       background-color: #FFD000;
     }
   }
 
-  &--secondary{
+  &--secondary {
 
-    background-color: var(--color-bg-input);    
+    background-color: var(--color-bg-input);
 
     &:hover,
-    &:active
-    {
+    &:active {
       background-color: #FFE000;
     }
   }
 
-  &--error{
+  &--error {
     max-width: 256px;
     max-height: 54px;
 
@@ -111,24 +108,28 @@ button,
   display: none;
   margin: auto;
   overflow-anchor: none;
+
   @media (max-width: 971px) {
     display: block;
   }
 }
 
-a.btn { -webkit-appearance: none; }
+a.btn {
+  -webkit-appearance: none;
+}
 
 .button-spinner {
   display: block;
   display: flex;
   justify-content: center;
+
   @media (max-width: 971px) {
     display: none;
   }
 }
 
 @media (max-width: 401px) {
-  .btn--wide{
+  .btn--wide {
     padding: 0px;
     white-space: nowrap;
   }

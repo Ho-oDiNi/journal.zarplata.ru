@@ -14,7 +14,8 @@
 
       <div class="post-hero__header">
         {{#foreach tags to="3"}}
-        <a class="tag tag-{{slug}} post-hero__tag" href="{{url}}" title="{{name}}" aria-label="{{name}}s" style="margin-bottom: 8px !important;">{{name}}</a>
+        <a class="tag tag-{{slug}} post-hero__tag" href="{{url}}" title="{{name}}" aria-label="{{name}}s"
+          style="margin-bottom: 8px !important;">{{name}}</a>
         {{/foreach}}
       </div>
     </div>
@@ -25,10 +26,11 @@
       {{#if feature_image}}
       <div class="post-hero__image-wrapper">
         <figure class="post-hero__image">
-          <img class="lazyload" data-srcset="{{img_url feature_image size="s" format="webp"}} 300w, {{img_url feature_image size="m" format="webp"
-            }} 600w, {{img_url feature_image size="l" format="webp"}} 1000w, {{img_url feature_image size="xl" format="webp"}} 2000w" data-sizes="(max-width: 800px) 50vw,
+          <img class="lazyload" data-srcset="{{img_url feature_image size=" s" format="webp" }} 300w, {{img_url
+            feature_image size="m" format="webp" }} 600w, {{img_url feature_image size="l" format="webp" }} 1000w,
+            {{img_url feature_image size="xl" format="webp" }} 2000w" data-sizes="(max-width: 800px) 50vw,
                     (max-width: 1170px) 60vw,
-                    1400px" data-src="{{img_url feature_image size="xl" format="webp"}}"
+                    1400px" data-src="{{img_url feature_image size=" xl" format="webp" }}"
             src="{{asset 'images/img-placeholder-md.jpg'}}" alt="{{title}}" />
         </figure>
         {{#if feature_image_caption}}

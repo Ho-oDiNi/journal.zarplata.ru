@@ -14,7 +14,8 @@
 </section>
 {{/get}}
 {{else}}
-{{#get "posts" include="tags,authors" limit="12" filter="featured:false+id:-{{id}}" include="authors,tags" as |related|}}
+{{#get "posts" include="tags,authors" limit="12" filter="featured:false+id:-{{id}}" include="authors,tags" as
+|related|}}
 <section class="related-posts">
   <div class="container-fluid wrapper">
     <div class="row">

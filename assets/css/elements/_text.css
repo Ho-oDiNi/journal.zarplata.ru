@@ -14,15 +14,15 @@ a {
   box-shadow: none;
 }
 
-blockquote{
-  
+blockquote {
+
   padding-top: 64px !important;
   display: block;
 
   &:before {
     content: "“";
     position: absolute;
-    top:32px;
+    top: 32px;
     left: 32px;
     font-family: sans-serif;
     font-size: 6rem;
@@ -40,7 +40,8 @@ blockquote{
 }
 
 /* Quote */
-blockquote, .blockquote-img {
+blockquote,
+.blockquote-img {
   background-color: #fff;
   padding: 32px;
   padding-top: 0px;
@@ -55,21 +56,23 @@ blockquote, .blockquote-img {
     }
   }
 
-  &+ figcaption cite {
+  &+figcaption cite {
     display: block;
     font-size: inherit;
     text-align: right;
     font-style: italic;
   }
 
-  cite { font-weight: var(--font-weight-bold); }
+  cite {
+    font-weight: var(--font-weight-bold);
+  }
 
   p {
-    
+
     font-family: var(--font-family-secondary);
     margin: 0;
-    
-    &.blockquote__title{
+
+    &.blockquote__title {
       font-size: var(--font-size-text);
       line-height: 25px;
       font-weight: 700;
@@ -110,14 +113,19 @@ blockquote, .blockquote-img {
 }
 
 /* Misc */
-em, i, .italic {
-	font-style: italic;
+em,
+i,
+.italic {
+  font-style: italic;
 }
 
-strong, b, .bold {
+strong,
+b,
+.bold {
   font-weight: var(--font-weight-bold);
 }
 
-small, .small {
+small,
+.small {
   font-size: 80%;
 }

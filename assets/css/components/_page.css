@@ -9,7 +9,7 @@
 /* Очень плохой код - переделать */
 .error {
   &__content {
-    
+
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
@@ -35,7 +35,7 @@
 
   }
 
-  &__info{
+  &__info {
     display: flex;
     flex-direction: column;
     align-content: flex-start;
@@ -51,7 +51,7 @@
   }
 
   &__title {
-    
+
     font-family: var(--font-family-sant-serif);
     font-weight: 700;
     font-size: 96px;
@@ -70,7 +70,7 @@
       margin: 32px 0;
     }
 
-    &__unfound{
+    &__unfound {
       font-family: var(--font-family-sant-serif);
       line-height: 52px;
       font-weight: 700;
@@ -78,15 +78,15 @@
       padding-bottom: 32px;
       margin: 0px !important;
 
-      
+
       @media (max-width: 576px) {
         padding-bottom: 16px;
         font-size: 28px;
         line-height: 28.6px;
       }
     }
-    
-    &__call-to-action{
+
+    &__call-to-action {
       font-family: var(--font-family-secondary);
       font-weight: 400;
       font-size: 20px;
@@ -98,7 +98,7 @@
     }
   }
 
-  &__image{
+  &__image {
     flex: 1;
     pointer-events: none;
 

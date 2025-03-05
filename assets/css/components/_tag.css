@@ -16,7 +16,7 @@
   height: 100%;
   min-height: 12rem;
   max-height: 12rem;
-  border-radius: var(--global-radius) !important;    
+  border-radius: var(--global-radius) !important;
   background-color: #FBE97B !important;
   overflow: hidden;
   margin-bottom: var(--gap);
@@ -34,7 +34,7 @@
     .tag-card__name {
       color: #F7CF4C;
     }
-    
+
     .tag-card__count {
       color: #F4BB40;
     }
@@ -138,11 +138,11 @@
     z-index: 3;
 
     align-items: center;
-      justify-content: center;
-      flex-direction: column;
-      flex-basis: 45%;
-      padding-top: 0;
-      padding-right: var(--gap);
+    justify-content: center;
+    flex-direction: column;
+    flex-basis: 45%;
+    padding-top: 0;
+    padding-right: var(--gap);
 
   }
 
@@ -221,5 +221,3 @@
 .tag-h-faq {
   background-color: #70D6FF;
 }
-
-

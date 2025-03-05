@@ -27,9 +27,9 @@
 .lazyload.loaded {
   opacity: 1;
   filter: blur(0);
-  transition: 
+  transition:
     all var(--animation-duration) var(--animation-name);
-    /* opacity var(--animation-duration) var(--animation-name), 
+  /* opacity var(--animation-duration) var(--animation-name), 
     filter var(--animation-duration) var(--animation-name),
     transform var(--animation-duration) var(--animation-name),
     box-shadow var(--animation-duration) var(--animation-name); */
@@ -38,9 +38,9 @@
 .initial.loaded {
   opacity: 1;
   filter: blur(0);
-  transition: 
+  transition:
     all var(--animation-duration) var(--animation-name);
-    /* opacity var(--animation-duration) var(--animation-name), 
+  /* opacity var(--animation-duration) var(--animation-name), 
     filter var(--animation-duration) var(--animation-name),
     transform var(--animation-duration) var(--animation-name),
     box-shadow var(--animation-duration) var(--animation-name); */

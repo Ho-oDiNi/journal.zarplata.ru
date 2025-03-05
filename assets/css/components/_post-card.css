@@ -35,7 +35,8 @@
     display: none;
   }
 
-  &.col, &.col--main {
+  &.col,
+  &.col--main {
     flex-direction: column;
 
     .post-card__content {
@@ -54,10 +55,10 @@
 
   }
 
-  &.col--main{
+  &.col--main {
     min-height: 200px;
 
-    .post-card__image{
+    .post-card__image {
       display: none;
     }
   }
@@ -167,7 +168,7 @@
     &.public {
       display: none;
     }
-    
+
   }
 
   &__info {
@@ -221,7 +222,8 @@
   }
 }
 
-.post-card--special, .post-card--main {
+.post-card--special,
+.post-card--main {
   &.no-img {
     justify-content: flex-end;
 
@@ -263,7 +265,8 @@
   line-height: calc(var(--line-height-base) * 0.85);
 }
 
-.post-card--special, .post-card--main {
+.post-card--special,
+.post-card--main {
   display: flex;
   justify-content: center;
   flex-direction: column;
@@ -295,14 +298,13 @@
     max-height: 560px;
   }
 
-  
-  
+
+
   @mixin attention {
     .special-bg {
       left: 5%;
       border-radius: 55% 45% 45% 55%/55% 55% 45% 45%;
-      transition: border-radius var(--animation-duration-lg)
-          var(--animation-name),
+      transition: border-radius var(--animation-duration-lg) var(--animation-name),
         left var(--animation-duration-lg) var(--animation-name);
     }
   }
@@ -369,23 +371,23 @@
   }
 }
 
-.post-card--main{
+.post-card--main {
   .post-card__content {
-    
+
     flex: 0 1 auto;
     max-width: 100%;
-    
+
     flex-direction: column;
     flex-wrap: wrap;
     justify-content: space-between;
     min-height: 270px;
     padding: 32px 32px;
 
-    .post-card__header{
+    .post-card__header {
       margin: 0 !important;
     }
 
-    .post-card__title{
+    .post-card__title {
       color: var(--color-text-accent-1);
       font-size: 2.3rem;
       font-weight: 700;
@@ -395,7 +397,9 @@
   }
 }
 
-.sidebar__section, .post-card__content, .swiper-slide {
+.sidebar__section,
+.post-card__content,
+.swiper-slide {
 
   /* group 1 */
   .tag-ishchu-rabotu,
@@ -410,13 +414,13 @@
     border: 1px solid transparent !important;
     border-radius: 99px !important;
     padding: 0.15em 1em !important;
-  
+
     &:hover {
       background-color: transparent !important;
       border: 1px solid #CD8CFF !important;
     }
   }
-  
+
   /* group 2 */
   .tag-employers,
   .tag-biznies,
@@ -427,13 +431,13 @@
     border: 1px solid transparent !important;
     border-radius: 99px !important;
     padding: 0.15em 1em !important;
-  
+
     &:hover {
       background-color: transparent !important;
       border: 1px solid #ffe000 !important;
     }
   }
-  
+
   /* group 3 */
   .tag-diekriet,
   .tag-rieziumie,
@@ -446,13 +450,13 @@
     border: 1px solid transparent !important;
     border-radius: 99px !important;
     padding: 0.15em 1em !important;
-  
+
     &:hover {
       background-color: transparent !important;
       border: 1px solid #ff84a9 !important;
     }
   }
-  
+
   /* group 4 */
   .tag-kariernyie-soviety,
   .tag-obrazovaniie,
@@ -465,13 +469,13 @@
     border: 1px solid transparent !important;
     border-radius: 99px !important;
     padding: 0.15em 1em !important;
-  
+
     &:hover {
       background-color: transparent !important;
       border: 1px solid #57ee81 !important;
     }
   }
-  
+
   /* group 5 */
   .tag-zakony-i-pravo,
   .tag-webinar,
@@ -483,16 +487,16 @@
     border: 1px solid transparent !important;
     border-radius: 99px !important;
     padding: 0.15em 1em !important;
-  
+
     &:hover {
       background-color: transparent !important;
       border: 1px solid #70d6ff !important;
     }
   }
-  
+
   .swiper {
     .post-card__image {
-  
+
       &>img {
         @media (max-width: 767px) {
           height: 196px;
@@ -501,4 +505,3 @@
     }
   }
 }
-

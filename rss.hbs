@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<rss xmlns:yandex="http://news.yandex.ru"
-     xmlns:media="http://search.yahoo.com/mrss/"
-     xmlns:turbo="http://turbo.yandex.ru"
-     version="2.0">
+<rss xmlns:yandex="http://news.yandex.ru" xmlns:media="http://search.yahoo.com/mrss/"
+    xmlns:turbo="http://turbo.yandex.ru" version="2.0">
     <channel>
         <!-- Информация о сайте-источнике -->
-        <title><![CDATA[ {{@site.title}} ]]></title>
+        <title>
+            <![CDATA[ {{@site.title}} ]]>
+        </title>
         <link>{{@site.url}}</link>
-        <description><![CDATA[ {{@site.description}} ]]></description>
+        <description>
+            <![CDATA[ {{@site.description}} ]]>
+        </description>
         <image>
             <url>{{@site.url}}/favicon.png</url>
             <title>{{@site.title}}</title>
@@ -15,22 +17,30 @@
         </image>
 
         {{#get "posts" limit="all" include="authors,tags"}}
-            {{#foreach posts}}
-            <item turbo="true">
-                <turbo:extendedHtml>true</turbo:extendedHtml>
-                <title><![CDATA[ {{title}} ]]></title>
-                <description><![CDATA[ {{excerpt}} ]]></description>
-                <link>{{url absolute="true"}}</link>
-                <turbo:source></turbo:source>
-                <turbo:topic></turbo:topic>
-                <guid isPermaLink="false">{{id}}</guid>
-                <category><![CDATA[ {{primary_tag.name}} ]]></category>
-                <pubDate>{{date format="ddd, DD MMM YYYY HH:mm:ss ZZ"}}</pubDate>
-                <media:content url="{{feature_image}}" medium="image"/>
-                <yandex:related></yandex:related>
-                <turbo:content><![CDATA[ {{content}} ]]></turbo:content>
-            </item>
-            {{/foreach}}
+        {{#foreach posts}}
+        <item turbo="true">
+            <turbo:extendedHtml>true</turbo:extendedHtml>
+            <title>
+                <![CDATA[ {{title}} ]]>
+            </title>
+            <description>
+                <![CDATA[ {{excerpt}} ]]>
+            </description>
+            <link>{{url absolute="true"}}</link>
+            <turbo:source></turbo:source>
+            <turbo:topic></turbo:topic>
+            <guid isPermaLink="false">{{id}}</guid>
+            <category>
+                <![CDATA[ {{primary_tag.name}} ]]>
+            </category>
+            <pubDate>{{date format="ddd, DD MMM YYYY HH:mm:ss ZZ"}}</pubDate>
+            <media:content url="{{feature_image}}" medium="image" />
+            <yandex:related></yandex:related>
+            <turbo:content>
+                <![CDATA[ {{content}} ]]>
+            </turbo:content>
+        </item>
+        {{/foreach}}
         {{/get}}
     </channel>
 </rss>

@@ -29,7 +29,10 @@
       }
     }
 
-    h1, h2, h3, h4 {
+    h1,
+    h2,
+    h3,
+    h4 {
       scroll-margin-top: 8rem;
       scroll-snap-margin-top: 8rem;
       outline: none;
@@ -83,7 +86,7 @@
   }
 
   .small {
-    font-size: calc( 0.9 * var(--font-size-base));
+    font-size: calc(0.9 * var(--font-size-base));
     color: var(--color-grey-darker);
   }
 }
@@ -290,7 +293,7 @@
     .tag-rabota-v-ofisie,
     .tag-rabota-i-siemia,
     .tag-applicants,
-    .tag-chieloviek-diela{
+    .tag-chieloviek-diela {
       background-color: #CD8CFF !important;
       color: #222222 !important;
       border: 1px solid transparent !important;
