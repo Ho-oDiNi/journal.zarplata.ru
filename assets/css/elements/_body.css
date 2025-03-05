@@ -1,5 +1,6 @@
 /* Html & Body */
-html, body {
+html,
+body {
   /* font-size: var(--font-size-base); */
   font-size: var(--font-size-base);
   font-weight: var(--font-weight-regular);
@@ -33,7 +34,8 @@ body {
   }
 }
 
-@media (print), (prefers-reduced-motion: reduce) { 
+@media (print),
+(prefers-reduced-motion: reduce) {
   body {
     --animation-duration: 1ms;
   }
@@ -43,6 +45,7 @@ body {
   .desktop {
     display: inherit;
   }
+
   .mobile {
     display: none !important;
   }
@@ -52,6 +55,7 @@ body {
   .desktop {
     display: none !important;
   }
+
   .mobile {
     display: inherit;
   }
@@ -67,6 +71,7 @@ body {
   border-radius: 26px;
   height: auto !important;
 }
+
 .swiper-content {
   height: 100% !important
 }
@@ -80,6 +85,7 @@ body {
 
 .md {
   display: none;
+
   @media (max-width: 970px) {
     display: unset;
   }
@@ -87,6 +93,7 @@ body {
 
 .lg {
   display: none;
+
   @media (min-width: 971px) {
     display: unset;
   }

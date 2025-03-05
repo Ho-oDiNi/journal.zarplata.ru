@@ -6,14 +6,15 @@
   margin: 0 auto
 }
 
-.container-fluid, .container {
+.container-fluid,
+.container {
   margin-right: auto;
   margin-left: auto;
 }
 
 .container-fluid {
-  padding-right: var(--outer-margin);
-  padding-left: var(--outer-margin);
+  padding-right: var(--outer-padding);
+  padding-left: var(--outer-padding);
 }
 
 .row {
@@ -24,6 +25,7 @@
   flex-wrap: wrap;
   margin-right: var(--gutter-compensation);
   margin-left: var(--gutter-compensation);
+  /* justify-content: center; */
 }
 
 .row.reverse {
