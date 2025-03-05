@@ -27,6 +27,12 @@
   tr,
   td {
     border-color: #fff !important;
+    color: #fff !important;
+
+    p,
+    span {
+      color: #fff !important;
+    }
   }
 
   .header__logo-wrapper {
