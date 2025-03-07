@@ -25,7 +25,6 @@ var callback = function () {
   const menuOpen = document.querySelector("#menu-open");
   const menuClose = document.querySelector("#menu-close");
   const searchOpen = document.querySelector("#search-open");
-  const searchOpenMobile = document.querySelector("#search-open-mobile");
   const searchClose = document.querySelector("#search-close");
   const searchForm = document.querySelector("#search-form");
   const searchField = document.querySelector("#ghost-search-field");
@@ -145,28 +144,30 @@ var callback = function () {
   // ============
   if (menuOpen && menuClose) {
     menuOpen.onclick = () => {
-      addClass(".menu", "is-active");
+      document.querySelector("#mobile-menu").showModal();
+      document.body.style.overflowY = "hidden";
     };
 
     menuOpen.onkeydown = (evt) => {
       if (evt.key === "Enter" || evt.keyCode === "13") {
-        addClass(".menu", "is-active");
+        document.querySelector("#mobile-menu").showModal();
+        document.body.style.overflowY = "hidden";
         menuClose.focus();
       }
     };
 
     menuClose.onclick = () => {
-      removeClass(".menu", "is-active");
+      document.querySelector('#mobile-menu').close()
+      document.body.style.overflowY = "auto";
     };
 
     menuClose.onkeydown = (evt) => {
       if (
-        evt.key === "Escape" ||
-        evt.keyCode === "27" ||
         evt.key === "Enter" ||
         evt.keyCode === "13"
       ) {
-        removeClass(".menu", "is-active");
+        document.querySelector('#mobile-menu').close()
+        document.body.style.overflowY = "auto";
         menuOpen.focus();
       }
     };
@@ -177,73 +178,32 @@ var callback = function () {
   // ==============
   if (searchOpen && searchClose) {
     searchOpen.onclick = () => {
-      addClass(".search", "is-active");
+      document.querySelector('#modal_search').showModal();
       document.body.style.overflowY = "hidden";
       searchField.focus();
     };
 
     searchOpen.onkeydown = (evt) => {
       if (evt.key === "Enter" || evt.keyCode === "13") {
-        addClass(".search", "is-active");
+        document.querySelector('#modal_search').showModal();
         document.body.style.overflowY = "hidden";
         searchField.focus();
       }
     };
 
     searchClose.onclick = () => {
-      removeClass(".search", "is-active");
+      document.querySelector('#modal_search').close()
       document.body.style.overflowY = "auto";
     };
 
     searchClose.onkeydown = (evt) => {
       if (
-        evt.key === "Escape" ||
-        evt.keyCode === "27" ||
         evt.key === "Enter" ||
         evt.keyCode === "13"
       ) {
-        removeClass(".search", "is-active");
+        document.querySelector('#modal_search').close()
         document.body.style.overflowY = "auto";
         searchOpen.focus();
-      }
-    };
-  }
-
-  // ==============
-  // Search mobile actions
-  // ==============
-  if (searchOpenMobile && searchClose) {
-    searchOpenMobile.onclick = () => {
-      addClass(".search", "is-active");
-      document.body.style.overflowY = "hidden";
-      ym(77659420, "reachGoal", "clickSearch");
-      searchField.focus();
-    };
-
-    searchOpenMobile.onkeydown = (evt) => {
-      if (evt.key === "Enter" || evt.keyCode === "13") {
-        addClass(".search", "is-active");
-        document.body.style.overflowY = "hidden";
-        ym(77659420, "reachGoal", "clickSearch");
-        searchField.focus();
-      }
-    };
-
-    searchClose.onclick = () => {
-      removeClass(".search", "is-active");
-      document.body.style.overflowY = "auto";
-    };
-
-    searchClose.onkeydown = (evt) => {
-      if (
-        evt.key === "Escape" ||
-        evt.keyCode === "27" ||
-        evt.key === "Enter" ||
-        evt.keyCode === "13"
-      ) {
-        removeClass(".search", "is-active");
-        document.body.style.overflowY = "auto";
-        searchOpenMobile.focus();
       }
     };
   }
@@ -338,18 +298,18 @@ var callback = function () {
   // Load More Posts
   // ===============
   function onScrollLoadMore() {
-    const { scrollTop, scrollHeight, clientHeight, clientWidth } = document.documentElement;
-    const spinner = document.querySelector("#button-spinner");
+    // const { scrollTop, scrollHeight, clientHeight, clientWidth } = document.documentElement;
+    // const spinner = document.querySelector("#button-spinner");
 
-    if ((Math.round(scrollHeight - scrollTop) <= (clientHeight + 500)) && !spinner.disabled) {
-      if (window.location.pathname == '/') {
-        if (clientWidth > 970) {
-          loadMorePosts(loadMoreBtn, spinner);
-        }
-      } else {
-        loadMorePosts(loadMoreBtn, spinner);
-      }
-    }
+    // if ((Math.round(scrollHeight - scrollTop) <= (clientHeight + 500)) && !spinner.disabled) {
+    //   if (window.location.pathname == '/') {
+    //     if (clientWidth > 970) {
+    //       loadMorePosts(loadMoreBtn, spinner);
+    //     }
+    //   } else {
+    //     loadMorePosts(loadMoreBtn, spinner);
+    //   }
+    // }
 
     if (loadMoreBtn) {
       loadMoreBtn.onclick = () => {
@@ -357,7 +317,6 @@ var callback = function () {
       };
     }
   }
-
 
   // ===========
   // Blog search
@@ -753,23 +712,26 @@ var themesLoader = function () {
   // Show All themes Mobile
   // ==============
 
-  const tagCloud = document.querySelector("#tag-cloud");
-  const showAllTagsButton = document.querySelector("#show-all-tags");
+  document.querySelectorAll(".mobile-sidebar").forEach(sideBar => {
+    const tagCloud = sideBar.querySelector("#tag-cloud");
+    const showAllTagsButton = sideBar.querySelector("#show-all-tags");
 
-  if (showAllTagsButton) {
-    showAllTagsButton.addEventListener("click", () => {
-      if (tagCloud.classList.contains("show")) {
+    if (showAllTagsButton) {
+      showAllTagsButton.addEventListener("click", () => {
+        console.log("ok")
+        if (tagCloud.classList.contains("show")) {
 
-        tagCloud.classList.remove("show");
-        showAllTagsButton.textContent = "Все темы";
+          tagCloud.classList.remove("show");
+          showAllTagsButton.textContent = "Все темы";
 
-        return;
-      }
+          return;
+        }
 
-      showAllTagsButton.textContent = "Закрыть";
-      tagCloud.classList.add("show");
-    });
-  }
+        showAllTagsButton.textContent = "Закрыть";
+        tagCloud.classList.add("show");
+      });
+    }
+  });
 }
 
 //================

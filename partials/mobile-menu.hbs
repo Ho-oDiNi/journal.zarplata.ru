@@ -1,69 +1,46 @@
 {{!-- Mobile Blog menu --}}
-<div class="menu mobile-menu" id="mobile-menu">
-  <div class="container-fluid">
-    <div class="row">
-      <div class="col-xs-12 is-flex end-xs">
-        <a tabindex="0" class="menu--close" id="menu-close">
-          {{>icon name="x" size="lg"}}
-        </a>
+<dialog class="menu mobile-menu" id="mobile-menu">
+  <div class="col-xs-12 is-flex end-xs">
+    <button tabindex="0" class="btn--circle menu--close" id="menu-close">
+      {{>icon name="x" size="lg"}}
+    </button>
+  </div>
+  <div class="col-xs-12">
+    {{!-- Tags --}}
+    <div class="mobile-menu__tags">
+      <a class="mobile-menu__tag applicants" href="/tag/applicants/">Соискателям</a>
+      <a class="mobile-menu__tag employers" href="/tag/employers/">Работодателям</a>
+      <a class="mobile-menu__tag career" href="/tag/kariernyie-soviety/">Карьерные советы</a>
+      <a class="mobile-menu__tag news" href="/tag/novosti/">Новости</a>
+    </div>
+    {{!-- External links --}}
+    <div class="mobile-menu__external">
+      <button class="btn btn--boxed btn--secondary" style="margin-bottom: 18px;"
+        onclick="window.open('https://zarplata.ru/vacancy?utm_source=blog&utm_medium=menu')">Найти
+        работу</button>
+      <button class="btn btn--boxed btn--secondary"
+        onclick="window.open('https://zarplata.ru/employer?utm_source=blog&utm_medium=menu')">Нанять
+        сотрудника</button>
+    </div>
+    <div class="mobile-menu__about">
+      <div class="mobile-menu__about-logo">
+        <a href="https://zarplata.ru/?utm_source=blog&utm_medium=menu" aria-label="Zarplata.ru"><img
+            src="{{asset 'icons/zarplata-logo.svg'}}" alt=""></a>
       </div>
-      <div class="col-xs-12">
-        {{!-- Tags --}}
-        <div class="mobile-menu__tags">
-          <a class="mobile-menu__tag applicants" href="/tag/applicants/">Соискателям</a>
-          <a class="mobile-menu__tag employers" href="/tag/employers/">Работодателям</a>
-          <a class="mobile-menu__tag career" href="/tag/kariernyie-soviety/">Карьерные советы</a>
-          <a class="mobile-menu__tag news" href="/tag/novosti/">Новости</a>
-        </div>
-        {{!-- External links --}}
-        <div class="mobile-menu__external">
-          <button class="btn btn--boxed btn--secondary" style="margin-bottom: 18px;"
-            onclick="window.open('https://zarplata.ru/vacancy?utm_source=blog&utm_medium=menu')">Найти
-            работу</button>
-          <button class="btn btn--boxed btn--secondary"
-            onclick="window.open('https://zarplata.ru/employer?utm_source=blog&utm_medium=menu')">Нанять
-            сотрудника</button>
-        </div>
-        <div class="mobile-menu__about">
-          <div class="mobile-menu__about-logo">
-            <a href="https://zarplata.ru/?utm_source=blog&utm_medium=menu" aria-label="Zarplata.ru"><img
-                src="{{asset 'icons/zarplata-logo.svg'}}" alt=""></a>
-          </div>
 
-          <p class="mobile-menu__desc">Прокачиваем работодателей
-            и специалистов каждый день</p>
-          {{!-- Social Links --}}
-          <div class="mobile-menu__socials">
-            <div class="social-links">
-              {{!-- Telegram --}}
-              <a class="social-links__item telegram" href="https://t.me/zarplataru_zp" target="_blank" title="Telegram"
-                onclick="ym(77659420,'reachGoal','clickSocial'); return true;" aria-label="Telegram" rel="noreferrer">
-                <img src="{{asset 'icons/tg.svg'}}" alt="" style="margin: 0 !important">
-              </a>
-              {{!-- Dzen --}}
-              <a class="social-links__item dzen" href="https://dzen.ru/zarplataru" target="_blank" title="Дзен"
-                onclick="ym(77659420,'reachGoal','clickSocial'); return true;" aria-label="Дзен" rel="noreferrer">
-                <img src="{{asset 'icons/zen.svg'}}" alt="" style="margin: 0 !important">
-              </a>
-              {{!-- VK --}}
-              <a class="social-links__item vk" href="https://vk.com/zarplataru" target="_blank" title="Вконтакте"
-                onclick="ym(77659420,'reachGoal','clickSocial'); return true;" aria-label="Вконтакте" rel="noreferrer">
-                <img src="{{asset 'icons/vk.svg'}}" alt="" style="margin: 0 !important">
-              </a>
-              {{!-- Journal Zarplata --}}
-              <a class="social-links__item journal" href="https://www.journal.zarplata.ru/" target="_blank"
-                title="Зарплата.Журнал" onclick="ym(77659420,'reachGoal','clickSocial'); return true;"
-                aria-label="Зарплата Журнал" rel="noreferrer">
-                <img src="{{asset 'icons/zp-blog.svg'}}" alt="" style="margin: 0 !important">
-              </a>
-            </div>
-          </div>
-        </div>
-        <div class="mobile-menu__policy">
-          <a style="color: #0F5B95; text-decoration:underline"
-            href="https://cdn.zp.ru/job/docs/Soglasie_na_obrabotku_PD_polzovateley.doc">Политика конфиденциальности</a>
+      <p class="mobile-menu__desc">Прокачиваем работодателей
+        <br>и специалистов каждый день
+      </p>
+      {{!-- Social Links --}}
+      <div class="mobile-menu__socials">
+        <div class="social-links">
+          {{> social-media has_b2b="true" }}
         </div>
       </div>
     </div>
+    <div class="mobile-menu__policy">
+      <a style="color: #0F5B95; text-decoration:underline"
+        href="https://cdn.zp.ru/job/docs/Soglasie_na_obrabotku_PD_polzovateley.doc">Политика конфиденциальности</a>
+    </div>
   </div>
-</div>
+</dialog>

@@ -1,0 +1,18 @@
+<!-- Slider main container -->
+<div class="swiper mobile">
+    <!-- Additional required wrapper -->
+    <div class="swiper-wrapper">
+        <!-- Slides -->
+        {{#get "posts" include="tags" filter=tag_filter order="slug asc"}}
+        {{#foreach posts to="6"}}
+        <div class="swiper-slide">
+            <div class="col-xs {{#unless feature_image}}m-t-lg m-b-lg{{/unless}}">
+                {{> post-card class="post-card--special" lazy=false }}
+                <a class="tag tag-{{primary_tag.slug}} post-card__tag" href="/tag/{{primary_tag.slug}}/"
+                    title="{{primary_tag.name}}" aria-label="tags">{{primary_tag.name}}</a>
+            </div>
+        </div>
+        {{/foreach}}
+        {{/get}}
+    </div>
+</div>

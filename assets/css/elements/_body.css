@@ -41,7 +41,7 @@ body {
   }
 }
 
-@media (min-width: 767px) {
+@media (min-width: 1023px) {
   .desktop {
     display: inherit;
   }
@@ -51,29 +51,14 @@ body {
   }
 }
 
-@media (max-width: 767px) {
+@media (max-width: 1023px) {
   .desktop {
     display: none !important;
   }
 
   .mobile {
-    display: inherit;
+    display: block;
   }
-}
-
-.swiper {
-  height: 355px;
-}
-
-.swiper-slide {
-  width: 304px;
-  background-color: var(--color-card);
-  border-radius: 26px;
-  height: auto !important;
-}
-
-.swiper-content {
-  height: 100% !important
 }
 
 .explanation {

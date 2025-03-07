@@ -2,6 +2,8 @@
 .main {
   position: relative;
   flex: 1;
+  margin: 0 20px;
+
 }
 
 .section {
@@ -16,6 +18,14 @@
 .post-template,
 .home-template {
   @media (--viewport-xl) {
+    box-sizing: border-box;
+    display: flex;
+    flex: 0 1 auto;
+    flex-direction: column;
+    flex-wrap: wrap;
+    margin-right: var(--gutter-compensation);
+    margin-left: var(--gutter-compensation);
+
     .col-xl-6 {
       max-width: calc(75% - 22rem);
     }
@@ -28,6 +38,19 @@
       flex: 0 0 calc(22 * var(--gap-rem));
       max-width: calc(22 * var(--gap-rem));
     }
+  }
+}
+
+.page {
+  display: flex;
+  flex: 0 1 auto;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  margin: 0 30px;
+
+  @media (max-width:1023px) {
+    flex-direction: column-reverse;
+    margin: 0;
   }
 }
 

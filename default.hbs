@@ -2,101 +2,51 @@
 <html lang="{{@site.locale}}" data-color-scheme="light">
 
 <head>
-  {{!-- Document Settings --}}
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    {{!-- Document Settings --}}
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-  {{!-- Page Meta --}}
-  <title>{{#is "offline"}}{{t "Offline"}} - {{/is}}{{meta_title}}</title>
+    {{!-- Page Meta --}}
+    <title>{{meta_title}}</title>
 
-  {{!-- Mobile Meta --}}
-  <meta name="HandheldFriendly" content="True" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    {{!-- Mobile Meta --}}
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  {{!-- PWA --}}
-  <link rel="manifest" href="{{asset 'manifest.webmanifest'}}">
-  <meta name="theme-color" content="{{@site.accent_color}}">
-  <link rel="apple-touch-icon" href="{{asset 'icon-192x192.png'}}">
+    {{!-- Preloading --}}
+    {{> config-preload}}
 
-  {{!-- Preloading --}}
-  <link rel="preload" href="{{asset 'dist/app.min.js'}}" as="script">
-  <link rel="preload" href="{{asset 'dist/app.min.css'}}" as="style">
+    {{!-- Theme Configuration --}}
+    {{> config-theme}}
 
+    <!--cssential-->
+    <style></style><!--/cssential-->
 
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
-  <link rel="preconnect stylesheet"
-    href="https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap" as="font"
-    onload="this.onload=null;this.rel='stylesheet'">
-
-  <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.0.0/core.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/md5.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
-
-  {{!-- No Js --}}
-  <noscript>
-    <link href="https://fonts.googleapis.com/css?family=Montserrat:100" rel="stylesheet">
-    <link href='https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700,700italic&subset=latin,cyrillic'
-      rel='stylesheet' type='text/css'>
-  </noscript>
-
-  {{!-- Theme Configuration --}}
-  {{> theme-config}}
-
-  {{!-- Styles --}}
-  <link rel="stylesheet" type="text/css" href="{{asset 'dist/app.min.css'}}" />
-
-  {{!-- Theme scripts --}}
-  <script async defer src="{{asset 'dist/app.min.js'}}"></script>
-
-  <!--cssential-->
-  <style></style><!--/cssential-->
-
-  {{!-- Ghost outputs important style and meta data with this tag --}}
-  {{ghost_head}}
-  <link rel="icon" href="{{asset 'images/favicon.png'}}" type="image/png">
+    {{!-- Ghost outputs important style and meta data with this tag --}}
+    {{ghost_head}}
+    <link rel="icon" href="{{asset 'images/favicon.png'}}" type="image/png">
 </head>
 
 <body class="{{body_class}}">
-  {{!-- Include Search View --}}
-  {{> search}}
-
-  {{!-- Include Menu --}}
-  {{!-- {{> menu}} --}}
-  {{> mobile-menu}}
-
-  {{!-- The blog navigation links --}}
-  {{^is "signin, signup"}}
-  {{> header}}
-  {{/is}}
-
-  <main class="main">
-    {{!-- All the main content gets inserted here, index.hbs, post.hbs, etc --}}
-    {{{body}}}
-  </main>
-
-  {{!-- The footer at the very bottom --}}
-  {{^is "signin, signup"}}
-  {{> footer}}
-  <div class="scroll-to-top">
-    <div class="share-button--secondary share-button__image-wrapper">
-      <img src="{{asset 'icons/arrow-up.svg'}}" alt="">
+    {{!-- The blog navigation links --}}
+    {{> header}}
+    <div class="page">
+        <aside class="sidebar-wrapper col-lg-20">
+            {{> mobile-sidebar}}
+        </aside>
+        <main class="main col-lg-60">
+            {{!-- All the main content gets inserted here, index.hbs, post.hbs, etc --}}
+            {{{body}}}
+        </main>
+        <aside class="desktop col-lg-20">
+            {{> b2b}}
+        </aside>
     </div>
-  </div>
-  {{/is}}
+    {{!-- The footer at the very bottom --}}
+    {{> footer}}
 
-  {{!-- Service Worker for PWA --}}
-  <script>
-    if (config.enable_pwa && 'serviceWorker' in navigator) {
-      window.addEventListener('load', () => {
-        navigator.serviceWorker.register('/sw.js');
-      });
-    }
-  </script>
-
-  {{!-- Ghost outputs important scripts and data with this tag --}}
-  {{ghost_foot}}
+    {{!-- Ghost outputs important scripts and data with this tag --}}
+    {{ghost_foot}}
 </body>
 
 </html>

@@ -1,5 +1,5 @@
 {{!-- Blog search --}}
-<div class="search" id="search">
+<dialog class="search" id="modal_search">
   <div class="search__header">
     <form action="/" method="get" class="search__form" id="search-form">
       <input type="text" id="ghost-search-field" class="search__input" title="{{t " Search"}}" placeholder="Поиск..."
@@ -21,6 +21,17 @@
   </div>
   <div class="search-content">
     <div class="search-result" id="ghost-search-results">
+      {{#get "posts" limit="6" order="slug desc"}}
+      {{#foreach posts}}
+      <a href="{{url}}" class="search-result__post animate fade-in-up">
+        <div class="search-result__content">
+          <h6 class="search-result__title">{{title}}</h6>
+          <p class="search-result__date">{{date published_at format='DD MMM YYYY'}}</p>
+        </div>
+        <img class="search-result__image" src="{{feature_image}}" alt="{{feature_image_alt}}">
+      </a>
+      {{/foreach}}
+      {{/get}}
     </div>
   </div>
-</div>
+</dialog>

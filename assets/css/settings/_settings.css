@@ -5,7 +5,7 @@
   /*----------------------------------------*/
   /* Global values
   /*----------------------------------------*/
-  --global-max-width: 1380px;
+  --global-max-width: 1440px;
   --global-radius: 5px;
   --global-radius-rounded: 50%;
   --global-hyphens: none;
@@ -14,7 +14,7 @@
   /* Colors
   /*--------------------------------------*/
   /* brand colors */
-  --color-primary: #e50b4f;
+  --color-primary: #1480CF;
   --color-secondary: #f9d400;
 
 

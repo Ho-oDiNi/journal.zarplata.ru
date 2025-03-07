@@ -1,18 +1,17 @@
-<aside class="mobile-sidebar"></aside>
-{{!-- Tag Cloud --}}
-<div class="sidebar__section mobile">
-  <h5 class="sidebar__title">Наши темы</h5>
-  {{!-- 230px --}}
-  <div class="mobile-sidebar__tag-cloud" id="tag-cloud">
-    {{#get "tags" limit="all" order="count.posts desc"}}
-    {{#foreach tags}}
-    <div class="tag">
-      <a class="tag-{{slug}} post-card__tag" href="{{url}}" title="{{name}}" aria-label="{{name}}s">{{name}}</a>
+<div class="mobile-sidebar">
+  {{!-- Tag Cloud --}}
+  <nav class="sidebar__section">
+    <h5 class="sidebar__title">Наши темы</h5>
+    {{!-- 230px --}}
+    <div class="mobile-sidebar__tag-cloud" id="tag-cloud">
+      {{#get "tags" limit="all" order="count.posts desc"}}
+      {{#foreach tags}}
+      <div class="tag">
+        <a class="tag-{{slug}} post-card__tag" href="{{url}}" title="{{name}}" aria-label="{{name}}s">{{name}}</a>
+      </div>
+      {{/foreach}}
+      {{/get}}
     </div>
-    {{/foreach}}
-    {{/get}}
-  </div>
-  <button class="btn btn--boxed btn--secondary" id="show-all-tags">Все темы</button>
+    <button class="btn btn--boxed btn--secondary" id="show-all-tags">Все темы</button>
+  </nav>
 </div>
-
-</aside>

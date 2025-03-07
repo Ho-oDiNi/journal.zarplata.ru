@@ -1,27 +1,27 @@
 /* Footer */
 .footer {
-  background-color: var(--color-card);
-
-  @media (max-width: 767px) {
-    display: none;
-  }
-
+  display: flex;
   color: var(--color-text-accent-2);
+  font-size: 20px;
   font-family: var(--font-family-secondary);
+  margin-top: 20px;
+
+  strong {
+    color: var(--color-bg-reverse);
+  }
 
   &-container {
     display: flex;
     flex-direction: row;
-    padding: 64px 0;
     flex-wrap: nowrap;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: flex-start;
 
     &__block {
       display: flex;
       flex-direction: column;
-      width: 396px;
       gap: 16px;
+      padding: var(--gap);
     }
 
     a:hover {
@@ -36,6 +36,10 @@
       position: relative;
       top: 10px;
     }
+  }
+
+  @media (max-width: 1023px) {
+    display: none;
   }
 }
 

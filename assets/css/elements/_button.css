@@ -21,7 +21,7 @@ button,
 
   -webkit-appearance: button;
 
-  @media (max-width: 768px) {
+  @media (max-width: 1023px) {
     width: 90%;
   }
 
@@ -58,6 +58,10 @@ button,
     }
   }
 
+  &--circle {
+    height: 45px;
+    width: 45px;
+  }
 
   &--boxed {
     display: flex;
@@ -105,13 +109,9 @@ button,
 
 
 #load-more-posts {
-  display: none;
+  display: block;
   margin: auto;
   overflow-anchor: none;
-
-  @media (max-width: 971px) {
-    display: block;
-  }
 }
 
 a.btn {
@@ -119,13 +119,14 @@ a.btn {
 }
 
 .button-spinner {
-  display: block;
-  display: flex;
+  display: none;
+  /* display: flex;
   justify-content: center;
+  visibility: hidden;
 
   @media (max-width: 971px) {
     display: none;
-  }
+  } */
 }
 
 @media (max-width: 401px) {
