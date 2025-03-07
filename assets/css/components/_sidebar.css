@@ -7,7 +7,6 @@
   }
 
   &__section {
-    margin-bottom: var(--gap-lg);
     padding: 32px var(--gap);
     background-color: var(--color-card-light);
     border-radius: 26px;
@@ -202,10 +201,12 @@
 }
 
 .mobile-sidebar {
+  flex: 1;
+
   &__tag-cloud {
-    max-height: 230px;
     overflow: hidden;
     transition: max-height 1.3s ease-in-out .1s;
+    max-height: 400px;
 
     &.show {
       max-height: 955px;
@@ -215,6 +216,4 @@
       }
     }
   }
-
-
 }

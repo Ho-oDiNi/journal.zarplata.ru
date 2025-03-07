@@ -21,7 +21,7 @@ button,
 
   -webkit-appearance: button;
 
-  @media (max-width: 768px) {
+  @media (max-width: 1023px) {
     width: 90%;
   }
 
@@ -107,6 +107,7 @@ button,
 #load-more-posts {
   display: none;
   margin: auto;
+  margin-bottom: var(--gap-lg);
   overflow-anchor: none;
 
   @media (max-width: 971px) {
@@ -122,6 +123,7 @@ a.btn {
   display: block;
   display: flex;
   justify-content: center;
+  visibility: hidden;
 
   @media (max-width: 971px) {
     display: none;

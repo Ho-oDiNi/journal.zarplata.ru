@@ -7,11 +7,10 @@
   margin-bottom: 0;
   border-radius: var(--global-radius);
 
-  @media (max-width: 767px) {
+  @media (max-width: 1023px) {
     margin-right: -1rem;
     margin-left: -1rem;
     margin-bottom: 32px;
-    padding-top: 32px;
   }
 }
 
@@ -22,7 +21,7 @@
   border-radius: var(--global-radius);
   background-color: var(--color-card-light);
 
-  @media (max-width: 767px) {
+  @media (max-width: 1023px) {
     border-radius: 26px;
   }
 
@@ -43,7 +42,7 @@
 
       padding-top: var(--gap);
 
-      @media (max-width: 767px) {
+      @media (max-width: 1023px) {
         padding: 16px;
         padding-bottom: 32px;
       }
@@ -95,7 +94,7 @@
     z-index: 2;
     border-radius: var(--global-radius);
 
-    @media (max-width: 767px) {
+    @media (max-width: 1023px) {
       border-radius: 26px 26px 0 0;
     }
 
@@ -129,7 +128,7 @@
     padding-top: var(--gap);
     z-index: 2;
 
-    @media (max-width: 767px) {
+    @media (max-width: 1023px) {
       padding: var(--gap);
     }
 
@@ -237,18 +236,18 @@
         max-width: 50vw;
       }
 
-      @media (max-width: 767px) {
+      @media (max-width: 1023px) {
         text-overflow: ellipsis;
       }
     }
   }
 
-  @media (max-width: 767px) {
+  @media (max-width: 1023px) {
     padding: var(--gap);
   }
 
   .post-card__details {
-    @media (max-width: 767px) {
+    @media (max-width: 1023px) {
       display: none;
     }
   }
@@ -274,7 +273,7 @@
   height: 100%;
   max-height: 565px;
 
-  @media (min-width: 767px) {
+  @media (min-width: 1023px) {
     max-height: 652px;
   }
 
@@ -313,7 +312,7 @@
     align-items: center;
   }
 
-  @media (max-width: 767px) {
+  @media (max-width: 1023px) {
     padding: 0;
   }
 
@@ -335,7 +334,7 @@
       flex-direction: column;
     }
 
-    @media (max-width: 767px) {
+    @media (max-width: 1023px) {
       padding-left: 16px;
     }
   }
@@ -351,13 +350,13 @@
       font-size: 22px;
     }
 
-    @media (max-width: 767px) {
+    @media (max-width: 1023px) {
       font-size: 14px;
     }
   }
 
   .post-card__header {
-    @media (max-width: 767px) {
+    @media (max-width: 1023px) {
       display: none;
     }
 
@@ -462,8 +461,8 @@
   .tag-obrazovaniie,
   .tag-poliezno,
   .tag-students,
-  .tag-special,
-  .tag-u-mienia-vykhodnoi {
+  .tag-cases,
+  .tag-otduh-i-razvlechenia {
     background-color: #57ee81 !important;
     color: #222222 !important;
     border: 1px solid transparent !important;
@@ -478,10 +477,10 @@
 
   /* group 5 */
   .tag-zakony-i-pravo,
-  .tag-webinar,
+  .tag-krughlyi-stol,
   .tag-interview,
   .tag-novosti,
-  .tag-faq {
+  .tag-sovetu-po-rabote {
     background-color: #70d6ff !important;
     color: #222222 !important;
     border: 1px solid transparent !important;
@@ -498,7 +497,7 @@
     .post-card__image {
 
       &>img {
-        @media (max-width: 767px) {
+        @media (max-width: 1023px) {
           height: 196px;
         }
       }

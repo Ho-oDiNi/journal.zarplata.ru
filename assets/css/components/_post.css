@@ -347,7 +347,7 @@
     .tag-obrazovaniie,
     .tag-poliezno,
     .tag-students,
-    .tag-u-mienia-vykhodnoi {
+    .tag-otduh-i-razvlechenia {
       background-color: #57EE81 !important;
       color: #222222 !important;
       border: 1px solid transparent !important;
@@ -362,10 +362,10 @@
 
     /* group 5 */
     .tag-zakony-i-pravo,
-    .tag-webinar,
+    .tag-krughlyi-stol,
     .tag-interview,
     .tag-novosti,
-    .tag-faq {
+    .tag-sovetu-po-rabote {
       background-color: #70D6FF !important;
       color: #222222 !important;
       border: 1px solid transparent !important;

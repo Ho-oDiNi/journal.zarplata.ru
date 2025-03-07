@@ -7,7 +7,7 @@
 
 .is-flex {
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
 }
 
 .flex-1 {

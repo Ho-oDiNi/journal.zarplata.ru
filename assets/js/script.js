@@ -753,23 +753,26 @@ var themesLoader = function () {
   // Show All themes Mobile
   // ==============
 
-  const tagCloud = document.querySelector("#tag-cloud");
-  const showAllTagsButton = document.querySelector("#show-all-tags");
+  document.querySelectorAll(".mobile-sidebar").forEach(sideBar => {
+    const tagCloud = sideBar.querySelector("#tag-cloud");
+    const showAllTagsButton = sideBar.querySelector("#show-all-tags");
 
-  if (showAllTagsButton) {
-    showAllTagsButton.addEventListener("click", () => {
-      if (tagCloud.classList.contains("show")) {
+    if (showAllTagsButton) {
+      showAllTagsButton.addEventListener("click", () => {
+        console.log("ok")
+        if (tagCloud.classList.contains("show")) {
 
-        tagCloud.classList.remove("show");
-        showAllTagsButton.textContent = "Все темы";
+          tagCloud.classList.remove("show");
+          showAllTagsButton.textContent = "Все темы";
 
-        return;
-      }
+          return;
+        }
 
-      showAllTagsButton.textContent = "Закрыть";
-      tagCloud.classList.add("show");
-    });
-  }
+        showAllTagsButton.textContent = "Закрыть";
+        tagCloud.classList.add("show");
+      });
+    }
+  });
 }
 
 //================

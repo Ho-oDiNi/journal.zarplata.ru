@@ -1,0 +1,28 @@
+{{!-- Preloading --}}
+<link rel="preload" href="{{asset 'dist/app.min.js'}}" as="script">
+<link rel="preload" href="{{asset 'dist/app.min.css'}}" as="style">
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
+<link rel="preconnect stylesheet"
+    href="https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap" as="font"
+    onload="this.onload=null;this.rel='stylesheet'">
+
+<script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.0.0/core.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/md5.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+
+{{!-- No Js --}}
+<noscript>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:100" rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700,700italic&subset=latin,cyrillic'
+        rel='stylesheet' type='text/css'>
+</noscript>
+
+{{!-- Styles --}}
+<link rel="stylesheet" type="text/css" href="{{asset 'dist/app.min.css'}}" />
+
+{{!-- Theme scripts --}}
+<script async defer src="{{asset 'dist/app.min.js'}}"></script>

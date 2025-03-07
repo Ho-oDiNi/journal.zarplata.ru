@@ -6,6 +6,7 @@
   width: 100%;
   background-color: var(--color-card);
   z-index: 50;
+  margin-bottom: 20px;
 
   &__logo {
     @media (--viewport-md) {
@@ -121,174 +122,13 @@
     }
   }
 
-  &__bottom {
-    display: none;
-
-    @media (--viewport-md) {
-      border-top: 1px solid var(--color-divider);
-      display: block;
-      overflow: hidden;
-    }
-  }
-
-  &_all-themes {
-    display: block;
-    transition: max-height .4s ease-in-out .05s, opacity 0.5s cubic-bezier(0.4, 0, 1, 1) .005s;
-    opacity: 0;
-    max-height: 0px;
-    overflow: hidden;
-
-    background-color: var(--color-bg);
-
-    @media (max-width: 768px) {
-      display: none !important;
-    }
-
-
-    &.show {
-      max-height: 120px;
-      opacity: 1;
-
-
-      @media (max-width: 768px) {
-        display: none !important;
-      }
-    }
-
-    .wrapper {
-      display: flex;
-      padding-top: 30px;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-    }
-
-    .row {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      max-height: 32px;
-      overflow: hidden;
-    }
-
-    .tag {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      margin-bottom: 8px;
-
-      &>a {
-        font-weight: 600;
-        font-size: 12px;
-      }
-
-      &:not(:last-child) {
-        margin-right: 10px;
-
-        @media (--viewport-md) {
-          margin-right: 8px;
-        }
-
-        @media (--viewport-lg) {
-          margin-right: 10px;
-        }
-      }
-    }
-
-    /* group 1 */
-    .tag-ishchu-rabotu,
-    .tag-rabota-v-komandie,
-    .tag-rabota-v-ofisie,
-    .tag-rabota-i-siemia,
-    .tag-applicants,
-    .tag-chieloviek-diela {
-      background-color: #cd8cff !important;
-      color: #222222;
-      border: 1px solid transparent !important;
-      border-radius: 99px !important;
-      padding: 0.15em 1em !important;
-
-      &:hover {
-        background-color: transparent !important;
-        border: 1px solid #cd8cff !important;
-      }
-    }
-
-    /* group 2 */
-    .tag-employers,
-    .tag-biznies,
-    .tag-ishchu-sotrudnika,
-    .tag-rukovodstvo {
-      background-color: #ffe000 !important;
-      color: #222222;
-      border: 1px solid transparent !important;
-      border-radius: 99px !important;
-      padding: 0.15em 1em !important;
-
-      &:hover {
-        background-color: transparent !important;
-        border: 1px solid #ffe000 !important;
-      }
-    }
-
-    /* group 3 */
-    .tag-diekriet,
-    .tag-rieziumie,
-    .tag-sobiesiedovaniie,
-    .tag-uvolnieniie,
-    .tag-frilans,
-    .tag-udalionka,
-    .tag-frilance {
-      background-color: #ff84a9 !important;
-      color: #222222;
-      border: 1px solid transparent !important;
-      border-radius: 99px !important;
-      padding: 0.15em 1em !important;
-
-      &:hover {
-        background-color: transparent !important;
-        border: 1px solid #ff84a9 !important;
-      }
-    }
-
-    /* group 4 */
-    .tag-kariernyie-soviety,
-    .tag-obrazovaniie,
-    .tag-poliezno,
-    .tag-students,
-    .tag-u-mienia-vykhodnoi {
-      background-color: #57ee81 !important;
-      color: #222222;
-      border: 1px solid transparent !important;
-      border-radius: 99px !important;
-      padding: 0.15em 1em !important;
-
-      &:hover {
-        background-color: transparent !important;
-        border: 1px solid #57ee81 !important;
-      }
-    }
-
-    /* group 5 */
-    .tag-zakony-i-pravo,
-    .tag-webinar,
-    .tag-interview,
-    .tag-novosti,
-    .tag-faq {
-      background-color: #70d6ff !important;
-      color: #222222;
-      border: 1px solid transparent !important;
-      border-radius: 99px !important;
-      padding: 0.15em 1em !important;
-
-      &:hover {
-        background-color: transparent !important;
-        border: 1px solid #70d6ff !important;
-      }
-    }
+  &__top {
+    margin: 0 20px;
   }
 
   &__theme {
+    margin-left: 20px;
+
     &--toggle {
       visibility: hidden;
       opacity: 0;
@@ -378,7 +218,7 @@
 
 
 
-      @media (max-width: 768px) {
+      @media (max-width: 1023px) {
         display: none !important;
       }
     }
@@ -404,6 +244,8 @@
     cursor: pointer;
     color: var(--color-text-accent-2);
   }
+
+  &__theme--toggle {}
 }
 
 #progress {
@@ -433,7 +275,7 @@
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1023px) {
   .search-bar {
     background-color: inherit !important;
     padding: 0;
@@ -459,10 +301,10 @@
 }
 
 .wrapper-banner {
+  width: 100%;
+  max-height: 450px;
   display: block;
   position: relative;
-  height: 140px;
-  margin-bottom: 32px;
 }
 
 .wrapper-banner iframe {
@@ -471,29 +313,4 @@
   left: 0;
   width: 100%;
   height: 100%;
-}
-
-@media (max-width: 1238px) {
-  .wrapper-banner {
-    height: 165px;
-  }
-}
-
-@media (max-width: 1052px) {
-  .wrapper-banner {
-    height: 181px;
-  }
-}
-
-
-@media (max-width: 810px) {
-  .wrapper-banner {
-    height: 395px;
-  }
-}
-
-@media (max-width: 463px) {
-  .wrapper-banner {
-    height: 430px;
-  }
 }
