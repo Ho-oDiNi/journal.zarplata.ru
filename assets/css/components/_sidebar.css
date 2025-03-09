@@ -1,9 +1,6 @@
 /* Sidebar */
 .sidebar-wrapper {
   @media (min-width:1023px) {
-    flex-basis: 20%;
-    max-width: 20%;
-
     position: sticky;
     top: 111px;
     overflow: hidden;

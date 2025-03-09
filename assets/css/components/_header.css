@@ -306,7 +306,8 @@
 }
 
 .wrapper-banner {
-  width: 230px;
+  width: 100%;
+  height: 420px;
   display: block;
   position: sticky;
   top: 111px;
