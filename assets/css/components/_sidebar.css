@@ -1,4 +1,18 @@
 /* Sidebar */
+.sidebar-wrapper {
+  @media (min-width:1023px) {
+    flex-basis: 20%;
+    max-width: 20%;
+
+    position: sticky;
+    top: 111px;
+    overflow: hidden;
+    max-height: calc(100dvh - 100px);
+    border-radius: 26px;
+    padding-bottom: 30px;
+  }
+}
+
 .sidebar {
   height: 100%;
 
@@ -196,11 +210,14 @@
 
 .mobile-sidebar {
   flex: 1;
+  overflow-y: scroll;
+  height: 100%;
+  scrollbar-width: none;
 
   &__tag-cloud {
     overflow: hidden;
     transition: max-height 1.3s ease-in-out .1s;
-    max-height: 400px;
+    max-height: 335px;
 
     &.show {
       max-height: 955px;
@@ -213,5 +230,11 @@
 
   @media (max-width:1023px) {
     margin: 40px;
+  }
+}
+
+#show-all-tags {
+  @media (min-width:1023px) {
+    margin-top: 15px;
   }
 }

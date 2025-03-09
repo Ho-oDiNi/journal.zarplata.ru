@@ -31,14 +31,14 @@
     {{!-- The blog navigation links --}}
     {{> header}}
     <div class="page">
-        <aside class="col-lg-20">
+        <aside class="sidebar-wrapper">
             {{> mobile-sidebar}}
         </aside>
         <main class="main col-lg-60">
             {{!-- All the main content gets inserted here, index.hbs, post.hbs, etc --}}
             {{{body}}}
         </main>
-        <aside class="desktop col-lg-20">
+        <aside class="desktop sidebar-wrapper">
             {{> b2b}}
         </aside>
     </div>

@@ -306,10 +306,10 @@
 }
 
 .wrapper-banner {
-  width: 100%;
-  height: 450px;
+  width: 230px;
   display: block;
-  position: relative;
+  position: sticky;
+  top: 111px;
 
   iframe {
     position: absolute;
@@ -358,6 +358,7 @@ dialog {
   border: none;
   color: var(--color-text);
   background: var(--color-bg);
+  scrollbar-width: none;
   transition: display 0.25s allow-discrete, overlay 0.25s allow-discrete;
 
   animation: animation-close 0.25s forwards;

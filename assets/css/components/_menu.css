@@ -66,12 +66,6 @@
 }
 
 .mobile-menu {
-  display: none;
-
-  @media (max-width: 1023px) {
-    display: block;
-  }
-
   &__tags {
     display: flex;
     flex-direction: column;

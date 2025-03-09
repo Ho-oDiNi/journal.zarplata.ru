@@ -671,11 +671,6 @@
     max-width: 16.66666667%;
   }
 
-  .col-lg-20 {
-    flex-basis: 20%;
-    max-width: 20%;
-  }
-
   .col-lg-3 {
     flex-basis: 25%;
     max-width: 25%;
@@ -699,11 +694,6 @@
   .col-lg-7 {
     flex-basis: 58.33333333%;
     max-width: 58.33333333%;
-  }
-
-  .col-lg-60 {
-    flex-basis: 60%;
-    max-width: 60%;
   }
 
   .col-lg-8 {
