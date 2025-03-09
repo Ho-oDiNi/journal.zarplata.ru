@@ -6,6 +6,7 @@
     font-family: var(--font-family-secondary);
     font-size: var(--font-size-text);
     color: var(--color-text-accent-1);
+    margin-top: 30px;
 
     @media (--viewport-md) {
       img {
@@ -113,7 +114,6 @@
   align-items: center;
   justify-content: center;
   border-radius: var(--global-radius);
-  margin: var(--gap) 0;
 
   @mixin attention {
     .special-bg {
@@ -127,7 +127,6 @@
 
   @media (--viewport-md) {
     flex-direction: row-reverse;
-    margin: var(--gap-lg) 0;
   }
 
   &.page {

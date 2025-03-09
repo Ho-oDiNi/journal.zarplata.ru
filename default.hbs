@@ -2,51 +2,51 @@
 <html lang="{{@site.locale}}" data-color-scheme="light">
 
 <head>
-  {{!-- Meta --}}
-  {{> config-meta}}
+    {{!-- Document Settings --}}
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-  {{!-- Preloading --}}
-  {{> config-preload}}
+    {{!-- Page Meta --}}
+    <title>{{meta_title}}</title>
 
-  {{!-- Theme Configuration --}}
-  {{> config-theme}}
+    {{!-- Mobile Meta --}}
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <!--cssential-->
-  <style></style><!--/cssential-->
+    {{!-- Preloading --}}
+    {{> config-preload}}
 
-  {{!-- Ghost outputs important style and meta data with this tag --}}
-  {{ghost_head}}
-  <link rel="icon" href="{{asset 'images/favicon.png'}}" type="image/png">
+    {{!-- Theme Configuration --}}
+    {{> config-theme}}
+
+    <!--cssential-->
+    <style></style><!--/cssential-->
+
+    {{!-- Ghost outputs important style and meta data with this tag --}}
+    {{ghost_head}}
+    <link rel="icon" href="{{asset 'images/favicon.png'}}" type="image/png">
 </head>
 
 <body class="{{body_class}}">
-  {{!-- Include Search View --}}
-  {{> search}}
+    {{!-- The blog navigation links --}}
+    {{> header}}
+    <div class="page">
+        <aside class="col-lg-20">
+            {{> mobile-sidebar}}
+        </aside>
+        <main class="main col-lg-60">
+            {{!-- All the main content gets inserted here, index.hbs, post.hbs, etc --}}
+            {{{body}}}
+        </main>
+        <aside class="desktop col-lg-20">
+            {{> b2b}}
+        </aside>
+    </div>
+    {{!-- The footer at the very bottom --}}
+    {{> footer}}
 
-  {{!-- Include Menu --}}
-  {{> mobile-menu}}
-
-  {{!-- The blog navigation links --}}
-  {{> header}}
-  <div class="page">
-    <aside class="desktop col-lg-20">
-      {{> mobile-sidebar}}
-    </aside>
-
-    <main class="main col-lg-60">
-      {{!-- All the main content gets inserted here, index.hbs, post.hbs, etc --}}
-      {{{body}}}
-    </main>
-
-    <aside class="desktop col-lg-20">
-      {{> b2b}}
-    </aside>
-  </div>
-  {{!-- The footer at the very bottom --}}
-  {{> footer}}
-
-  {{!-- Ghost outputs important scripts and data with this tag --}}
-  {{ghost_foot}}
+    {{!-- Ghost outputs important scripts and data with this tag --}}
+    {{ghost_foot}}
 </body>
 
 </html>

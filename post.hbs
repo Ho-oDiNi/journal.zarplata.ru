@@ -1,46 +1,40 @@
-{{!< default}} {{!-- Everything inside the #post tags pulls data from the post --}} {{#post}} <div
-  class="container-fluid wrapper">
-  {{>share-links}}
-  <div class="row">
+{{!< default}} {{!-- Everything inside the #post tags pulls data from the post --}} {{!--<div>
+  </div>--}}
 
-    <div class="col-xs-12 col-lg-8">
-      <div>
-        {{> post-hero}}
+  {{#post}}
+  {{> post-hero}}
+  <article class="{{post_class}} post-access-{{visibility}} has-sidebar">
+    <div class="post__content">
+      {{#if access}}
+      {{content}}
+      {{/if}}
+    </div>
+
+    {{#if access}}
+    <div class="post-width">
+      {{>reactions}}
+
+      {{!-- форма обратной связи --}}
+      <div class="post__feedback-form">
+        <p class="post__feedback-form-title">Поделитесь историей</p>
+        <p class="post__feedback-form-desc">Про работу, собеседования, нарушения ваших трудовых прав, HR-кейсы</p>
+        {{!-- <form href="https://t.me/ZP_zarplata" target="_blank"> --}}
+          <button class="btn btn--boxed btn--secondary" onClick="window.open('https://t.me/ZP_zarplata');">
+            Связаться с нами </button>
+          {{!--
+        </form> --}}
       </div>
-      <article class="{{post_class}} post-access-{{visibility}} has-sidebar">
-        <div class="post__content">
-          {{#if access}}
-          {{content}}
-          {{/if}}
-        </div>
-
-        {{#if access}}
-        <div class="post-width">
-          {{>reactions}}
-
-          {{!-- форма обратной связи --}}
-          <div class="post__feedback-form">
-            <p class="post__feedback-form-title">Поделитесь историей</p>
-            <p class="post__feedback-form-desc">Про работу, собеседования, нарушения ваших трудовых прав, HR-кейсы</p>
-            {{!-- <form href="https://t.me/ZP_zarplata" target="_blank"> --}}
-              <button class="btn btn--boxed btn--secondary" onClick="window.open('https://t.me/ZP_zarplata');">
-                Связаться с нами </button>
-              {{!--
-            </form> --}}
-          </div>
-        </div>
-        {{/if}}
-      </article>
     </div>
-    {{!-- Related posts --}}
-    <div class="mobile">
-      {{> related-posts mobile=true}}
-    </div>
-    <div class="col-xs col-lg-4 col-xl-3 has-sidebar md">
-      {{> mobile-sidebar}}
-    </div>
+    {{/if}}
+  </article>
+  {{!-- Related posts --}}
+  <div class="mobile">
+    {{> related-posts mobile=true}}
   </div>
+  <div class="col-xs col-lg-4 col-xl-3 has-sidebar md">
+    {{> mobile-sidebar}}
   </div>
+
 
   {{!-- Related posts --}}
   <div class="desktop">

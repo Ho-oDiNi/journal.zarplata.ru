@@ -61,21 +61,6 @@ body {
   }
 }
 
-.swiper {
-  height: 355px;
-}
-
-.swiper-slide {
-  width: 304px;
-  background-color: var(--color-card);
-  border-radius: 26px;
-  height: auto !important;
-}
-
-.swiper-content {
-  height: 100% !important
-}
-
 .explanation {
   font-family: var(--font-family-secondary);
   font-size: 18px;

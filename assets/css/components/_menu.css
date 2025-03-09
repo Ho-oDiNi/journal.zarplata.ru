@@ -1,39 +1,19 @@
 /* Menu */
 .menu {
-  position: fixed;
-  left: 0;
-  top: 0;
-  bottom: 0;
-  right: 0;
-  z-index: -1;
-  height: 0;
-  opacity: 0;
-  transform: scale(0.95);
-  background: var(--color-bg);
-  transition: transform var(--animation-duration) cubic-bezier(0.785, 0.135, 0.15, 0.86),
-    opacity var(--animation-duration) cubic-bezier(0.86, 0, 0.07, 1),
-    z-index var(--animation-duration) step-end;
-
-  &.is-active {
-    z-index: 100;
-    height: 100%;
-    opacity: 1;
-    overflow-y: scroll;
-    transform: scale(1);
-    transition: transform var(--animation-duration) cubic-bezier(0.785, 0.135, 0.15, 0.86),
-      opacity var(--animation-duration) cubic-bezier(0.86, 0, 0.07, 1),
-      z-index var(--animation-duration) step-start;
-  }
-
   &--close {
     margin-top: var(--gap);
     padding: var(--gap-sm);
+    cursor: pointer;
     background-color: var(--color-bg-accent-2);
     color: var(--color-text);
     border-radius: var(--global-radius-rounded);
+    box-shadow: 0 0 0 1px var(--color-bg-accent-2);
+    transition: box-shadow var(--animation-duration) var(--animation-name);
 
     @mixin attention {
       outline: none;
+      box-shadow: 0 0 0 1px var(--color-primary);
+      transition: box-shadow var(--animation-duration) var(--animation-name);
 
       .icon {
         color: var(--color-primary);
@@ -117,7 +97,7 @@
   &__external {
     display: flex;
     flex-direction: column;
-    padding: 32px 16px;
+    padding: 32px 16px 0;
 
     .btn--secondary {
       background-color: var(--color-bg-accent-1);
@@ -186,7 +166,7 @@
   }
 
   &__about-logo {
-    background-color: #fff;
+    /* background-color: #fff; */
     padding: 16px;
     display: flex;
     border-radius: 37px;

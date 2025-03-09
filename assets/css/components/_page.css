@@ -19,7 +19,7 @@
     max-height: 600px;
 
     padding: var(--gap-lg);
-    margin: var(--gap-lg) 0;
+    margin-bottom: var(--gap-lg);
 
     background-color: var(--color-bg-accent-1);
     border: 1px solid var(--color-border);

@@ -194,12 +194,6 @@
   border: none
 }
 
-.wrapper-banner-sidebar {
-  display: block;
-  position: relative;
-  height: 426px;
-}
-
 .mobile-sidebar {
   flex: 1;
 
@@ -215,5 +209,9 @@
         display: none;
       }
     }
+  }
+
+  @media (max-width:1023px) {
+    margin: 40px;
   }
 }

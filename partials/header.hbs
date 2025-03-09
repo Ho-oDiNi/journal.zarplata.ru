@@ -1,56 +1,55 @@
 {{!-- Site header --}}
 <header class="header">
   {{#is "post"}}<div id="progress"></div>{{/is}}
-  <div class="header__top">
-    <div class="container-fluid wrapper">
-      <div class="row">
-        <div class="col-xs-3 col-md-4 middle-xs is-flex">
-          {{!-- Menu Button --}}
-          <button id="menu-open" class="header__menu--open hamburger" type="button" title="{{t " Menu"}}"
-            aria-label="{{t " Menu"}}">
-            {{>icon name="menu" size="sm"}}
-          </button>
-          <div class="header__theme">
-            <a class="header__theme--toggle" id="theme-dark" tabindex="0" title="{{t " Dark Theme"}}" aria-label="{{t "
-              Dark Theme"}}">
-              {{>icon name="moon" size="sm"}}
-            </a>
-            <a class="header__theme--toggle" id="theme-light" tabindex="0" title="{{t " Light Theme"}}"
-              aria-label="{{t " Light Theme"}}">
-              {{>icon name="sun" size="sm"}}
-            </a>
-          </div>
-        </div>
-
-        <div class="col-xs-6 col-md-4 center-xs">
-          {{!-- Blog logo or name --}}
-          <div class="header__brand">
-            <a href="{{@site.url}}">
-              {{#if @site.logo}}
-              <div class="header__logo-wrapper">
-                <img class="header__logo" src="{{@site.logo}}" alt="{{@site.title}}">
-                <img class="header__logo-dark" src="{{asset 'icons/logo-dark.svg'}}" alt="{{@site.title}}">
-              </div>
-              {{else}}
-              <h3 class="header__title">{{@site.title}}</h3>
-              {{/if}}
-            </a>
-          </div>
-        </div>
-
-        <div class="col-xs-3 col-md-4 end-xs middle-xs is-flex">
-          {{!-- Search Button --}}
-          <div id="search-open-mobile" class="search-bar">
-            <nav tabindex="0" title="{{t " Search"}}" aria-label="{{t " Search"}}" class="search-top">
-              {{>icon name="search" size="sm"}}
-            </nav>
-            <span class="search-bar-placeholder">
-              Поиск...
-            </span>
-          </div>
-
-        </div>
+  <div class="row">
+    <div class="col-xs-3 col-md-4 middle-xs is-flex">
+      {{!-- Menu Button --}}
+      <button id="menu-open" class="header__menu--open hamburger" type="button" title="{{t " Menu"}}" aria-label="{{t "
+        Menu"}}">
+        {{>icon name="menu" size="sm"}}
+      </button>
+      <div class="header__theme">
+        <button class="header__menu--open header__theme--toggle" id="theme-dark" tabindex="0" title="{{t " Dark
+          Theme"}}" aria-label="{{t " Dark Theme"}}">
+          {{>icon name="moon" size="sm"}}
+        </button>
+        <button class="header__menu--open header__theme--toggle" id="theme-light" tabindex="0" title="{{t " Light
+          Theme"}}" aria-label="{{t " Light Theme"}}">
+          {{>icon name="sun" size="sm"}}
+        </button>
       </div>
     </div>
+
+    <div class="col-xs-6 col-md-4 center-xs">
+      {{!-- Blog logo or name --}}
+      <div class="header__brand">
+        <a href="{{@site.url}}">
+          {{#if @site.logo}}
+          <div class="header__logo-wrapper">
+            <img class="header__logo" src="{{@site.logo}}" alt="{{@site.title}}">
+            <img class="header__logo-dark" src="{{asset 'icons/logo-dark.svg'}}" alt="{{@site.title}}">
+          </div>
+          {{else}}
+          <h3 class="header__title">{{@site.title}}</h3>
+          {{/if}}
+        </a>
+      </div>
+    </div>
+
+    <div class="col-xs-3 col-md-4 end-xs middle-xs is-flex">
+      {{!-- Search Button --}}
+      <nav tabindex="0" title="{{t " Search"}}" aria-label="{{t " Search"}}" id="search-open" class="search-bar">
+        {{>icon name="search" size="sm"}}
+        <span class="search-bar-placeholder">
+          Поиск...
+        </span>
+      </nav>
+    </div>
   </div>
+
+
+  {{!-- Include Menu --}}
+  {{> mobile-menu}}
+  {{!-- Include Search View --}}
+  {{> search}}
 </header>

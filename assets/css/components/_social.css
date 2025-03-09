@@ -2,6 +2,7 @@
 .social-links {
   display: flex;
   align-items: center;
+  gap: 5px;
 
   &__item {
     display: flex;
@@ -14,6 +15,10 @@
     @mixin attention {
       color: var(--color-primary);
     }
+  }
+
+  img {
+    margin-bottom: 0px;
   }
 }
 

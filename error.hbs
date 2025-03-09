@@ -22,37 +22,14 @@
 
     <button class="btn btn--primary btn--wide__error" onclick="document.location='/'">На главную</button>
 
-    <section class="section latest-post mobile" style="padding-top: 0px; margin-bottom: 0px;">
-      <!-- Slider main container -->
-      <div class="swiper" style="padding-bottom: 32px;">
-        <!-- Additional required wrapper -->
-        <div class="swiper-wrapper">
-          <!-- Slides -->
-          {{#get "posts" filter="primary_tag:employers" order="slug asc"}}
-          {{#foreach posts to="6"}}
-          <div class="swiper-slide">
-            <div class="row">
-              <div class="col-xs {{#unless feature_image}}m-t-lg m-b-lg{{/unless}}">
-                {{> post-card class="post-card--special" lazy=false }}
-                <div class="tag" style="position: absolute; top: 12px; left: 12px; z-index: 99">
-                  <a class="tag-employers post-card__tag" href="/tag/employers/" title="{{name}}"
-                    aria-label="{{name}}s">Работодателям</a>
-                </div>
-              </div>
-            </div>
-          </div>
-          {{/foreach}}
-          {{/get}}
-        </div>
-      </div>
-    </section>
+    {{>mobile-slider tag_filter="primary_tag:employers"}}
 
     <div class="error__recommend">
       {{#get "posts" limit="6" include="tags,authors" limit=@config.posts_per_page}}
       <section class="section all-posts">
         <div class="row posts">
           {{#foreach posts}}
-          <div class="col-xs-12 col-md-6 col-lg-4 post-wrap">
+          <div class="col-xs-12 col-md-6 post-wrap">
             {{> post-card class="col"}}
           </div>
           {{/foreach}}

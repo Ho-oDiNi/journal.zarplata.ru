@@ -58,6 +58,10 @@ button,
     }
   }
 
+  &--circle {
+    height: 45px;
+    width: 45px;
+  }
 
   &--boxed {
     display: flex;
@@ -105,14 +109,9 @@ button,
 
 
 #load-more-posts {
-  display: none;
+  display: block;
   margin: auto;
-  margin-bottom: var(--gap-lg);
   overflow-anchor: none;
-
-  @media (max-width: 971px) {
-    display: block;
-  }
 }
 
 a.btn {
@@ -120,14 +119,14 @@ a.btn {
 }
 
 .button-spinner {
-  display: block;
-  display: flex;
+  display: none;
+  /* display: flex;
   justify-content: center;
   visibility: hidden;
 
   @media (max-width: 971px) {
     display: none;
-  }
+  } */
 }
 
 @media (max-width: 401px) {
