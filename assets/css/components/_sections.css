@@ -44,12 +44,12 @@
 .page {
   display: flex;
   flex: 0 1 auto;
-  flex-direction: row;
+  flex-direction: row-reverse;
   flex-wrap: nowrap;
   margin: 0 30px;
 
   @media (max-width:1023px) {
-    flex-direction: column-reverse;
+    display: block;
     margin: 0;
   }
 }

@@ -117,14 +117,23 @@
       margin: 0;
       margin-left: var(--gap-xs);
 
-      @media (--viewport-md) {
+      @media (min-width:1023px) {
         display: none;
       }
     }
   }
 
   &__theme {
-    margin-left: 20px;
+    position: absolute;
+    top: 33px;
+
+    @media (max-width: 1023px) {
+      right: 65px;
+    }
+
+    @media (max-width: 375px) {
+      right: 55px;
+    }
 
     &--toggle {
       display: block;
@@ -139,7 +148,7 @@
     }
 
     #theme-light {
-      margin-left: -20px;
+      position: absolute;
     }
   }
 
@@ -307,7 +316,7 @@
 
 .wrapper-banner {
   width: 100%;
-  height: 420px;
+  height: 410px;
   display: block;
   position: sticky;
   top: 111px;

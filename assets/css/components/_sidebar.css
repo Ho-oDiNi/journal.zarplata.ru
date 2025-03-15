@@ -1,13 +1,13 @@
 /* Sidebar */
 .sidebar-wrapper {
-  @media (min-width:1023px) {
+  /* @media (min-width:1023px) {
     position: sticky;
     top: 111px;
     overflow: hidden;
     max-height: calc(100dvh - 100px);
     border-radius: 26px;
     padding-bottom: 30px;
-  }
+  } */
 }
 
 .sidebar {
@@ -18,6 +18,11 @@
   }
 
   &__section {
+    position: sticky;
+    top: 111px;
+    scrollbar-width: none;
+    overflow-y: scroll;
+    max-height: calc(100dvh - 150px);
     padding: 32px var(--gap);
     background-color: var(--color-card-light);
     border-radius: 26px;
@@ -207,9 +212,7 @@
 
 .mobile-sidebar {
   flex: 1;
-  overflow-y: scroll;
-  height: 100%;
-  scrollbar-width: none;
+  height: calc(100%+300px);
 
   &__tag-cloud {
     overflow: hidden;

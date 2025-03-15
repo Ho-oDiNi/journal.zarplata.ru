@@ -22,24 +22,25 @@
       flex-direction: column;
       gap: 16px;
       padding: var(--gap);
-    }
 
-    a:hover {
-      cursor: pointer;
-      text-decoration: underline;
-    }
+      @media (max-width: 1023px) {
+        padding: 8px 20px;
+      }
 
-    img {
-      margin: 0 16px 0 0;
-      height: 30px;
-      width: 30px;
-      position: relative;
-      top: 10px;
+      a {
+        display: flex;
+        gap: 10px;
+
+        img {
+          margin: 0 !important;
+        }
+      }
     }
   }
 
-  @media (max-width: 1023px) {
-    display: none;
+  a:hover {
+    cursor: pointer;
+    text-decoration: underline;
   }
 }
 

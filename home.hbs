@@ -1,9 +1,7 @@
 {{!< default}} {{!-- <div>
   </div> --}}
 
-  <section class="">
-
-  </section>
+  {{>destop-news tag_filter="primary_tag:applicants"}}
 
   {{>mobile-slider tag_filter="primary_tag:applicants"}}
 
@@ -18,7 +16,7 @@
   {{>mobile-slider tag_filter="primary_tag:employers"}}
 
   <section class="row posts">
-    {{#foreach posts from="5"}}
+    {{#foreach posts from="5" to="14"}}
     <div class="col-xs-12 col-md-6 post-wrap">
       {{> post-card class="col"}}
     </div>
