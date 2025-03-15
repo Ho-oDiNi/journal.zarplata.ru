@@ -4,10 +4,10 @@
     margin-top: var(--gap);
     padding: var(--gap-sm);
     cursor: pointer;
-    background-color: var(--color-bg-accent-2);
+    background-color: var(--color-bg-accent-1);
     color: var(--color-text);
     border-radius: var(--global-radius-rounded);
-    box-shadow: 0 0 0 1px var(--color-bg-accent-2);
+    box-shadow: 0 0 0 1px var(--color-bg-accent-1);
     transition: box-shadow var(--animation-duration) var(--animation-name);
 
     @mixin attention {
@@ -57,7 +57,7 @@
 
   .menu__main .nav a {
     color: var(--color-text-accent-1);
-    background-color: var(--color-bg-accent-2);
+    background-color: var(--color-bg-accent-1);
 
     @mixin attention {
       color: var(--color-primary);

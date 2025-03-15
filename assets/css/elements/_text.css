@@ -86,6 +86,13 @@ blockquote,
     }
   }
 
+  div {
+    margin: 16px 32px 32px 0;
+  }
+
+}
+
+blockquote+figure {
   img {
     margin: 13px 16px 13px 0;
     min-width: 90px !important;
@@ -95,13 +102,7 @@ blockquote,
     background-position: 50%;
     border-radius: 50%;
   }
-
-  div {
-    margin: 16px 32px 32px 0;
-  }
-
 }
-
 
 .important-info {
   padding: var(--gap-lg);

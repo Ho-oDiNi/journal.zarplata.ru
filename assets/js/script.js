@@ -146,13 +146,14 @@ var callback = function () {
     menuOpen.onclick = () => {
       document.querySelector("#mobile-menu").showModal();
       document.body.style.overflowY = "hidden";
+      menuClose.blur();
     };
 
     menuOpen.onkeydown = (evt) => {
       if (evt.key === "Enter" || evt.keyCode === "13") {
         document.querySelector("#mobile-menu").showModal();
         document.body.style.overflowY = "hidden";
-        menuClose.focus();
+        menuClose.blur();
       }
     };
 
@@ -351,9 +352,9 @@ var callback = function () {
         result.slug +
         '" class="search-result__post animate fade-in-up">' +
         '<div class="search-result__content">' +
-        '<h6 class="search-result__title">' +
+        '<div class="search-result__title">' +
         result.title +
-        "</h6>" +
+        "</div>" +
         '<p class="search-result__date">' +
         modifiedDate +
         "</p>" +
@@ -737,20 +738,20 @@ var themesLoader = function () {
 //================
 // Add Img Into Quotes
 //================
-var quoteImageLoader = function () {
+let quoteImageLoader = function () {
 
   //Read old quote
-  var quoteImagesText = [];
-  var quoteImages = document.querySelectorAll(".kg-card-hascaption");
-  var quoteImagesDescription = document.querySelectorAll(".kg-card-hascaption > figcaption > span");
-  var quoteImagesImg = document.querySelectorAll(".kg-card-hascaption > a > img");
+  let quoteImagesText = [];
+  let quoteImages = document.querySelectorAll(".kg-card-hascaption");
+  let quoteImagesDescription = document.querySelectorAll(".kg-card-hascaption > figcaption > span");
+  let quoteImagesImg = document.querySelectorAll(".kg-card-hascaption > a > img");
 
   //if img Exists
   if (quoteImagesDescription) {
     [...quoteImagesDescription].map(v => quoteImagesText.push(v.textContent));
 
     // for all quotes on the page
-    for (var i = 0; i < quoteImagesText.length; i++) {
+    for (let i = 0; i < quoteImagesText.length; i++) {
       if (quoteImagesText[i].toLowerCase().includes("quote")) {
 
         const start_title = quoteImagesText[i].indexOf('\"') + 1;

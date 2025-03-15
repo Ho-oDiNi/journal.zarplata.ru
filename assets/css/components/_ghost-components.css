@@ -33,7 +33,7 @@
 
 .kg-image-card img,
 .kg-gallery-card .kg-gallery-container {
-  max-width: 100vw;
+  max-width: 100%;
   margin-bottom: 0;
   display: block;
   margin: 0 auto;
