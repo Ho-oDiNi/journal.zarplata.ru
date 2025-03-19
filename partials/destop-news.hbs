@@ -1,8 +1,8 @@
 <section class="posts-news desktop">
-    <h1>Новости рынка труда</h1>
-    {{#get "posts" filter=tag_filter order="slug asc" limit="5"}}
+    <h1><a href="/tag/novosti/">Новости рынка труда</a></h1>
+    {{#get "posts" filter=tag_filter order="published_at DESC" limit="5"}}
     {{#foreach posts to="6"}}
-    <a class="" href="{{url}}" title="{{title}}" aria-label="news">{{title}}</a>
+    <a href="{{url}}" title="{{title}}" aria-label="news">{{title}}</a>
     {{/foreach}}
     {{/get}}
 </section>

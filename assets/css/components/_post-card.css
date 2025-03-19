@@ -537,6 +537,10 @@
     font-weight: 700;
     font-size: 22px;
     line-height: 30px;
+
+    a {
+      font-family: var(--font-family-sans-serif);
+    }
   }
 
   a {
