@@ -25,4 +25,13 @@
 
   <div class="col-lg-20"></div>
 
+  <!-- Service Worker for PWA -->
+  <script>
+    if (config.enable_pwa && 'serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/sw.js');
+      });
+    }
+  </script>
+
 </footer>
