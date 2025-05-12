@@ -30,9 +30,7 @@ var callback = function () {
   const searchField = document.querySelector("#ghost-search-field");
   const searchByTags = document.querySelectorAll(".js-search-tag");
   const msgBoxes = document.querySelectorAll(".js-msg-close");
-  const images = document.querySelectorAll(
-    ".kg-image-card img, .kg-gallery-card img"
-  );
+  const images = document.querySelectorAll(".kg-image-card img, .kg-gallery-card img");
   const galleryImages = document.querySelectorAll(".kg-gallery-image img");
 
   const progressbar = document.querySelector("#progress");
@@ -85,13 +83,10 @@ var callback = function () {
           var scrollBottom =
             (document.querySelector(".post")["scrollHeight"] ||
               document.documentElement["scrollHeight"] ||
-              document.body["scrollHeight"]) -
-            document.documentElement.clientHeight;
+              document.body["scrollHeight"]) - document.documentElement.clientHeight;
 
           scrollPercent = Math.round((scrollTop / scrollBottom) * 100) + "%";
-          document
-            .getElementById("progress")
-            .style.setProperty("--scroll", scrollPercent);
+          document.getElementById("progress").style.setProperty("--scroll", scrollPercent);
         } else {
           progressbar.style.display = "none";
         }
@@ -138,7 +133,6 @@ var callback = function () {
     }
   };
 
-
   // ============
   // Menu actions
   // ============
@@ -158,16 +152,13 @@ var callback = function () {
     };
 
     menuClose.onclick = () => {
-      document.querySelector('#mobile-menu').close()
+      document.querySelector("#mobile-menu").close();
       document.body.style.overflowY = "auto";
     };
 
     menuClose.onkeydown = (evt) => {
-      if (
-        evt.key === "Enter" ||
-        evt.keyCode === "13"
-      ) {
-        document.querySelector('#mobile-menu').close()
+      if (evt.key === "Enter" || evt.keyCode === "13") {
+        document.querySelector("#mobile-menu").close();
         document.body.style.overflowY = "auto";
         menuOpen.focus();
       }
@@ -179,30 +170,27 @@ var callback = function () {
   // ==============
   if (searchOpen && searchClose) {
     searchOpen.onclick = () => {
-      document.querySelector('#modal_search').showModal();
+      document.querySelector("#modal_search").showModal();
       document.body.style.overflowY = "hidden";
       searchField.focus();
     };
 
     searchOpen.onkeydown = (evt) => {
       if (evt.key === "Enter" || evt.keyCode === "13") {
-        document.querySelector('#modal_search').showModal();
+        document.querySelector("#modal_search").showModal();
         document.body.style.overflowY = "hidden";
         searchField.focus();
       }
     };
 
     searchClose.onclick = () => {
-      document.querySelector('#modal_search').close()
+      document.querySelector("#modal_search").close();
       document.body.style.overflowY = "auto";
     };
 
     searchClose.onkeydown = (evt) => {
-      if (
-        evt.key === "Enter" ||
-        evt.keyCode === "13"
-      ) {
-        document.querySelector('#modal_search').close()
+      if (evt.key === "Enter" || evt.keyCode === "13") {
+        document.querySelector("#modal_search").close();
         document.body.style.overflowY = "auto";
         searchOpen.focus();
       }
@@ -299,19 +287,6 @@ var callback = function () {
   // Load More Posts
   // ===============
   function onScrollLoadMore() {
-    // const { scrollTop, scrollHeight, clientHeight, clientWidth } = document.documentElement;
-    // const spinner = document.querySelector("#button-spinner");
-
-    // if ((Math.round(scrollHeight - scrollTop) <= (clientHeight + 500)) && !spinner.disabled) {
-    //   if (window.location.pathname == '/') {
-    //     if (clientWidth > 970) {
-    //       loadMorePosts(loadMoreBtn, spinner);
-    //     }
-    //   } else {
-    //     loadMorePosts(loadMoreBtn, spinner);
-    //   }
-    // }
-
     if (loadMoreBtn) {
       loadMoreBtn.onclick = () => {
         loadMorePosts(loadMoreBtn, undefined);
@@ -331,9 +306,7 @@ var callback = function () {
 
       const date = new Date(result.published_at);
 
-      const ye = new Intl.DateTimeFormat("en", { year: "numeric" }).format(
-        date
-      );
+      const ye = new Intl.DateTimeFormat("en", { year: "numeric" }).format(date);
       const mo = new Intl.DateTimeFormat("en", { month: "short" }).format(date);
       const da = new Intl.DateTimeFormat("en", { day: "2-digit" }).format(date);
 
@@ -341,11 +314,11 @@ var callback = function () {
 
       result.feature_image
         ? (postImage =
-          '<img class="search-result__image" src="' +
-          result.feature_image +
-          '" alt="' +
-          result.title +
-          '"/>')
+            '<img class="search-result__image" src="' +
+            result.feature_image +
+            '" alt="' +
+            result.title +
+            '"/>')
         : "";
       return (
         '<a href="/' +
@@ -451,7 +424,6 @@ var callback = function () {
   // =============
   refreshFsLightbox();
 
-
   // ===============
   // Swiper Scripts
   // ===============
@@ -464,22 +436,6 @@ var callback = function () {
     spaceBetween: 16,
     autoHeight: false,
   });
-
-  // ===============
-  // Employer/Applicants widgets in publications
-  // ===============
-  const employerWidget = document.getElementById("employer_widget");
-  const applicantWidget = document.getElementById("applicant_widget");
-  const currentTags = document.getElementsByClassName("post-hero__header")[0]?.getElementsByClassName("tag-employers");
-
-
-  if (employerWidget) {
-    employerWidget.style.display = "none";
-  }
-  if (!!currentTags?.length) {
-    applicantWidget.style.display = "none";
-    employerWidget.style.display = "block";
-  }
 
   // ===============
   // Search Vacancies Scripts
@@ -527,7 +483,6 @@ var callback = function () {
     const scrollToTop = document.getElementsByClassName("scroll-to-top")[0];
     scrollToTop.style.display = "none";
   }
-
 };
 
 var reactionsLoader = function () {
@@ -687,7 +642,7 @@ var reactionsLoader = function () {
       }
     });
   });
-}
+};
 
 var themesLoader = function () {
   // // ==============
@@ -713,15 +668,14 @@ var themesLoader = function () {
   // Show All themes Mobile
   // ==============
 
-  document.querySelectorAll(".mobile-sidebar").forEach(sideBar => {
+  document.querySelectorAll(".mobile-sidebar").forEach((sideBar) => {
     const tagCloud = sideBar.querySelector("#tag-cloud");
     const showAllTagsButton = sideBar.querySelector("#show-all-tags");
 
     if (showAllTagsButton) {
       showAllTagsButton.addEventListener("click", () => {
-        console.log("ok")
+        console.log("ok");
         if (tagCloud.classList.contains("show")) {
-
           tagCloud.classList.remove("show");
           showAllTagsButton.textContent = "Все темы";
 
@@ -733,13 +687,12 @@ var themesLoader = function () {
       });
     }
   });
-}
+};
 
 //================
 // Add Img Into Quotes
 //================
 let quoteImageLoader = function () {
-
   //Read old quote
   let quoteImagesText = [];
   let quoteImages = document.querySelectorAll(".kg-card-hascaption");
@@ -748,47 +701,46 @@ let quoteImageLoader = function () {
 
   //if img Exists
   if (quoteImagesDescription) {
-    [...quoteImagesDescription].map(v => quoteImagesText.push(v.textContent));
+    [...quoteImagesDescription].map((v) => quoteImagesText.push(v.textContent));
 
     // for all quotes on the page
     for (let i = 0; i < quoteImagesText.length; i++) {
       if (quoteImagesText[i].toLowerCase().includes("quote")) {
+        const start_title = quoteImagesText[i].indexOf('"') + 1;
+        const end_title = quoteImagesText[i].indexOf('"', start_title);
 
-        const start_title = quoteImagesText[i].indexOf('\"') + 1;
-        const end_title = quoteImagesText[i].indexOf('\"', start_title);
-
-        const title_str = quoteImagesText[i].substring(start_title, end_title)
-        const description_str = quoteImagesText[i].substring(end_title + 1, quoteImagesText[i].length)
+        const title_str = quoteImagesText[i].substring(start_title, end_title);
+        const description_str = quoteImagesText[i].substring(
+          end_title + 1,
+          quoteImagesText[i].length
+        );
 
         quoteImages[i].replaceChildren(quoteImagesImg[i]);
-        quoteImages[i].removeAttribute('class');
-        quoteImages[i].setAttribute('class', 'blockquote-img');
+        quoteImages[i].removeAttribute("class");
+        quoteImages[i].setAttribute("class", "blockquote-img");
 
         // Create new quote with img
         const fragment = document.createDocumentFragment();
         const div = document.createElement("div");
 
         const title = fragment.appendChild(document.createElement("p"));
-        title.setAttribute('class', 'blockquote__title');
-        title.setAttribute('data-srcset', '{{img_url feature_image size="s" format="webp"}} 300w');
+        title.setAttribute("class", "blockquote__title");
+        title.setAttribute("data-srcset", '{{img_url feature_image size="s" format="webp"}} 300w');
         title.textContent = title_str;
         div.appendChild(fragment);
 
         const description = fragment.appendChild(document.createElement("p"));
-        description.setAttribute('class', 'blockquote__description');
+        description.setAttribute("class", "blockquote__description");
         description.textContent = description_str;
         div.appendChild(fragment);
 
         quoteImages[i].appendChild(div);
-
       }
     }
   }
-}
-
+};
 
 var sharePostLoader = function () {
-
   const socialShare = document.querySelectorAll(".js-share");
 
   // ==================
@@ -844,7 +796,6 @@ var sharePostLoader = function () {
     });
   }
 
-
   // ==============
   // Social Sharing
   // ==============
@@ -865,36 +816,34 @@ var sharePostLoader = function () {
       jsShare(socialShare, title, url, type);
     }
   }
-
-}
+};
 
 var defaultPageLoader = function () {
   callback();
   themesLoader();
-}
+};
 
 var postPageLoader = function () {
   quoteImageLoader();
   sharePostLoader();
   reactionsLoader();
-}
+};
 
-if (document.readyState === "complete" || (document.readyState !== "loading" && !document.documentElement.doScroll)) {
-
+if (
+  document.readyState === "complete" ||
+  (document.readyState !== "loading" && !document.documentElement.doScroll)
+) {
   defaultPageLoader();
-  if (document.location != document.location.origin + '/') {
+  if (document.location != document.location.origin + "/") {
     postPageLoader();
   }
-}
-else {
+} else {
   document.addEventListener("DOMContentLoaded", defaultPageLoader);
 
-  if (document.location != document.location.origin + '/') {
+  if (document.location != document.location.origin + "/") {
     document.addEventListener("DOMContentLoaded", postPageLoader);
   }
 }
-
-
 
 // ===============================
 // Dark/Light mode theme handling
@@ -1056,11 +1005,7 @@ function jsShare(el, title, url, type) {
 const socialWindow = (url) => {
   var left = (screen.width - 580) / 2;
   var top = (screen.height - 580) / 2;
-  var params =
-    "menubar=no,toolbar=no,status=no,width=580,height=296,top=" +
-    top +
-    ",left=" +
-    left;
+  var params = "menubar=no,toolbar=no,status=no,width=580,height=296,top=" + top + ",left=" + left;
   window.open(url, "NewWindow", params);
 };
 
@@ -1078,7 +1023,7 @@ function loadMorePosts(button, spinner) {
   // Next link
   const nextPage = document.querySelector("link[rel=next]");
 
-  (spinner) ? spinner.disabled = true : button.disabled = true;
+  spinner ? (spinner.disabled = true) : (button.disabled = true);
 
   global.pagination_next_page_link =
     nextPage && !global.pagination_next_page_link
@@ -1112,9 +1057,7 @@ function loadMorePosts(button, spinner) {
         // Get posts
         const posts = doc.querySelectorAll(".post-wrap");
         // const postContainer = document.querySelectorAll(".posts");
-        const postContainer = [...document.querySelectorAll(".posts")].filter(
-          isNotHidden
-        );
+        const postContainer = [...document.querySelectorAll(".posts")].filter(isNotHidden);
         const nextPage = doc.querySelector("link[rel=next]");
 
         // Add each post to the page
@@ -1132,9 +1075,7 @@ function loadMorePosts(button, spinner) {
         }
 
         // Update next page number
-        global.pagination_next_page_link = nextPage
-          ? nextPage.getAttribute("href")
-          : "";
+        global.pagination_next_page_link = nextPage ? nextPage.getAttribute("href") : "";
         global.pagination_next_page = global.pagination_next_page_link
           ? global.pagination_next_page + 1
           : NaN;
@@ -1143,8 +1084,7 @@ function loadMorePosts(button, spinner) {
           spinner.style.visibility = "hidden";
         }
 
-        (spinner) ? spinner.disabled = false : button.disabled = false;
-
+        spinner ? (spinner.disabled = false) : (button.disabled = false);
       })
       .catch(function (err) {
         if (spinner) {
@@ -1158,4 +1098,4 @@ function loadMorePosts(button, spinner) {
     button.disabled = true;
     button.classList.add("btn--disabled");
   }
-};
+}

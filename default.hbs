@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{@site.locale}}" data-color-scheme="light">
+<html lang="ru" data-color-scheme="light">
 
 <head>
     {{!-- Document Settings --}}
@@ -25,6 +25,10 @@
     {{!-- Ghost outputs important style and meta data with this tag --}}
     {{ghost_head}}
     <link rel="icon" href="{{asset 'images/favicon.png'}}" type="image/png">
+
+    <!-- Yandex.RTB -->
+    <script>window.yaContextCb=window.yaContextCb||[]</script>
+    <script src="https://yandex.ru/ads/system/context.js" async></script>
 </head>
 
 <body class="{{body_class}}">

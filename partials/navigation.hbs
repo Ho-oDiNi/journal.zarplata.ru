@@ -1,18 +1,22 @@
 <ul class="nav" role="menu">
-    {{#foreach navigation}}
+  {{#foreach navigation}}
     <li class="{{link_class for=(url) class=(concat " nav-" slug)}}" role="menuitem">
-        <a href="{{url absolute=" true"}}">{{label}}</a>
+      <a href="{{url absolute=" true"}}">{{label}}</a>
     </li>
-    {{/foreach}}
-    <li class="nav-applicants" role="menuitem">
-        <a href="https://zarplata.ru/vacancy?utm_source=blog&utm_medium=menu"
-            onclick="ym(77659420,'reachGoal','menu-fa'); return true;">Найти работу</a>
-    </li>
-    <li class="nav-employers" role="menuitem">
-        <a href="https://zarplata.ru/employer?utm_source=blog&utm_medium=menu"
-            onclick="ym(77659420,'reachGoal','menu-fe'); return true;">Найти сотрудника</a>
-    </li>
-    <li class="nav-all-themes" role="menuitem">
-        <a href="#" id="nav-all-themes">Все темы</a>
-    </li>
+  {{/foreach}}
+  <li class="nav-applicants" role="menuitem">
+    <a
+      href="https://zarplata.ru/vacancy?utm_source=blog&utm_medium=menu"
+      onclick="ym(77659420,'reachGoal','menu-fa'); return true;"
+    >Найти работу</a>
+  </li>
+  <li class="nav-employers" role="menuitem">
+    <a
+      href="https://zarplata.ru/employer?utm_source=blog&utm_medium=menu"
+      onclick="ym(77659420,'reachGoal','menu-fe'); return true;"
+    >Найти сотрудника</a>
+  </li>
+  <li class="nav-all-themes" role="menuitem">
+    <a href="#" id="nav-all-themes">Все темы</a>
+  </li>
 </ul>
