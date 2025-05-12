@@ -16,7 +16,19 @@
   {{>mobile-slider tag_filter="primary_tag:employers"}}
 
   <section class="row posts">
-    {{#foreach posts from="5" to="14"}}
+    {{#foreach posts from="5" to="6"}}
+    <div class="col-xs-12 col-md-6 post-wrap">
+      {{> post-card class="col"}}
+    </div>
+    {{/foreach}}
+  </section>
+
+  <!-- Yandex.RTB R-A-3319353-9 -->
+  <div style="margin-bottom: 32px;" id="yandex_rtb_R-A-3319353-9"></div>
+  <script>window.yaContextCb.push(() => {Ya.Context.AdvManager.render({"blockId": "R-A-3319353-9","renderTo": "yandex_rtb_R-A-3319353-9"})}) </script>
+
+  <section class="row posts">
+    {{#foreach posts from="7" to="14"}}
     <div class="col-xs-12 col-md-6 post-wrap">
       {{> post-card class="col"}}
     </div>
