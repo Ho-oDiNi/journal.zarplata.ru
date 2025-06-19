@@ -1,46 +1,32 @@
-.tg-banner__container-hr {
+.tg-banner__container {
   position: relative;
   display: flex;
   align-items: center;
   border-radius: 26px;
-  overflow: hidden;
   padding: 24px 32px;
   margin-bottom: 24px;
-  background: url(https://www.journal.zarplata.ru/assets/images/tg-banner-HR.png) no-repeat center
-    center / cover;
 }
-.tg-banner__container-applicants {
-  position: relative;
-  display: flex;
-  align-items: center;
-  border-radius: 26px;
-  overflow: hidden;
-  padding: 24px 32px;
-  margin-bottom: 24px;
-  background: url(https://www.journal.zarplata.ru/assets/images/tg-banner-applicants.png) no-repeat
-    center center / cover;
-}
+
 .tg-banner__wrapper {
   width: 100%;
   display: flex;
   align-items: center;
 }
+
 .tg-banner__text-container {
-  z-index: 1;
   display: inline-flex;
   flex-direction: column;
   align-items: flex-start;
   gap: 14px;
-  @media (min-width: 615px) {
-    flex: 1;
-    max-width: 50%;
-  }
+  flex: 1;
 }
+
 .tg-banner__logo-container {
   width: 130px;
   height: 130px;
   display: none;
 }
+
 .tg-banner__title {
   margin: 0;
   padding: 0;
@@ -52,6 +38,7 @@
   font-weight: 700;
   line-height: 111.9%;
 }
+
 .tg-banner__subtitle {
   margin: 0;
   padding: 0;
@@ -62,7 +49,95 @@
   font-weight: 400;
   line-height: 111.9%;
 }
+
 .tg-banner__button {
+  padding: 10px 40px;
+  border-radius: 8px;
+  background-color: #ffffff;
+}
+
+.tg-banner__button-text {
+  margin: 0;
+  padding: 0;
+  color: #000;
+  font-family: var(--font-family-sans-serif);
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 111.9%;
+}
+
+@media (min-width: 356px) {
+  .tg-banner__logo-container {
+    display: block;
+  }
+}
+
+.new-tg-banner__container-hr {
+  position: relative;
+  display: flex;
+  align-items: center;
+  border-radius: 26px;
+  overflow: hidden;
+  padding: 24px 32px;
+  margin-bottom: 24px;
+  background: url(https://www.journal.zarplata.ru/assets/images/new-tg-banner-HR.png) no-repeat
+    center center / cover;
+}
+.new-tg-banner__container-applicants {
+  position: relative;
+  display: flex;
+  align-items: center;
+  border-radius: 26px;
+  overflow: hidden;
+  padding: 24px 32px;
+  margin-bottom: 24px;
+  background: url(https://www.journal.zarplata.ru/assets/images/new-tg-banner-applicants.png)
+    no-repeat center center / cover;
+}
+.new-tg-banner__wrapper {
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+.new-tg-banner__text-container {
+  z-index: 1;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 14px;
+  @media (min-width: 615px) {
+    flex: 1;
+    max-width: 50%;
+  }
+}
+.new-tg-banner__logo-container {
+  width: 130px;
+  height: 130px;
+  display: none;
+}
+.new-tg-banner__title {
+  margin: 0;
+  padding: 0;
+  text-wrap: wrap;
+  color: #fff;
+  font-family: var(--font-family-sans-serif);
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 111.9%;
+}
+.new-tg-banner__subtitle {
+  margin: 0;
+  padding: 0;
+  color: #fff;
+  font-family: var(--font-family-sans-serif);
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 111.9%;
+}
+.new-tg-banner__button {
   background-color: #ffe000;
   padding: 14px 50px;
   border-radius: 8px;
@@ -70,23 +145,23 @@
     padding: 14px 30px;
   }
 }
-.tg-banner__button-text {
+.new-tg-banner__button-text {
   margin: 0;
   padding: 0;
   color: #000;
   font-family: var(--font-family-sans-serif);
-  font-size: 15px;
+  font-size: 16px;
   font-style: normal;
   font-weight: 600;
   line-height: 111.9%;
 }
 @media (min-width: 356px) {
-  .tg-banner__logo-container {
+  .new-tg-banner__logo-container {
     display: block;
   }
 }
 
-.tg-banner__logo-img {
+.new-tg-banner__logo-img {
   right: -10px;
   transform: translate(0, -50%);
   top: 60%;
