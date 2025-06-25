@@ -24,9 +24,13 @@
 
   .author-card-bio {
     margin: 0;
-    font-size: 0.9rem;
+    font-size: 1.1rem;
     font-family: var(--font-family-secondary);
     font-weight: 400;
+
+    @media (max-width: 1023) {
+      font-size: 0.9rem;
+    }
   }
 }
 
