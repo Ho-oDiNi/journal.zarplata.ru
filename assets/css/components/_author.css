@@ -39,6 +39,11 @@
   align-items: stretch;
   margin: 12px 0 2rem 0;
 
+  .author-card-link {
+    display: flex;
+    align-items: center;
+  }
+
   .author-profile-image {
     width: 60px;
     height: 60px;
