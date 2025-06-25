@@ -1,7 +1,24 @@
 {{!< default}} {{!-- Everything inside the #post tags pulls data from the post --}} {{!--<div>
   </div>--}}
 
-  {{#post}}
+{{#post}}
+
+    {{#primary_author}}
+    {{^match name "Zarplata"}}
+    <div class="author-card-post">
+      {{#if profile_image}}
+          <a href="/author/{{slug}}"><img class="lazyload author-profile-image" src="{{profile_image}}" alt="{{name}}"></a>
+      {{/if}}
+      <div class="author-card-content">
+          <a href="/author/{{slug}}"><h4 class="author-card-name">{{name}}</h4></a>
+          {{#if bio}}
+              <p class="author-card-bio">{{bio}}</p>
+          {{/if}}
+      </div>
+    </div>
+    {{/match}}
+    {{/primary_author}}
+
   {{> post-hero}}
   <article class="{{post_class}} post-access-{{visibility}} has-sidebar">
     <div class="post__content">
