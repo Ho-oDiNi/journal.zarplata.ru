@@ -14,7 +14,7 @@
       }
     }
 
-    >* {
+    > * {
       min-width: 100%;
     }
 
@@ -119,8 +119,7 @@
     .special-bg {
       left: 5%;
       border-radius: 55% 45% 45% 55%/55% 55% 45% 45%;
-      transition:
-        border-radius var(--animation-duration-lg) var(--animation-name),
+      transition: border-radius var(--animation-duration-lg) var(--animation-name),
         left var(--animation-duration-lg) var(--animation-name);
     }
   }
@@ -130,7 +129,6 @@
   }
 
   &.page {
-
     .post-hero__title {
       margin-bottom: 0;
     }
@@ -293,7 +291,7 @@
     .tag-rabota-i-siemia,
     .tag-applicants,
     .tag-chieloviek-diela {
-      background-color: #CD8CFF !important;
+      background-color: #cd8cff !important;
       color: #222222 !important;
       border: 1px solid transparent !important;
       border-radius: 99px !important;
@@ -301,7 +299,7 @@
 
       &:hover {
         background-color: transparent !important;
-        border: 1px solid #CD8CFF !important;
+        border: 1px solid #cd8cff !important;
       }
     }
 
@@ -329,7 +327,7 @@
     .tag-uvolnieniie,
     .tag-udalionka,
     .tag-frilans {
-      background-color: #FF84A9 !important;
+      background-color: #ff84a9 !important;
       color: #222222 !important;
       border: 1px solid transparent !important;
       border-radius: 99px !important;
@@ -337,7 +335,7 @@
 
       &:hover {
         background-color: transparent !important;
-        border: 1px solid #FF84A9 !important;
+        border: 1px solid #ff84a9 !important;
       }
     }
 
@@ -348,7 +346,7 @@
     .tag-cases,
     .tag-students,
     .tag-otduh-i-razvlechenia {
-      background-color: #57EE81 !important;
+      background-color: #57ee81 !important;
       color: #222222 !important;
       border: 1px solid transparent !important;
       border-radius: 99px !important;
@@ -356,7 +354,7 @@
 
       &:hover {
         background-color: transparent !important;
-        border: 1px solid #57EE81 !important;
+        border: 1px solid #57ee81 !important;
       }
     }
 
@@ -366,7 +364,7 @@
     .tag-interview,
     .tag-novosti,
     .tag-sovetu-po-rabote {
-      background-color: #70D6FF !important;
+      background-color: #70d6ff !important;
       color: #222222 !important;
       border: 1px solid transparent !important;
       border-radius: 99px !important;
@@ -374,7 +372,7 @@
 
       &:hover {
         background-color: transparent !important;
-        border: 1px solid #70D6FF !important;
+        border: 1px solid #70d6ff !important;
       }
     }
   }
@@ -477,6 +475,5 @@
     letter-spacing: 0em;
     text-align: center;
     margin-bottom: 18px;
-
   }
 }

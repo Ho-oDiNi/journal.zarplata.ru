@@ -1,0 +1,46 @@
+{{!< default}}
+<div class="container-fluid wrapper">
+  {{!-- Everything inside the #author tags pulls data from the author --}}
+{{#author}}
+<div class="row">
+    <div class="col-xs-12">
+      <section class="section all-posts">
+        {{!-- posts --}}
+        <div class="row posts">
+            <div class="author-card-page col tag">
+                {{#if profile_image}}
+                    <img class="lazyload author-profile-image" src="{{profile_image}}" alt="{{name}}" />
+                {{/if}}
+
+                <h1 class="author-card-name">{{name}}</h1>
+                <p class="author-card-bio">{{bio}}</p>                    
+            </div>
+        </div>
+      </section>
+    </div>
+</div>
+
+{{/author}}
+
+  {{#if posts}}
+  <div class="row">
+    <div class="col-xs-12">
+      <section class="section all-posts">
+        {{!-- posts --}}
+        <div class="row posts">
+          {{#foreach posts from="1"}}
+          <div class="col-xs-12 col-md-6 post-wrap">
+            {{> post-card class="col tag"}}
+          </div>
+          {{/foreach}}
+        </div>
+        {{!-- spinner --}}
+        <span class="button-spinner" id="button-spinner"></span>
+      </section>
+      <button id="load-more-posts" class="btn btn--wide btn--primary">
+        Показать&nbsp;больше&nbsp;статей
+      </button>
+    </div>
+  </div>
+  {{/if}}
+</div>
