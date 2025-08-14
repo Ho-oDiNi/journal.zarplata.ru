@@ -17,7 +17,7 @@
   min-height: 12rem;
   max-height: 12rem;
   border-radius: var(--global-radius) !important;
-  background-color: #FBE97B !important;
+  background-color: #fbe97b !important;
   overflow: hidden;
   margin-bottom: var(--gap);
 
@@ -28,15 +28,15 @@
   @mixin attention {
     &:after {
       opacity: 0.6;
-      background-image: linear-gradient(to bottom right, #FDF5C1, #FDF5C1);
+      background-image: linear-gradient(to bottom right, #fdf5c1, #fdf5c1);
     }
 
     .tag-card__name {
-      color: #F7CF4C;
+      color: #f7cf4c;
     }
 
     .tag-card__count {
-      color: #F4BB40;
+      color: #f4bb40;
     }
   }
 
@@ -51,7 +51,7 @@
     bottom: 0;
     left: 0;
     background-color: var(--color-primary);
-    background-image: linear-gradient(to bottom right, #FDF5C1, #FDF5C1);
+    background-image: linear-gradient(to bottom right, #fdf5c1, #fdf5c1);
   }
 
   &__image {
@@ -73,14 +73,14 @@
   &__name {
     font-size: calc(1.2 * var(--font-size-base));
     font-weight: var(--font-weight-semi-bold);
-    color: #6B6B6B;
+    color: #6b6b6b;
     top: 6rem;
   }
 
   &__count {
     top: 3.5rem;
     font-size: calc(2 * var(--font-size-base));
-    color: #15182B;
+    color: #15182b;
     font-weight: var(--font-weight-semi-bold);
   }
 }
@@ -97,15 +97,13 @@
   }
 
   .tag-header__content {
-    padding: 6px 0;
-    border-radius: 30px;
+    border-radius: 20px;
+    padding: 12px 12px 12px 16px;
     flex-basis: 100%;
-
   }
 
   &__content {
     display: flex;
-    align-items: center;
     z-index: 3;
 
     align-items: center;
@@ -115,6 +113,9 @@
     padding-top: 0;
     padding-right: var(--gap);
 
+    @media (max-width: 500px) {
+      align-items: start;
+    }
   }
 
   &__title {
@@ -153,7 +154,7 @@
 .tag-h-rabota-i-siemia,
 .tag-h-applicants,
 .tag-h-chieloviek-diela {
-  background-color: #CD8CFF;
+  background-color: #cd8cff;
 }
 
 /* group 2 */
@@ -172,7 +173,7 @@
 .tag-h-frilans,
 .tag-h-udalionka,
 .tag-h-frilance {
-  background-color: #FF84A9;
+  background-color: #ff84a9;
 }
 
 /* group 4 */
@@ -182,7 +183,7 @@
 .tag-h-poliezno,
 .tag-h-students,
 .tag-h-otduh-i-razvlechenia {
-  background-color: #57EE81;
+  background-color: #57ee81;
 }
 
 /* group 5 */
@@ -191,5 +192,5 @@
 .tag-h-interview,
 .tag-h-novosti,
 .tag-h-sovetu-po-rabote {
-  background-color: #70D6FF;
+  background-color: #70d6ff;
 }
