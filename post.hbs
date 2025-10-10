@@ -23,8 +23,16 @@
     {{/primary_author}}
 
   {{> post-hero}}
-  <article class="{{post_class}} post-access-{{visibility}} has-sidebar">
-    <div class="post__content">
+  <article class="{{post_class}} post-access-{{visibility}} has-toc">
+    <div class="post-toc">
+      <div class="post-toc__head js-toc-toggle">
+        <h2>О чем вы узнаете</h2>
+      </div>
+      <div class="post-toc__content">
+        <nav class="toc js-toc" aria-label="О чем вы узнаете"></nav>
+      </div>
+    </div>
+    <div class="post__content js-toc-content">
       {{#if access}}
       {{content}}
       {{/if}}

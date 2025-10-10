@@ -25,6 +25,10 @@
     a:not(.btn):not(.kg-bookmark-container) {
       color: var(--color-primary);
 
+      &:hover {
+        opacity: 0.8;
+      }
+
       @mixin attention {
         text-decoration: underline;
       }
