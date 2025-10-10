@@ -38,14 +38,8 @@
     h2,
     h3,
     h4 {
-      scroll-margin-top: 8rem;
-      scroll-snap-margin-top: 8rem;
+      scroll-margin-top: 120px;
       outline: none;
-
-      @media (--viewport-md) {
-        scroll-margin-top: 4rem;
-        scroll-snap-margin-top: 4rem;
-      }
     }
   }
 }

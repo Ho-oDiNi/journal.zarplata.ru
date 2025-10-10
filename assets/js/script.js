@@ -357,15 +357,6 @@ var callback = function () {
   // Post Table of Contents
   // ======================
   if (postToc) {
-    const tocToggle = document.querySelector(".js-toc-toggle");
-
-    if (tocToggle) {
-      tocToggle.onclick = (evt) => {
-        toggleClass(".js-toc", "is-active");
-        toggleClass(".js-toc-icon", "is-rotated");
-      };
-    }
-
     tocbot.init({
       // Where to render the table of contents.
       tocSelector: ".js-toc",
@@ -373,22 +364,7 @@ var callback = function () {
       contentSelector: ".js-toc-content",
       // Which headings to grab inside of the contentSelector element.
       headingSelector: "h1, h2, h3",
-      // For headings inside relative or absolute positioned containers within content.
-      hasInnerContainers: true,
-      // smooth scroll
-      scrollSmooth: false,
-      // offset
-      headingsOffset: 60,
     });
-
-    const tocLinks = document.querySelectorAll('.toc-list-item a[href^="#"]');
-    if (tocLinks) {
-      tocLinks.forEach((link) => {
-        link.onclick = function (e) {
-          removeClass(".js-toc", "is-active");
-        };
-      });
-    }
   }
 
   // =============
