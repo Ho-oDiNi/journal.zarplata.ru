@@ -357,24 +357,6 @@ var callback = function () {
   // Post Table of Contents
   // ======================
   if (postToc) {
-    const tocToggle = document.querySelector(".js-toc-toggle");
-
-    const headerElement = document.querySelector(".header");
-    const additionalAnchorOffset = 16;
-
-    const getAnchorOffset = () => {
-      const headerHeight = headerElement ? headerElement.getBoundingClientRect().height : 0;
-
-      return Math.round(headerHeight + additionalAnchorOffset) - 50;
-    };
-
-    if (tocToggle) {
-      tocToggle.onclick = (evt) => {
-        toggleClass(".js-toc", "is-active");
-        toggleClass(".js-toc-icon", "is-rotated");
-      };
-    }
-
     tocbot.init({
       // Where to render the table of contents.
       tocSelector: ".js-toc",
@@ -383,15 +365,6 @@ var callback = function () {
       // Which headings to grab inside of the contentSelector element.
       headingSelector: "h1, h2, h3",
     });
-
-    const tocLinks = document.querySelectorAll('.toc-list-item a[href^="#"]');
-    if (tocLinks) {
-      tocLinks.forEach((link) => {
-        link.onclick = function (e) {
-          removeClass(".js-toc", "is-active");
-        };
-      });
-    }
   }
 
   // =============
