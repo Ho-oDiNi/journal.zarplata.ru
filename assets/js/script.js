@@ -359,6 +359,15 @@ var callback = function () {
   if (postToc) {
     const tocToggle = document.querySelector(".js-toc-toggle");
 
+    const headerElement = document.querySelector(".header");
+    const additionalAnchorOffset = 16;
+
+    const getAnchorOffset = () => {
+      const headerHeight = headerElement ? headerElement.getBoundingClientRect().height : 0;
+
+      return Math.round(headerHeight + additionalAnchorOffset) - 50;
+    };
+
     if (tocToggle) {
       tocToggle.onclick = (evt) => {
         toggleClass(".js-toc", "is-active");
@@ -373,12 +382,6 @@ var callback = function () {
       contentSelector: ".js-toc-content",
       // Which headings to grab inside of the contentSelector element.
       headingSelector: "h1, h2, h3",
-      // For headings inside relative or absolute positioned containers within content.
-      hasInnerContainers: true,
-      // smooth scroll
-      scrollSmooth: false,
-      // offset
-      headingsOffset: 60,
     });
 
     const tocLinks = document.querySelectorAll('.toc-list-item a[href^="#"]');
