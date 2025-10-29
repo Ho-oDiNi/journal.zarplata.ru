@@ -357,6 +357,27 @@ var callback = function () {
   // Post Table of Contents
   // ======================
   if (postToc) {
+    const tocContainer = document.querySelector(".post-toc");
+    const articleContent = document.querySelector(".post__content");
+
+    if (tocContainer && articleContent) {
+      // Перемещаем блок оглавления непосредственно перед первым подзаголовком.
+      const firstSubheading = articleContent.querySelector("h2, h3");
+
+      if (firstSubheading) {
+        firstSubheading.parentNode.insertBefore(tocContainer, firstSubheading);
+      } else {
+        articleContent.insertBefore(tocContainer, articleContent.firstChild);
+      }
+
+      const headingsToIgnore = Array.from(articleContent.querySelectorAll("h3")).filter(
+        (heading) => heading.textContent.trim().toLowerCase() === "о чем вы узнаете"
+      );
+
+      headingsToIgnore.forEach((heading) => {
+        heading.classList.add("js-toc-ignore");
+      });
+    }
     tocbot.init({
       // Where to render the table of contents.
       tocSelector: ".js-toc",
@@ -364,6 +385,7 @@ var callback = function () {
       contentSelector: ".js-toc-content",
       // Which headings to grab inside of the contentSelector element.
       headingSelector: "h1, h2, h3",
+      ignoreSelector: ".js-toc-ignore",
     });
   }
 

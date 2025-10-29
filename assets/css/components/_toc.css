@@ -31,4 +31,11 @@ a.toc-link {
       cursor: initial;
     }
   }
+  &__title {
+    font-size: calc(var(--font-size-base) * 1.9);
+    font-size: calc(var(--font-size-base) * 1 + 0.8vw);
+    font-weight: var(--font-weight-bold);
+    line-height: calc(var(--line-height-base) * 0.9);
+    margin: 0 0 calc(var(--gap) * 0.7);
+  }
 }
