@@ -30,7 +30,9 @@ var callback = function () {
   const searchField = document.querySelector("#ghost-search-field");
   const searchByTags = document.querySelectorAll(".js-search-tag");
   const msgBoxes = document.querySelectorAll(".js-msg-close");
-  const images = document.querySelectorAll(".kg-image-card img, .kg-gallery-card img");
+  const images = document.querySelectorAll(
+    ".kg-image-card img, .kg-gallery-card img"
+  );
   const galleryImages = document.querySelectorAll(".kg-gallery-image img");
 
   const progressbar = document.querySelector("#progress");
@@ -83,10 +85,13 @@ var callback = function () {
           var scrollBottom =
             (document.querySelector(".post")["scrollHeight"] ||
               document.documentElement["scrollHeight"] ||
-              document.body["scrollHeight"]) - document.documentElement.clientHeight;
+              document.body["scrollHeight"]) -
+            document.documentElement.clientHeight;
 
           scrollPercent = Math.round((scrollTop / scrollBottom) * 100) + "%";
-          document.getElementById("progress").style.setProperty("--scroll", scrollPercent);
+          document
+            .getElementById("progress")
+            .style.setProperty("--scroll", scrollPercent);
         } else {
           progressbar.style.display = "none";
         }
@@ -306,7 +311,9 @@ var callback = function () {
 
       const date = new Date(result.published_at);
 
-      const ye = new Intl.DateTimeFormat("en", { year: "numeric" }).format(date);
+      const ye = new Intl.DateTimeFormat("en", { year: "numeric" }).format(
+        date
+      );
       const mo = new Intl.DateTimeFormat("en", { month: "short" }).format(date);
       const da = new Intl.DateTimeFormat("en", { day: "2-digit" }).format(date);
 
@@ -370,23 +377,34 @@ var callback = function () {
         articleContent.insertBefore(tocContainer, articleContent.firstChild);
       }
 
-      const headingsToIgnore = Array.from(articleContent.querySelectorAll("h3")).filter(
-        (heading) => heading.textContent.trim().toLowerCase() === "о чем вы узнаете"
+      const headingsToIgnore = Array.from(
+        articleContent.querySelectorAll("h3")
+      ).filter(
+        (heading) =>
+          heading.textContent.trim().toLowerCase() === "о чем вы узнаете"
       );
 
       headingsToIgnore.forEach((heading) => {
         heading.classList.add("js-toc-ignore");
       });
     }
-    tocbot.init({
-      // Where to render the table of contents.
-      tocSelector: ".js-toc",
-      // Where to grab the headings to build the table of contents.
-      contentSelector: ".js-toc-content",
-      // Which headings to grab inside of the contentSelector element.
-      headingSelector: "h1, h2, h3",
-      ignoreSelector: ".js-toc-ignore",
-    });
+    const tocHeadings = Array.from(
+      articleContent.querySelectorAll("h1, h2, h3")
+    ).filter((heading) => !heading.classList.contains("js-toc-ignore"));
+
+    if (tocHeadings.length <= 1) {
+      tocContainer.remove();
+    } else {
+      tocbot.init({
+        // Where to render the table of contents.
+        tocSelector: ".js-toc",
+        // Where to grab the headings to build the table of contents.
+        contentSelector: ".js-toc-content",
+        // Which headings to grab inside of the contentSelector element.
+        headingSelector: "h1, h2, h3",
+        ignoreSelector: ".js-toc-ignore",
+      });
+    }
   }
 
   // =============
@@ -694,8 +712,12 @@ let quoteImageLoader = function () {
   //Read old quote
   let quoteImagesText = [];
   let quoteImages = document.querySelectorAll(".kg-card-hascaption");
-  let quoteImagesDescription = document.querySelectorAll(".kg-card-hascaption > figcaption > span");
-  let quoteImagesImg = document.querySelectorAll(".kg-card-hascaption > a > img");
+  let quoteImagesDescription = document.querySelectorAll(
+    ".kg-card-hascaption > figcaption > span"
+  );
+  let quoteImagesImg = document.querySelectorAll(
+    ".kg-card-hascaption > a > img"
+  );
 
   //if img Exists
   if (quoteImagesDescription) {
@@ -723,7 +745,10 @@ let quoteImageLoader = function () {
 
         const title = fragment.appendChild(document.createElement("p"));
         title.setAttribute("class", "blockquote__title");
-        title.setAttribute("data-srcset", '{{img_url feature_image size="s" format="webp"}} 300w');
+        title.setAttribute(
+          "data-srcset",
+          '{{img_url feature_image size="s" format="webp"}} 300w'
+        );
         title.textContent = title_str;
         div.appendChild(fragment);
 
@@ -1003,7 +1028,11 @@ function jsShare(el, title, url, type) {
 const socialWindow = (url) => {
   var left = (screen.width - 580) / 2;
   var top = (screen.height - 580) / 2;
-  var params = "menubar=no,toolbar=no,status=no,width=580,height=296,top=" + top + ",left=" + left;
+  var params =
+    "menubar=no,toolbar=no,status=no,width=580,height=296,top=" +
+    top +
+    ",left=" +
+    left;
   window.open(url, "NewWindow", params);
 };
 
@@ -1055,7 +1084,9 @@ function loadMorePosts(button, spinner) {
         // Get posts
         const posts = doc.querySelectorAll(".post-wrap");
         // const postContainer = document.querySelectorAll(".posts");
-        const postContainer = [...document.querySelectorAll(".posts")].filter(isNotHidden);
+        const postContainer = [...document.querySelectorAll(".posts")].filter(
+          isNotHidden
+        );
         const nextPage = doc.querySelector("link[rel=next]");
 
         // Add each post to the page
@@ -1073,7 +1104,9 @@ function loadMorePosts(button, spinner) {
         }
 
         // Update next page number
-        global.pagination_next_page_link = nextPage ? nextPage.getAttribute("href") : "";
+        global.pagination_next_page_link = nextPage
+          ? nextPage.getAttribute("href")
+          : "";
         global.pagination_next_page = global.pagination_next_page_link
           ? global.pagination_next_page + 1
           : NaN;
